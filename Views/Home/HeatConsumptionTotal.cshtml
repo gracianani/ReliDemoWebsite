@@ -1,4 +1,5 @@
 ﻿@model ReliDemo.Models.HeatConsumptionTotalItem
+<!--
 <div class="smallstat box">
 	<div class="date-overlay backgroundColor 
             @if( Model.IsToday ) 
@@ -29,4 +30,54 @@
 	<span class="title">西部热耗(GJ)</span>
 	<span class="value">@Model.西部</span>
 	</a>
+</div>
+-->
+<div class="box">
+    <div class="box-header  backgroundColorHeader 
+             @if( Model.IsToday ) 
+             { <text>crimson</text> } 
+             else 
+             { <text>blue</text> } 
+             ">
+		<h2><i class="icon-align-justify"></i><span class="break"></span>
+             @if ( Model.IsToday ) 
+             { <text>今日 </text>   } 
+             else 
+             { <text>昨日</text> } 
+        </h2>
+		<div class="box-icon">
+		</div>
+	</div>
+    <div class="box-content">
+		<table class="table makeTableHeaderAsBoxHeader">
+			<thead>
+				<tr>
+					<th></th>
+					<th><a href="#">全网</a></th>
+					<th><a href="#">东部</a></th>
+					<th><a href="#">西部</a></th>                                          
+				</tr>
+			</thead> 
+            <tbody>
+				<tr>
+					<td>计划供热量(GJ)</td>
+                    <td>@Model.全网</td>
+                    <td>@Model.东部</td>
+                    <td>@Model.西部</td>
+				</tr>
+                <tr>
+					<td>折算供热量(GJ)</td>
+                    <td>@Model.全网</td>
+                    <td>@Model.东部</td>
+                    <td>@Model.西部</td>
+				</tr>
+                <tr>
+					<td>实际供热量(GJ)</td>
+                    <td>@Model.全网</td>
+                    <td>@Model.东部</td>
+                    <td>@Model.西部</td>
+				</tr>
+            </tbody>
+        </table>
+    </div>
 </div>
