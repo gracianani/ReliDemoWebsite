@@ -1,0 +1,32 @@
+﻿@model ReliDemo.Models.HeatConsumptionTotalItem
+<div class="smallstat box">
+	<div class="date-overlay backgroundColor 
+            @if( Model.IsToday ) 
+            { <text>crimson</text> } 
+            else 
+            { <text>blue</text> } 
+             ">
+		<span class="title">
+            @Model.Title
+        </span>
+		<span class="value">
+            
+            @if (Model.IsToday ) 
+            { <text>@DateTime.Now.Date.ToShortDateString()</text>   } 
+            else 
+            { <text>@DateTime.Now.Date.AddDays(-1).ToShortDateString()</text> }
+        </span>
+	</div>	
+	<a class="data" href="#">
+	<span class="title">全网热耗(GJ)</span>
+	<span class="value">@Model.全网</span>
+	</a>
+	<a class="data" href="#">
+	<span class="title">东部热耗(GJ)</span>
+	<span class="value">@Model.东部</span>
+	</a>
+	<a class="data" href="#">
+	<span class="title">西部热耗(GJ)</span>
+	<span class="value">@Model.西部</span>
+	</a>
+</div>

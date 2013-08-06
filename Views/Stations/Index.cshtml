@@ -1,0 +1,355 @@
+﻿@model IEnumerable<ReliDemo.Models.Station>
+
+@{
+    ViewBag.Title = "热力站基础信息";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.热力站编号)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.热力站编码)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.热力站名称)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.用热地址)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.管理单位ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.管理单位)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.公司ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.公司)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.干线)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.支线)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.是否热水站)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.是否并网供热)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.是否重点站)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.站面积)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.热力站行政区)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.生产热源ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.生产热源)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.面积A)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.面积B)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.工艺流程图)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.供热范围示意图)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.周边环境示意图)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.系统设备表)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.引入小室号)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.管理类型)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.是否蒸汽站)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.数据来源)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.瞬时单耗)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.投入面积A)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.投入面积B)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.今日表底GJ)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.今日GJ)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.今日累计单耗)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.万平方米流量)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.今日热水表底GJ)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.今日热水GJ)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.今日计划GJ)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.昨日GJ)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.昨日实际单耗)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.昨日理论单耗)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.采暖季单耗)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.一次供温)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.一次回温)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.一次供压)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.一次回压)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.总累计热量)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.总累计流量)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.总瞬时热量)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.总瞬时流量)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.采集时间)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.spcname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StationName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StationCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StationAbbr)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StationAddress)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.热力站编号)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.热力站编码)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.热力站名称)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.用热地址)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.管理单位ID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.管理单位)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.公司ID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.公司)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.干线)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.支线)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.是否热水站)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.是否并网供热)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.是否重点站)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.站面积)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.热力站行政区)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.生产热源ID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.生产热源)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.面积A)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.面积B)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.工艺流程图)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.供热范围示意图)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.周边环境示意图)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.系统设备表)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.引入小室号)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.管理类型)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.是否蒸汽站)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.数据来源)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.瞬时单耗)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.投入面积A)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.投入面积B)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.今日表底GJ)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.今日GJ)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.今日累计单耗)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.万平方米流量)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.今日热水表底GJ)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.今日热水GJ)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.今日计划GJ)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.昨日GJ)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.昨日实际单耗)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.昨日理论单耗)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.采暖季单耗)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.一次供温)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.一次回温)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.一次供压)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.一次回压)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.总累计热量)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.总累计流量)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.总瞬时热量)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.总瞬时流量)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.采集时间)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.spcname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StationName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StationCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StationAbbr)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StationAddress)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,174 @@
+﻿@model ReliDemo.ViewModels.StationsViewModel 
+
+@{
+    ViewBag.Title = "热力站基础信息";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+ <h2 style='font-family: "Microsoft Yahei",sans-serif;
+font-size: 24px;
+margin-bottom: 0.9em;
+line-height: 30px;'>@ViewBag.Title</h2>
+
+
+<div class="row-fluid">
+    @using (Html.BeginForm("Paged", "Stations", FormMethod.Get)) {
+        @Html.DropDownList("heatSources", new SelectList(Model.HeatSources, "ItemID", "热源名称"), "请选择热源厂", new { @class = "span2" })
+        <text>&nbsp;</text>
+        @Html.DropDownList("companies", new SelectList(Model.Companies, "ItemID", "公司"), "请选择公司", new { @class = "span2" })
+        <text>&nbsp;</text>
+        @Html.DropDownList("managerships", new SelectList(Model.Managerships, "ItemID", "管理单位"), "请选择管理单位", new { id = "managerships", @class = "span2" })
+        <text>&nbsp;</text>
+        <input type="submit" value="搜索" class="btn  btn-primary" style="vertical-align: top;"/>
+    }
+</div>
+<div class="row-fluid">
+        每页显示：
+<ul class="nav nav-pills" id="pills">
+<li @if(Model.Stations.PageSize == 10) {
+    <text> class="active" </text> 
+    } >
+    @Html.ActionLink("10", "Paged", new { startIndex = Model.Stations.PageIndex + 1, pageSize = 10, managerships = Model.SelectedManagershipId, companies = Model.SelectedCompanyId, heatSources = Model.SelectedHeatSourceId })
+</li>
+<li @if(Model.Stations.PageSize == 50) {
+    <text> class="active" </text> 
+    } >
+    @Html.ActionLink("50", "Paged", new { startIndex = Model.Stations.PageIndex + 1, pageSize = 50, managerships = Model.SelectedManagershipId, companies = Model.SelectedCompanyId, heatSources = Model.SelectedHeatSourceId })
+</li>
+<li @if(Model.Stations.PageSize == 100) {
+    <text> class="active" </text> 
+    }>
+    @Html.ActionLink("100", "Paged", new { startIndex = Model.Stations.PageIndex + 1, pageSize = 100, managerships = Model.SelectedManagershipId, companies = Model.SelectedCompanyId, heatSources = Model.SelectedHeatSourceId })
+</li>
+
+</ul>
+</div>
+<table class="table  table-bordered table-hover  table-condensed" style="background:white">
+
+@foreach (var p in Model.Stations)
+{
+    if (Model.Stations.IndexOf(p) == 0)
+    {
+        <tr>
+        <th>
+            @Html.DisplayName("热力站名称")
+        </th>
+        <th>
+            @Html.DisplayName("热力站编号")
+        </th>
+        <th>
+            @Html.DisplayName("热力站编码")
+        </th>
+        <th>
+            @Html.DisplayName("管理单位")
+        </th>
+        <th>
+            @Html.DisplayName("公司")
+        </th>
+        <th>
+            @Html.DisplayName("站面积")
+        </th>
+        <th>
+            @Html.DisplayName("面积A")
+        </th>
+        <th>
+            @Html.DisplayName("面积B")
+        </th>
+        <th>
+            @Html.DisplayName("热力站行政区")
+        </th>
+        <th>
+            @Html.DisplayName("生产热源")
+        </th>
+       
+        <th>
+            @Html.DisplayName("投入面积A")
+        </th>
+        <th>
+            @Html.DisplayName("投入面积B")
+        </th>
+    </tr>
+    }
+    <tr>
+        <td>
+            @Html.ActionLink(p.热力站名称, "BasicInfo", new { stationId = p.ItemID })
+        </td>
+        <td>
+            @p.热力站编号
+        </td>
+        <td>
+            @p.热力站编码
+        </td>
+        <td>
+            @p.管理单位
+        </td>  
+        <td>
+            @p.公司
+        </td>
+        <td>
+            @p.站面积
+        </td>
+        <td>
+            @p.面积A
+        </td>
+        <td>
+            @p.面积B
+        </td>
+        <td>
+            @p.热力站行政区
+        </td>
+        <td>
+            @p.生产热源
+        </td>
+        <td>
+            @p.投入面积A
+        </td>
+        <td>
+            @p.投入面积B
+        </td>
+    </tr>
+}
+</table>
+
+<div class="row-fluid">
+<div class="pagination pagination-centered">
+    <ul>
+        <li>@Html.ActionLink("« 前一个", "Paged", new { startIndex = Model.Stations.PageIndex - 1, pageSize = Model.Stations.PageSize, managerships = Model.SelectedManagershipId, companies = Model.SelectedCompanyId, heatSources = Model.SelectedHeatSourceId })</li>
+        @if (Model.Stations.PageIndex >= 10)
+        {
+            <li>@Html.ActionLink("« 前十个", "Paged", new { startIndex = Model.Stations.PageIndex - 10, pageSize = 10, managerships = Model.SelectedManagershipId, companies = Model.SelectedCompanyId, heatSources = Model.SelectedHeatSourceId })</li>
+        }
+        @for (int i = Model.Stations.PageIndex / 10 * 10; (i < Model.Stations.PageIndex / 10 * 10 + 10) && i < Model.Stations.TotalPages; i++)
+        {
+            <li @if (Model.Stations.PageIndex == i)
+                { <text>class="active"</text> } >
+
+                @Html.ActionLink((i + 1).ToString(), "Paged", new { startIndex = i, pageSize = Model.Stations.PageSize, managerships = Model.SelectedManagershipId, companies = Model.SelectedCompanyId, heatSources = Model.SelectedHeatSourceId })
+            </li>
+        }
+        @if (Model.Stations.PageIndex < Model.Stations.TotalPages - 10)
+        {
+            <li>@Html.ActionLink("下十个 »", "Paged", new { startIndex = (Model.Stations.PageIndex / 10 + 1) * 10, pageSize = Model.Stations.PageSize, managerships = Model.SelectedManagershipId, companies = Model.SelectedCompanyId, heatSources = Model.SelectedHeatSourceId })</li>
+        }
+        <li>@Html.ActionLink("下一个 »", "Paged", new { startIndex = Model.Stations.PageIndex + 1, pageSize = Model.Stations.PageSize, managerships = Model.SelectedManagershipId, companies = Model.SelectedCompanyId, heatSources = Model.SelectedHeatSourceId })</li>
+    </ul>
+</div>
+</div>
+
+<script>
+    $(function () {
+        $("select[name=companies]").change(function () {
+            $.ajax({
+                url: "/Stations/GetManagershipsByCompanyId",
+                type: "post",
+                data: { companyId: $(this).val() },
+                success: function (response, textStatus, jqXHR) {
+                    $("#managerships").html("<option value>请选择管理单位<option>"+response).css("display","");
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                },
+                complete: function () {
+                }
+            });
+        });
+    });
+</script>

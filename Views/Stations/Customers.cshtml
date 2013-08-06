@@ -1,0 +1,135 @@
+﻿@model ReliDemo.ViewModels.StationCustomersViewModel
+
+@{
+    ViewBag.Title = "Customs";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2> @Model.StationName</h2>
+<div class="span8">
+    @Html.Partial("_TopMenu")
+</div>
+<table>
+    <tr>
+        <th>
+            收费编号
+        </th>
+        <th>
+            生产编号
+        </th>
+        <th>
+            用户名称
+        </th>
+        <th>
+            公司地址
+        </th>
+        <th>
+            用热地址
+        </th>
+        <th>
+            用户类型
+        </th>
+        <th>
+            收费性质
+        </th>
+        <th>
+            A面积
+        </th>
+        <th>
+            A超面积
+        </th>
+        <th>
+            B面积
+        </th>
+        <th>
+            B超面积
+        </th>
+        <th>
+            A轻体
+        </th>
+        <th>
+            B轻体
+        </th>
+        <th>
+            有无热水
+        </th>
+        <th>
+            已销户
+        </th>
+        <th>
+            重点用户
+        </th>
+        <th>
+            帐套性质
+        </th>
+        <th>
+            热水收费性质
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model.Customers) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.收费编号)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.生产编号)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.用户名称)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.公司地址)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.用热地址)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.用户类型)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.收费性质)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.A面积)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.A超面积)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.B面积)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.B超面积)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.A轻体)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.B轻体)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.有无热水)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.已销户)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.重点用户)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.帐套性质)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.热水收费性质)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ItemID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ItemID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ItemID })
+        </td>
+    </tr>
+}
+
+</table>

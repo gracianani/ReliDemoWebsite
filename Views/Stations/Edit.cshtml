@@ -1,0 +1,471 @@
+﻿@model ReliDemo.Models.Station
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Station</legend>
+
+        @Html.HiddenFor(model => model.ItemID)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.热力站编号)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.热力站编号)
+            @Html.ValidationMessageFor(model => model.热力站编号)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.热力站编码)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.热力站编码)
+            @Html.ValidationMessageFor(model => model.热力站编码)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.热力站名称)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.热力站名称)
+            @Html.ValidationMessageFor(model => model.热力站名称)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.用热地址)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.用热地址)
+            @Html.ValidationMessageFor(model => model.用热地址)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.管理单位ID)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.管理单位ID)
+            @Html.ValidationMessageFor(model => model.管理单位ID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.管理单位)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.管理单位)
+            @Html.ValidationMessageFor(model => model.管理单位)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.公司ID)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.公司ID)
+            @Html.ValidationMessageFor(model => model.公司ID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.公司)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.公司)
+            @Html.ValidationMessageFor(model => model.公司)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.干线)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.干线)
+            @Html.ValidationMessageFor(model => model.干线)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.支线)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.支线)
+            @Html.ValidationMessageFor(model => model.支线)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.是否热水站)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.是否热水站)
+            @Html.ValidationMessageFor(model => model.是否热水站)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.是否并网供热)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.是否并网供热)
+            @Html.ValidationMessageFor(model => model.是否并网供热)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.是否重点站)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.是否重点站)
+            @Html.ValidationMessageFor(model => model.是否重点站)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.站面积)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.站面积)
+            @Html.ValidationMessageFor(model => model.站面积)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.热力站行政区)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.热力站行政区)
+            @Html.ValidationMessageFor(model => model.热力站行政区)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.生产热源ID)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.生产热源ID)
+            @Html.ValidationMessageFor(model => model.生产热源ID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.生产热源)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.生产热源)
+            @Html.ValidationMessageFor(model => model.生产热源)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.面积A)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.面积A)
+            @Html.ValidationMessageFor(model => model.面积A)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.面积B)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.面积B)
+            @Html.ValidationMessageFor(model => model.面积B)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.工艺流程图)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.工艺流程图)
+            @Html.ValidationMessageFor(model => model.工艺流程图)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.供热范围示意图)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.供热范围示意图)
+            @Html.ValidationMessageFor(model => model.供热范围示意图)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.周边环境示意图)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.周边环境示意图)
+            @Html.ValidationMessageFor(model => model.周边环境示意图)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.系统设备表)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.系统设备表)
+            @Html.ValidationMessageFor(model => model.系统设备表)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.引入小室号)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.引入小室号)
+            @Html.ValidationMessageFor(model => model.引入小室号)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.管理类型)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.管理类型)
+            @Html.ValidationMessageFor(model => model.管理类型)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.是否蒸汽站)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.是否蒸汽站)
+            @Html.ValidationMessageFor(model => model.是否蒸汽站)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.数据来源)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.数据来源)
+            @Html.ValidationMessageFor(model => model.数据来源)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.瞬时单耗)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.瞬时单耗)
+            @Html.ValidationMessageFor(model => model.瞬时单耗)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.投入面积A)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.投入面积A)
+            @Html.ValidationMessageFor(model => model.投入面积A)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.投入面积B)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.投入面积B)
+            @Html.ValidationMessageFor(model => model.投入面积B)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.今日表底GJ)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.今日表底GJ)
+            @Html.ValidationMessageFor(model => model.今日表底GJ)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.今日GJ)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.今日GJ)
+            @Html.ValidationMessageFor(model => model.今日GJ)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.今日累计单耗)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.今日累计单耗)
+            @Html.ValidationMessageFor(model => model.今日累计单耗)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.万平方米流量)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.万平方米流量)
+            @Html.ValidationMessageFor(model => model.万平方米流量)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.今日热水表底GJ)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.今日热水表底GJ)
+            @Html.ValidationMessageFor(model => model.今日热水表底GJ)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.今日热水GJ)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.今日热水GJ)
+            @Html.ValidationMessageFor(model => model.今日热水GJ)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.今日计划GJ)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.今日计划GJ)
+            @Html.ValidationMessageFor(model => model.今日计划GJ)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.昨日GJ)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.昨日GJ)
+            @Html.ValidationMessageFor(model => model.昨日GJ)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.昨日实际单耗)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.昨日实际单耗)
+            @Html.ValidationMessageFor(model => model.昨日实际单耗)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.昨日理论单耗)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.昨日理论单耗)
+            @Html.ValidationMessageFor(model => model.昨日理论单耗)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.采暖季单耗)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.采暖季单耗)
+            @Html.ValidationMessageFor(model => model.采暖季单耗)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.一次供温)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.一次供温)
+            @Html.ValidationMessageFor(model => model.一次供温)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.一次回温)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.一次回温)
+            @Html.ValidationMessageFor(model => model.一次回温)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.一次供压)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.一次供压)
+            @Html.ValidationMessageFor(model => model.一次供压)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.一次回压)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.一次回压)
+            @Html.ValidationMessageFor(model => model.一次回压)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.总累计热量)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.总累计热量)
+            @Html.ValidationMessageFor(model => model.总累计热量)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.总累计流量)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.总累计流量)
+            @Html.ValidationMessageFor(model => model.总累计流量)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.总瞬时热量)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.总瞬时热量)
+            @Html.ValidationMessageFor(model => model.总瞬时热量)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.总瞬时流量)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.总瞬时流量)
+            @Html.ValidationMessageFor(model => model.总瞬时流量)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.采集时间)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.采集时间)
+            @Html.ValidationMessageFor(model => model.采集时间)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.spcname)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.spcname)
+            @Html.ValidationMessageFor(model => model.spcname)
+        </div>
+
+        @Html.HiddenFor(model => model.StationId)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.StationName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.StationName)
+            @Html.ValidationMessageFor(model => model.StationName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.StationCode)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.StationCode)
+            @Html.ValidationMessageFor(model => model.StationCode)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.StationAbbr)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.StationAbbr)
+            @Html.ValidationMessageFor(model => model.StationAbbr)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.StationAddress)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.StationAddress)
+            @Html.ValidationMessageFor(model => model.StationAddress)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

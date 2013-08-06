@@ -1,0 +1,185 @@
+﻿@model ReliDemo.Models.Station
+@Scripts.Render("~/bundles/flot")
+
+@{
+    ViewBag.Title = "BasicInfo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="span8">
+<p>
+    @Html.ActionLink("返回", "Paged")
+</p>
+</div>
+<h2>@Model.热力站名称</h2>
+<div class="span8">
+    @Html.Partial("_TopMenu")
+</div>
+<div class="row-fluid">
+    
+    <table class="table">
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.热力站编号)
+            </th>
+            <td>@Html.DisplayFor(model => model.热力站编号)
+            </td>
+            <th>@Html.DisplayNameFor(model => model.热力站编码)
+            </th>
+            <td>@Html.DisplayFor(model => model.热力站编码)
+            </td>
+            <th>@Html.DisplayNameFor(model => model.管理单位)
+            </th>
+            <td>@Html.DisplayFor(model => model.管理单位)
+            </td>
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.公司)</th>
+            <td>@Html.DisplayFor(model => model.公司)</td>
+            <th>@Html.DisplayNameFor(model => model.用热地址)</th>
+            <td>@Html.DisplayFor(model => model.用热地址)</td>
+            <th>@Html.DisplayNameFor(model => model.站面积)</th>
+            <td>@Html.DisplayFor(model => model.站面积)</td>
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.热力站行政区)</th>
+            <td>@Html.DisplayFor(model => model.热力站行政区)</td>
+            <th>@Html.DisplayNameFor(model => model.面积A)</th>
+            <td>@Html.DisplayFor(model => model.面积A)</td>
+            <th>@Html.DisplayNameFor(model => model.面积B)</th>
+            <td>@Html.DisplayFor(model => model.面积B)</td>
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.投入面积A)</th>
+            <td>@Html.DisplayFor(model => model.投入面积A)</td>
+            <th>@Html.DisplayNameFor(model => model.投入面积B)</th>
+            <td>@Html.DisplayFor(model => model.投入面积B)</td>
+            <th></th>
+            <td></td>
+        </tr>
+    </table>
+
+</div>
+<div class="row-fluid">
+    <div class="box span12">
+        <div class="box-header">
+            <h2><i class="icon-hand-up"></i>机组信息</h2>
+        </div>
+        <div class="box-content">
+            <table class="table">
+                <tr>
+                    <td>一次供温(℃) <span>@Model.一次供温</span></td>
+                    <td>一次回温(℃) <span>@Model.一次回温</span></td>
+                    <td>一次供压(mPa) <span>@Model.一次供压</span></td>
+                    <td>一次回压(mPa) <span>@Model.一次回压</span></td>
+                    <td>总累计热量(GJ) <span>@Model.总累计热量</span></td>
+                    <td>总累计流量(t) <span>@Model.总累计流量</span></td>
+                </tr>
+            </table>
+            <table class="table">
+                <tr>
+                    <th>机组编号</th>
+                    <th>机组名</th>
+                    <th>二次供温(℃)</th>
+                    <th>二次回温(℃)</th>
+                    <th>二次供压(mPa)</th>
+                    <th>二次回压(mPa)</th>
+                    <th>总累计热量(GJ)</th>
+                    <th>总累计流量(t)</th>
+                </tr>
+                @foreach (var station2nd in Model.Station2ndRecents)
+                {
+                    <tr>
+                        <td>@station2nd.机组号</td>
+                        <td>@station2nd.机组名</td>
+                        <td>@station2nd.供温</td>
+                        <td>@station2nd.回温</td>
+                        <td>@station2nd.供压</td>
+                        <td>@station2nd.回压</td>
+                        <td>@station2nd.累计热量</td>
+                        <td>@station2nd.累计流量</td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+</div>
+<div class="row-fluid">
+    <div class="box span12">
+        <div class="box-header">
+            <h2><i class="icon-hand-up"></i>面积信息</h2>
+        </div>
+        <div class="box-content">
+            <table class="table">
+                <tr>
+                    <th></th>
+                    <th>总面积</th>
+                    <th>A类面积</th>
+                    <th>A超</th>
+                    <th>A轻</th>
+                    <th>B类面积</th>
+                    <th>B超</th>
+                    <th>B轻</th>
+                </tr>
+                <tr>
+                    <td>总供热面积</td>
+                    <td>@Model.Customers.Sum(i=>i.A面积 + i.B面积)</td>
+                    <td>@Model.Customers.Sum(i=>i.A面积)</td>
+                    <td>@Model.Customers.Sum(i=>i.A超面积)</td>
+                    <td>@Model.Customers.Sum(i=>i.A轻体)</td>
+                    <td>@Model.Customers.Sum(i=>i.B面积)</td>
+                    <td>@Model.Customers.Sum(i=>i.B超面积)</td>
+                    <td>@Model.Customers.Sum(i=>i.B轻体)</td>
+                </tr>
+                <tr>
+                    <td>实际供热面积</td>
+                    <td >@Model.投入面积A @Model.投入面积B</td>
+                    <td colspan="3">@if(Model.投入面积A.HasValue) {
+                                        <text> @Model.投入面积A.Value </text>
+                                    }
+                                    else {
+                                        <text> 0.00 </text>
+                                    }
+                    </td>
+                    <td colspan="3">@if (Model.投入面积B.HasValue)
+                                    {
+                                        <text> @Model.投入面积B.Value </text>
+                                    } else {
+                                        <text> 0.00 </text>
+                                    }
+                    </td>
+                </tr>
+            </table>
+            <div class="row-fluid">
+                <div id="placeholder2" style="width: 300px;height:300px;float:left"></div>
+                <div id="placeholder3" style="width:300px;height:300px;float:left"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@Scripts.Render("~/bundles/flot")
+<script>
+    $(function () {
+        var data = [{ label: "实际供热面积", "data": 400 }, { label: "总供热面积", "data": 100}];
+        var data2 = [{ label: "A类面积", "data": 400 }, { label: "B类面积", "data": 100}];
+        var series = Math.floor(Math.random() * 6) + 3;
+
+
+        $.plot('#placeholder2', data, {
+            series: {
+                pie: {
+                    show: true
+                }
+            }
+        });
+        $.plot('#placeholder3', data2, {
+            series: {
+                pie: {
+                    show: true
+                }
+            }
+        });
+    });
+</script>

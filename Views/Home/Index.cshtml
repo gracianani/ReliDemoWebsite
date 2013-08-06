@@ -1,0 +1,120 @@
+﻿@model ReliDemo.ViewModels.HeatConsumptionSummaryViewModel
+
+@{
+    ViewBag.Title = "智能热网系统";
+}
+
+<div class="row-fluid">
+	<div class="span6">
+        @Html.Partial("HeatConsumptionTotal", Model.TodayHeatConsumptionPlan)
+        @Html.Partial("HeatConsumptionTotal", Model.TodayHeatConsumptionAccu)
+        @Html.Partial("HeatConsumptionSummary", Model.TodaysHeatConsumptionSummary)
+        @Html.Partial("HeatConsumptionTotal", Model.YesterdayHeatConsumptionAccu)
+		@Html.Partial("HeatConsumptionSummary", Model.YesterdaysHeatConsumptionSummary)		
+	</div>
+	<div class="span6">
+		<div class="row-fluid">
+			<a class="span6 smallstat box noMargin" onTablet="span12" onDesktop="span6" href="#">
+				<i class="icon-sun darkGreen"></i>
+				<span class="title">今日天气 - 晴</span>
+				<span class="value">10℃/-2℃ <small>微风</small></span>
+			</a>
+						
+			<a class="span6 smallstat box noMargin" onTablet="span12" onDesktop="span6"  href="#">
+				<i class="icon-fire orange"></i>
+				<span class="title">累计供热时间</span>
+				<span class="value">1天</span>
+			</a>
+						
+			<div class="box blue span12 noMarginLeft">
+				<div class="box-header">
+					<h2><i class="icon-bar-chart"></i>热耗、平均气温曲线</h2>
+					<div class="box-subTitle">11月15日 - 11月21日
+					</div>
+				</div>
+				<div class="box-content">
+					<div class="chart-type1" style="height:215px"></div>	
+				</div>	
+			</div><!--/span-->
+						
+						
+			<div class="box span12 noMarginLeft">
+				<div class="box-header">
+					<h2><i class="icon-tasks"></i>节能/超标热力站排行</h2>
+				</div>
+				<div class="box-content">
+				<div class="row-fluid">
+				<div class="span6">
+				<table class="table"> 
+						<tbody>
+						<tr>
+							<td>1</td>
+							<td><span class="label label-success">-5%</span></td>
+							<td><a href="#">CBD小学</a></td> 
+						</tr>
+						<tr>
+							<td>2</td>
+							<td><span class="label label-success">-5%</span></td>
+							<td><a href="#">CBD小学</a></td>                                    
+						</tr>
+						<tr>
+							<td>3</td>
+							<td><span class="label label-success">-5%</span></td>
+							<td><a href="#">CBD小学</a></td>                                    
+						</tr>
+						<tr>
+							<td colspan="3" class="right">
+							<a href="#" >节能站总数：<big class="darkGreen">45</big>个，节能比例15%</a>
+							</td>
+						</tr>
+						</tbody>
+					</table>
+				</div><!--/span-->
+				<div class="span6">
+					<table class="table"> 
+						<tbody>
+						<tr>
+							<td>1</td>
+							<td><span class="label label-important">+5%</span></td>
+							<td><a href="#">CBD小学</a></td>                                       
+						</tr>
+						<tr>
+							<td>2</td>
+							<td><span class="label label-important">+5%</span></td>
+							<td><a href="#">CBD小学</a></td>                                       
+						</tr>
+						<tr>
+							<td>3</td>
+							<td><span class="label label-important">+5%</span></td>
+							<td><a href="#">CBD小学</a></td>                                       
+						</tr>
+						<tr>
+							<td colspan="3" class="right">
+							<a href="#" >超标站总数：<big class="red">72</big>个，超标比例15%</a>
+							</td>
+						</tr>
+						</tbody>
+					</table>
+				</div><!--/span-->
+				</div><!--/row-->
+				</div>
+			</div>
+							
+		</div> <!--/span-->
+					
+	</div>
+							
+</div>
+
+<div class="row-fluid">
+	<div class="box blue span12 noMarginLeft">
+				<div class="box-header">
+					<h2><i class="icon-bar-chart"></i>各公司投停面积</h2>
+								
+				</div>
+				<div class="box-content">
+					<div id="placeholder" style="height:300px"></div>	
+				</div>	
+	</div><!--/span-->
+</div>
+
