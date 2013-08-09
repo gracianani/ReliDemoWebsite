@@ -1,16 +1,75 @@
-﻿@model IEnumerable<ReliDemo.Models.Station1stHistory>
+﻿@model ReliDemo.ViewModels.StationHistoriesViewModel
 
 @{
     ViewBag.Title = "History";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<table>
-    @foreach (var model in Model)
+<div class="row-fluid">
+<div class="span8">
+<p>
+    @Html.ActionLink("返回热力站列表", "Paged")
+</p>
+</div>
+<h2>@Model.StationName</h2>
+<div class="span8">
+    @Html.Partial("_TopMenu")
+</div>
+</div>
+
+<div class="row-fluid">
+    @using (Html.BeginForm("Paged", "Stations", FormMethod.Get)) {
+        <text>选择日期:</text>
+        @Html.TextBox("dateFrom")
+        <text>到</text>
+        @Html.TextBox("dateTo")
+        <text>多耗% 从 </text>
+        @Html.TextBox("duohaoFrom", "", new { @class = "span1" })
+        <text>到</text>
+        @Html.TextBox("duohaoTo", "", new { @class = "span1" })
+        <input type="submit" value="搜索" class="btn btn-primary" style="vertical-align: top;"/>
+        <input type="button" value="还原" class="btn " style="vertical-align: top;"/>
+    }
+</div>
+
+<div class="rolw-fluid">
+<table class="table">
+    <tr>
+        <th>#</th>
+        <th>日期</th>
+        <th>计划供热量(GJ)</th>
+        <th>预报温度(℃)</th>
+        <th>实际供热量(GJ)</th>
+        <th>实际温度(℃)</th>
+        <th>核算热耗</th>
+        <th>实际热耗</th>
+        <th>多耗</th>
+        <th>多耗%</th>
+        <th>热水耗能</th>
+        <th>万平米流量</th>
+        <th>瞬时单耗</th>
+        <th>投入面积</th>
+    </tr>
+    @for (int i = 0; i < 10 && i < Model.StationHistories.Count(); i++)
     {
+        var history = @Model.StationHistories.ElementAt(i);
         <tr>
-            <td>@Html.DisplayText(model.时间.HasValue? model.时间.Value.ToString("yyyy-MM-dd HH:mm:ss") : "")</td>
+            <td>@(i + 1)</td>
+            <td>@history.Date.ToString("yyyy-MM-dd")</td>
+            <td>@history.计划供热量</td>
+            <td>@history.预报温度</td>
+            <td>@history.实际供热量</td>
+            <td>@history.实际温度</td>
+            <td>@history.核算热耗</td>
+            <td>@history.实际热耗</td>
+            <td>@history.多耗</td>
+            <td>@history.多耗percent</td>
+            <td>@history.热水耗能</td>
+            <td>@history.万平米流量</td>
+            <td>@history.瞬时单耗</td>
+            <td>@history.投入面积</td>
         </tr>
     }
         
 </table>
+</div>
