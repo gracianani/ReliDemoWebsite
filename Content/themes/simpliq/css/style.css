@@ -1,5 +1,3 @@
-/* Basic
-=================================================================== */
 @import "jquery-ui-1.10.3.custom.css";
 
 @import "fullcalendar.css";
@@ -172,7 +170,7 @@ h6 {
 }
 /* Typography - Blockquote
 =================================================================== */blockquote {
-  background: url(less/less/../img/quote.png) no-repeat 0px 10px;
+  background: url(../img/quote.png) no-repeat 0px 10px;
   font-style: italic;
   border-left: none;
   padding: 0 0 0 30px;
@@ -324,7 +322,7 @@ h6 {
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
 }
 a.brand {
-  background: url("less/less/../../../img/logo.png") 10px center no-repeat #f5f5f5;
+  background: url("../../../img/logo.png") 10px center no-repeat #f5f5f5;
   text-align: center;
   border-bottom: 1px solid #00558e;
   padding: 2px 0 2px 80px !important;
@@ -345,7 +343,7 @@ a.brand .brandLine2 {
   margin-top: -5px;
 }
 a.brand.noBg {
-  background: url("less/less/../../../img/logo-white.png") 10px center no-repeat #0074c1;
+  background: url("../../../img/logo-white.png") 10px center no-repeat #0074c1;
   border-bottom: none;
   color: white;
 }
@@ -811,11 +809,11 @@ a#main-menu-toggle {
   margin-top: -48px;
   border-bottom: none;
 }
-.tab-menu.nav-tabs  > li {
+.tab-menu.nav-tabs > li {
   float: right;
   margin-bottom: -1px;
 }
-.tab-menu.nav-tabs  > li  > a {
+.tab-menu.nav-tabs > li > a {
   padding-top: 11px;
   padding-bottom: 11px;
   line-height: 16px;
@@ -826,16 +824,16 @@ a#main-menu-toggle {
   border-radius: 0px;
   color: white;
 }
-.tab-menu.nav-tabs  > li  > a:hover {
+.tab-menu.nav-tabs > li > a:hover {
   background: #00558e;
 }
-.tab-menu.nav-tabs  > .active  > a {
+.tab-menu.nav-tabs > .active > a {
   border: none;
   color: #378fc9;
   cursor: default;
   background: white;
 }
-.tab-menu.nav-tabs  > .active  > a:hover {
+.tab-menu.nav-tabs > .active > a:hover {
   border: none;
   background: white;
 }
@@ -1512,7 +1510,7 @@ footer a {
   top: 15px;
   left: -20px;
   position: absolute;
-  background: url("less/less/../img/disc-arrow.png") no-repeat;
+  background: url("../img/disc-arrow.png") no-repeat;
   background-size: 20px 20px;
 }
 .discussions ul li .author {
@@ -2106,7 +2104,7 @@ ul.tickets li.ticket .number {
   outline: none !important;
 }
 .ui-slider-horizontal .ui-slider-handle {
-  background: url("less/less/../img/handle.png") no-repeat center center scroll #ffffff !important;
+  background: url("../img/handle.png") no-repeat center center scroll #ffffff !important;
   background-position: 50% 50%;
   background-size: 16px 16px !important;
   width: 36px;
@@ -2135,7 +2133,6 @@ ul.tickets li.ticket .number {
   width: 5px;
 }
 .sliderVertical:after {
-  content: '';
   background: #e4e6eb;
   content: '';
   position: absolute;
@@ -2160,7 +2157,7 @@ ul.tickets li.ticket .number {
   margin-top: -38px;
 }
 .sliderVertical .ui-slider-handle {
-  background: url("less/less/../img/handlev.png") no-repeat center center scroll #ffffff !important;
+  background: url("../img/handlev.png") no-repeat center center scroll #ffffff !important;
   background-position: 50% 50%;
   background-size: 16px 16px !important;
   width: 18px;
@@ -2988,6 +2985,58 @@ body {
 .table td {
   color: #111;
 }
+/* station
+========================*/
+.subNav {
+  margin-left: 0;
+}
+.subNav li {
+  float: left;
+  display: inline-block;
+  margin: 0;
+  padding: 5px 15px;
+  line-height: 24px;
+  background: #393f4c;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  border-left: 1px solid rgba(0, 0, 0, 0.5);
+}
+.subNav li.current {
+  background-color: #0074c1;
+}
+.subNav li:first-child {
+  border-radius: 4px 0 0 4px;
+  border-left: none;
+}
+.subNav li:last-child {
+  border-radius: 0 4px 4px 0;
+  border-right: none;
+}
+.subNav li a {
+  color: #fff;
+}
+.subNav li a:hover {
+  text-decoration: none;
+}
+.table-zebra td {
+  color: #333;
+}
+.table-zebra tr td:nth-child(2n) {
+  background-color: #f9f9f9;
+}
+.table-zebra tr:nth-child(2n) {
+  background-color: #f9f9f9;
+}
+.table-zebra tr:nth-child(2n) td:nth-child(2n) {
+  background-color: white;
+}
+.table-zebra em {
+  font-style: normal;
+  color: #000;
+  font-size: 18px;
+}
+.table-zebra a {
+  color: #378fc9;
+}
 /* Page: Messages
 =================================================================== */
 .message-view {
@@ -3246,7 +3295,7 @@ ul.messagesList li span.date {
   right: 0px;
   height: 20px;
   width: 20px;
-  background: url(less/less/../img/timeline-left-arrow.png) no-repeat;
+  background: url(../img/timeline-left-arrow.png) no-repeat;
 }
 .timeslot .icon {
   position: absolute;
@@ -3289,7 +3338,7 @@ ul.messagesList li span.date {
   left: 0px;
   height: 20px;
   width: 20px;
-  background: url(less/less/../img/timeline-right-arrow.png) no-repeat;
+  background: url(../img/timeline-right-arrow.png) no-repeat;
 }
 .timeslot.alt .time {
   top: 1px;
