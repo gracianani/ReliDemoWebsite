@@ -11,12 +11,10 @@
     @Html.ActionLink("返回热力站列表", "Paged")
 </p>
 </div>
-<h2>@Model.StationName</h2>
-<div class="span8">
-    @Html.Partial("_TopMenu")
 </div>
+<div class="row-fluid">
+<h1>@Model.StationName <small>@Html.Partial("_TopMenu")</small></h1>
 </div>
-
 <div class="row-fluid">
     @using (Html.BeginForm("Paged", "Stations", FormMethod.Get)) {
         <text>选择日期:</text>

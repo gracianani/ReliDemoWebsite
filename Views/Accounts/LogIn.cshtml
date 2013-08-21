@@ -1,0 +1,47 @@
+﻿@model ReliDemo.ViewModels.LogInViewModel
+
+@{
+    ViewBag.Title = "LogIn";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+@using (Html.BeginForm("LogIn", "Accounts", FormMethod.Post)) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>登陆</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.UserName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.UserName)
+            @Html.ValidationMessageFor(model => model.UserName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Password)
+        </div>
+        <div class="editor-field">
+            @Html.PasswordFor(model => model.Password)
+            @Html.ValidationMessageFor(model => model.Password)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.RememberMe)
+        </div>
+        <div class="editor-field">
+            @Html.CheckBoxFor(model => model.RememberMe)
+        </div>
+
+        <p>
+            <input type="submit" value="登陆" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Return to Home page","Index", "Home")
+</div>
