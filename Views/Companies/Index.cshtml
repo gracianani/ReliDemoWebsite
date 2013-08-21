@@ -4,14 +4,11 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-
-
 <h2>@Model.Company.公司</h2>
 <div class="row-fluid">
     <div class="span8">
-        @Html.Partial("HeatConsumptionTotal", Model.TodayHeatConsumptionPlan)
-        @Html.Partial("HeatConsumptionTotal", Model.YesterdayHeatConsumptionAccu)
+        @Html.Partial("HeatConsumptionTotal", Model.TodayGJ)
+        @Html.Partial("HeatConsumptionTotal", Model.YesterdayGJ)
     </div>
     <div class="span4">
         <table class="table">
@@ -24,7 +21,7 @@
 </div>
 <div class="row-fluid">
     <div class="span8">
-        @Html.Partial("HeatConsumptionGraph", Model.TodayHeatConsumptionPlan)
+        @Html.Partial("HeatConsumptionGraph", Model.Histories)
     </div>
 </div>
 <div class="row-fluid">

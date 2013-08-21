@@ -1,13 +1,13 @@
-﻿@model ReliDemo.Models.HeatConsumptionTotalItem
+﻿@model IEnumerable<ReliDemo.Models.HeatConsumptionTotalItem>
 <div class="box">
     <div class="box-header  backgroundColorHeader 
-             @if( Model.IsToday ) 
+             @if( Model.Count() > 0 && Model.First().IsToday ) 
              { <text>crimson</text> } 
              else 
              { <text>blue</text> } 
              ">
 		<h2><i class="icon-align-justify"></i><span class="break"></span>
-             @if ( Model.IsToday ) 
+             @if( Model.Count() > 0 && Model.First().IsToday ) 
              { <text>今日 </text>   } 
              else 
              { <text>昨日</text> } 
@@ -26,24 +26,15 @@
 				</tr>
 			</thead> 
             <tbody>
-				<tr>
-					<td>计划供热量(GJ)</td>
-                    <td>@Model.全网</td>
-                    <td>@Model.东部</td>
-                    <td>@Model.西部</td>
+                @foreach (var GJItem in Model)
+                {
+                    <tr>
+					<td>@GJItem.Title</td>
+                    <td>@GJItem.全网</td>
+                    <td>@GJItem.东部</td>
+                    <td>@GJItem.西部</td>
 				</tr>
-                <tr>
-					<td>折算供热量(GJ)</td>
-                    <td>@Model.全网</td>
-                    <td>@Model.东部</td>
-                    <td>@Model.西部</td>
-				</tr>
-                <tr>
-					<td>实际供热量(GJ)</td>
-                    <td>@Model.全网</td>
-                    <td>@Model.东部</td>
-                    <td>@Model.西部</td>
-				</tr>
+                }
             </tbody>
         </table>
     </div>

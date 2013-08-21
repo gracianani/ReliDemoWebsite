@@ -6,8 +6,8 @@
 
 <div class="row-fluid">
 	<div class="span6">
-        @Html.Partial("HeatConsumptionTotal", Model.TodayHeatConsumptionPlan)
-        @Html.Partial("HeatConsumptionTotal", Model.YesterdayHeatConsumptionAccu)
+        @Html.Partial("HeatConsumptionTotal", Model.TodayGJ)
+        @Html.Partial("HeatConsumptionTotal", Model.YesterdayGJ)
         	
 	</div>
 	<div class="span6">
@@ -250,7 +250,8 @@
 
 
 	var tempDate = [[(new Date(2013,11,15)).getTime(), 15],[(new Date(2013,11,16)).getTime(), 20],[(new Date(2013,11,17)).getTime(), 18],[(new Date(2013,11,18)).getTime(), 18],[(new Date(2013,11,19)).getTime(), 18],[(new Date(2013,11,20)).getTime(), 20],[(new Date(2013,11,21)).getTime(), 18],[(new Date(2013,11,22)).getTime(), 18],[(new Date(2013,11,23)).getTime(), 18],[(new Date(2013,11,24)).getTime(), 18],[(new Date(2013,11,25)).getTime(), 10],[(new Date(2013,11,26)).getTime(), 9],[(new Date(2013,11,27)).getTime(), 18],[(new Date(2013,11,28)).getTime(), 18],[(new Date(2013,11,29)).getTime(), 15],[(new Date(2013,11,30)).getTime(), 10]];
-	var heatDate1 = [[(new Date(2013,11,15)).getTime(), 2048],
+	
+    var heatDate1 = [[(new Date(2013,11,15)).getTime(), 2048],
 	[(new Date(2013,11,16)).getTime(), 2013],
 	[(new Date(2013,11,17)).getTime(), 2013],
 	[(new Date(2013,11,18)).getTime(), 2013],
