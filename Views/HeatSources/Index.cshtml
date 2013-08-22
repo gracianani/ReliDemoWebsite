@@ -1,7 +1,7 @@
 ﻿@model ReliDemo.ViewModels.HeatSourcesViewModel
 
 @{
-    ViewBag.Title = "热原厂基础信息";
+    ViewBag.Title = "热源厂基础信息";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -10,8 +10,12 @@
 @Html.Hidden("hf_compareFossilAndGas", "[{ \"label\": \"燃煤\", \"data\": " + @Model.FuelInFossil + "}, {\"label\": \"燃气\", \"data\": " + @Model.FuelInGas + " }]")
 <div class="row-fluid">
     <div  class="box span3">
+		<div class="box-header">
+		<h2><i class="icon-tasks"></i>全网面积统计</h2>
+		</div>
         <div class="box-content">
-            <table>
+			
+            <table class="table table-bordered table-hovered" style="margin:25px 0">
                 <tr>
                     <th>全网供热面积</th>
                     <td>@Model.TotalFuelInSquareMeter 平方米</td>
@@ -100,7 +104,10 @@
     </div>
 
     <div class="span6">
-        <div id="placeholder_heatSources" style="height:500px"></div>
+		<div class="pieChartWithCenterText backgroundColor white box">
+			<div id="placeholder_heatSources" style="height:465px"></div>
+			<div class="centerText">总供热量：1440GJ</div>
+		</div>
     </div>
 </div>
 
@@ -111,9 +118,18 @@
         var options = {
             series: {
                 pie: {
-                    show: true
+                    show: true,
+					label : {
+						show:true
+					}
                 }
-            }
+            },
+			colors:["#2fabe9","#fabb3d"],
+			
+			grid: {
+				hoverable:true,
+				clickable:true
+			}
         };
 
         var data = $.parseJSON($("input[name=hf_compareEastAndWest]").val());
@@ -152,20 +168,24 @@
             series: {
                 pie: {
                     show: true,
-                    radius: 1,
+                    innerRadius:1/2,
                     label: {
                         show: true,
-                        radius: 2 / 3,
-                        formatter: labelFormatter,
+						radius:0.9,
                         background: {
                             opacity: 0
                         }
                     }
                 }
             },
+			colors:["#2fabe9","#fabb3d","#c84628","#fa5833","#9440ed","#78cd51","#3cff41","#3c4451","#3c44f1","#0074c1","#383e4b","#00558e","#fa913d","#28c8b3","#68930a","#2877c8"],
             legend: {
                 show: false
-            }
+            },
+			grid: {
+				hoverable:true,
+				clickable:true
+			}
         });
 
     });
