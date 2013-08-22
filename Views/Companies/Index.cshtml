@@ -6,27 +6,126 @@
 }
 <h2>@Model.Company.公司</h2>
 <div class="row-fluid">
-    <div class="span8">
+    <div class="span6" onTablet="span12">
         @Html.Partial("HeatConsumptionTotal", Model.TodayGJ)
         @Html.Partial("HeatConsumptionTotal", Model.YesterdayGJ)
+		 @Html.Partial("HeatConsumptionGraph", Model.Histories)
     </div>
-    <div class="span4">
-        <table class="table">
-            <tr><td>站数量</td><td>@Model.Company.Managerships.Sum(i=>i.Stations.Count())</td><td>面积</td><td>111</td></tr>
+    <div class="span6" onTablet="span12">
+		
+        <table class="table table-bordered table-hover  table-condensed backgroundColor white">
+            <tr><td>站总数量</td><td>@Model.Company.Managerships.Sum(i=>i.Stations.Count())</td><td>总面积</td><td>111</td></tr>
             <tr><td>超标站数量</td><td>111</td><td>超标面积</td><td>111</td></tr>
+			<tr><td>超标比例</td><td  colspan="3"><big><strong>12%</strong></big></td></tr>
         </table>
+		
+		<div class="box backgroundColor white">
+			<div class="row-fluid">
+				<div class="span6">
+					<div id="company_exceed_station" class="pieChartWithCenterText" style="height:165px;padding-top:20px;">
+					
+					</div>
+				</div>
+				<div class="span6">
+					<div id="company_exceed_area" style="height:165px;padding-top:20px;"></div>
+				</div>
+			</div>
+        
+		</div>
 
-        <div id="placeholder_exceed"></div>
+
+		
+		<div class="row-fluid">	
+			
+			<div class="box span12 noMarginLeft">
+				<div class="box-header">
+					<h2><i class="icon-tasks"></i>节能/超标热力站排行</h2>
+				</div>
+				<div class="box-content">
+				<div class="row-fluid">
+				<div class="span6">
+				<table class="table"> 
+						<tbody>
+						<tr>
+							<td>1</td>
+							<td><span class="label label-success">-5%</span></td>
+							<td><a href="#">CBD小学</a></td> 
+						</tr>
+						<tr>
+							<td>2</td>
+							<td><span class="label label-success">-5%</span></td>
+							<td><a href="#">CBD小学</a></td>                                    
+						</tr>
+						<tr>
+							<td>3</td>
+							<td><span class="label label-success">-5%</span></td>
+							<td><a href="#">CBD小学</a></td>                                    
+						</tr>
+						<tr>
+							<td>4</td>
+							<td><span class="label label-success">-5%</span></td>
+							<td><a href="#">CBD小学</a></td>                                    
+						</tr>
+						<tr>
+							<td>5</td>
+							<td><span class="label label-success">-5%</span></td>
+							<td><a href="#">CBD小学</a></td>                                    
+						</tr>
+						<tr>
+							<td colspan="3" class="right">
+							<a href="#" >节能站总数：<big class="darkGreen">45</big>个，节能比例15%</a>
+							</td>
+						</tr>
+						</tbody>
+					</table>
+				</div><!--/span-->
+				<div class="span6">
+					<table class="table"> 
+						<tbody>
+						<tr>
+							<td>1</td>
+							<td><span class="label label-important">+5%</span></td>
+							<td><a href="#">CBD小学</a></td>                                       
+						</tr>
+						<tr>
+							<td>2</td>
+							<td><span class="label label-important">+5%</span></td>
+							<td><a href="#">CBD小学</a></td>                                       
+						</tr>
+						<tr>
+							<td>4</td>
+							<td><span class="label label-important">+5%</span></td>
+							<td><a href="#">CBD小学</a></td>                                       
+						</tr>
+						<tr>
+							<td>5</td>
+							<td><span class="label label-important">+5%</span></td>
+							<td><a href="#">CBD小学</a></td>                                       
+						</tr>
+						<tr>
+							<td>3</td>
+							<td><span class="label label-important">+5%</span></td>
+							<td><a href="#">CBD小学</a></td>                                       
+						</tr>
+						<tr>
+							<td colspan="3" class="right">
+							<a href="#" >超标站总数：<big class="red">72</big>个，超标比例15%</a>
+							</td>
+						</tr>
+						</tbody>
+					</table>
+				</div><!--/span-->
+			</div><!--/row-->
+		</div><!--/box-content-->
+	</div><!--/box-->
+</div><!--/row-->
+
     </div>
 </div>
+
 <div class="row-fluid">
-    <div class="span8">
-        @Html.Partial("HeatConsumptionGraph", Model.Histories)
-    </div>
-</div>
-<div class="row-fluid">
-    <div class="span8">
-        <table class="table">
+    <div class="span12" onTablet="span12">
+        <table class="table table-bordered backgroundColor white">
             @foreach( var center in Model.Centers){
                 if (Model.Centers.First() == center)
                 {
@@ -44,3 +143,46 @@
         </table>
     </div>
 </div>
+
+<script>
+jQuery(document).ready(function ($) {
+	var company_exceed_station_data = [
+
+        {label: "合格站数量", data:10},
+
+        {label: "超标站数量", data: 20}
+
+    ];
+	var company_exceed_area_data = [
+
+        {label: "合格面积", data:100},
+
+        {label: "超标面积", data: 20}
+
+    ];
+
+ 
+
+    var company_exceed_station_options = {
+            series: {
+               pie: {
+				show: true
+				}
+            },
+			colors:["#2fabe9","#c84628"],
+			legend: {
+				show:false
+			},
+			grid: {
+				hoverable:true,
+				clickable:true
+			}
+         };
+
+ 
+
+    $.plot($("#company_exceed_station"), company_exceed_station_data, company_exceed_station_options); 
+	$.plot($("#company_exceed_area"), company_exceed_area_data, company_exceed_station_options);
+
+	});
+</script>
