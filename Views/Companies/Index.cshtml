@@ -7,28 +7,40 @@
 <h2>@Model.Company.公司</h2>
 <div class="row-fluid">
     <div class="span6">
-        <a class="span6 smallstat box noMargin" onTablet="span12" onDesktop="span6" href="#">
-			<i class="icon-sun darkGreen"></i>
-			<span class="title">今日天气 - 晴 微风</span>
-			<span class="value">  <small> 10℃/-2℃   5℃</small></span>
+        <a class="span4 smallstat box noMargin" onTablet="span12" onDesktop="span6"  href="#">
+			<i class="icon-fire crimson"></i>
+			<span class="title">今日累计供热量</span>
+			<span class="value">3.2万GJ</span>
 		</a>
-		<a class="span6 smallstat box noMargin" onTablet="span12" onDesktop="span6" href="#">
-			<i class="icon-ok darkGreen"></i>
-			<span class="title">计划投停面积/实际投停面积</span>
-			<span class="value">231/56 <small>万平方米</small></span>
-		</a>				
-    </div>
-    <div class="span6">
-        <a class="span6 smallstat box noMargin" onTablet="span12" onDesktop="span6"  href="#">
-			<i class="icon-calendar orange"></i>
+
+		<a class="span4 smallstat box noMargin" onTablet="span12" onDesktop="span6"  href="#">
+			<i class="icon-fire blue"></i>
+			<span class="title">昨日累计供热量</span>
+			<span class="value">4.8万GJ</span>
+		</a>
+		
+		 <a class="span4 smallstat box noMargin" onTablet="span12" onDesktop="span6"  href="#">
+			<i class="icon-calendar darkGreen"></i>
 			<span class="title">累计供热时间</span>
 			<span class="value">1天</span>
-		</a>	
-        
-		<a class="span6 smallstat box noMargin" onTablet="span12" onDesktop="span6"  href="#">
-			<i class="icon-fire orange"></i>
-			<span class="title">昨日累计供热量/今日累计供热量</span>
-			<span class="value">4.8万GJ/3.2万GJ</span>
+		</a>			
+    </div>
+    <div class="span6">
+		<a class="span4 smallstat box noMargin" onTablet="span12" onDesktop="span4" href="#">
+			<i class="icon-ok crimson"></i>
+			<span class="title">计划投停面积</span>
+			<span class="value">231<small>万平方米</small></span>
+		</a>
+		<a class="span4 smallstat box noMargin" onTablet="span12" onDesktop="span4" href="#">
+			<i class="icon-ok crimson"></i>
+			<span class="title">实际投停面积</span>
+			<span class="value">56 <small>万平方米</small></span>
+		</a>
+		
+		<a class="span4 smallstat box noMargin" onTablet="span12" onDesktop="span4" href="#">
+			<i class="icon-sun orange"></i>
+			<span class="title">今日天气 - 晴 微风</span>
+			<span class="value">  <small> 10℃/-2℃   平均5℃</small></span>
 		</a>
     </div>
 </div>
@@ -64,15 +76,16 @@
 		
 		<div class="row-fluid">	
 			
-			<div class="box span12 noMarginLeft">
+		<div class="box span12 noMarginLeft">
 				<div class="box-header">
-					<h2><i class="icon-tasks"></i>节能/超标热力站排行</h2>
+				<h2><i class="icon-tasks"></i>节能/超标热力站排行</h2>
 				</div>
 				<div class="box-content">
 				<div class="row-fluid">
 				<div class="span6">
 				<table class="table"> 
 						<tbody>
+						<tr><th colspan="3"><select style="width:100px"><option>从低到高</option><option>从低到高</option></select> 单耗排行 </th></tr>
 						<tr>
 							<td>1</td>
 							<td><span class="label label-success">-5%</span></td>
@@ -80,27 +93,27 @@
 						</tr>
 						<tr>
 							<td>2</td>
-							<td><span class="label label-success">-5%</span></td>
-							<td><a href="#">CBD小学</a></td>                                    
+							<td><span class="label label-success">-4.6%</span></td>
+							<td><a href="#">八里庄三小热力点</a></td>                                    
 						</tr>
 						<tr>
 							<td>3</td>
-							<td><span class="label label-success">-5%</span></td>
-							<td><a href="#">CBD小学</a></td>                                    
+							<td><span class="label label-success">-4.1%</span></td>
+							<td><a href="#">保利百合站</a></td>                                    
 						</tr>
 						<tr>
 							<td>4</td>
-							<td><span class="label label-success">-5%</span></td>
-							<td><a href="#">CBD小学</a></td>                                    
+							<td><span class="label label-success">-3.9%</span></td>
+							<td><a href="#">报业总社站</a></td>                                    
 						</tr>
 						<tr>
 							<td>5</td>
-							<td><span class="label label-success">-5%</span></td>
-							<td><a href="#">CBD小学</a></td>                                    
+							<td><span class="label label-success">-3.8%</span></td>
+							<td><a href="#">安翔里小区新建3#</a></td>                                    
 						</tr>
 						<tr>
 							<td colspan="3" class="right">
-							<a href="#" >节能站总数：<big class="darkGreen">45</big>个，节能比例15%</a>
+							<a href="#" >节能站总数：<big class="darkGreen">45</big>个</a> <a href="#" >超能站总数：<big class="red">72</big>个</a>
 							</td>
 						</tr>
 						</tbody>
@@ -109,42 +122,42 @@
 				<div class="span6">
 					<table class="table"> 
 						<tbody>
+						<tr><th colspan="3"><select style="width:100px"><option>从高到低</option><option>从低到高</option></select> 循环水量排行 </th></tr>
 						<tr>
 							<td>1</td>
 							<td><span class="label label-important">+5%</span></td>
-							<td><a href="#">CBD小学</a></td>                                       
+							<td><a href="#">北大附中</a></td>                                       
 						</tr>
 						<tr>
 							<td>2</td>
-							<td><span class="label label-important">+5%</span></td>
-							<td><a href="#">CBD小学</a></td>                                       
-						</tr>
-						<tr>
-							<td>4</td>
-							<td><span class="label label-important">+5%</span></td>
-							<td><a href="#">CBD小学</a></td>                                       
-						</tr>
-						<tr>
-							<td>5</td>
-							<td><span class="label label-important">+5%</span></td>
-							<td><a href="#">CBD小学</a></td>                                       
+							<td><span class="label label-important">+4.8%</span></td>
+							<td><a href="#">218厂</a></td>                                       
 						</tr>
 						<tr>
 							<td>3</td>
-							<td><span class="label label-important">+5%</span></td>
-							<td><a href="#">CBD小学</a></td>                                       
+							<td><span class="label label-important">+4.7%</span></td>
+							<td><a href="#">长安开行站</a></td>                                       
+						</tr>
+						<tr>
+							<td>4</td>
+							<td><span class="label label-important">+4.5%</span></td>
+							<td><a href="#">朝服务局亮马桥D站</a></td>                                       
+						</tr>
+						<tr>
+							<td>5</td>
+							<td><span class="label label-important">+4.3%</span></td>
+							<td><a href="#">长远天地</a></td>                                       
 						</tr>
 						<tr>
 							<td colspan="3" class="right">
-							<a href="#" >超标站总数：<big class="red">72</big>个，超标比例15%</a>
+							<a href="#" >节流站总数：<big class="darkGreen">45</big>个</a> <a href="#" >超流站总数：<big class="red">72</big>个</a>
 							</td>
 						</tr>
 						</tbody>
 					</table>
 				</div><!--/span-->
 			</div><!--/row-->
-		</div><!--/box-content-->
-	</div><!--/box-->
+		</div><!--/box-->
 </div><!--/row-->
 
     </div>
