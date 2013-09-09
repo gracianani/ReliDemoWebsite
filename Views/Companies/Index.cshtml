@@ -53,20 +53,20 @@
     <div class="span6" onTablet="span12">
 		
         <table class="table table-bordered table-hover  table-condensed backgroundColor white">
-            <tr><td>热力站总数量(个)</td><td>@Model.Company.Managerships.Sum(i=>i.Stations.Count())</td><td>总供热面积(万平方米)</td><td>0</td><td>实际投入面积(万㎡)</td><td>0</td></tr>
+            <tr><td>热力站总数量(个)</td><td>@Model.Company.Managerships.Sum(i=>i.Stations.Count())</td><td>平均热负荷(GCal/h)</td><td colspan="3">186</td></tr>
             <tr><td>万平米循环水量(t/h)</td><td>1</td><td>瞬时单耗(GJ/h·㎡)</td><td>1</td><td>累计单耗(GJ/h·㎡)</td><td>1</td></tr>
-            <tr><td>总瞬时流量(t/h·㎡)</td><td>1</td><td>总瞬时热量(GJ/h·㎡)</td><td>1</td><td>超标站数量(个)</td><td>111</td></tr>
-            <tr><td>平均热负荷(GCal/h)</td><td>186</td><td>平均热指标(KCal/h·㎡)</td><td colspan="3">0</td></tr>
+            <tr><td>总瞬时流量(t/h)</td><td>1</td><td>总瞬时热量(GJ/h)</td><td>1</td><td>超标站数量(个)</td><td>111</td></tr>
         </table>
 		
 		<div class="box backgroundColor white">
 			<div class="row-fluid">
 				<div class="span6">
 					<div id="company_exceed_station" class="pieChartWithCenterText" style="height:165px;padding-top:20px;">
-					
 					</div>
 				</div>
 				<div class="span6">
+                    <div id="company_exceed_area" class="pieChartWithCenterText" style="height:165px;padding-top:20px;">
+					</div>
 				</div>
 			</div>
         
@@ -169,15 +169,16 @@
             @foreach( var center in Model.Centers){
                 if (Model.Centers.First() == center)
                 {
-                    <tr><th>中心名称</th><th>热力站数量(个)</th><th>面积(万㎡)</th><th>超标热力站数量(个)</th><th>平均热指标(KCal/h)</th><th>平均热负荷(GCal/h)</th></tr>
+                    <tr><th>中心名称</th><th>投入面积(万㎡)</th><th>热力站数量(个)</th><th>平均热指标(KCal/h)</th><th>平均热负荷(GCal/h)</th><th>单耗超标站数量(个)</th><th>流量超标站数量(个)</th></tr>
                 }
                 <tr>
                     <td>@Html.ActionLink(center.管理单位, "ManagershipInfo", new {managershipId = center.ItemID })</td>
-                    <td>@center.Stations.Count()</td>
                     <td>@( center.Stations.Sum(i=>i.投入面积A) + center.Stations.Sum(i=>i.投入面积B) )</td>
-                    <td>45</td>
+                    <td>@center.Stations.Count()</td>
                     <td>39</td>
                     <td>1.2</td>
+                    <td>15</td>
+                    <td>8</td>
                 </tr>
             }
         </table>
@@ -188,20 +189,18 @@
 jQuery(document).ready(function ($) {
 	var company_exceed_station_data = [
 
-        {label: "合格站数量", data:10},
+        {label: "单耗合格站数量", data:10},
 
-        {label: "超标站数量", data: 20}
+        { label: "单耗超标站数量", data: 20 }
 
     ];
 	var company_exceed_area_data = [
 
-        {label: "合格面积", data:100},
+        {label: "万平米流量合格站数量", data:80},
 
-        {label: "超标面积", data: 20}
+        {label: "万平米流量超标站数量", data: 20}
 
     ];
-
- 
 
     var company_exceed_station_options = {
             series: {
@@ -219,8 +218,7 @@ jQuery(document).ready(function ($) {
 			}
          };
 
- 
-
-    $.plot($("#company_exceed_station"), company_exceed_station_data, company_exceed_station_options); 
+        $.plot($("#company_exceed_station"), company_exceed_station_data, company_exceed_station_options);
+        $.plot($("#company_exceed_area"), company_exceed_area_data, company_exceed_station_options); 
 	});
 </script>
