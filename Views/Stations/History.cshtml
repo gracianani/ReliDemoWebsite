@@ -35,18 +35,19 @@
     <tr>
         <th>#</th>
         <th>日期</th>
+        <th>投入面积</th>
+        <th>实际热指标</th>
         <th>计划供热量(GJ)</th>
-        <th>预报温度(℃)</th>
+        <th>折算供热量(GJ)</th>
         <th>实际供热量(GJ)</th>
-        <th>实际温度(℃)</th>
-        <th>核算热耗</th>
-        <th>实际热耗</th>
+        <th>计划单耗</th>
+        <th>折算单耗</th>
+        <th>实际单耗</th>
         <th>多耗</th>
-        <th>多耗%</th>
+        <th>多耗百分比</th>
         <th>热水耗能</th>
         <th>万平米流量</th>
-        <th>瞬时单耗</th>
-        <th>投入面积</th>
+        
     </tr>
     @for (int i = 0; i < 10 && i < Model.StationHistories.Count(); i++)
     {
@@ -54,18 +55,18 @@
         <tr>
             <td>@(i + 1)</td>
             <td>@history.Date.ToString("yyyy-MM-dd")</td>
+            <td>@history.投入面积</td>
+            <td>@history.实际热指标</td>
             <td>@history.计划供热量</td>
-            <td>@history.预报温度</td>
+            <td>@history.折算供热量</td>
             <td>@history.实际供热量</td>
-            <td>@history.实际温度</td>
-            <td>@history.核算热耗</td>
-            <td>@history.实际热耗</td>
+            <td>@history.计划单耗</td>
+            <td>@history.折算单耗</td>
+            <td>@history.实际单耗</td>
             <td>@history.多耗</td>
             <td>@history.多耗percent</td>
             <td>@history.热水耗能</td>
             <td>@history.万平米流量</td>
-            <td>@history.瞬时单耗</td>
-            <td>@history.投入面积</td>
         </tr>
     }
         
