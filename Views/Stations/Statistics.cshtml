@@ -1,0 +1,185 @@
+﻿@model ReliDemo.ViewModels.StationsStatisticsViewModel
+@{
+    ViewBag.Title = "热力站热耗统计";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+ <h2 style='font-family: "Microsoft Yahei",sans-serif;
+font-size: 24px;
+margin-bottom: 0.9em;
+line-height: 30px;'>@ViewBag.Title 
+<div style="display:inline-block;width:80%;">
+    @using (Html.BeginForm("Paged", "Stations", FormMethod.Get)) {
+        @Html.DropDownList("eastwest", new List<SelectListItem>(), "全部区域", new { @class = "span2" })
+        <text>&nbsp;</text>
+        @Html.DropDownList("companies", new List<SelectListItem>(), "全部公司", new { @class = "span2" })
+        <text>&nbsp;</text>
+        @Html.DropDownList("managerships", new List<SelectListItem>(), "全部中心", new { id = "managerships", @class = "span2" })
+        <text>&nbsp;</text>
+        @Html.DropDownList("heatsource", new List<SelectListItem>(), "全部热源", new { id = "managerships", @class = "span2" })
+        <text>&nbsp;</text>
+        <input type="submit" value="搜索" class="btn  btn-primary" style="vertical-align: top;"/>
+    }
+</div>
+</h2>
+
+<div class="row-fluid">
+        每页显示：
+<ul class="nav nav-pills" id="pills">
+<li @if (Model.StationsStatistic.PageSize == 10)
+    {
+    <text> class="active" </text> 
+    } >
+    @Html.ActionLink("10", "Statistics", new { startIndex = Model.StationsStatistic.PageIndex, pageSize = 10 })
+</li>
+<li @if (Model.StationsStatistic.PageSize == 50)
+    {
+    <text> class="active" </text> 
+    } >
+    @Html.ActionLink("50", "Statistics", new { startIndex = Model.StationsStatistic.PageIndex, pageSize = 50 })
+</li>
+<li @if (Model.StationsStatistic.PageSize == 100)
+    {
+    <text> class="active" </text> 
+    }>
+    @Html.ActionLink("100", "Statistics", new { startIndex = Model.StationsStatistic.PageIndex, pageSize = 100 })
+</li>
+
+</ul>
+</div>
+<table class="table  table-bordered table-hover  table-condensed" style="background:white">
+
+@foreach (var p in Model.StationsStatistic)
+{
+    if (Model.StationsStatistic.IndexOf(p) == 0)
+    {
+        <tr>
+        <th>
+            @Html.DisplayName("热力站名称")
+        </th>
+        <th>
+            @Html.DisplayName("日期")
+        </th>
+        <th>
+            @Html.DisplayName("计划供热量(GJ)")
+        </th>
+        <th>
+            @Html.DisplayName("采暖(GJ)")
+        </th>
+        <th>
+            @Html.DisplayName("热水(GJ)")
+        </th>
+        <th>
+            @Html.DisplayName("核算(GJ)")
+        </th>
+        <th>
+            @Html.DisplayName("理论单耗(GJ/㎡)")
+        </th>
+        <th>
+            @Html.DisplayName("累计单耗(GJ/㎡)")
+        </th>
+        <th>
+            @Html.DisplayName("采暖季单耗(KCal/h)")
+        </th>
+        <th>
+            @Html.DisplayName("热指标(KCal/h*㎡)")
+        </th>
+        <th>
+            @Html.DisplayName("预报温度(℃)")
+        </th>
+        <th>
+            @Html.DisplayName("实际单耗(GJ/㎡)")
+        </th>
+        <th>
+            @Html.DisplayName("实际温度(℃)")
+        </th>
+        
+    </tr>
+    }
+    <tr>
+        <td>
+            @Html.ActionLink(p.Station.热力站名称, "BasicInfo", new { stationId = p.ItemID })
+        </td>
+        <td>
+            @p.日期.ToString("yyyy-MM-dd")
+        </td>
+        <td>
+            @p.计划GJ
+        </td>
+        <td>
+            @p.采暖GJ
+        </td>
+        <td>
+            @p.热水GJ
+        </td>
+        <td>
+            @p.核算GJ
+        </td>
+        <td>
+            @p.理论单耗
+        </td>
+        <td>
+            @p.累计单耗
+        </td>
+        <td>
+            @p.采暖季单耗
+        </td>
+        <td>
+            39
+        </td>
+        <td>
+            @p.预报温度
+        </td>  
+        <td>
+            @p.实际单耗
+        </td>
+        <td>
+            @p.实际温度
+        </td>
+        
+    </tr>
+}
+</table>
+
+<div class="row-fluid">
+<div class="pagination pagination-centered">
+    <ul>
+        <li>@Html.ActionLink("« 前一个", "Statistics", new { startIndex = Model.StationsStatistic.PageIndex - 1, pageSize = Model.StationsStatistic.PageSize })</li>
+        @if (Model.StationsStatistic.PageIndex >= 10)
+        {
+            <li>@Html.ActionLink("« 前十个", "Statistics", new { startIndex = Model.StationsStatistic.PageIndex - 10, pageSize = 10 })</li>
+        }
+        @for (int i = Model.StationsStatistic.PageIndex / 10 * 10; (i < Model.StationsStatistic.PageIndex / 10 * 10 + 10) && i < Model.StationsStatistic.TotalPages; i++)
+        {
+            <li @if (Model.StationsStatistic.PageIndex == i)
+                { <text>class="active"</text> } >
+
+                @Html.ActionLink((i + 1).ToString(), "Statistics", new { startIndex = i, pageSize = Model.StationsStatistic.PageSize })
+            </li>
+        }
+        @if (Model.StationsStatistic.PageIndex < Model.StationsStatistic.TotalPages - 10)
+        {
+            <li>@Html.ActionLink("下十个 »", "Statistics", new { startIndex = (Model.StationsStatistic.PageIndex / 10 + 1) * 10, pageSize = Model.StationsStatistic.PageSize })</li>
+        }
+        <li>@Html.ActionLink("下一个 »", "Statistics", new { startIndex = Model.StationsStatistic.PageIndex + 1, pageSize = Model.StationsStatistic.PageSize })</li>
+    </ul>
+</div>
+</div>
+
+<script>
+    $(function () {
+        $("select[name=companies]").change(function () {
+            $.ajax({
+                url: "/Stations/GetManagershipsByCompanyId",
+                type: "post",
+                data: { companyId: $(this).val() },
+                success: function (response, textStatus, jqXHR) {
+                    $("#managerships").html("<option value>请选择管理单位<option>" + response).css("display", "");
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                },
+                complete: function () {
+                }
+            });
+        });
+    });
+</script>

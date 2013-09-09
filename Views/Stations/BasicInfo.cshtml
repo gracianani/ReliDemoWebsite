@@ -58,64 +58,27 @@
             <td>@Html.DisplayFor(model => model.投入面积A)</td>
             <th>@Html.DisplayNameFor(model => model.投入面积B)</th>
             <td>@Html.DisplayFor(model => model.投入面积B)</td>
-            <th></th>
-            <td></td>
+            <th>@Html.DisplayNameFor(model => model.管理类型)</th>
+            <td>@Html.DisplayFor(model=>model.管理类型)</td>
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.HeatSource.东西部)</th>
+            <td>@Html.DisplayFor(model => model.HeatSource.东西部)</td>
+            <th>@Html.DisplayNameFor(model => model.是否并网供热)</th>
+            <td>@Html.DisplayFor(model => model.是否并网供热.Value)</td>
+            <th>@Html.DisplayNameFor(model => model.是否热水站)</th>
+            <td>@Html.DisplayFor(model => model.是否热水站.Value)</td>
+        </tr>
+        <tr>
+            <th>热指标(KCal/h*㎡)</th>
+            <td>32</td>
+            <th>近三年热指标</th>
+            <td>2011年:38 | 2012年:37 | 2013年: 36</td>
         </tr>
     </table>
     </div>
 </div>
-<div class="row-fluid">
-    <div class="box span12">
-        <div class="box-header">
-            <h2><i class="icon-list"></i>机组信息</h2>
-        </div>
-        <div class="box-content">
-            <div class="box ">
-            <table class="table">
-                <tr>
-                    <td>一次供温(℃) <span>@Model.一次供温</span></td>
-                    <td>一次回温(℃) <span>@Model.一次回温</span></td>
-                    <td>一次供压(mPa) <span>@Model.一次供压</span></td>
-                    <td>一次回压(mPa) <span>@Model.一次回压</span></td>
-                    <td>总累计热量(GJ) <span>@Model.总累计热量</span></td>
-                    <td>总累计流量(t) <span>@Model.总累计流量</span></td>
-                </tr>
-            </table>
-            </div>
-            <div class="box ">
-            <table class="table">
-                <tr>
-                    <th>机组编号</th>
-                    <th>机组名</th>
-                    <th>二次供温(℃)</th>
-                    <th>二次回温(℃)</th>
-                    <th>二次供压(mPa)</th>
-                    <th>二次回压(mPa)</th>
-                    <th>瞬时热量(GJ)</th>
-                    <th>瞬时流量(t)</th>
-                    <th>总累计热量(GJ)</th>
-                    <th>总累计流量(t)</th>
-                </tr>
-                @foreach (var station2nd in Model.Station2ndRecents)
-                {
-                    <tr>
-                        <td>@station2nd.机组号</td>
-                        <td>@station2nd.机组名</td>
-                        <td>@station2nd.供温</td>
-                        <td>@station2nd.回温</td>
-                        <td>@station2nd.供压</td>
-                        <td>@station2nd.回压</td>
-                        <td>@station2nd.瞬时热量</td>
-                        <td>@station2nd.瞬时流量</td>
-                        <td>@station2nd.累计热量</td>
-                        <td>@station2nd.累计流量</td>
-                    </tr>
-                }
-            </table>
-            </div>
-        </div>
-    </div>
-</div>
+
 <div class="row-fluid">
     <div class="box span8">
         <div class="box-header">

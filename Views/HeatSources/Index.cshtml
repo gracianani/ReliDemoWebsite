@@ -66,9 +66,6 @@
                 @Html.DisplayName("位置")
             </th>
             <th>
-                @Html.DisplayName("总供热")
-            </th>
-            <th>
                 @Html.DisplayName("燃煤尖峰炉")
             </th>
             <th>
@@ -86,9 +83,6 @@
             <td>
                 @p.东西部, @p.内外部
             </td>
-            <td>
-                @p.今日GJ
-            </td> 
             <td>
                 @p.燃煤尖峰炉数
             </td>
@@ -137,8 +131,7 @@
 
         var data2 = $.parseJSON($("input[name=hf_compareFossilAndGas]").val());
         $.plot("#placeholder_compareFossilAndGas", data2, options);
-
-        var data3 = [{ "label": "供热厂", "data": 12 }, { "label": "尖峰热电厂", "data": 22}];
+        var data3 = [{ "label": "燃煤", "data": 12 }, { "label": "燃气", "data": 22},  { "label": "燃煤电厂", "data": 22},  { "label": "燃煤锅炉房", "data": 22}];
         $.plot("#placeholder_comparePeak", data3, options);
 
 

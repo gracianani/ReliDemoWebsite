@@ -18,23 +18,30 @@ line-height: 30px;'>@ViewBag.Title</h2>
         <text>&nbsp;</text>
         @Html.DropDownList("managerships", new SelectList(Model.Managerships, "ItemID", "管理单位"), "请选择管理单位", new { id = "managerships", @class = "span2" })
         <text>&nbsp;</text>
+        @Html.DropDownList("area", new SelectList(Model.Managerships, "ItemID", "管理单位"), "请选择区域", new { id = "area", @class = "span2" })
+        <text>&nbsp;</text>
+        @Html.TextBox("keyword","" , new {@placeholder = "按关键字检索"})
+        <text>&nbsp;</text>
         <input type="submit" value="搜索" class="btn  btn-primary" style="vertical-align: top;"/>
     }
 </div>
 <div class="row-fluid">
         每页显示：
 <ul class="nav nav-pills" id="pills">
-<li @if(Model.Stations.PageSize == 10) {
+<li @if (Model.Stations.PageSize == 10)
+    {
     <text> class="active" </text> 
     } >
     @Html.ActionLink("10", "Paged", new { startIndex = Model.Stations.PageIndex + 1, pageSize = 10, managerships = Model.SelectedManagershipId, companies = Model.SelectedCompanyId, heatSources = Model.SelectedHeatSourceId })
 </li>
-<li @if(Model.Stations.PageSize == 50) {
+<li @if (Model.Stations.PageSize == 50)
+    {
     <text> class="active" </text> 
     } >
     @Html.ActionLink("50", "Paged", new { startIndex = Model.Stations.PageIndex + 1, pageSize = 50, managerships = Model.SelectedManagershipId, companies = Model.SelectedCompanyId, heatSources = Model.SelectedHeatSourceId })
 </li>
-<li @if(Model.Stations.PageSize == 100) {
+<li @if (Model.Stations.PageSize == 100)
+    {
     <text> class="active" </text> 
     }>
     @Html.ActionLink("100", "Paged", new { startIndex = Model.Stations.PageIndex + 1, pageSize = 100, managerships = Model.SelectedManagershipId, companies = Model.SelectedCompanyId, heatSources = Model.SelectedHeatSourceId })
@@ -59,13 +66,25 @@ line-height: 30px;'>@ViewBag.Title</h2>
             @Html.DisplayName("热力站编码")
         </th>
         <th>
+            @Html.DisplayName("用热地址")
+        </th>
+        <th>
             @Html.DisplayName("管理单位")
         </th>
         <th>
             @Html.DisplayName("公司")
         </th>
         <th>
-            @Html.DisplayName("站面积")
+            @Html.DisplayName("是否热水站")
+        </th>
+        <th>
+            @Html.DisplayName("是否并网供热")
+        </th>
+        <th>
+            @Html.DisplayName("热力站行政区")
+        </th>
+        <th>
+            @Html.DisplayName("生产热源")
         </th>
         <th>
             @Html.DisplayName("面积A")
@@ -74,17 +93,19 @@ line-height: 30px;'>@ViewBag.Title</h2>
             @Html.DisplayName("面积B")
         </th>
         <th>
-            @Html.DisplayName("热力站行政区")
-        </th>
-        <th>
-            @Html.DisplayName("生产热源")
-        </th>
-       
-        <th>
             @Html.DisplayName("投入面积A")
         </th>
         <th>
             @Html.DisplayName("投入面积B")
+        </th>
+        <th>
+            @Html.DisplayName("热指标")
+        </th>
+        <th>
+            @Html.DisplayName("管理类型")
+        </th>
+        <th>
+            @Html.DisplayName("东西部")
         </th>
     </tr>
     }
@@ -99,13 +120,47 @@ line-height: 30px;'>@ViewBag.Title</h2>
             @p.热力站编码
         </td>
         <td>
+            @p.用热地址
+        </td>
+        <td>
             @p.管理单位
+        </td>
+        <td>
+            @p.热指标
         </td>  
         <td>
             @p.公司
         </td>
         <td>
-            @p.站面积
+            @{
+    if (p.是否热水站.HasValue && p.是否热水站.Value)
+    {
+                    <text>是</text>
+    }
+    else
+    {
+                    <text>否</text>
+    }
+             }
+        </td>
+        <td>
+            @{
+    if (p.是否并网供热.HasValue && p.是否并网供热.Value)
+    {
+                    <text>是</text>
+    }
+    else
+    {
+                    <text>否</text>
+    }
+             }
+        </td>
+        
+        <td>
+            @p.热力站行政区
+        </td>
+        <td>
+            @p.生产热源
         </td>
         <td>
             @p.面积A
@@ -114,16 +169,16 @@ line-height: 30px;'>@ViewBag.Title</h2>
             @p.面积B
         </td>
         <td>
-            @p.热力站行政区
-        </td>
-        <td>
-            @p.生产热源
-        </td>
-        <td>
             @p.投入面积A
         </td>
         <td>
             @p.投入面积B
+        </td>
+        <td>
+            @p.管理类型
+        </td>
+        <td>
+            @p.HeatSource.东西部
         </td>
     </tr>
 }

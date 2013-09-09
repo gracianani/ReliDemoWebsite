@@ -19,11 +19,29 @@
     <div class="box-content">
 		<table class="table makeTableHeaderAsBoxHeader">
 			<thead>
-				<tr>
-					<th></th>
-					<th><a href="#">全网</a></th>
-					<th><a href="#">东部</a></th>
-					<th><a href="#">西部</a></th>                                          
+				<tr>    
+                    <th>&nbsp;</th>                          
+				</tr>
+			</thead> 
+            <tbody>
+                @foreach (var GJItem in Model)
+                {
+                    <tr>
+					<td>@GJItem.Title</td>
+                    <td>@GJItem.全网</td>
+				    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+  <!--  <div class="box-content">
+		<table class="table makeTableHeaderAsBoxHeader">
+			<thead>
+				<tr>   
+                    <th> </th> 
+                    <th ><a href="#">全网</a></th>
+                    <th><a href="#">东部</a></th> 
+                    <th><a href="#">西部</a></th>                           
 				</tr>
 			</thead> 
             <tbody>
@@ -34,9 +52,9 @@
                     <td>@GJItem.全网</td>
                     <td>@GJItem.东部</td>
                     <td>@GJItem.西部</td>
-				</tr>
+				    </tr>
                 }
             </tbody>
         </table>
-    </div>
+    </div>-->
 </div>

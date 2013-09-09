@@ -1,0 +1,180 @@
+﻿@model IEnumerable<ReliDemo.Models.HeatSourceRecent>
+
+@{
+    ViewBag.Title = "RealTime";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>热源厂实时监测  <small>@Html.Partial("_TopMenu")</small> <span style="font-size:14px"> 上次更新时间 2013-07-31 </span></h2>
+
+<div class="row-fluid">
+        每页显示：
+<ul class="nav nav-pills" id="pills">
+<li class="active">
+    @Html.ActionLink("10", "Paged", new { startIndex = 0, pageSize = 10})
+</li>
+<li>
+    @Html.ActionLink("50", "Paged", new { startIndex = 0, pageSize = 50 })
+</li>
+<li>
+    @Html.ActionLink("100", "Paged", new { startIndex = 10, pageSize = 100 })
+</li>
+</ul>
+</div>
+
+<table class="table  table-bordered table-hover  table-condensed" style="background:white">
+    <tr>
+        <th>
+            热源名称
+        </th>
+        <th>
+            机组名
+        </th>
+        <th>
+            供压
+        </th>
+        <th>
+            供温
+        </th>
+        <th>
+            回压
+        </th>
+        <th>
+            回温
+        </th>
+        
+        <th>
+           瞬时供水流量
+        </th>
+        <th>
+            瞬时供水热量
+        </th> 
+        <th>
+            瞬时回水流量
+        </th>
+        <th>
+            瞬时回水热量
+        </th>
+        <th>
+            瞬时热量
+        </th>
+        <th>
+            瞬时补水量
+        </th>
+        <th>
+            累计供水流量
+        </th>
+        <th>
+            累计供水热量
+        </th>
+        <th>
+            累计回水流量
+        </th>
+        <th>
+            累计回水热量
+        </th>
+        <th>
+            累计热量
+        </th>
+        <th>
+            累计补水量
+        </th>
+        <th>
+            今日GJ
+        </th>
+        
+        <th>
+            昨日GJ
+        </th>
+        <th>
+            采集时间
+        </th>
+    </tr>
+    @for (int i = 0; i < Model.Count(); i++)
+    {
+        var heatSourceRecent = Model.ElementAt(i);
+        <tr>
+            <td>
+                @heatSourceRecent.热源名称
+            </td>
+            <td>
+                @heatSourceRecent.机组名
+            </td>
+            <td>
+                @heatSourceRecent.供压
+            </td>
+            <td>
+                @heatSourceRecent.供温
+            </td>
+            <td>
+                @heatSourceRecent.回压
+            </td>
+            <td>
+                @heatSourceRecent.回温
+            </td>
+            <td>
+                @heatSourceRecent.瞬时供水流量
+            </td>
+            <td>
+                @heatSourceRecent.瞬时供水热量
+            </td>
+            <td>
+                @heatSourceRecent.瞬时回水流量
+            </td>
+            <td>
+                @heatSourceRecent.瞬时回水热量
+            </td>
+            <td>
+                @heatSourceRecent.瞬时热量
+            </td>
+            <td>
+                @heatSourceRecent.瞬时补水量
+            </td>
+            <td>
+                @heatSourceRecent.累计供水流量
+            </td>
+            <td>
+                @heatSourceRecent.累计供水热量
+            </td>
+            <td>
+                @heatSourceRecent.累计回水流量
+            </td>
+            <td>
+                @heatSourceRecent.累计回水热量
+            </td>
+            <td>
+                @heatSourceRecent.累计热量
+            </td>
+            <td>
+                @heatSourceRecent.累计补水量
+            </td>
+            <td>
+                @heatSourceRecent.今日GJ
+            </td>
+            
+            <td>
+                @heatSourceRecent.昨日GJ
+            </td>
+            <td>
+                @heatSourceRecent.采集时间
+            </td>
+        </tr>   
+    }
+</table>
+
+<div class="row-fluid">
+<div class="pagination pagination-centered">
+    <ul>
+        <li>@Html.ActionLink("« 前一个", "RealTime", new { startIndex = 10, pageSize = 50 })</li>
+        <li>@Html.ActionLink("« 前十个", "RealTime", new { startIndex = 10, pageSize = 10 })</li>
+        @for (int i = 0;  i < 10; i++)
+        {
+            <li>
+                <a>@(i + 1)</a> 
+            </li>
+        }
+        <li>@Html.ActionLink("下十个 »", "RealTime", new { startIndex = 10, pageSize = 10 })</li>
+        <li>@Html.ActionLink("下一个 »", "RealTime", new { startIndex = 1, pageSize = 10 })</li>
+    </ul>
+</div>
+</div>

@@ -26,6 +26,20 @@
 					</tr>
 				</thead>   
 				<tbody>
+                <tr>
+					<td>计划供热量(GJ)</td>
+                    @foreach (var item in Model)
+                    {
+                        <td class="center">@item.计划供热量GJ</td>
+                    }
+				</tr>
+                <tr>
+					<td>实际供热量(GJ)</td>
+                    @foreach (var item in Model)
+                    {
+                        <td class="center">@item.实际供热量GJ</td>
+                    }
+				</tr>
 				<tr>
 					<td>热力站(个)</td>
                     @foreach (var item in Model)
@@ -33,46 +47,26 @@
                         <td class="center">@item.热力站个数</td>
                     }
 				</tr>
+				
 				<tr>
-					<td>总面积(m<sup>2</sup>)</td>
-                    @foreach (var item in Model)
-                    {
-                        <td class="center">@item.总面积</td>
-                    }                                  
-				</tr>
-				<tr>
-					<td>实际投入面积(m<sup>2</sup>)</td>
-					@foreach (var item in Model)
-                    {
-                        <td class="center">@item.实际投入面积</td>
-                    }                                    
-				</tr>
-				<tr>
-					<td>万平米循环水量(t)</td>
+					<td>万平米循环水量(t/h)</td>
 					@foreach (var item in Model)
                     {
                         <td class="center">@item.万平米循环水量</td>
                     }                                       
 				</tr>
                 <tr>
-					<td>总瞬时单耗</td>
-					@foreach (var item in Model)
-                    {
-                        <td class="center">@item.总瞬时单耗</td>
-                    }                                       
-				</tr>
-                <tr>
-					<td>总瞬时流量</td>
-					@foreach (var item in Model)
-                    {
-                        <td class="center">@item.总瞬时流量</td>
-                    }                                       
-				</tr>
-                <tr>
-					<td>总瞬时热量</td>
+					<td>瞬时供热量(GCal/h)</td>
 					@foreach (var item in Model)
                     {
                         <td class="center">@item.总瞬时热量</td>
+                    }                                       
+				</tr>
+                <tr>
+					<td>平均热负荷(GCal/h)</td>
+					@foreach (var item in Model)
+                    {
+                        <td class="center">186</td>
                     }                                       
 				</tr>
 				</tbody>

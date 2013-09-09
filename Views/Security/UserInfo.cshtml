@@ -1,0 +1,36 @@
+﻿@model IEnumerable<ReliDemo.Models.User>
+
+@{
+    ViewBag.Title = "UserInfo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>用户信息</h2>
+<table class="table table-bordered table-hover  table-condensed" style="background:white">
+    <tr>
+        <th>
+            员工姓名
+        </th>
+        <th>
+            员工权限
+        </th>
+        <th>
+            上次登录时间
+        </th>
+    </tr>
+@for (var i = 0; i < Model.Count(); i++)
+{
+    var user = @Model.ElementAt(i);
+    <tr>
+        <td>
+            @user.姓名
+        </td>
+        <td>
+            @string.Join(",", user.webpages_Roles.Select(j=>j.RoleName).ToList())
+        </td>
+        <td>
+            @user.webpages_Membership.CreateDate
+        </td>
+    </tr>
+}
+</table>

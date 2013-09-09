@@ -16,14 +16,14 @@
             @foreach( var station in Model.Managership.Stations){
                 if (Model.Managership.Stations.First() == station)
                 {
-                    <tr><th>热力站名称</th><th>热力站编号</th><th>站面积</th><th>超标面积</th><th>超标比例</th></tr>
+                    <tr><th>热力站名称</th><th>热力站编号</th><th>面积(万㎡)</th><th>热指标(KCal/h)</th><th>热负荷(GCal/h)</th></tr>
                 }
                 <tr>
                     <td>@Html.ActionLink(station.热力站名称, "BasicInfo", "Stations", new { managershipId = station.ItemID }, new { })</td>
                     <td>@station.热力站编号 </td>
                     <td>@( station.投入面积A + station.投入面积B)</td>
-                    <td>111</td>
-                    <td>111</td>
+                    <td>38</td>
+                    <td>1.5</td>
                 </tr>
             }
         </table>

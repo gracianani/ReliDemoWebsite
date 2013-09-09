@@ -1,0 +1,165 @@
+﻿@model ReliDemo.ViewModels.StationsRealTimeViewModel 
+
+@{
+    ViewBag.Title = "热力站实时监测";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+ <h2 style='font-family: "Microsoft Yahei",sans-serif;
+font-size: 24px;
+margin-bottom: 0.9em;
+line-height: 30px;'>@ViewBag.Title <span style="font-size:14px"> 上次更新时间 2013-07-31 </span></h2>
+
+<div class="row-fluid">
+        每页显示：
+<ul class="nav nav-pills" id="pills">
+<li @if(Model.StationsRealTime.PageSize == 10) {
+    <text> class="active" </text> 
+    } >
+    @Html.ActionLink("10", "RealTime", new { startIndex = Model.StationsRealTime.PageIndex, pageSize = 10 })
+</li>
+<li @if (Model.StationsRealTime.PageSize == 50)
+    {
+    <text> class="active" </text> 
+    } >
+    @Html.ActionLink("50", "RealTime", new { startIndex = Model.StationsRealTime.PageIndex, pageSize = 50 })
+</li>
+<li @if (Model.StationsRealTime.PageSize == 100)
+    {
+    <text> class="active" </text> 
+    }>
+    @Html.ActionLink("100", "RealTime", new { startIndex = Model.StationsRealTime.PageIndex, pageSize = 100 })
+</li>
+
+</ul>
+</div>
+<table class="table  table-bordered table-hover  table-condensed" style="background:white">
+
+@foreach (var p in Model.StationsRealTime)
+{
+    if (Model.StationsRealTime.IndexOf(p) == 0)
+    {
+        <tr>
+        <th>
+            @Html.DisplayName("采集点")
+        </th>
+        <th>
+            @Html.DisplayName("采集时间")
+        </th>
+        <th>
+            @Html.DisplayName("供压(MPa)")
+        </th>
+        <th>
+            @Html.DisplayName("回压(MPa)")
+        </th>
+        <th>
+            @Html.DisplayName("供温(℃)")
+        </th>
+        <th>
+            @Html.DisplayName("回温(℃)")
+        </th>
+        <th>
+            @Html.DisplayName("总累计流量")
+        </th>
+        <th>
+            @Html.DisplayName("总累计热量")
+        </th>
+        <th>
+            @Html.DisplayName("总瞬时流量")
+        </th>
+        <th>
+            @Html.DisplayName("总瞬时热量")
+        </th>
+        <th>
+            @Html.DisplayName("瞬时单耗")
+        </th>
+        <th>
+            @Html.DisplayName("万平方米流量")
+        </th>
+        
+    </tr>
+    }
+    <tr>
+        <td>
+            @Html.ActionLink(p.Station.热力站名称, "BasicInfo", new { stationId = p.ItemID })
+        </td>
+        <td>
+            @p.时间.Value.ToString("yyyy-MM-dd HH:mm")
+        </td>
+        <td>
+            @p.一次供压
+        </td>
+        <td>
+            @p.一次回压
+        </td> 
+        <td>
+            @p.一次供温
+        </td>
+        <td>
+            @p.一次回温
+        </td>
+        <td>
+            @p.总累计流量
+        </td>
+        <td>
+            @p.总累计热量
+        </td>
+        <td>
+            @p.总瞬时流量
+        </td>
+        <td>
+            @p.总瞬时热量
+        </td>
+        <td>
+            @p.瞬时单耗
+        </td>
+        <td>
+            @p.万平方米流量
+        </td>
+        
+    </tr>
+}
+</table>
+
+<div class="row-fluid">
+<div class="pagination pagination-centered">
+    <ul>
+        <li>@Html.ActionLink("« 前一个", "RealTime", new { startIndex = Model.StationsRealTime.PageIndex - 1, pageSize = Model.StationsRealTime.PageSize })</li>
+        @if (Model.StationsRealTime.PageIndex >= 10)
+        {
+            <li>@Html.ActionLink("« 前十个", "RealTime", new { startIndex = Model.StationsRealTime.PageIndex - 10, pageSize = 10 })</li>
+        }
+        @for (int i = Model.StationsRealTime.PageIndex / 10 * 10; (i < Model.StationsRealTime.PageIndex / 10 * 10 + 10) && i < Model.StationsRealTime.TotalPages; i++)
+        {
+            <li @if (Model.StationsRealTime.PageIndex == i)
+                { <text>class="active"</text> } >
+
+                @Html.ActionLink((i + 1).ToString(), "RealTime", new { startIndex = i, pageSize = Model.StationsRealTime.PageSize })
+            </li>
+        }
+        @if (Model.StationsRealTime.PageIndex < Model.StationsRealTime.TotalPages - 10)
+        {
+            <li>@Html.ActionLink("下十个 »", "RealTime", new { startIndex = (Model.StationsRealTime.PageIndex / 10 + 1) * 10, pageSize = Model.StationsRealTime.PageSize })</li>
+        }
+        <li>@Html.ActionLink("下一个 »", "RealTime", new { startIndex = Model.StationsRealTime.PageIndex + 1, pageSize = Model.StationsRealTime.PageSize })</li>
+    </ul>
+</div>
+</div>
+
+<script>
+    $(function () {
+        $("select[name=companies]").change(function () {
+            $.ajax({
+                url: "/Stations/GetManagershipsByCompanyId",
+                type: "post",
+                data: { companyId: $(this).val() },
+                success: function (response, textStatus, jqXHR) {
+                    $("#managerships").html("<option value>请选择管理单位<option>" + response).css("display", "");
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                },
+                complete: function () {
+                }
+            });
+        });
+    });
+</script>

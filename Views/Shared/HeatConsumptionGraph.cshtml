@@ -8,7 +8,7 @@
 <div class="box blue span12 noMarginLeft">
 	<div class="box-header">
 		<h2><i class="icon-bar-chart"></i>实际温度、供热量日统计</h2>
-		<div class="box-subTitle"><a class="btn btn-small" id="lastSevenDays">最近7天</a> <a class="btn btn-small" id="lastThirtyDays">最近30天</a> <a class="btn btn-small" id="thisYear">本供暖季</a>
+		<div class="box-subTitle"><a class="btn btn-small" id="today">今日</a> <a class="btn btn-small" id="lastSevenDays">最近7天</a> <a class="btn btn-small" id="lastThirtyDays">最近30天</a> <a class="btn btn-small" id="thisYear">本供暖季</a>
 		</div>
 	</div>
 	<div class="box-content">
@@ -42,7 +42,7 @@ $(document).ready(function () {
  
     var heatTempChartData = [{
 
-        label: "实际温度",
+        label: "实际平均温度",
         data: tempDate,
         lines: {show: true},
         points: {show:true}
