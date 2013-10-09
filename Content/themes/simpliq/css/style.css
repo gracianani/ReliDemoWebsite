@@ -1760,11 +1760,6 @@ footer a {
   font-size: 20px;
   font-weight: bold;
 }
-.smallstat .time
-{
-    font-size:14px;
-    display:block;
-}
 /* Discussions
 =================================================================== */
 /* line 5, less\discussions.less */
@@ -3394,83 +3389,90 @@ body {
 .smallstat small {
   font-size: 50%;
 }
-/* line 58, less\custom.less */
+/* line 55, less\custom.less */
+.smallstat .time {
+  font-size: 10px;
+  float: none;
+  clear: both;
+  display: block;
+}
+/* line 64, less\custom.less */
 .table {
   margin-bottom: 0;
 }
-/* line 60, less\custom.less */
+/* line 66, less\custom.less */
 .table .right {
   text-align: right;
 }
-/* line 65, less\custom.less */
+/* line 71, less\custom.less */
 .backgroundColorHeader.blue {
   background: #378fc9;
 }
-/* line 69, less\custom.less */
+/* line 75, less\custom.less */
 .backgroundColorHeader.blue .box-icon {
   background: #2c73a1;
 }
-/* line 71, less\custom.less */
+/* line 77, less\custom.less */
 .backgroundColorHeader.blue .box-icon i {
   border-left-color: #2c73a1;
 }
-/* line 76, less\custom.less */
+/* line 82, less\custom.less */
 .backgroundColorHeader.lightBlue {
   background: #67c2ef;
 }
-/* line 77, less\custom.less */
+/* line 83, less\custom.less */
 .backgroundColorHeader.green {
   background: #bdea74;
 }
-/* line 78, less\custom.less */
+/* line 84, less\custom.less */
 .backgroundColorHeader.darkGreen {
   background: #7fb30c;
 }
-/* line 79, less\custom.less */
+/* line 85, less\custom.less */
 .backgroundColorHeader.pink {
   background: #e84c8a;
 }
-/* line 80, less\custom.less */
+/* line 86, less\custom.less */
 .backgroundColorHeader.orange {
   background: #ec6313;
 }
-/* line 81, less\custom.less */
+/* line 87, less\custom.less */
 .backgroundColorHeader.lightOrange {
   background: #fabb3d;
 }
-/* line 82, less\custom.less */
+/* line 88, less\custom.less */
 .backgroundColorHeader.red {
   background: #ff5454;
 }
-/* line 83, less\custom.less */
+/* line 89, less\custom.less */
 .backgroundColorHeader.yellow {
   background: #eae874;
 }
-/* line 84, less\custom.less */
+/* line 90, less\custom.less */
 .backgroundColorHeader.white {
   background: white;
 }
-/* line 85, less\custom.less */
+/* line 91, less\custom.less */
 .backgroundColorHeader.grey {
   background: #c7cbd5;
 }
-/* line 86, less\custom.less */
+/* line 92, less\custom.less */
 .backgroundColorHeader.crimson {
   background: #9e3f3d;
 }
-/* line 90, less\custom.less */
+/* line 96, less\custom.less */
 .backgroundColorHeader.crimson .box-icon {
   background: #79302f;
 }
-/* line 92, less\custom.less */
+/* line 98, less\custom.less */
 .backgroundColorHeader.crimson .box-icon i {
   border-left-color: #79302f;
 }
-/* line 96, less\custom.less */
+/* line 102, less\custom.less */
 .backgroundColorHeader.crimson h2 i {
   background: #79302f;
 }
-/* line 104, less\custom.less */
+/* line 110, less\custom.less */
 .box .box-header .box-subTitle {
   float: right;
   font-size: 16px;
@@ -3478,45 +3480,45 @@ body {
   padding: 8px 0;
   margin: 0 20px 0 0;
 }
-/* line 112, less\custom.less */
+/* line 118, less\custom.less */
 .box .box-header h2 {
   font-size: 16px;
   font-weight: normal;
   line-height: 16px;
 }
-/* line 117, less\custom.less */
+/* line 123, less\custom.less */
 .box .box-header .btn-small {
   padding: 0 10px;
   line-height: 20px;
 }
-/* line 124, less\custom.less */
+/* line 130, less\custom.less */
 .makeTableHeaderAsBoxHeader {
   position: relative;
   top: -46px;
   margin-bottom: -46px;
 }
-/* line 128, less\custom.less */
+/* line 134, less\custom.less */
 .makeTableHeaderAsBoxHeader th {
   color: #FFF;
   background: none!important;
 }
-/* line 131, less\custom.less */
+/* line 137, less\custom.less */
 .makeTableHeaderAsBoxHeader th a {
   color: #FFF;
 }
-/* line 135, less\custom.less */
+/* line 141, less\custom.less */
 .makeTableHeaderAsBoxHeader tbody tr:first-child td {
   border-top: none;
 }
 /* table
 =================================================================== */
-/* line 143, less\custom.less */
+/* line 149, less\custom.less */
 .table.table-bordered {
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   border-radius: 0;
 }
-/* line 148, less\custom.less */
+/* line 154, less\custom.less */
 .table.table-bordered thead:first-child tr:first-child > th:first-child,
 .table.table-bordered tbody:first-child tr:first-child > td:first-child,
 .table.table-bordered tbody:first-child tr:first-child > th:first-child,
@@ -3529,23 +3531,23 @@ body {
   -moz-border-radius: 0;
   border-radius: 0;
 }
-/* line 154, less\custom.less */
+/* line 160, less\custom.less */
 .table th {
   background: #ededed;
   color: #000;
   font-weight: bold;
 }
-/* line 159, less\custom.less */
+/* line 165, less\custom.less */
 .table td {
   color: #111;
 }
 /* station
 ========================*/
-/* line 166, less\custom.less */
+/* line 172, less\custom.less */
 .subNav {
   margin-left: 0;
 }
-/* line 169, less\custom.less */
+/* line 175, less\custom.less */
 .subNav li {
   float: left;
   display: inline-block;
@@ -3556,59 +3558,59 @@ body {
   border-right: 1px solid rgba(255, 255, 255, 0.1);
   border-left: 1px solid rgba(0, 0, 0, 0.5);
 }
-/* line 178, less\custom.less */
+/* line 184, less\custom.less */
 .subNav li.current {
   background-color: #0074c1;
 }
-/* line 181, less\custom.less */
+/* line 187, less\custom.less */
 .subNav li:first-child {
   border-radius: 4px 0 0 4px;
   border-left: none;
 }
-/* line 185, less\custom.less */
+/* line 191, less\custom.less */
 .subNav li:last-child {
   border-radius: 0 4px 4px 0;
   border-right: none;
 }
-/* line 189, less\custom.less */
+/* line 195, less\custom.less */
 .subNav li a {
   color: #fff;
 }
-/* line 192, less\custom.less */
+/* line 198, less\custom.less */
 .subNav li a:hover {
   text-decoration: none;
 }
-/* line 198, less\custom.less */
+/* line 204, less\custom.less */
 .table-zebra td {
   color: #333;
 }
-/* line 202, less\custom.less */
+/* line 208, less\custom.less */
 .table-zebra tr td:nth-child(2n) {
   background-color: #f9f9f9;
 }
-/* line 206, less\custom.less */
+/* line 212, less\custom.less */
 .table-zebra tr:nth-child(2n) {
   background-color: #f9f9f9;
 }
-/* line 208, less\custom.less */
+/* line 214, less\custom.less */
 .table-zebra tr:nth-child(2n) td:nth-child(2n) {
   background-color: white;
 }
-/* line 212, less\custom.less */
+/* line 218, less\custom.less */
 .table-zebra em {
   font-style: normal;
   color: #000;
   font-size: 18px;
 }
-/* line 218, less\custom.less */
+/* line 224, less\custom.less */
 .table-zebra a {
   color: #378fc9;
 }
-/* line 224, less\custom.less */
+/* line 230, less\custom.less */
 .pieChartWithCenterText {
   position: relative;
 }
-/* line 226, less\custom.less */
+/* line 232, less\custom.less */
 .pieChartWithCenterText .centerText {
   position: absolute;
   top: 45%;
@@ -3618,6 +3620,25 @@ body {
   text-align: center;
   z-index: 100;
   color: #000;
+}
+/* line 244, less\custom.less */
+.topmenu {
+  position: relative;
+  top: 15px;
+  margin-bottom: 20px;
+}
+/* line 248, less\custom.less */
+.topmenu .btn {
+  background-color: #393f4c;
+  color: #FFF;
+}
+/* line 252, less\custom.less */
+.topmenu .btn:hover {
+  background-color: #0071c0;
+}
+/* line 256, less\custom.less */
+.stationTitle {
+  margin-bottom: 20px;
 }
 /* Page: Messages
 =================================================================== */
@@ -4019,11 +4040,3 @@ ul.messagesList li span.date {
   margin-top: 20px;
   float: left;
 }
-.table span.symbol {
-		font-size:13px;
-		display:block;
-	}
-	
-	
-	
-
