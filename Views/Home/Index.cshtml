@@ -6,10 +6,11 @@
 
 <div class="row-fluid">
     <div class="span6">
-        <a class="span4 smallstat box noMargin" onTablet="span12" onDesktop="span6"  href="#">
+        <a class="span4 smallstat box noMargin" id="todaysGJ" onTablet="span12" onDesktop="span6"  href="#">
 			<i class="icon-fire crimson"></i>
 			<span class="title">今日累计供热量</span>
 			<span class="value">3.2万GJ</span>
+            <span class="time">更新时间:2013-11-02 15:30PM</span>
 		</a>
 
 		<a class="span4 smallstat box noMargin" onTablet="span12" onDesktop="span6"  href="#">
@@ -22,18 +23,19 @@
 			<i class="icon-calendar darkGreen"></i>
 			<span class="title">累计供热时间</span>
 			<span class="value">1天</span>
+            <span class="time">供热开始日期:2013-11-01</span>
 		</a>			
     </div>
     <div class="span6">
 		<a class="span4 smallstat box noMargin" onTablet="span12" onDesktop="span4" href="#">
 			<i class="icon-ok crimson"></i>
 			<span class="title">计划投停面积</span>
-			<span class="value">231<small>万平方米</small></span>
+			<span class="value">231/89<small>万㎡</small></span>
 		</a>
 		<a class="span4 smallstat box noMargin" onTablet="span12" onDesktop="span4" href="#">
 			<i class="icon-ok crimson"></i>
 			<span class="title">实际投停面积</span>
-			<span class="value">56 <small>万平方米</small></span>
+			<span class="value">200/120 <small>万㎡</small></span>
 		</a>
 		
 		<a class="span4 smallstat box noMargin" onTablet="span12" onDesktop="span4" href="#">
@@ -46,106 +48,21 @@
 <div class="row-fluid">
 	<div class="span6">
         @Html.Partial("HeatConsumptionSummary", Model.TodaysHeatConsumptionSummary)
-         @Html.Partial("HeatConsumptionTotal", Model.YesterdayGJ)
-
+        @Html.Partial("HeatConsumptionTotal", Model.YesterdayGJ)
 		<div class="box span12 noMarginLeft">
-				<div class="box-header">
-				<h2><i class="icon-tasks"></i>节能/超标热力站排行</h2>
-				</div>
-				<div class="box-content">
+			<div class="box-header">
+			    <h2><i class="icon-tasks"></i>节能/超标热力站排行</h2>
+			</div>
+			<div class="box-content">
 				<div class="row-fluid">
-				<div class="span6">
-				<table class="table"> 
-						<tbody>
-						<tr><th colspan="3"><select style="width:100px"><option>从低到高</option><option>从低到高</option></select> 单耗排行 </th></tr>
-						<tr>
-							<td>1</td>
-							<td><span class="label label-success">-5%</span></td>
-							<td><a href="#">CBD小学</a></td> 
-						</tr>
-						<tr>
-							<td>2</td>
-							<td><span class="label label-success">-4.6%</span></td>
-							<td><a href="#">八里庄三小热力点</a></td>                                    
-						</tr>
-						<tr>
-							<td>3</td>
-							<td><span class="label label-success">-4.1%</span></td>
-							<td><a href="#">保利百合站</a></td>                                    
-						</tr>
-						<tr>
-							<td>4</td>
-							<td><span class="label label-success">-3.9%</span></td>
-							<td><a href="#">报业总社站</a></td>                                    
-						</tr>
-						<tr>
-							<td>5</td>
-							<td><span class="label label-success">-3.8%</span></td>
-							<td><a href="#">安翔里小区新建3#</a></td>                                    
-						</tr>
-						<tr>
-							<td colspan="3" class="right">
-							<a href="#" >节能站总数：<big class="darkGreen">45</big>个</a> <a href="#" >超能站总数：<big class="red">72</big>个</a>
-							</td>
-						</tr>
-						</tbody>
-					</table>
-				</div><!--/span-->
-				<div class="span6">
-					<table class="table"> 
-						<tbody>
-						<tr><th colspan="3"><select style="width:100px"><option>从高到低</option><option>从低到高</option></select> 循环水量排行 </th></tr>
-						<tr>
-							<td>1</td>
-							<td><span class="label label-important">+5%</span></td>
-							<td><a href="#">北大附中</a></td>                                       
-						</tr>
-						<tr>
-							<td>2</td>
-							<td><span class="label label-important">+4.8%</span></td>
-							<td><a href="#">218厂</a></td>                                       
-						</tr>
-						<tr>
-							<td>3</td>
-							<td><span class="label label-important">+4.7%</span></td>
-							<td><a href="#">长安开行站</a></td>                                       
-						</tr>
-						<tr>
-							<td>4</td>
-							<td><span class="label label-important">+4.5%</span></td>
-							<td><a href="#">朝服务局亮马桥D站</a></td>                                       
-						</tr>
-						<tr>
-							<td>5</td>
-							<td><span class="label label-important">+4.3%</span></td>
-							<td><a href="#">长远天地</a></td>                                       
-						</tr>
-						<tr>
-							<td colspan="3" class="right">
-							<a href="#" >节流站总数：<big class="darkGreen">45</big>个</a> <a href="#" >超流站总数：<big class="red">72</big>个</a>
-							</td>
-						</tr>
-						</tbody>
-					</table>
-				</div><!--/span-->
-			</div><!--/row-->
-		</div><!--/box-->
-	</div><!--/span-->	
+				    @Html.Partial("EnergyTopChart", Model.EnergyTopChart)
+			    </div><!--/row-->
+		    </div><!--/box-->
+	    </div><!--/span-->	
 	</div>
 	<div class="span6">
 		<div class="row-fluid">
-			<div class="box blue span12 noMarginLeft">
-				<div class="box-header">
-					<h2><i class="icon-bar-chart"></i>实际温度、供热量日统计</h2>
-					<div class="box-subTitle"><a class="btn btn-small" id="lastSevenDays">最近7天</a> <a class="btn btn-small" id="lastThirtyDays">最近30天</a> <a class="btn btn-small" id="thisYear">本供暖季</a>
-					</div>
-				</div>
-				<div class="box-content">
-					<div id="dashboard-heat-temp-chart" style="height:340px"></div>	
-				</div>	
-			</div><!--/span-->
-
-
+            @Html.Partial("HeatConsumptionGraph", Model.Histories)
 			<div class="box blue  span12 noMarginLeft">
 				<div class="box-header">
 					<h2><i class="icon-bar-chart"></i>供暖季各公司累计热耗</h2>
@@ -153,16 +70,7 @@
 				<div class="box-content">
 					<div class="row-fluid">
 						<div class="span12">
-							<table class="table">
-								<tr><th>公司</th><th>计划供热量(GJ)</th> <th>实际供热量(GJ)</th><th>平均热指标(KCal/h*㎡)</th><th>万平米循环水量(t/h)</th></tr>
-								<tr><td>特诚公司</td><td>0.82</td><td>1.25</td><td>6984</td><td>3582</td></tr>
-								<tr><td>合格服务商</td><td>0.78</td><td>1.47</td><td>7841</td><td>4782</td></tr>
-								<tr><td>创合供热公司</td><td>0.94</td><td>1.24</td><td>7854</td><td>4785</td></tr>
-								<tr><td>特力昆公司</td><td>0.96</td><td>1.10</td><td>6472</td><td>5048</td></tr>
-								<tr><td>天禹供热公司</td><td>0.58</td><td>1.22</td><td>2568</td><td>5478</td></tr>
-								<tr><td>销售公司</td><td>0.78</td><td>0.88</td><td>4875</td><td>6571</td></tr>
-								<tr><td>科利源供热公司</td><td>0.48</td><td>0.47</td><td>7841</td><td>5417</td></tr>
-							</table>
+							@Html.Partial("CompanyHeatConsumption", Model.Companies)
 						</div>
 					</div>
 				</div>
@@ -187,13 +95,12 @@
 
 <div class="row-fluid">
 	<div class="box blue span12 noMarginLeft">
-				<div class="box-header">
-					<h2><i class="icon-bar-chart"></i>各公司投停面积</h2>
-								
-				</div>
-				<div class="box-content">
-					<div id="dashboard-company-area-barchart" style="height:350px"></div>	
-				</div>	
+		<div class="box-header">
+			<h2><i class="icon-bar-chart"></i>各公司投停面积</h2>
+		</div>
+		<div class="box-content">
+			@Html.Partial("CompanyOnOffArea", Model.CompanyAreaOnOff)	
+		</div>	
 	</div><!--/span-->
 </div>
 
@@ -201,246 +108,57 @@
     /* ---------- dashboard ---------- */
     jQuery(document).ready(function ($) {
 
-	var companyAreaBarchartData = [
-		{ label: "总面积", data:  [ ["创合供热公司", 10], ["合格服务商", 8], ["科利源供热公司", 4], ["特诚公司", 13], ["特力昆公司", 17], ["天禹供热公司", 9], ["销售公司", 9] ] },
-		{ label: "实际投入面积", data: [ ["创合供热公司", 9], ["合格服务商", 5], ["科利源供热公司", 3], ["特诚公司", 4], ["特力昆公司", 15], ["天禹供热公司", 4], ["销售公司", 9] ] }
-	];
-
-
-
-	$.plot("#dashboard-company-area-barchart", companyAreaBarchartData, {
-			series: {
-				stack:false,
-				bars: {
-					show: true,
-					barWidth: 0.6,
-					align: "center"
-				}
-				
-			},
-			xaxis: {
-				show: true,
-				mode: "categories",
-				tickLength: 0,
-				color:"#F00",
-				tickColor:"#F00"
-				
-			},
-			grid:{tickColor:"#eee",borderWidth:0
-			},
-			colors:["#cdcdcd","#2FABE9"]
-	});
-
-
-	var companyHeatPieChartData = [
-
-        {label: "创合供热公司", data:10},
-
-        {label: "合格服务商", data: 20},
-
-        {label: "特诚公司", data: 30},
-
-        {label: "特力昆公司", data: 40},
-
-        {label: "天禹供热公司", data: 50},
-
-        {label: "天禹供热公司", data: 60},
-
-        {label: "天禹供热公司", data: 70}
-
-    ];
-
  
-
-    var companyHeatPieChartOptions = {
-            series: {
-               pie: {
-				show: true
-				}
-            },
-			colors:["#c84628","#3c4451","#fa5833","#9440ed","#2fabe9","#fabb3d","#78cd51"],
-			legend: {
-				show:false
-			},
-			grid: {
-				hoverable:true,
-				clickable:true
-			}
-         };
-
- 
-
-
-
-	var tempDate = [[(new Date(2013,11,15)).getTime(), 15],[(new Date(2013,11,16)).getTime(), 20],[(new Date(2013,11,17)).getTime(), 18],[(new Date(2013,11,18)).getTime(), 18],[(new Date(2013,11,19)).getTime(), 18],[(new Date(2013,11,20)).getTime(), 20],[(new Date(2013,11,21)).getTime(), 18],[(new Date(2013,11,22)).getTime(), 18],[(new Date(2013,11,23)).getTime(), 18],[(new Date(2013,11,24)).getTime(), 18],[(new Date(2013,11,25)).getTime(), 10],[(new Date(2013,11,26)).getTime(), 9],[(new Date(2013,11,27)).getTime(), 18],[(new Date(2013,11,28)).getTime(), 18],[(new Date(2013,11,29)).getTime(), 15],[(new Date(2013,11,30)).getTime(), 10]];
-	
-    var heatDate1 = [[(new Date(2013,11,15)).getTime(), 2048],
-	[(new Date(2013,11,16)).getTime(), 2013],
-	[(new Date(2013,11,17)).getTime(), 2013],
-	[(new Date(2013,11,18)).getTime(), 2013],
-	[(new Date(2013,11,19)).getTime(), 2013],
-	[(new Date(2013,11,20)).getTime(), 2013],
-	[(new Date(2013,11,21)).getTime(), 2013],
-	[(new Date(2013,11,22)).getTime(), 2013],
-	[(new Date(2013,11,23)).getTime(), 2013],
-	[(new Date(2013,11,24)).getTime(), 2013],
-	[(new Date(2013,11,25)).getTime(), 2013],
-	[(new Date(2013,11,26)).getTime(), 2013],
-	[(new Date(2013,11,27)).getTime(), 2013],
-	[(new Date(2013,11,28)).getTime(), 2013],
-	[(new Date(2013,11,29)).getTime(), 2013],
-	[(new Date(2013,11,30)).getTime(), 1900]];
-	var heatDate2 = [[(new Date(2013,11,15)).getTime(), 1987],
-	[(new Date(2013,11,16)).getTime(), 2013],
-	[(new Date(2013,11,17)).getTime(), 2947],
-	[(new Date(2013,11,18)).getTime(), 2013],
-	[(new Date(2013,11,19)).getTime(), 2048],
-	[(new Date(2013,11,20)).getTime(), 2013],
-	[(new Date(2013,11,21)).getTime(), 2048],
-	[(new Date(2013,11,22)).getTime(), 2013],
-	[(new Date(2013,11,23)).getTime(), 2048],
-	[(new Date(2013,11,24)).getTime(), 2013],
-	[(new Date(2013,11,25)).getTime(), 2013],
-	[(new Date(2013,11,26)).getTime(), 2713],
-	[(new Date(2013,11,27)).getTime(), 2113],
-	[(new Date(2013,11,28)).getTime(), 2348],
-	[(new Date(2013,11,29)).getTime(), 1013],
-	[(new Date(2013,11,30)).getTime(), 2579]];
-	var heatDate3 = [[(new Date(2013,11,15)).getTime(), 2048],
-	[(new Date(2013,11,16)).getTime(), 2013],
-	[(new Date(2013,11,17)).getTime(), 2013],
-	[(new Date(2013,11,18)).getTime(), 2013],
-	[(new Date(2013,11,19)).getTime(), 2013],
-	[(new Date(2013,11,20)).getTime(), 2013],
-	[(new Date(2013,11,21)).getTime(), 2013],
-	[(new Date(2013,11,22)).getTime(), 2013],
-	[(new Date(2013,11,23)).getTime(), 2013],
-	[(new Date(2013,11,24)).getTime(), 2005],
-	[(new Date(2013,11,25)).getTime(), 1990],
-	[(new Date(2013,11,26)).getTime(), 2000],
-	[(new Date(2013,11,27)).getTime(), 2019],
-	[(new Date(2013,11,28)).getTime(), 2483],
-	[(new Date(2013,11,29)).getTime(), 2013],
-	[(new Date(2013,11,30)).getTime(), 1400]];
-    var heatTempChartData = [{
-
-        label: "实际平均温度",
-        data: tempDate,
-        lines: {show: true},
-        points: {show:true}
-
-    },{
-
-        label: "当日计划供热量",
-        data: heatDate1,
-        bars: {show: true,order: 1,fill:true,barWidth:24*60*60*100,lineWidth:1},
-		yaxis: 2 
-
-
-    },{
-
-        label: "当日折算供热量",
-        data: heatDate2,
-        bars: {show: true,order: 2,fill:true,barWidth:24*60*60*100,lineWidth:1},
-		yaxis: 2 
-
-    },{
-
-        label: "当日累计供热量",
-        data: heatDate3,
-        bars: {show: true,order: 3,fill:true,barWidth:24*60*60*100,lineWidth:1},
-		yaxis: 2 
-
-    }];
-
- 
-
-	var heatTempChartGrid = {
-		tickColor:"#eee",
-		borderWidth:0,
-		hoverable: true,
-		clickable: true
-	};
-    var heatTempChartOptions = {
-            xaxis: {
-					mode: "time",
-					minTickSize: [1, "day"],
-					timeformat: "%m月%d日"
-			},
-            grid:heatTempChartGrid,
-			yaxes: [ {}, {
-					position: "right"
-			} ]
-
-    };
-	var heatTempChartOptionsLastWeek = {
-			xaxis: {
-					mode: "time",
-					min: (new Date(2013, 11, 24)).getTime(),
-					max: (new Date(2013, 11, 30)).getTime(),
-					minTickSize: [1, "day"],
-					timeformat: "%m月%d日"
-			},yaxes: [ {}, {
-					position: "right"
-			} ],
-            grid:heatTempChartGrid
-	};
-	var heatTempChartOptionsLastMonth = {
-			xaxis: {
-					mode: "time",
-					minTickSize: [1, "day"],
-					min: (new Date(2013, 11, 1)).getTime(),
-					max: (new Date(2013, 11, 30)).getTime(),
-					minTickSize: [1, "day"],
-					timeformat: "%m月%d日"
-			},yaxes: [ {}, {
-					position: "right"
-			} ],
-            grid:heatTempChartGrid
-	};
-
- 
-
-
-
-	var dashboardHeatTempChart = $.plot($("#dashboard-heat-temp-chart"),heatTempChartData,heatTempChartOptionsLastWeek);
 	$("<div id='tooltip'></div>").css({
-			position: "absolute",
-			display: "none",
-			border: "1px solid #fdd",
-			padding: "2px",
-			"background-color": "#fee",
-			opacity: 0.80
+		position: "absolute",
+		display: "none",
+		border: "1px solid #fdd",
+		padding: "2px",
+		"background-color": "#fee",
+		opacity: 0.80
 	}).appendTo("body");
 
 	$("#thisYear").click(function () {
-			$.plot("#dashboard-heat-temp-chart", heatTempChartData, heatTempChartOptions);
+		$.plot("#dashboard-heat-temp-chart", heatTempChartData, heatTempChartOptions);
 	});
 	$("#lastSevenDays").click(function () {
-			$.plot("#dashboard-heat-temp-chart", heatTempChartData, heatTempChartOptionsLastWeek);
+		$.plot("#dashboard-heat-temp-chart", heatTempChartData, heatTempChartOptionsLastWeek);
 	});
 	$("#lastThirtyDays").click(function () {
-			$.plot("#dashboard-heat-temp-chart", heatTempChartData, heatTempChartOptionsLastMonth);
+		$.plot("#dashboard-heat-temp-chart", heatTempChartData, heatTempChartOptionsLastMonth);
 	});
 	$("#dashboard-heat-temp-chart").bind("plothover", function (event, pos, item) {
-			
-				if (item) {
-					var x = item.datapoint[0];
-					$("#tooltip").html(item.series.label + " : " + item.datapoint[1])
-						.css({top: item.pageY+5, left: item.pageX+5})
-						.fadeIn(200);
-				} else {
-					$("#tooltip").hide();
-				}
-		
+		if (item) {
+			var x = item.datapoint[0];
+			$("#tooltip").html(item.series.label + " : " + item.datapoint[1])
+				.css({top: item.pageY+5, left: item.pageX+5})
+				.fadeIn(200);
+		} else {
+			$("#tooltip").hide();
+		}
 	});
 
-		$("#dashboard-heat-temp-chart").bind("plotclick", function (event, pos, item) {
-			if (item) {
-				$("#clickdata").text(" - click point " + item.dataIndex + " in " + item.series.label);
-				dashboardHeatTempChart.highlight(item.series, item.datapoint);
-			}
+	$("#dashboard-heat-temp-chart").bind("plotclick", function (event, pos, item) {
+		if (item) {
+			$("#clickdata").text(" - click point " + item.dataIndex + " in " + item.series.label);
+			dashboardHeatTempChart.highlight(item.series, item.datapoint);
+		}
 	});
 		
-    });
+    setInterval("getTodaysGJ()", 5*60*1000)
+});
+    function getTodaysGJ() {
+        $.ajax({
+            url: "http://localhost:11223/HeatConsumptionService/GetTodaysGJ",
+            type: "GET",
+            contentType: "application/json; charset=utf-8",
+            dataType: "jsonp",
+            success: function (data) {
+                var updatedAt = new Date(data.UpdatedAt.match(/\d+/)[0] * 1);
+                $("#todaysGJ span.time").html('更新时间:' + updatedAt.getFullYear() + '-' + (updatedAt.getMonth() + 1) + '-' + updatedAt.getDate() + ' ' + updatedAt.getHours() + ":" + updatedAt.getMinutes() + ":" + updatedAt.getSeconds() + (updatedAt.getHours() >= 12 ? 'PM' : 'AM'));
+                $("#todaysGJ span.value").html(data.Value + "" + data.Unit);
+            }
+        });
+    }
+
 </script>

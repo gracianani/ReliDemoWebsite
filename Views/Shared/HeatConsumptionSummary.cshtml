@@ -20,9 +20,9 @@
 				<thead>
 					<tr>
 						<th></th>
-						<th><a href="#">全网</a></th>
 						<th><a href="#">东部</a></th>
-						<th><a href="#">西部</a></th>                                          
+						<th><a href="#">西部</a></th>
+						<th><a href="#">全网</a></th>                                          
 					</tr>
 				</thead>   
 				<tbody>
@@ -47,7 +47,20 @@
                         <td class="center">@item.热力站个数</td>
                     }
 				</tr>
-				
+				<tr>
+                    <td>总面积(万㎡)</td>
+                    @foreach (var item in Model)
+                    {
+                        <td class="center">@item.总面积</td>
+                    }
+                </tr>
+                <tr>
+                    <td>总供热面积(万㎡)</td>
+                    @foreach (var item in Model)
+                    {
+                        <td class="center">@item.实际投入面积</td>
+                    }
+                </tr>
 				<tr>
 					<td>万平米循环水量(t/h)</td>
 					@foreach (var item in Model)
@@ -56,19 +69,78 @@
                     }                                       
 				</tr>
                 <tr>
-					<td>瞬时供热量(GCal/h)</td>
+					<td>瞬时供热量(GJ/h)</td>
 					@foreach (var item in Model)
                     {
                         <td class="center">@item.总瞬时热量</td>
                     }                                       
 				</tr>
                 <tr>
-					<td>平均热负荷(GCal/h)</td>
+					<td>平均热负荷(Gcal/h)</td>
 					@foreach (var item in Model)
                     {
-                        <td class="center">186</td>
+                        <td class="center">@item.平均热负荷</td>
                     }                                       
 				</tr>
+                <tr>
+                    <td>上一小时时段内累计热量(GJ)</td>
+                    @foreach (var item in Model)
+                    {
+                        <td class="center">@item.上一小时GJ</td>
+                    }    
+                </tr>
+                <tr>
+                    <td>当前一小时累计热量(GJ)</td>
+                    @foreach (var item in Model)
+                    {
+                        <td class="center">@item.当前小时GJ</td>
+                    }    
+                </tr>
+                <tr>
+                    <td>
+                        参考热指标(Kcal/h*㎡)
+                    </td>
+                    @foreach (var item in Model)
+                    {
+                        <td class="center">@item.参考热指标</td>
+                    }  
+                </tr>
+                <tr>
+                    <td>
+                        计划热指标(Kcal/h*㎡)
+                    </td>
+                    @foreach (var item in Model)
+                    {
+                        <td class="center">@item.计划热指标</td>
+                    }  
+                </tr>
+                <tr>
+                    <td>
+                        瞬时单耗(Kcal/h*㎡)
+                    </td>
+                    @foreach (var item in Model)
+                    {
+                        <td class="center">@item.瞬时单耗</td>
+                    }  
+                </tr>
+                <tr>
+                    <td>
+                        供暖季累计单耗(Kcal/h*㎡)
+                    </td>
+                    @foreach (var item in Model)
+                    {
+                        <td class="center">@item.供暖季累计单耗</td>
+                    }  
+                </tr>
+                <tr>
+                    <td>
+                        当日累计单耗(Kcal/h*㎡)
+                    </td>
+                    @foreach (var item in Model)
+                    {
+                        <td class="center">@item.当日累计单耗</td>
+                    }  
+                </tr>    
 				</tbody>
 			</table>  
 	</div>

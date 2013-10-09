@@ -9,7 +9,7 @@
 @Html.Hidden("hf_compareEastAndWest", "[{ \"label\": \"东部面积\", \"data\": " + @Model.EastFuelInSquareMeter + "}, {\"label\": \"西部面积\", \"data\": " + @Model.WestFuelInSquareMeter + " }]")
 @Html.Hidden("hf_compareFossilAndGas", "[{ \"label\": \"燃煤\", \"data\": " + @Model.FuelInFossil + "}, {\"label\": \"燃气\", \"data\": " + @Model.FuelInGas + " }]")
 <div class="row-fluid">
-    <div  class="box span3">
+    <div  class="box span4">
 		<div class="box-header">
 		<h2><i class="icon-tasks"></i>全网面积统计</h2>
 		</div>
@@ -31,21 +31,15 @@
             </table>
         </div>
     </div>
-    <div  class="box span3">
+    <div  class="box span4">
         <div class="box-content">
             <div id="placeholder_compareEastAndWest" style="width:100%;height:200px;">
             </div>
         </div>
     </div>
-    <div  class="box span3">
+    <div  class="box span4">
         <div class="box-content">
             <div id="placeholder_compareFossilAndGas" style="width:100%;height:200px;">
-            </div>
-        </div>
-    </div>
-    <div  class="box span3">
-        <div class="box-content">
-            <div id="placeholder_comparePeak" style="width:100%;height:200px;">
             </div>
         </div>
     </div>
@@ -131,8 +125,6 @@
 
         var data2 = $.parseJSON($("input[name=hf_compareFossilAndGas]").val());
         $.plot("#placeholder_compareFossilAndGas", data2, options);
-        var data3 = [{ "label": "燃煤", "data": 12 }, { "label": "燃气", "data": 22},  { "label": "燃煤电厂", "data": 22},  { "label": "燃煤锅炉房", "data": 22}];
-        $.plot("#placeholder_comparePeak", data3, options);
 
 
         function labelFormatter(label, series) {

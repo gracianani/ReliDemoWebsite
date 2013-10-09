@@ -1,0 +1,136 @@
+﻿@model ReliDemo.ViewModels.WeatherStationForecastViewModel
+
+@{
+    ViewBag.Title = "天气预报";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+ <h2 style='font-family: "Microsoft Yahei",sans-serif;
+font-size: 24px;
+margin-bottom: 0.9em;
+line-height: 30px;'>@ViewBag.Title</h2>
+
+
+<div class="row-fluid">
+    <div class="span12">
+        <table class="table table-bordered" style="background:white">
+            
+            <tr>
+                <td rowspan="2">
+                    今天
+                </td>
+                <td>白天</td>
+                <td>
+                    @Model.今日预测.白天天气
+                </td>
+                <td>
+                    @Model.今日预测.白天风力
+                </td>
+                <td rowspan="2">
+                    平均 @Convert.ToInt32(@Model.今日预测.今日预报一天平均温.Value) ℃
+                </td>
+                <td>
+                    最高 @Convert.ToInt32(@Model.今日预测.今日预报白天最高温) ℃
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    夜间
+                </td>
+                <td>
+                    @Model.今日预测.夜间天气
+                </td>
+                <td>
+                    @Model.今日预测.夜间风力
+                </td>
+                <td>
+                    最低 @Convert.ToInt32(@Model.今日预测.今日预报夜间最低温) ℃
+                </td>
+            </tr>
+            <tr>
+                <td rowspan="2">
+                    昨日
+                </td>
+                <td>
+                    白天
+                </td>
+                <td colspan="2" rowspan="2">&nbsp;</td>
+                <td rowspan="2">
+                    平均 @Convert.ToInt32(@Model.今日预测.昨日实况一天平均温) ℃
+                </td>
+                <td>
+                    最高 @Convert.ToInt32(@Model.今日预测.昨日实况白天最高温) ℃
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    夜间
+                </td>
+                <td>
+                    最低 @Convert.ToInt32(@Model.今日预测.昨日实况夜间最低温) ℃
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+<br />
+<div class="row-fluid">
+    <div class="span12">
+        @Html.Partial("TemperatureGraph", Model.七日预测温度)
+    </div>
+</div>
+<div class="row-fluid">
+	<div class="span6">
+        <div class="box span12 noMarginLeft">
+			<div class="box-header">
+				<h2><i class="icon-tasks"></i>七日气象预报</h2>
+			</div>
+			<div class="box-content">
+
+                <table class="table table-bordered">
+                    <tr>
+                        <th>日期</th>
+                        <th>天气现象</th>
+                        <th>气温</th>
+                        <th>风向</th>
+                    </tr>
+                    @foreach (var perdict in @Model.七日预测)
+                    {
+                        <tr>
+                            <td rowspan="2">
+                                @perdict.日期.ToString("M月d日")
+                            </td>
+                            <td rowspan="2" >
+                                <span class="icon-clima-1" style="font-size:72px" ></span>
+                                @perdict.天气
+                            </td>
+                            <td>
+                                高温 @Convert.ToInt32(@perdict.最高温) ℃
+                            </td>
+                            <td rowspan="2">
+                                @perdict.风向
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                低温 @Convert.ToInt32(@perdict.最低温) ℃
+                            </td>
+                        </tr>
+                    }
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="span6">
+        <div class="box span12 noMarginLeft">
+			<div class="box-header">
+				<h2><i class="icon-tasks"></i>气象旬报 (@Model.十日预测.预报时间 ) 发布</h2>
+			</div>
+			<div class="box-content">
+                @Model.十日预测.预报内容
+            </div>
+        </div>
+    </div>
+</div>
+
+

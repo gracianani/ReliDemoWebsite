@@ -1760,6 +1760,11 @@ footer a {
   font-size: 20px;
   font-weight: bold;
 }
+.smallstat .time
+{
+    font-size:14px;
+    display:block;
+}
 /* Discussions
 =================================================================== */
 /* line 5, less\discussions.less */
@@ -4014,3 +4019,11 @@ ul.messagesList li span.date {
   margin-top: 20px;
   float: left;
 }
+.table span.symbol {
+		font-size:13px;
+		display:block;
+	}
+	
+	
+	
+
