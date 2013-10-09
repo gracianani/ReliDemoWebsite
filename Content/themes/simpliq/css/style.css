@@ -3372,96 +3372,100 @@ body {
   color: white;
   font-size: 12px;
 }
-/* line 41, less\custom.less */
+/* line 42, less\custom.less */
 .smallstat .data {
   float: left;
   width: 25%;
 }
-/* line 45, less\custom.less */
+/* line 46, less\custom.less */
 .smallstat a:hover {
   text-decoration: none;
 }
-/* line 48, less\custom.less */
+/* line 49, less\custom.less */
 .smallstat:hover {
   text-decoration: none;
 }
-/* line 54, less\custom.less */
+/* line 52, less\custom.less */
+.smallstat small {
+  font-size: 50%;
+}
+/* line 58, less\custom.less */
 .table {
   margin-bottom: 0;
 }
-/* line 56, less\custom.less */
+/* line 60, less\custom.less */
 .table .right {
   text-align: right;
 }
-/* line 61, less\custom.less */
+/* line 65, less\custom.less */
 .backgroundColorHeader.blue {
   background: #378fc9;
 }
-/* line 65, less\custom.less */
+/* line 69, less\custom.less */
 .backgroundColorHeader.blue .box-icon {
   background: #2c73a1;
 }
-/* line 67, less\custom.less */
+/* line 71, less\custom.less */
 .backgroundColorHeader.blue .box-icon i {
   border-left-color: #2c73a1;
 }
-/* line 72, less\custom.less */
+/* line 76, less\custom.less */
 .backgroundColorHeader.lightBlue {
   background: #67c2ef;
 }
-/* line 73, less\custom.less */
+/* line 77, less\custom.less */
 .backgroundColorHeader.green {
   background: #bdea74;
 }
-/* line 74, less\custom.less */
+/* line 78, less\custom.less */
 .backgroundColorHeader.darkGreen {
   background: #7fb30c;
 }
-/* line 75, less\custom.less */
+/* line 79, less\custom.less */
 .backgroundColorHeader.pink {
   background: #e84c8a;
 }
-/* line 76, less\custom.less */
+/* line 80, less\custom.less */
 .backgroundColorHeader.orange {
   background: #ec6313;
 }
-/* line 77, less\custom.less */
+/* line 81, less\custom.less */
 .backgroundColorHeader.lightOrange {
   background: #fabb3d;
 }
-/* line 78, less\custom.less */
+/* line 82, less\custom.less */
 .backgroundColorHeader.red {
   background: #ff5454;
 }
-/* line 79, less\custom.less */
+/* line 83, less\custom.less */
 .backgroundColorHeader.yellow {
   background: #eae874;
 }
-/* line 80, less\custom.less */
+/* line 84, less\custom.less */
 .backgroundColorHeader.white {
   background: white;
 }
-/* line 81, less\custom.less */
+/* line 85, less\custom.less */
 .backgroundColorHeader.grey {
   background: #c7cbd5;
 }
-/* line 82, less\custom.less */
+/* line 86, less\custom.less */
 .backgroundColorHeader.crimson {
   background: #9e3f3d;
 }
-/* line 86, less\custom.less */
+/* line 90, less\custom.less */
 .backgroundColorHeader.crimson .box-icon {
   background: #79302f;
 }
-/* line 88, less\custom.less */
+/* line 92, less\custom.less */
 .backgroundColorHeader.crimson .box-icon i {
   border-left-color: #79302f;
 }
-/* line 92, less\custom.less */
+/* line 96, less\custom.less */
 .backgroundColorHeader.crimson h2 i {
   background: #79302f;
 }
-/* line 100, less\custom.less */
+/* line 104, less\custom.less */
 .box .box-header .box-subTitle {
   float: right;
   font-size: 16px;
@@ -3469,45 +3473,45 @@ body {
   padding: 8px 0;
   margin: 0 20px 0 0;
 }
-/* line 108, less\custom.less */
+/* line 112, less\custom.less */
 .box .box-header h2 {
   font-size: 16px;
   font-weight: normal;
   line-height: 16px;
 }
-/* line 113, less\custom.less */
+/* line 117, less\custom.less */
 .box .box-header .btn-small {
   padding: 0 10px;
   line-height: 20px;
 }
-/* line 120, less\custom.less */
+/* line 124, less\custom.less */
 .makeTableHeaderAsBoxHeader {
   position: relative;
   top: -46px;
   margin-bottom: -46px;
 }
-/* line 124, less\custom.less */
+/* line 128, less\custom.less */
 .makeTableHeaderAsBoxHeader th {
   color: #FFF;
   background: none!important;
 }
-/* line 127, less\custom.less */
+/* line 131, less\custom.less */
 .makeTableHeaderAsBoxHeader th a {
   color: #FFF;
 }
-/* line 131, less\custom.less */
+/* line 135, less\custom.less */
 .makeTableHeaderAsBoxHeader tbody tr:first-child td {
   border-top: none;
 }
 /* table
 =================================================================== */
-/* line 139, less\custom.less */
+/* line 143, less\custom.less */
 .table.table-bordered {
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   border-radius: 0;
 }
-/* line 144, less\custom.less */
+/* line 148, less\custom.less */
 .table.table-bordered thead:first-child tr:first-child > th:first-child,
 .table.table-bordered tbody:first-child tr:first-child > td:first-child,
 .table.table-bordered tbody:first-child tr:first-child > th:first-child,
@@ -3520,23 +3524,23 @@ body {
   -moz-border-radius: 0;
   border-radius: 0;
 }
-/* line 150, less\custom.less */
+/* line 154, less\custom.less */
 .table th {
   background: #ededed;
   color: #000;
   font-weight: bold;
 }
-/* line 155, less\custom.less */
+/* line 159, less\custom.less */
 .table td {
   color: #111;
 }
 /* station
 ========================*/
-/* line 162, less\custom.less */
+/* line 166, less\custom.less */
 .subNav {
   margin-left: 0;
 }
-/* line 165, less\custom.less */
+/* line 169, less\custom.less */
 .subNav li {
   float: left;
   display: inline-block;
@@ -3547,59 +3551,59 @@ body {
   border-right: 1px solid rgba(255, 255, 255, 0.1);
   border-left: 1px solid rgba(0, 0, 0, 0.5);
 }
-/* line 174, less\custom.less */
+/* line 178, less\custom.less */
 .subNav li.current {
   background-color: #0074c1;
 }
-/* line 177, less\custom.less */
+/* line 181, less\custom.less */
 .subNav li:first-child {
   border-radius: 4px 0 0 4px;
   border-left: none;
 }
-/* line 181, less\custom.less */
+/* line 185, less\custom.less */
 .subNav li:last-child {
   border-radius: 0 4px 4px 0;
   border-right: none;
 }
-/* line 185, less\custom.less */
+/* line 189, less\custom.less */
 .subNav li a {
   color: #fff;
 }
-/* line 188, less\custom.less */
+/* line 192, less\custom.less */
 .subNav li a:hover {
   text-decoration: none;
 }
-/* line 194, less\custom.less */
+/* line 198, less\custom.less */
 .table-zebra td {
   color: #333;
 }
-/* line 198, less\custom.less */
+/* line 202, less\custom.less */
 .table-zebra tr td:nth-child(2n) {
   background-color: #f9f9f9;
 }
-/* line 202, less\custom.less */
+/* line 206, less\custom.less */
 .table-zebra tr:nth-child(2n) {
   background-color: #f9f9f9;
 }
-/* line 204, less\custom.less */
+/* line 208, less\custom.less */
 .table-zebra tr:nth-child(2n) td:nth-child(2n) {
   background-color: white;
 }
-/* line 208, less\custom.less */
+/* line 212, less\custom.less */
 .table-zebra em {
   font-style: normal;
   color: #000;
   font-size: 18px;
 }
-/* line 214, less\custom.less */
+/* line 218, less\custom.less */
 .table-zebra a {
   color: #378fc9;
 }
-/* line 220, less\custom.less */
+/* line 224, less\custom.less */
 .pieChartWithCenterText {
   position: relative;
 }
-/* line 222, less\custom.less */
+/* line 226, less\custom.less */
 .pieChartWithCenterText .centerText {
   position: absolute;
   top: 45%;
