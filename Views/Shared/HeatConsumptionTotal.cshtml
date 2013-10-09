@@ -36,10 +36,13 @@
                 {
                     <tr>
 					    <td>@GJItem.Title</td>
-                        <td>@GJItem.全网</td>
                         @if(GJItem.东部.HasValue) {
                             <td>@GJItem.东部</td> 
                             <td>@GJItem.西部</td> 
+                            <td>@GJItem.全网</td>
+                        }
+                        else {
+                                <td>@GJItem.全网</td>
                         }
 				    </tr>
                 }
