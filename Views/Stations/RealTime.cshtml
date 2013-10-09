@@ -8,7 +8,21 @@
 font-size: 24px;
 margin-bottom: 0.9em;
 line-height: 30px;'>@ViewBag.Title <span style="font-size:14px"> 上次更新时间 2013-07-31 </span></h2>
-
+<div class="row-fluid">
+    @using (Html.BeginForm("RealTime", "Stations", FormMethod.Get)) {
+        @Html.DropDownList("heatSources", new SelectList(Model.HeatSources, "ItemID", "热源名称"), "请选择热源厂", new { @class = "span2" })
+        <text>&nbsp;</text>
+        @Html.DropDownList("companies", new SelectList(Model.Companies, "ItemID", "公司"), "请选择公司", new { @class = "span2" })
+        <text>&nbsp;</text>
+        @Html.DropDownList("managerships", new SelectList(Model.Managerships, "ItemID", "管理单位"), "请选择管理单位", new { id = "managerships", @class = "span2" })
+        <text>&nbsp;</text>
+        @Html.DropDownList("area", new SelectList(Model.Managerships, "ItemID", "管理单位"), "请选择区域", new { id = "area", @class = "span2" })
+        <text>&nbsp;</text>
+        @Html.TextBox("keyword","" , new {@placeholder = "按关键字检索"})
+        <text>&nbsp;</text>
+        <input type="submit" value="搜索" class="btn  btn-primary" style="vertical-align: top;"/>
+    }
+</div>
 <div class="row-fluid">
         每页显示：
 <ul class="nav nav-pills" id="pills">
@@ -58,22 +72,22 @@ line-height: 30px;'>@ViewBag.Title <span style="font-size:14px"> 上次更新时
             @Html.DisplayName("回温(℃)")
         </th>
         <th>
-            @Html.DisplayName("总累计流量")
+            @Html.DisplayName("总累计流量(t)")
         </th>
         <th>
-            @Html.DisplayName("总累计热量")
+            @Html.DisplayName("总累计热量(GJ)")
         </th>
         <th>
-            @Html.DisplayName("总瞬时流量")
+            @Html.DisplayName("总瞬时流量(t/h)")
         </th>
         <th>
-            @Html.DisplayName("总瞬时热量")
+            @Html.DisplayName("总瞬时热量(GJ/h)")
         </th>
         <th>
-            @Html.DisplayName("瞬时单耗")
+            @Html.DisplayName("瞬时单耗(W/㎡)")
         </th>
         <th>
-            @Html.DisplayName("万平方米流量")
+            @Html.DisplayName("万平方米流量(t/h)")
         </th>
         
     </tr>

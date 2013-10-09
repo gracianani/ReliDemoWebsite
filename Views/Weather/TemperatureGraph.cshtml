@@ -1,0 +1,119 @@
+﻿@model  List<ReliDemo.Models.TimeTemperature>
+
+
+<div id="graph"  style="height:250px">
+</div>
+
+@Html.Hidden("realtimeTemperatures", 
+        "[" + string.Join(",", Model.Where(i=>i.TemperatureType == ReliDemo.Models.TemperatureType.实时温度).Select(i=> string.Format("{{\"time\": \"{0:yyyy-MM-dd HH:mm:ss}\", \"temperature\" : {1}}}", i.时间 , i.Temperature)).ToArray() ) + "]"
+)
+@Html.Hidden("highestTemperatures",
+       "[" + string.Join(",", Model.Where(i => i.TemperatureType == ReliDemo.Models.TemperatureType.最高温度).Select(i => string.Format("{{\"time\": \"{0:yyyy-MM-dd HH:mm:ss}\", \"temperature\" : {1}}}", i.时间, i.Temperature)).ToArray()) + "]"
+)
+@Html.Hidden("lowestTemperatures",
+       "[" + string.Join(",", Model.Where(i => i.TemperatureType == ReliDemo.Models.TemperatureType.最低温度).Select(i => string.Format("{{\"time\": \"{0:yyyy-MM-dd HH:mm:ss}\", \"temperature\" : {1}}}", i.时间, i.Temperature)).ToArray()) + "]"
+)
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        var realtimeTemperatureData = $.parseJSON($("input[name=realtimeTemperatures]").val());
+        var realtimeTemperature = [];
+        for (var i = 0; i < realtimeTemperatureData.length; i++) {
+            realtimeTemperature.push([(new Date(realtimeTemperatureData[i].time).getTime()), realtimeTemperatureData[i].temperature]);
+        }
+
+        var highestTemperatureData = $.parseJSON($("input[name=highestTemperatures]").val());
+        var highestTemperature = [];
+        for (var i = 0; i < highestTemperatureData.length; i++) {
+            highestTemperature.push([(new Date(highestTemperatureData[i].time).getTime()), highestTemperatureData[i].temperature]);
+        }
+
+        var lowestTemperatureData = $.parseJSON($("input[name=lowestTemperatures]").val());
+        var lowestTemperature = [];
+        for (var i = 0; i < lowestTemperatureData.length; i++) {
+            lowestTemperature.push([(new Date(lowestTemperatureData[i].time).getTime()), lowestTemperatureData[i].temperature]);
+        }
+
+        var heatTempChartGrid = {
+            tickColor: "#eee",
+            borderWidth: 0,
+            hoverable: true,
+            clickable: true
+        };
+
+        var tempChartOptions = {
+            xaxis: {
+                mode: "time",
+                minTickSize: [1, "hour"],
+                timeformat: "%I:%M"
+            },
+            yaxis: {
+                min: -20,
+                max: 45
+            },
+            grid: heatTempChartGrid
+        };
+
+        var temperatureChartData = [];
+        if (realtimeTemperature.length > 0) {
+            temperatureChartData.push({
+                label: "当前温度",
+                data: realtimeTemperature,
+                lines: { show: true },
+                points: { show: true }
+            });
+        }
+        if (highestTemperature.length > 0) {
+            temperatureChartData.push({
+                label: "最高温度",
+                data: highestTemperature,
+                lines: { show: true },
+                points: { show: true }
+            });
+        }
+        if (lowestTemperature.length > 0) {
+            temperatureChartData.push({
+                label: "最低温度",
+                data: lowestTemperature,
+                lines: { show: true },
+                points: { show: true }
+            });
+        }
+        var dashboardHeatTempChart = $.plot($("#graph"), temperatureChartData, tempChartOptions);
+
+        var points = dashboardHeatTempChart.getData();
+        var graphx = $('#graph').offset().left;
+        graphx = graphx + 30; // replace with offset of canvas on graph
+        var graphy = $('#graph').offset().top;
+        graphy = graphy + 10; // how low you want the label to hang underneath the point
+        for (var k = 0; k < points.length; k++) {
+            for (var m = 0; m < points[k].data.length; m++) {
+                if (points[k].data[m][0] != null && points[k].data[m][1] != null) {
+                    if (k == 0) {
+                        showTooltip(graphx + points[k].xaxis.p2c(points[k].data[m][0]) + 15, graphy + points[k].yaxis.p2c(points[k].data[m][1]) - 40, points[k].data[m][1], "#e2c160")
+                    } else {
+                        showTooltip(graphx + points[k].xaxis.p2c(points[k].data[m][0]) + 15, graphy + points[k].yaxis.p2c(points[k].data[m][1]) + 5, points[k].data[m][1], "#c1dcf1")
+                    }
+
+                }
+            }
+        }
+
+    });
+    function showTooltip(x, y, contents, colour) {
+        $('<div id="value">' + contents + " ℃" + '</div>').css({
+            position: 'absolute',
+            display: 'none',
+            top: y,
+            left: x,
+            'border-style': 'solid',
+            'border-width': '2px',
+            'border-color': colour,
+            'border-radius': '5px',
+            'background-color': '#ffffff',
+            color: '#262626',
+            padding: '2px'
+        }).appendTo("body").fadeIn(200);
+    } 
+    
+</script>

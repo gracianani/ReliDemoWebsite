@@ -5,10 +5,10 @@
 .legend table { border: 1px solid #555; padding: 5px; }
 </style>
 
-<div class="box blue span12 noMarginLeft">
+<div class="box blue span12 noMarginLeft" id="heatConsumptionGraph">
 	<div class="box-header">
 		<h2><i class="icon-bar-chart"></i>实际温度、供热量日统计</h2>
-		<div class="box-subTitle"><a class="btn btn-small" id="today">今日</a> <a class="btn btn-small" id="lastSevenDays">最近7天</a> <a class="btn btn-small" id="lastThirtyDays">最近30天</a> <a class="btn btn-small" id="thisYear">本供暖季</a>
+		<div class="box-subTitle"><a class="btn btn-small" id="today">今日</a> <a class="btn btn-small selected" id="lastSevenDays">最近7天</a> <a class="btn btn-small" id="lastThirtyDays">最近30天</a> <a class="btn btn-small" id="thisYear">本供暖季</a>
 		</div>
 	</div>
 	<div class="box-content">
@@ -21,129 +21,124 @@
 @Html.Hidden("plan", @Model.计划Data)
 @Html.Hidden("theory", @Model.核算Data)
 @Html.Hidden("actual", @Model.实际Data)
-
+@Html.Hidden("temperatureForecast", @Model.预报温度)
+@Html.Hidden("temperatureActual", @Model.实际温度)
 
 <script>
-$(document).ready(function () {
-    
-    var d1 = $.parseJSON($("input[name=plan]").val());
-    var d2 = $.parseJSON($("input[name=theory]").val());
-    var d3 = $.parseJSON($("input[name=actual]").val());
-    var today = new Date();
-    var tempDate = [[(new Date(2013, 07, 7)).getTime(), 15],
-                    [(new Date(2013, 07, 8)).getTime(), 20],
-                    [(new Date(2013, 07, 9)).getTime(), 18],
-                    [(new Date(2013, 07, 10)).getTime(), 18],
-                    [(new Date(2013, 07, 11)).getTime(), 18],
-                    [(new Date(2013, 07, 12)).getTime(), 20],
-                    [(new Date(2013, 07, 13)).getTime(), 18],
-                    [(new Date(2013, 07, 14)).getTime(), 18]];
- 
- 
-    var heatTempChartData = [{
+    $(document).ready(function () {
 
-        label: "实际平均温度",
-        data: tempDate,
-        lines: {show: true},
-        points: {show:true}
+        var d1 = $.parseJSON($("input[name=plan]").val());
+        var d2 = $.parseJSON($("input[name=theory]").val());
+        var d3 = $.parseJSON($("input[name=actual]").val());
+        var today = new Date();
+        var tempPlan = $.parseJSON($("input[name=temperatureForecast]").val());
+        var tempActu = $.parseJSON($("input[name=temperatureActual]").val()); 
 
-    },{
+        var heatTempChartData = [{
+            label: "实际平均温度",
+            data: tempPlan,
+            lines: { show: true },
+            points: { show: true }
 
-        label: "当日计划供热量",
-        data: d1,
-        bars: {show: true,order: 1,fill:true,barWidth:24*60*60*100,lineWidth:1},
-		yaxis: 2 
+        }, {
+            label: "预报平均温度",
+            data: tempActu,
+            lines: { show: true },
+            points: { show: true }
+
+        }, {
+
+            label: "当日计划供热量",
+            data: d1,
+            bars: { show: true, order: 1, fill: true, barWidth: 24 * 60 * 60 * 100, lineWidth: 1 },
+            yaxis: 2
 
 
-    },{
+        }, {
 
-        label: "当日折算供热量",
-        data: d2,
-        bars: {show: true,order: 2,fill:true,barWidth:24*60*60*100,lineWidth:1},
-		yaxis: 2 
+            label: "当日折算供热量",
+            data: d2,
+            bars: { show: true, order: 2, fill: true, barWidth: 24 * 60 * 60 * 100, lineWidth: 1 },
+            yaxis: 2
 
-    },{
+        }, {
 
-        label: "当日累计供热量",
-        data: d3,
-        bars: {show: true,order: 3,fill:true,barWidth:24*60*60*100,lineWidth:1},
-		yaxis: 2 
+            label: "当日累计供热量",
+            data: d3,
+            bars: { show: true, order: 3, fill: true, barWidth: 24 * 60 * 60 * 100, lineWidth: 1 },
+            yaxis: 2
 
-    }];
+        }];
 
- 
 
-	var heatTempChartGrid = {
-		tickColor:"#eee",
-		borderWidth:0,
-		hoverable: true,
-		clickable: true
-	};
-    var heatTempChartOptions = {
-            xaxis: {
-					mode: "time",
-					minTickSize: [1, "day"],
-					timeformat: "%m月%d日"
-			},
-            grid:heatTempChartGrid,
-			yaxes: [ {}, {
-					position: "right"
-			} ]
 
-    };
-	var heatTempChartOptionsLastWeek = {
-			xaxis: {
-					mode: "time",
-					min: (new Date(2013, 07, 7)).getTime(),
-					max: (new Date(2013, 07, 14)).getTime(),
-					minTickSize: [1, "day"],
-					timeformat: "%m月%d日"
-			},yaxes: [ {}, {
-					position: "right"
-			} ],
-            grid:heatTempChartGrid
+        var heatTempChartGrid = {
+            tickColor: "#eee",
+            borderWidth: 0,
+            hoverable: true,
+            clickable: true
         };
-	var heatTempChartOptionsLastMonth = {
-			xaxis: {
-					mode: "time",
-					minTickSize: [1, "day"],
-					min: (new Date(2013, 11, 1)).getTime(),
-					max: (new Date(2013, 11, 30)).getTime(),
-					minTickSize: [1, "day"],
-					timeformat: "%m月%d日"
-			},yaxes: [ {}, {
-					position: "right"
-			} ],
-            grid:heatTempChartGrid
-	};
+        var heatTempChartOptions = {
+            xaxis: {
+                mode: "time",
+                minTickSize: [1, "day"],
+                timeformat: "%m月%d日"
+            },
+            grid: heatTempChartGrid,
+            yaxes: [{}, {
+                position: "right"
+            }]
 
-    var dashboardHeatTempChart = $.plot($("#dashboard-heat-temp-chart"),heatTempChartData,heatTempChartOptionsLastWeek);
-	$("<div id='tooltip'></div>").css({
-			position: "absolute",
-			display: "none",
-			border: "1px solid #fdd",
-			padding: "2px",
-			"background-color": "#fee",
-			opacity: 0.80
-	}).appendTo("body");
+        };
+        var heatTempChartOptionsLastWeek = {
+            xaxis: {
+                mode: "time",
+                minTickSize: [1, "day"],
+                timeformat: "%m月%d日"
+            }, yaxes: [{}, {
+                position: "right"
+            }],
+            grid: heatTempChartGrid
+        };
+        var heatTempChartOptionsLastMonth = {
+            xaxis: {
+                mode: "time",
+                minTickSize: [1, "day"],
+                minTickSize: [1, "day"],
+                timeformat: "%m月%d日"
+            }, yaxes: [{}, {
+                position: "right"
+            }],
+            grid: heatTempChartGrid
+        };
 
-    $("#dashboard-heat-temp-chart").bind("plothover", function (event, pos, item) {
-		if (item) {
-			var x = item.datapoint[0];
-			$("#tooltip").html(item.series.label + " : " + item.datapoint[1])
-				.css({top: item.pageY+5, left: item.pageX+5})
+        var dashboardHeatTempChart = $.plot($("#dashboard-heat-temp-chart"), heatTempChartData, heatTempChartOptionsLastWeek);
+        $("<div id='tooltip'></div>").css({
+            position: "absolute",
+            display: "none",
+            border: "1px solid #fdd",
+            padding: "2px",
+            "background-color": "#fee",
+            opacity: 0.80
+        }).appendTo("body");
+
+        $("#dashboard-heat-temp-chart").bind("plothover", function (event, pos, item) {
+            if (item) {
+                var x = item.datapoint[0];
+                $("#tooltip").html(item.series.label + " : " + item.datapoint[1])
+				.css({ top: item.pageY + 5, left: item.pageX + 5 })
 				.fadeIn(200);
-		} else {
-			$("#tooltip").hide();
-		}
-	});
+            } else {
+                $("#tooltip").hide();
+            }
+        });
 
-	$("#dashboard-heat-temp-chart").bind("plotclick", function (event, pos, item) {
-		if (item) {
-			$("#clickdata").text(" - click point " + item.dataIndex + " in " + item.series.label);
-			dashboardHeatTempChart.highlight(item.series, item.datapoint);
-		}
-	});
-});
+        $("#dashboard-heat-temp-chart").bind("plotclick", function (event, pos, item) {
+            if (item) {
+                $("#clickdata").text(" - click point " + item.dataIndex + " in " + item.series.label);
+                dashboardHeatTempChart.highlight(item.series, item.datapoint);
+            }
+        });
+    });
 
 </script>

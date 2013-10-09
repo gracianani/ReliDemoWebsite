@@ -1,0 +1,41 @@
+﻿@model ReliDemo.ViewModels.CompanyAreaOnOffViewModel
+
+@{
+    ViewBag.Title = "CompanyOnOffArea";
+}
+
+<div id="dashboard-company-area-barchart" style="height:350px"></div>
+@Html.Hidden("companyTotal", Model.CompanyAreaTotalData)
+@Html.Hidden("companyOn", Model.CompanyAreaOnData)
+
+<script type="text/javascript">
+    jQuery(document).ready(function ($) {
+        var companyTotal = $.parseJSON($("input[name=companyTotal]").val());
+        var companyOn = $.parseJSON($("input[name=companyOn]").val());
+        var companyAreaBarchartData =  [
+		    { label: "总面积", data: companyTotal },
+		    { label: "实际投入面积", data: companyOn }
+	    ];
+
+        $.plot("#dashboard-company-area-barchart", companyAreaBarchartData, {
+            series: {
+                stack: false,
+                bars: {
+                    show: true,
+                    barWidth: 0.6,
+                    align: "center"
+                }
+            },
+            xaxis: {
+                show: true,
+                mode: "categories",
+                tickLength: 0,
+                color: "#F00",
+                tickColor: "#F00"
+            },
+            grid: { tickColor: "#eee", borderWidth: 0
+            },
+            colors: ["#cdcdcd", "#2FABE9"]
+        }); //end plot
+    });
+</script>

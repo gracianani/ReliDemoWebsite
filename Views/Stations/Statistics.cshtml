@@ -7,8 +7,10 @@
 font-size: 24px;
 margin-bottom: 0.9em;
 line-height: 30px;'>@ViewBag.Title 
-<div style="display:inline-block;width:80%;">
-    @using (Html.BeginForm("Paged", "Stations", FormMethod.Get)) {
+
+</h2>
+<div class="row-fluid">
+@using (Html.BeginForm("Paged", "Stations", FormMethod.Get)) {
         @Html.DropDownList("eastwest", new List<SelectListItem>(), "全部区域", new { @class = "span2" })
         <text>&nbsp;</text>
         @Html.DropDownList("companies", new List<SelectListItem>(), "全部公司", new { @class = "span2" })
@@ -20,8 +22,6 @@ line-height: 30px;'>@ViewBag.Title
         <input type="submit" value="搜索" class="btn  btn-primary" style="vertical-align: top;"/>
     }
 </div>
-</h2>
-
 <div class="row-fluid">
         每页显示：
 <ul class="nav nav-pills" id="pills">
@@ -60,37 +60,37 @@ line-height: 30px;'>@ViewBag.Title
             @Html.DisplayName("日期")
         </th>
         <th>
-            @Html.DisplayName("计划供热量(GJ)")
+            @Html.DisplayName("计划供热量")<span class="symbol">(GJ)</span>
         </th>
         <th>
-            @Html.DisplayName("采暖(GJ)")
+            @Html.DisplayName("采暖")<span class="symbol">(GJ)</span>
         </th>
         <th>
-            @Html.DisplayName("热水(GJ)")
+            @Html.DisplayName("热水(GJ)")<span class="symbol">(GJ)</span>
         </th>
         <th>
-            @Html.DisplayName("核算(GJ)")
+            @Html.DisplayName("核算(GJ)")<span class="symbol">(GJ)</span>
         </th>
         <th>
-            @Html.DisplayName("理论单耗(GJ/㎡)")
+            @Html.DisplayName("理论单耗")<span class="symbol">(GJ/㎡)</span>
         </th>
         <th>
-            @Html.DisplayName("累计单耗(GJ/㎡)")
+            @Html.DisplayName("累计单耗")<span class="symbol">(GJ/㎡)</span>
         </th>
         <th>
-            @Html.DisplayName("采暖季单耗(KCal/h)")
+            @Html.DisplayName("采暖季单耗")<span class="symbol">(Kcal/h)</span>
         </th>
         <th>
-            @Html.DisplayName("热指标(KCal/h*㎡)")
+            @Html.DisplayName("热指标")<span class="symbol">(Kcal/h*㎡)</span>
         </th>
         <th>
-            @Html.DisplayName("预报温度(℃)")
+            @Html.DisplayName("预报温度")<span class="symbol">(℃)</span>
         </th>
         <th>
-            @Html.DisplayName("实际单耗(GJ/㎡)")
+            @Html.DisplayName("实际单耗")<span class="symbol">(GJ/㎡)</span>
         </th>
         <th>
-            @Html.DisplayName("实际温度(℃)")
+            @Html.DisplayName("实际温度")<span class="symbol">(℃)</span>
         </th>
         
     </tr>

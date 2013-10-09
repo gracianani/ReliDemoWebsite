@@ -28,8 +28,8 @@
                 <tr>
                     <td>一次供温(℃) <span>@Model.一次供温</span></td>
                     <td>一次回温(℃) <span>@Model.一次回温</span></td>
-                    <td>一次供压(mPa) <span>@Model.一次供压</span></td>
-                    <td>一次回压(mPa) <span>@Model.一次回压</span></td>
+                    <td>一次供压(MPa) <span>@Model.一次供压</span></td>
+                    <td>一次回压(MPa) <span>@Model.一次回压</span></td>
                     <td>总累计热量(GJ) <span>@Model.总累计热量</span></td>
                     <td>总累计流量(t) <span>@Model.总累计流量</span></td>
                 </tr>
@@ -40,12 +40,12 @@
                 <tr>
                     <th>机组编号</th>
                     <th>机组名</th>
-                    <th>供温(℃)</th>
-                    <th>回温(℃)</th>
-                    <th>瞬时热量(GJ)</th>
-                    <th>瞬时流量(t)</th>
-                    <th>总累计热量(GJ)</th>
-                    <th>总累计流量(t)</th>
+                    <th>供温<span class="symbol">(℃)</span></th>
+                    <th>回温<span class="symbol">(℃)</span></th>
+                    <th>瞬时热量<span class="symbol">(GJ)</span></th>
+                    <th>瞬时流量<span class="symbol">(t)</span></th>
+                    <th>总累计热量<span class="symbol">(GJ)</span></th>
+                    <th>总累计流量<span class="symbol">(t)</span></th>
                 </tr>
                 @foreach (var station2nd in Model.Station2ndRecents)
                 {
