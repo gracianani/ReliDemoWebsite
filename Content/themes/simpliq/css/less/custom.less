@@ -3,7 +3,18 @@
 body {
 	font-family: 'Lucida Sans Unicode',Tahoma, Helvetica, Arial, sans-serif;
 }
-
+h1,h2,h3 {
+	font-family: 'Microsoft Yahei','Yahei','Lucida Sans Unicode',Tahoma, Helvetica, Arial, sans-serif;
+}
+#tooltip {
+   position: absolute;
+   display: none;
+   border: 1px solid white;
+   padding: 2px;
+   background-color: @blue;
+   color:white;
+   font-size:14px;
+}
 #content {
 	> h2 {
 	font-size:24px;
@@ -65,6 +76,14 @@ body {
 	margin-bottom: 0;
 	.right {
 		text-align: right;
+	}
+}
+.table-condensed {
+	input {
+		margin-bottom:0;
+	}
+	select {
+	margin-bottom:0;
 	}
 }
 .backgroundColorHeader {

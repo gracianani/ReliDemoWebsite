@@ -4,8 +4,12 @@
     ViewBag.Title = "RealTime";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<p>上次更新时间 2013-07-31</p>
+<div class="row-fluid clearfix stationTitle">
+    <h1 class="span3">热源厂实时监测</h1>
+    <div onDesktop="span4" onTablet="span6" onMobile="span12">@Html.Partial("_TopMenu") </div>
+</div>
 
-<h2>热源厂实时监测  <small>@Html.Partial("_TopMenu")</small> <span style="font-size:14px"> 上次更新时间 2013-07-31 </span></h2>
 
 <div class="row-fluid">
         每页显示：
@@ -73,7 +77,7 @@
         </th>
         <th>
             累计供水流量
-            <span class="symbol">(t/h)</span>
+            <span class="symbol">(t)</span>
         </th>
         <th>
             累计供水热量
@@ -89,7 +93,7 @@
         </th>
         <th>
             累计热量
-            <span class="symbol">(t)</span>
+            <span class="symbol">(GJ)</span>
         </th>
         <th>
             累计补水量

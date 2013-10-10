@@ -40,7 +40,7 @@
 	<input type="text" class="inline" style="width:100px" /><text>℃</text></div>
 </div>
 <div class="row-fluid">
-    <div id="placeholder" style="width:100%;height:400px">
+    <div id="stationgraph" style="width:100%;height:400px">
     </div>
 </div>
 @Html.HiddenFor(model=>model.StationId)
@@ -48,7 +48,7 @@
 
     $(function () {
 
-        var options = {
+        var heatoptions = {
             lines: {
                 show: true
             },
@@ -59,7 +59,15 @@
                 mode: "time",
                 minTickSize: [1, "day"],
                 timeformat: "%m月%d日"
-            }
+            },
+			yaxis: [{},{}],
+			legend:{position:"sw"},
+			grid : {
+            tickColor: "#eee",
+            borderWidth: 0,
+            hoverable: true,
+            clickable: true
+        }
         };
 
         $("#search").click(function () {
@@ -72,7 +80,7 @@
 
             function onDataReceived(series) {
 				console.log(series);
-                $.plot("#placeholder", [{"label":"计划单耗", "data": series.planned }, {"label":"实际单耗",  "data": series.actual }, {"label":"核算单耗",  "data": series.calculated}], options);
+                $.plot("#stationgraph", [{"label":"实际平均温度", "data": series.planned, yaxis:2},{"label":"预报平均温度单耗", "data": series.planned }, {"label":"实际单耗",  "data": series.actual }, {"label":"核算单耗",  "data": series.calculated}], heatoptions);
             }
 
             $.ajax({
@@ -88,8 +96,35 @@
 
         $("#search").click();
 
-        // Add the Flot version string to the footer
 
+		function showTooltip(x,y, contents) {
+			$("<div id='tooltip'>" + contents + "</div>").css({
+				position:"absolute",
+				display:"none",
+				top:y+5,
+				left:x+5,
+				border:"1px solid #fdd",
+				padding: "2px",
+				"background-color":"#fee",
+				opacity:0.80
+			}).appendTo("body").fadeIn(200);;
+		}
+		var previousPoint = null;
+		$("#stationgraph").bind("plotclick", function( event, pos, item) {
+
+			if ( item ) {
+				if ( previousPoint != item.dataIndex ) {
+					previousPoint = item.dataIndex;
+					$('#tooltip').remove();
+					x = item.datapoint[0];
+					y = item.datapoint[1];
+					showTooltip(item.pageX, item.pageY, item.series.label + " : " + x + "=" + y);
+				}
+			} else {
+				$("#tooltip").remove();
+				previousPoint = null;
+			}
+		});
     });
 
 	</script>

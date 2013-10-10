@@ -1,8 +1,10 @@
 ﻿@model ReliDemo.ViewModels.GJHistoriesViewModel
 <style>
-#dashboard-heat-temp-chart { width: 100%; height: 250px; position: relative; margin: 0 auto; }
+#dashboard-heat-temp-chart { height: 250px; position: relative;}
 .legend table, .legend > div { height: 82px !important; opacity: 1 !important; right: -55px; top: 10px; width: 116px !important; }
 .legend table { border: 1px solid #555; padding: 5px; }
+#dashboard-heat-temp-lengend table,#dashboard-company-area-legend table { margin: 10px auto;}
+
 </style>
 
 <div class="box blue span12 noMarginLeft" id="heatConsumptionGraph">
@@ -12,7 +14,9 @@
 		</div>
 	</div>
 	<div class="box-content">
-		<div id="dashboard-heat-temp-chart" style="height:250px"></div>	
+		<div id="dashboard-heat-temp-chart" style="width:100%;height:250px"></div>	
+		<div id="dashboard-heat-temp-lengend" ></div>
+
 	</div>	
 </div><!--/span-->
 
@@ -33,7 +37,8 @@
         var today = new Date();
         var tempPlan = $.parseJSON($("input[name=temperatureForecast]").val());
         var tempActu = $.parseJSON($("input[name=temperatureActual]").val()); 
-
+		var lengendContainer = $('#dashboard-heat-temp-lengend');
+		
         var heatTempChartData = [{
             label: "实际平均温度",
             data: tempPlan,
@@ -87,7 +92,11 @@
             grid: heatTempChartGrid,
             yaxes: [{}, {
                 position: "right"
-            }]
+            }],
+			legend:{
+			container:lengendContainer,
+			noColumns:5
+			}
 
         };
         var heatTempChartOptionsLastWeek = {
@@ -98,7 +107,11 @@
             }, yaxes: [{}, {
                 position: "right"
             }],
-            grid: heatTempChartGrid
+            grid: heatTempChartGrid,
+			legend:{
+			container:lengendContainer,
+			noColumns: 5
+			}
         };
         var heatTempChartOptionsLastMonth = {
             xaxis: {
@@ -109,18 +122,15 @@
             }, yaxes: [{}, {
                 position: "right"
             }],
-            grid: heatTempChartGrid
+            grid: heatTempChartGrid,
+			legend:{
+			container:lengendContainer,
+			noColumns: 5
+			}
         };
 
         var dashboardHeatTempChart = $.plot($("#dashboard-heat-temp-chart"), heatTempChartData, heatTempChartOptionsLastWeek);
-        $("<div id='tooltip'></div>").css({
-            position: "absolute",
-            display: "none",
-            border: "1px solid #fdd",
-            padding: "2px",
-            "background-color": "#fee",
-            opacity: 0.80
-        }).appendTo("body");
+        $("<div id='tooltip'></div>").appendTo("body");
 
         $("#dashboard-heat-temp-chart").bind("plothover", function (event, pos, item) {
             if (item) {
@@ -139,6 +149,16 @@
                 dashboardHeatTempChart.highlight(item.series, item.datapoint);
             }
         });
+
+		$("#thisYear").click(function () {
+		dashboardHeatTempChart = $.plot("#dashboard-heat-temp-chart", heatTempChartData, heatTempChartOptions);
+		});
+		$("#lastSevenDays").click(function () {
+		dashboardHeatTempChart = $.plot("#dashboard-heat-temp-chart", heatTempChartData, heatTempChartOptionsLastWeek);
+		});
+		$("#lastThirtyDays").click(function () {
+		dashboardHeatTempChart = $.plot("#dashboard-heat-temp-chart", heatTempChartData, heatTempChartOptionsLastMonth);
+		});
     });
 
 </script>

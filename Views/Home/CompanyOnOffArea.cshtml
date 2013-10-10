@@ -5,6 +5,7 @@
 }
 
 <div id="dashboard-company-area-barchart" style="height:350px"></div>
+<div id="dashboard-company-area-legend" style="margin-top:10px"></div>
 @Html.Hidden("companyTotal", Model.CompanyAreaTotalData)
 @Html.Hidden("companyOn", Model.CompanyAreaOnData)
 
@@ -35,7 +36,11 @@
             },
             grid: { tickColor: "#eee", borderWidth: 0
             },
-            colors: ["#cdcdcd", "#2FABE9"]
+            colors: ["#cdcdcd", "#2FABE9"],
+			legend: {
+				container:$('#dashboard-company-area-legend'),
+				noColumns:2
+			}
         }); //end plot
     });
 </script>
