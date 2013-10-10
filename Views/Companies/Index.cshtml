@@ -10,39 +10,39 @@
         <a class="span4 smallstat box noMargin" onTablet="span12" onDesktop="span6"  href="#">
 			<i class="icon-fire crimson"></i>
 			<span class="title">今日累计供热量</span>
-			<span class="value">1.8万GJ</span>
+			<span class="value">@Model.今日累计供热量 万GJ</span>
             <span class="time">截止到2013-11-02 15:30PM</span>
 		</a>
 
 		<a class="span4 smallstat box noMargin" onTablet="span12" onDesktop="span6"  href="#">
 			<i class="icon-fire blue"></i>
 			<span class="title">昨日累计供热量</span>
-			<span class="value">2.1万GJ</span>
+			<span class="value">@Model.昨日累计供热量 万GJ</span>
 		</a>
 		
 		 <a class="span4 smallstat box noMargin" onTablet="span12" onDesktop="span6"  href="#">
 			<i class="icon-calendar darkGreen"></i>
 			<span class="title">累计供热时间</span>
-			<span class="value">1天</span>
-            <span class="time">供热开始日期:2013-11-01</span>
+			<span class="value">@Model.TotalHeatSupplyDays 天</span>
+            <span class="time">供热开始日期:@Model.起始供热时间.ToShortDateString()</span>
 		</a>			
     </div>
     <div class="span6">
 		<a class="span4 smallstat box noMargin" onTablet="span12" onDesktop="span4" href="#">
 			<i class="icon-ok crimson"></i>
 			<span class="title">计划投停面积</span>
-			<span class="value">89/21<small>万㎡</small></span>
+			<span class="value">@Model.计划投入面积 / @Model.计划停止面积 <small>万㎡</small></span>
 		</a>
 		<a class="span4 smallstat box noMargin" onTablet="span12" onDesktop="span4" href="#">
 			<i class="icon-ok crimson"></i>
 			<span class="title">实际投停面积</span>
-			<span class="value">56/54 <small>万㎡</small></span>
+			<span class="value">@Model.实际投入面积 / @Model.实际停止面积 <small>万㎡</small></span>
 		</a>
 		
 		<a class="span4 smallstat box noMargin" onTablet="span12" onDesktop="span4" href="#">
 			<i class="icon-sun orange"></i>
 			<span class="title">今日天气 - 晴 微风</span>
-			<span class="value">  <small> 10℃/-2℃   平均5℃</small></span>
+			<span class="value">  <small> @Model.TodaysHighestTemperature ℃ / @Model.TodaysLowestTemperature ℃ 平均 @Model.TodaysAverageTemperature ℃</small></span>
 		</a>
     </div>
 </div>
@@ -55,9 +55,9 @@
     <div class="span6" onTablet="span12">
 		
         <table class="table table-bordered table-hover  table-condensed backgroundColor white">
-            <tr><td>热力站总数量(个)</td><td>@Model.Company.Managerships.Sum(i=>i.Stations.Count())</td><td>平均热负荷(GCal/h)</td><td colspan="3">186</td></tr>
-            <tr><td>万平米循环水量(t/h)</td><td>1</td><td>瞬时单耗(GJ/h·㎡)</td><td>1</td><td>累计单耗(GJ/h·㎡)</td><td>1</td></tr>
-            <tr><td>总瞬时流量(t/h)</td><td>1</td><td>总瞬时热量(GJ/h)</td><td>1</td><td>超标站数量(个)</td><td>111</td></tr>
+            <tr><td>热力站总数量(个)</td><td>@Model.Company.Managerships.Sum(i=>i.Stations.Count())</td><td>平均热负荷(GCal/h)</td><td colspan="3"> @Model.Company.平均热负荷 </td></tr>
+            <tr><td>万平米循环水量(t/h)</td><td> @Model.Company.万平方米流量 </td><td>瞬时单耗(GJ/h·㎡)</td><td> @Model.Company.瞬时单耗 </td><td>累计单耗(GJ/h·㎡)</td><td> @Model.Company.供暖季累计单耗 </td></tr>
+            <tr><td>总瞬时流量(t/h)</td><td> @Model.Company.总瞬时流量 </td><td>总瞬时热量(GJ/h)</td><td> @Model.Company.总瞬时热量 </td><td>超标站数量(个)</td><td> @Model.Company.Stations.Count(i => i.昨日实际单耗 > i.计划热指标)  </td></tr>
         </table>
 		
 		<div class="box backgroundColor white">
@@ -93,16 +93,15 @@
             @foreach( var center in Model.Centers){
                 if (Model.Centers.First() == center)
                 {
-                    <tr><th>中心名称</th><th>投入面积(万㎡)</th><th>热力站数量(个)</th><th>平均热指标(Kcal/h)</th><th>平均热负荷(GCal/h)</th><th>单耗超标站数量(个)</th><th>流量超标站数量(个)</th></tr>
+                    <tr><th>中心名称</th><th>投入面积(万㎡)</th><th>热力站数量(个)</th><th>日累计单耗(w/㎡)</th><th>单耗超标站数量(个)</th><th>流量超标站数量(个)</th></tr>
                 }
                 <tr>
                     <td>@Html.ActionLink(center.管理单位, "ManagershipInfo", new {managershipId = center.ItemID })</td>
                     <td>@( center.Stations.Sum(i=>i.投入面积A) + center.Stations.Sum(i=>i.投入面积B) )</td>
                     <td>@center.Stations.Count()</td>
-                    <td>39</td>
-                    <td>1.2</td>
-                    <td>15</td>
-                    <td>8</td>
+                    <td>@center.日平均单耗 </td>
+                    <td>@center.Stations.Count(i=>i.昨日实际单耗 > i.计划热指标)  </td>
+                    <td>@center.Stations.Count(i=>i.万平方米流量 > 1000) </td>
                 </tr>
             }
         </table>

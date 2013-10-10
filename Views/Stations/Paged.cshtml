@@ -177,7 +177,7 @@ line-height: 30px;'>@ViewBag.Title</h2>
             @p.管理类型
         </td>
         <td>
-            @p.HeatSource.东西部
+            @(p.HeatSource != null ? p.HeatSource.东西部 : "")
         </td>
     </tr>
 }

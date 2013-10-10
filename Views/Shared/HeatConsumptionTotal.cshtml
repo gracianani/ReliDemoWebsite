@@ -28,7 +28,15 @@
                         <th><a href="#">西部</a></th>
                         <th ><a href="#">全网</a></th>
                         </text>              
-                    }           
+                    }
+                    else
+                    {
+                        <text>
+                        <th><a href="#">总</a></th>
+                        <th><a href="#">监测站</a></th>
+                        <th ><a href="#">智能卡</a></th>
+                        </text>  
+                    }      
 				</tr>
 			</thead> 
             <tbody>
@@ -36,13 +44,17 @@
                 {
                     <tr>
 					    <td>@GJItem.Title</td>
-                        @if(GJItem.东部.HasValue) {
+                        @if (GJItem.东部.HasValue)
+                        {
                             <td>@GJItem.东部</td> 
                             <td>@GJItem.西部</td> 
                             <td>@GJItem.全网</td>
                         }
-                        else {
-                                <td>@GJItem.全网</td>
+                        else
+                        {
+                            <td>@GJItem.总</td>
+                            <td>@GJItem.监测站</td>
+                            <td>@GJItem.智能卡</td>
                         }
 				    </tr>
                 }
