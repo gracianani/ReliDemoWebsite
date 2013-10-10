@@ -3,7 +3,26 @@
 body {
 	font-family: 'Lucida Sans Unicode',Tahoma, Helvetica, Arial, sans-serif;
 }
-
+h1,h2,h3 {
+	font-family: 'Microsoft Yahei','Yahei','Lucida Sans Unicode',Tahoma, Helvetica, Arial, sans-serif;
+}
+#tooltip {
+   position: absolute;
+   display: none;
+   border: 1px solid white;
+   padding: 2px;
+   background-color: @blue;
+   color:white;
+   font-size:14px;
+}
+#content {
+	> h2 {
+	font-size:24px;
+	line-height:1.5em;
+	font-family:"Microsoft Yahei","Yahei",sans-serif;
+	margin-bottom:0.9em;
+	}
+}
 .fullWidth {
 	width: 100%;
 	display: block;
@@ -29,6 +48,7 @@ body {
 			color: white;
 			font-size: 12px;
 		}
+		
 	}
 	.data {
 		float: left;
@@ -40,23 +60,30 @@ body {
 	&:hover {
 		text-decoration: none;
 	}
+	small {
+			font-size:50%;
+	}
+	.time {
+		font-size:10px;
+		float:none;
+		clear:both;
+		display:block;
+	}
 }
 
-.header-nav {
-	.user {
-		.name {
-			margin-top: 0 !important;
-			position: relative;
-			top: 3px;
-		}
-	}
-	
-}
 
 .table {
 	margin-bottom: 0;
 	.right {
 		text-align: right;
+	}
+}
+.table-condensed {
+	input {
+		margin-bottom:0;
+	}
+	select {
+	margin-bottom:0;
 	}
 }
 .backgroundColorHeader {
@@ -102,9 +129,19 @@ body {
 		.box-subTitle {
 			float: right;
 			font-size: 16px;
-			line-height: 16px;
-			padding: 10px 0;
+			line-height: 20px;
+			padding: 8px 0;
 			margin: 0 20px 0 0;
+		}
+
+		h2 {
+			font-size:16px;
+			font-weight:normal;
+			line-height:16px;
+		}
+		.btn-small {
+			padding:0 10px;
+			line-height:20px;
 		}
 	}
 }
@@ -146,10 +183,6 @@ body {
 	}
 	td {
 		color: #111;
-	}
-	span.symbol {
-		font-size:13px;
-		display:block;
 	}
 }
 
@@ -211,4 +244,35 @@ body {
 			color: @blue;
 	}
 
+}
+
+.pieChartWithCenterText {
+	position:relative;
+	.centerText {
+		position:absolute;
+		top:45%;
+		left:0;
+		width:100%;
+		line-height:24px;
+		text-align:center;
+		z-index:100;
+		color:#000;
+	}
+
+}
+.topmenu {
+	position:relative;
+	top:15px;
+	margin-bottom:20px;
+	.btn {
+		background-color:#393f4c;
+		color:#FFF;
+	}
+	.btn:hover {
+		background-color:#0071c0;
+	}
+}
+.stationTitle {
+	margin-bottom:20px;
+	
 }
