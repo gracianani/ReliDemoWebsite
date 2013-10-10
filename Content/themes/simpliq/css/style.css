@@ -1760,11 +1760,6 @@ footer a {
   font-size: 20px;
   font-weight: bold;
 }
-.smallstat .time
-{
-    font-size:14px;
-    display:block;
-}
 /* Discussions
 =================================================================== */
 /* line 5, less\discussions.less */
@@ -3339,24 +3334,40 @@ ul.tickets li.ticket .number {
 body {
   font-family: 'Lucida Sans Unicode', Tahoma, Helvetica, Arial, sans-serif;
 }
-/* line 8, less\custom.less */
+/* line 6, less\custom.less */
+h1,
+h2,
+h3 {
+  font-family: 'Microsoft Yahei', 'Yahei', 'Lucida Sans Unicode', Tahoma, Helvetica, Arial, sans-serif;
+}
+/* line 9, less\custom.less */
+#tooltip {
+  position: absolute;
+  display: none;
+  border: 1px solid white;
+  padding: 2px;
+  background-color: #378fc9;
+  color: white;
+  font-size: 14px;
+}
+/* line 19, less\custom.less */
 #content > h2 {
   font-size: 24px;
   line-height: 1.5em;
   font-family: "Microsoft Yahei", "Yahei", sans-serif;
   margin-bottom: 0.9em;
 }
-/* line 15, less\custom.less */
+/* line 26, less\custom.less */
 .fullWidth {
   width: 100%;
   display: block;
 }
-/* line 18, less\custom.less */
+/* line 29, less\custom.less */
 .fullWidth tr {
   width: 100%;
   display: block;
 }
-/* line 24, less\custom.less */
+/* line 35, less\custom.less */
 .smallstat .date-overlay {
   width: 22%;
   padding-left: 1%;
@@ -3367,106 +3378,125 @@ body {
   border-radius: 2px;
   float: left;
 }
-/* line 32, less\custom.less */
+/* line 43, less\custom.less */
 .smallstat .date-overlay .title {
   color: white;
   font-size: 20px;
 }
-/* line 36, less\custom.less */
+/* line 47, less\custom.less */
 .smallstat .date-overlay .value {
   color: white;
   font-size: 12px;
 }
-/* line 41, less\custom.less */
+/* line 53, less\custom.less */
 .smallstat .data {
   float: left;
   width: 25%;
 }
-/* line 45, less\custom.less */
+/* line 57, less\custom.less */
 .smallstat a:hover {
   text-decoration: none;
 }
-/* line 48, less\custom.less */
+/* line 60, less\custom.less */
 .smallstat:hover {
   text-decoration: none;
 }
-/* line 54, less\custom.less */
+/* line 63, less\custom.less */
+.smallstat small {
+  font-size: 50%;
+}
+/* line 66, less\custom.less */
+.smallstat .time {
+  font-size: 10px;
+  float: none;
+  clear: both;
+  display: block;
+}
+/* line 75, less\custom.less */
 .table {
   margin-bottom: 0;
 }
-/* line 56, less\custom.less */
+/* line 77, less\custom.less */
 .table .right {
   text-align: right;
 }
-/* line 61, less\custom.less */
+/* line 82, less\custom.less */
+.table-condensed input {
+  margin-bottom: 0;
+}
+/* line 85, less\custom.less */
+.table-condensed select {
+  margin-bottom: 0;
+}
+/* line 90, less\custom.less */
 .backgroundColorHeader.blue {
   background: #378fc9;
 }
-/* line 65, less\custom.less */
+/* line 94, less\custom.less */
 .backgroundColorHeader.blue .box-icon {
   background: #2c73a1;
 }
-/* line 67, less\custom.less */
+/* line 96, less\custom.less */
 .backgroundColorHeader.blue .box-icon i {
   border-left-color: #2c73a1;
 }
-/* line 72, less\custom.less */
+/* line 101, less\custom.less */
 .backgroundColorHeader.lightBlue {
   background: #67c2ef;
 }
-/* line 73, less\custom.less */
+/* line 102, less\custom.less */
 .backgroundColorHeader.green {
   background: #bdea74;
 }
-/* line 74, less\custom.less */
+/* line 103, less\custom.less */
 .backgroundColorHeader.darkGreen {
   background: #7fb30c;
 }
-/* line 75, less\custom.less */
+/* line 104, less\custom.less */
 .backgroundColorHeader.pink {
   background: #e84c8a;
 }
-/* line 76, less\custom.less */
+/* line 105, less\custom.less */
 .backgroundColorHeader.orange {
   background: #ec6313;
 }
-/* line 77, less\custom.less */
+/* line 106, less\custom.less */
 .backgroundColorHeader.lightOrange {
   background: #fabb3d;
 }
-/* line 78, less\custom.less */
+/* line 107, less\custom.less */
 .backgroundColorHeader.red {
   background: #ff5454;
 }
-/* line 79, less\custom.less */
+/* line 108, less\custom.less */
 .backgroundColorHeader.yellow {
   background: #eae874;
 }
-/* line 80, less\custom.less */
+/* line 109, less\custom.less */
 .backgroundColorHeader.white {
   background: white;
 }
-/* line 81, less\custom.less */
+/* line 110, less\custom.less */
 .backgroundColorHeader.grey {
   background: #c7cbd5;
 }
-/* line 82, less\custom.less */
+/* line 111, less\custom.less */
 .backgroundColorHeader.crimson {
   background: #9e3f3d;
 }
-/* line 86, less\custom.less */
+/* line 115, less\custom.less */
 .backgroundColorHeader.crimson .box-icon {
   background: #79302f;
 }
-/* line 88, less\custom.less */
+/* line 117, less\custom.less */
 .backgroundColorHeader.crimson .box-icon i {
   border-left-color: #79302f;
 }
-/* line 92, less\custom.less */
+/* line 121, less\custom.less */
 .backgroundColorHeader.crimson h2 i {
   background: #79302f;
 }
-/* line 100, less\custom.less */
+/* line 129, less\custom.less */
 .box .box-header .box-subTitle {
   float: right;
   font-size: 16px;
@@ -3474,45 +3504,45 @@ body {
   padding: 8px 0;
   margin: 0 20px 0 0;
 }
-/* line 108, less\custom.less */
+/* line 137, less\custom.less */
 .box .box-header h2 {
   font-size: 16px;
   font-weight: normal;
   line-height: 16px;
 }
-/* line 113, less\custom.less */
+/* line 142, less\custom.less */
 .box .box-header .btn-small {
   padding: 0 10px;
   line-height: 20px;
 }
-/* line 120, less\custom.less */
+/* line 149, less\custom.less */
 .makeTableHeaderAsBoxHeader {
   position: relative;
   top: -46px;
   margin-bottom: -46px;
 }
-/* line 124, less\custom.less */
+/* line 153, less\custom.less */
 .makeTableHeaderAsBoxHeader th {
   color: #FFF;
   background: none!important;
 }
-/* line 127, less\custom.less */
+/* line 156, less\custom.less */
 .makeTableHeaderAsBoxHeader th a {
   color: #FFF;
 }
-/* line 131, less\custom.less */
+/* line 160, less\custom.less */
 .makeTableHeaderAsBoxHeader tbody tr:first-child td {
   border-top: none;
 }
 /* table
 =================================================================== */
-/* line 139, less\custom.less */
+/* line 168, less\custom.less */
 .table.table-bordered {
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   border-radius: 0;
 }
-/* line 144, less\custom.less */
+/* line 173, less\custom.less */
 .table.table-bordered thead:first-child tr:first-child > th:first-child,
 .table.table-bordered tbody:first-child tr:first-child > td:first-child,
 .table.table-bordered tbody:first-child tr:first-child > th:first-child,
@@ -3525,23 +3555,23 @@ body {
   -moz-border-radius: 0;
   border-radius: 0;
 }
-/* line 150, less\custom.less */
+/* line 179, less\custom.less */
 .table th {
   background: #ededed;
   color: #000;
   font-weight: bold;
 }
-/* line 155, less\custom.less */
+/* line 184, less\custom.less */
 .table td {
   color: #111;
 }
 /* station
 ========================*/
-/* line 162, less\custom.less */
+/* line 191, less\custom.less */
 .subNav {
   margin-left: 0;
 }
-/* line 165, less\custom.less */
+/* line 194, less\custom.less */
 .subNav li {
   float: left;
   display: inline-block;
@@ -3552,59 +3582,59 @@ body {
   border-right: 1px solid rgba(255, 255, 255, 0.1);
   border-left: 1px solid rgba(0, 0, 0, 0.5);
 }
-/* line 174, less\custom.less */
+/* line 203, less\custom.less */
 .subNav li.current {
   background-color: #0074c1;
 }
-/* line 177, less\custom.less */
+/* line 206, less\custom.less */
 .subNav li:first-child {
   border-radius: 4px 0 0 4px;
   border-left: none;
 }
-/* line 181, less\custom.less */
+/* line 210, less\custom.less */
 .subNav li:last-child {
   border-radius: 0 4px 4px 0;
   border-right: none;
 }
-/* line 185, less\custom.less */
+/* line 214, less\custom.less */
 .subNav li a {
   color: #fff;
 }
-/* line 188, less\custom.less */
+/* line 217, less\custom.less */
 .subNav li a:hover {
   text-decoration: none;
 }
-/* line 194, less\custom.less */
+/* line 223, less\custom.less */
 .table-zebra td {
   color: #333;
 }
-/* line 198, less\custom.less */
+/* line 227, less\custom.less */
 .table-zebra tr td:nth-child(2n) {
   background-color: #f9f9f9;
 }
-/* line 202, less\custom.less */
+/* line 231, less\custom.less */
 .table-zebra tr:nth-child(2n) {
   background-color: #f9f9f9;
 }
-/* line 204, less\custom.less */
+/* line 233, less\custom.less */
 .table-zebra tr:nth-child(2n) td:nth-child(2n) {
   background-color: white;
 }
-/* line 208, less\custom.less */
+/* line 237, less\custom.less */
 .table-zebra em {
   font-style: normal;
   color: #000;
   font-size: 18px;
 }
-/* line 214, less\custom.less */
+/* line 243, less\custom.less */
 .table-zebra a {
   color: #378fc9;
 }
-/* line 220, less\custom.less */
+/* line 249, less\custom.less */
 .pieChartWithCenterText {
   position: relative;
 }
-/* line 222, less\custom.less */
+/* line 251, less\custom.less */
 .pieChartWithCenterText .centerText {
   position: absolute;
   top: 45%;
@@ -3614,6 +3644,25 @@ body {
   text-align: center;
   z-index: 100;
   color: #000;
+}
+/* line 263, less\custom.less */
+.topmenu {
+  position: relative;
+  top: 15px;
+  margin-bottom: 20px;
+}
+/* line 267, less\custom.less */
+.topmenu .btn {
+  background-color: #393f4c;
+  color: #FFF;
+}
+/* line 271, less\custom.less */
+.topmenu .btn:hover {
+  background-color: #0071c0;
+}
+/* line 275, less\custom.less */
+.stationTitle {
+  margin-bottom: 20px;
 }
 /* Page: Messages
 =================================================================== */
@@ -4015,11 +4064,3 @@ ul.messagesList li span.date {
   margin-top: 20px;
   float: left;
 }
-.table span.symbol {
-		font-size:13px;
-		display:block;
-	}
-	
-	
-	
-

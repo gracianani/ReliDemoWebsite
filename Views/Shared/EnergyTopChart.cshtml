@@ -1,6 +1,6 @@
 ﻿@model ReliDemo.ViewModels.EnergySavingTopChartViewModel 
 <div class="span6">
-<table class="table"> 
+<table class="table  table-condensed"> 
 	<tbody>
 	<tr><th colspan="3"><select style="width:100px"><option>从低到高</option><option>从低到高</option></select> 单耗排行 </th></tr>
     @foreach (var station in Model.TopEnergyConsuming)
@@ -20,7 +20,7 @@
 </table>
 </div><!--/span-->
 <div class="span6">
-<table class="table"> 
+<table class="table table-condensed"> 
 	<tbody>
 	<tr><th colspan="3"><select style="width:100px"><option>从高到低</option><option>从低到高</option></select> 循环水量排行 </th></tr>
 	@foreach (var station in Model.TopWaterConsuming)
