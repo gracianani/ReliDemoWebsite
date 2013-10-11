@@ -29,110 +29,142 @@
 @Html.Hidden("temperatureActual", @Model.实际温度)
 @Html.Hidden("fromDate", @Model.FromDate)
 @Html.Hidden("toDate", @Model.ToDate)
+@Html.Hidden("companyId", @Model.CompanyId)
+@Html.Hidden("managershipId", @Model.ManagershipId)
+@Html.Hidden("type", @Model.类型)
 
 <script>
+    var d1 = $.parseJSON($("input[name=plan]").val());
+    var d2 = $.parseJSON($("input[name=theory]").val());
+    var d3 = $.parseJSON($("input[name=actual]").val());
+    var today = new Date();
+    var tempPlan = $.parseJSON($("input[name=temperatureForecast]").val());
+    var tempActu = $.parseJSON($("input[name=temperatureActual]").val());
+    var lengendContainer = $('#dashboard-heat-temp-lengend');
+
+    var heatTempChartData = [{
+        label: "实际平均温度",
+        data: tempPlan,
+        lines: { show: true },
+        points: { show: true }
+
+    }, {
+        label: "预报平均温度",
+        data: tempActu,
+        lines: { show: true },
+        points: { show: true }
+
+    }, {
+
+        label: "当日计划供热量(GJ)",
+        data: d1,
+        bars: { show: true, order: 0, fill: true, barWidth: 24 * 60 * 60 * 200, align: "left", fillColor: "#fabb3d", lineWidth: 0 },
+        yaxis: 2
+
+
+    }, {
+
+        label: "当日折算供热量(GJ)",
+        data: d2,
+        bars: { show: true, order: 1, fill: true, barWidth: 24 * 60 * 60 * 200, align: "left", fillColor: "#c84628", color: "#c84628", borderColor: "#c84628", lineWidth: 0 },
+        yaxis: 2
+
+    }, {
+
+        label: "当日累计供热量(GJ)",
+        data: d3,
+        bars: { show: true, order: 2, fill: true, barWidth: 24 * 60 * 60 * 200, align: "left", fillColor: "#2fabe9", lineWidth: 0 },
+        yaxis: 2
+
+    }];
+
+
+
+    var heatTempChartGrid = {
+        tickColor: "#eee",
+        borderWidth: 0,
+        hoverable: true,
+        clickable: true
+    };
+    var heatTempChartOptions = {
+        xaxis: {
+            mode: "time",
+            minTickSize: [1, "day"],
+            timeformat: "%m月%d日"
+        },
+        grid: heatTempChartGrid,
+        yaxes: [{}, {
+            position: "right"
+        }],
+        colors: ["#ec6313", "#00558e", "#fabb3d", "#c84628", "#2fabe9"],
+        legend: {
+            container: lengendContainer,
+            noColumns: 5
+        }
+
+    };
+    var heatTempChartOptionsLastWeek = {
+        xaxis: {
+            mode: "time",
+            minTickSize: [1, "day"],
+            timeformat: "%m月%d日"
+        }, yaxes: [{}, {
+            position: "right"
+        }],
+        colors: ["#ec6313", "#00558e", "#fabb3d", "#c84628", "#2fabe9"],
+        grid: heatTempChartGrid,
+        legend: {
+            container: lengendContainer,
+            noColumns: 5
+        }
+    };
+    var heatTempChartOptionsLastMonth = {
+        xaxis: {
+            mode: "time",
+            minTickSize: [1, "day"],
+            minTickSize: [1, "day"],
+            timeformat: "%m月%d日"
+        }, yaxes: [{}, {
+            position: "right"
+        }],
+        colors: ["#ec6313", "#00558e", "#fabb3d", "#c84628", "#2fabe9"],
+        grid: heatTempChartGrid,
+        legend: {
+            container: lengendContainer,
+            noColumns: 5
+        }
+    };
+
+
+    function getSevenDaysHeatConsumption() {
+
+    }
+
+    function getThirtyDaysHeatConsumption() {
+        var url = "http://localhost:11223/HeatConsumptionService/GetHeatConsumptionGraphData/" + $("input[name=type]").val() + "/" + (new Date()).getTime() + "/" + (new Date() - (-1)) + "/" + $("input[name=companyId]").val() + "/0";
+        console.log(url);
+        $.ajax({
+            url: url,
+            type: "GET",
+            contentType: "application/json; charset=utf-8",
+            dataType: "jsonp",
+            data: "",
+            success: function (data) {
+                tempPlan = data["预报温度"];
+                tempActu = data["实际温度"];
+                console.log(data);
+                d1 = data["计划Data"];
+                d2 = data["核算Data"];
+                d3 = data["实际Data"];
+
+            }
+        });
+    }
+
+    function getSeasonalHeatConsumption() {
+    }
+
     $(document).ready(function () {
-
-        var d1 = $.parseJSON($("input[name=plan]").val());
-        var d2 = $.parseJSON($("input[name=theory]").val());
-        var d3 = $.parseJSON($("input[name=actual]").val());
-        var today = new Date();
-        var tempPlan = $.parseJSON($("input[name=temperatureForecast]").val());
-        var tempActu = $.parseJSON($("input[name=temperatureActual]").val()); 
-		var lengendContainer = $('#dashboard-heat-temp-lengend');
-		
-        var heatTempChartData = [{
-            label: "实际平均温度",
-            data: tempPlan,
-            lines: { show: true },
-            points: { show: true }
-
-        }, {
-            label: "预报平均温度",
-            data: tempActu,
-            lines: { show: true },
-            points: { show: true }
-
-        }, {
-
-            label: "当日计划供热量(GJ)",
-            data: d1,
-            bars: { show: true, order: 0, fill: true, barWidth: 24 * 60 * 60 * 200, align:"left",fillColor:"#fabb3d",lineWidth:0 },
-            yaxis: 2
-
-
-        }, {
-
-            label: "当日折算供热量(GJ)",
-            data: d2,
-            bars: { show: true, order: 1, fill: true, barWidth: 24 * 60 * 60 * 200, align:"left",fillColor:"#c84628",color:"#c84628",borderColor:"#c84628",lineWidth:0  },
-            yaxis: 2
-
-        }, {
-
-            label: "当日累计供热量(GJ)",
-            data: d3,
-            bars: { show: true, order: 2, fill: true, barWidth: 24 * 60 * 60 * 200, align:"left",fillColor:"#2fabe9",lineWidth:0  },
-            yaxis: 2
-
-        }];
-
-
-
-        var heatTempChartGrid = {
-            tickColor: "#eee",
-            borderWidth: 0,
-            hoverable: true,
-            clickable: true
-        };
-        var heatTempChartOptions = {
-            xaxis: {
-                mode: "time",
-                minTickSize: [1, "day"],
-                timeformat: "%m月%d日"
-            },
-            grid: heatTempChartGrid,
-            yaxes: [{}, {
-                position: "right"
-            }],
-			colors:["#ec6313","#00558e","#fabb3d","#c84628","#2fabe9"],
-			legend:{
-			container:lengendContainer,
-			noColumns:5
-			}
-
-        };
-        var heatTempChartOptionsLastWeek = {
-            xaxis: {
-                mode: "time",
-                minTickSize: [1, "day"],
-                timeformat: "%m月%d日"
-            }, yaxes: [{}, {
-                position: "right"
-            }],
-			colors:["#ec6313","#00558e","#fabb3d","#c84628","#2fabe9"],
-            grid: heatTempChartGrid,
-			legend:{
-			container:lengendContainer,
-			noColumns: 5
-			}
-        };
-        var heatTempChartOptionsLastMonth = {
-            xaxis: {
-                mode: "time",
-                minTickSize: [1, "day"],
-                minTickSize: [1, "day"],
-                timeformat: "%m月%d日"
-            }, yaxes: [{}, {
-                position: "right"
-            }],
-			colors:["#ec6313","#00558e","#fabb3d","#c84628","#2fabe9"],
-            grid: heatTempChartGrid,
-			legend:{
-			container:lengendContainer,
-			noColumns: 5
-			}
-        };
 
         var dashboardHeatTempChart = $.plot($("#dashboard-heat-temp-chart"), heatTempChartData, heatTempChartOptionsLastWeek);
         $("<div id='tooltip'></div>").appendTo("body");
@@ -155,15 +187,12 @@
             }
         });
 
-		$("#thisYear").click(function () {
-		dashboardHeatTempChart = $.plot("#dashboard-heat-temp-chart", heatTempChartData, heatTempChartOptions);
-		});
-		$("#lastSevenDays").click(function () {
-		dashboardHeatTempChart = $.plot("#dashboard-heat-temp-chart", heatTempChartData, heatTempChartOptionsLastWeek);
-		});
-		$("#lastThirtyDays").click(function () {
-		dashboardHeatTempChart = $.plot("#dashboard-heat-temp-chart", heatTempChartData, heatTempChartOptionsLastMonth);
-		});
+        $("#lastSevenDays").click(function () {
+            dashboardHeatTempChart = $.plot("#dashboard-heat-temp-chart", heatTempChartData, heatTempChartOptionsLastWeek);
+        });
+        $("#lastThirtyDays").click(function () {
+            dashboardHeatTempChart = $.plot("#dashboard-heat-temp-chart", heatTempChartData, heatTempChartOptionsLastMonth);
+        });
     });
 
 </script>
