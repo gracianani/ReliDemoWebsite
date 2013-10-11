@@ -1,19 +1,37 @@
 ﻿@model ReliDemo.ViewModels.WeatherStationForecastViewModel
 
 @{
-    ViewBag.Title = "天气预报";
+    ViewBag.Title = "气象监测数据";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
  <h2 style='font-family: "Microsoft Yahei",sans-serif;
 font-size: 24px;
 margin-bottom: 0.9em;
-line-height: 30px;'>@ViewBag.Title</h2>
+line-height: 30px;'>气象监测数据</h2>
+
 
 
 <div class="row-fluid">
     <div class="span12">
-        <table class="table table-bordered" style="background:white">
-            
+        <div class="box span12 noMarginLeft">
+			<div class="box-header">
+				<h2><i class="icon-cloud"></i>温度趋势曲线图</h2>
+			</div>
+			<div class="box-content">
+				@Html.Partial("TemperatureGraph", Model.七日预测温度)
+			</div>
+		</div>
+    </div>
+</div>
+<div class="row-fluid">
+	<div class="span6">
+        <div class="box span12 noMarginLeft">
+			<div class="box-header">
+				<h2><i class="icon-list"></i>七日气象预报</h2>
+			</div>
+			<div class="box-content">
+			<table class="table table-bordered table-condensed" >
+            <tr><th colspan="6">天气实况</th></tr>
             <tr>
                 <td rowspan="2">
                     今天
@@ -70,25 +88,10 @@ line-height: 30px;'>@ViewBag.Title</h2>
                 </td>
             </tr>
         </table>
-    </div>
-</div>
-<br />
-<div class="row-fluid">
-    <div class="span12">
-        @Html.Partial("TemperatureGraph", Model.七日预测温度)
-    </div>
-</div>
-<div class="row-fluid">
-	<div class="span6">
-        <div class="box span12 noMarginLeft">
-			<div class="box-header">
-				<h2><i class="icon-tasks"></i>七日气象预报</h2>
-			</div>
-			<div class="box-content">
-
-                <table class="table table-bordered">
+		<br />
+                <table class="table table-condensed table-bordered">
                     <tr>
-                        <th>日期</th>
+                        <th>未来７日预报</th>
                         <th>天气现象</th>
                         <th>气温</th>
                         <th>风向</th>
@@ -100,7 +103,6 @@ line-height: 30px;'>@ViewBag.Title</h2>
                                 @perdict.日期.ToString("M月d日")
                             </td>
                             <td rowspan="2" >
-                                <span class="icon-clima-1" style="font-size:72px" ></span>
                                 @perdict.天气
                             </td>
                             <td>
@@ -124,7 +126,15 @@ line-height: 30px;'>@ViewBag.Title</h2>
     <div class="span6">
         <div class="box span12 noMarginLeft">
 			<div class="box-header">
-				<h2><i class="icon-tasks"></i>气象旬报 (@Model.十日预测.预报时间 ) 发布</h2>
+				<h2><i class="icon-bell"></i>气象旬报 (@Model.十日预测.预报时间 ) 发布</h2>
+			</div>
+			<div class="box-content">
+                @Model.十日预测.预报内容
+            </div>
+        </div>
+		<div class="box span12 noMarginLeft">
+			<div class="box-header">
+				<h2><i class="icon-moon"></i>气象月报 (@Model.十日预测.预报时间 ) 发布</h2>
 			</div>
 			<div class="box-content">
                 @Model.十日预测.预报内容

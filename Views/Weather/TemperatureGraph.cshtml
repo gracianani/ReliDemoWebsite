@@ -14,9 +14,11 @@
        "[" + string.Join(",", Model.Where(i => i.TemperatureType == ReliDemo.Models.TemperatureType.最低温度).Select(i => string.Format("{{\"time\": \"{0:yyyy-MM-dd HH:mm:ss}\", \"temperature\" : {1}}}", i.时间, i.Temperature)).ToArray()) + "]"
 )
 
+
 <script type="text/javascript">
     $(document).ready(function () {
         var realtimeTemperatureData = $.parseJSON($("input[name=realtimeTemperatures]").val());
+
         var realtimeTemperature = [];
         for (var i = 0; i < realtimeTemperatureData.length; i++) {
             realtimeTemperature.push([(new Date(realtimeTemperatureData[i].time).getTime()), realtimeTemperatureData[i].temperature]);
@@ -27,7 +29,6 @@
         for (var i = 0; i < highestTemperatureData.length; i++) {
             highestTemperature.push([(new Date(highestTemperatureData[i].time).getTime()), highestTemperatureData[i].temperature]);
         }
-
         var lowestTemperatureData = $.parseJSON($("input[name=lowestTemperatures]").val());
         var lowestTemperature = [];
         for (var i = 0; i < lowestTemperatureData.length; i++) {
@@ -44,14 +45,15 @@
         var tempChartOptions = {
             xaxis: {
                 mode: "time",
-                minTickSize: [1, "hour"],
-                timeformat: "%I:%M"
+                minTickSize: [1, "day"],
+                timeformat: "%m月%d日"
             },
             yaxis: {
                 min: -20,
                 max: 45
             },
-            grid: heatTempChartGrid
+            grid: heatTempChartGrid,
+			colors:["#ec6313","#00558e"]
         };
 
         var temperatureChartData = [];
@@ -90,9 +92,9 @@
             for (var m = 0; m < points[k].data.length; m++) {
                 if (points[k].data[m][0] != null && points[k].data[m][1] != null) {
                     if (k == 0) {
-                        showTooltip(graphx + points[k].xaxis.p2c(points[k].data[m][0]) + 15, graphy + points[k].yaxis.p2c(points[k].data[m][1]) - 40, points[k].data[m][1], "#e2c160")
+                        showTooltip(graphx + points[k].xaxis.p2c(points[k].data[m][0]), graphy + points[k].yaxis.p2c(points[k].data[m][1]) - 40, points[k].data[m][1], "#ec6313")
                     } else {
-                        showTooltip(graphx + points[k].xaxis.p2c(points[k].data[m][0]) + 15, graphy + points[k].yaxis.p2c(points[k].data[m][1]) + 5, points[k].data[m][1], "#c1dcf1")
+                        showTooltip(graphx + points[k].xaxis.p2c(points[k].data[m][0]), graphy + points[k].yaxis.p2c(points[k].data[m][1]) + 5, points[k].data[m][1], "#00558e")
                     }
 
                 }
@@ -108,10 +110,10 @@
             left: x,
             'border-style': 'solid',
             'border-width': '2px',
-            'border-color': colour,
+            'border-color': "#FFF",
             'border-radius': '5px',
-            'background-color': '#ffffff',
-            color: '#262626',
+            'background-color': colour,
+            color: '#FFF',
             padding: '2px'
         }).appendTo("body").fadeIn(200);
     } 

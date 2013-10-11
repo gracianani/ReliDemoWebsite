@@ -12,52 +12,64 @@
     margin: 0 auto;
 }
 .rb-grid li {
-    width: 41.5%;
-    height: 4em;
-    margin: 0.5%;
-    background: #8CC7DF;
+    width: 45%;
+    height: 50px;
+    margin: 0 1% 1% 0;
+    background: #9e3f3d;
     color: #fff;
-    display: block;
+    display: inline-block;
     float: left;
-    padding: 0.2em 0.8em;
+    padding: 5px 2%;
     cursor: pointer;
     position: relative;
+	text-align:left;
 }
-.rb-grid li.rb-span2
+.rb-grid .rb-col2
 {
-    width: 99%;
-    margin: 0.5%;
-    height: 7.5em;
+    width: 95%;
+    margin: 0 0 1%;
+	padding: 5px 2%;
+	height: 50px;
 }
 .rb-grid {
-    margin: 0.5%;
     height: 15em;
 }
-.rb-grid li:nth-child(1),.rb-grid li:nth-child(13)  { background: #3399CC; }
-.rb-grid li:nth-child(2),.rb-grid li:nth-child(14) { background: #33CCCC; }
-.rb-grid li:nth-child(3),.rb-grid li:nth-child(15) { background: #996699; }
-.rb-grid li:nth-child(4),.rb-grid li:nth-child(16) { background: #C24747; }
-.rb-grid li:nth-child(5),.rb-grid li:nth-child(17) { background: #e2674a; }
-.rb-grid li:nth-child(6),.rb-grid li:nth-child(18) { background: #FFCC66; }
-.rb-grid li:nth-child(7),.rb-grid li:nth-child(19) { background: #99CC99; }
-.rb-grid li:nth-child(8),.rb-grid li:nth-child(20) { background: #669999; }
-.rb-grid li:nth-child(9),.rb-grid li:nth-child(21) { background: #CC6699; }
-.rb-grid li:nth-child(10),.rb-grid li:nth-child(22) { background: #339966; }
-.rb-grid li:nth-child(11),.rb-grid li:nth-child(23) { background: #666699; }
 
+.rb-grid li:nth-child(1),.rb-grid li:nth-child(13)  { background:#00558e; }
+.rb-grid li:nth-child(2),.rb-grid li:nth-child(14) { background: #0074c1; }
+.rb-grid li:nth-child(3),.rb-grid li:nth-child(15) { background: #3399CC; }
+.rb-grid li:nth-child(4),.rb-grid li:nth-child(16) { background: #33CCCC; }
+.rb-grid li:nth-child(5),.rb-grid li:nth-child(17) { background:  #339966; }
+.rb-grid li:nth-child(6),.rb-grid li:nth-child(18) { background: #7fb30c; }
+.rb-grid li:nth-child(7),.rb-grid li:nth-child(19) { background: #fabb3d; }
+.rb-grid li:nth-child(8),.rb-grid li:nth-child(20) { background:  #ff5454; }
+.rb-grid li:nth-child(9),.rb-grid li:nth-child(21) { background:#ec6313; }
+.rb-grid li:nth-child(10),.rb-grid li:nth-child(22) { background: #C24747; }
+.rb-grid li:nth-child(11),.rb-grid li:nth-child(23) { background:#9e3f3d; }
+.rb-grid li a {
+	color:#FFF;
+	
+}
 .rb-grid li h3{
     font-size: 1.5em;
-    font-weight: 100;
+    font-weight:normal;
     font-family: "Microsoft YaHei";
+	color:#FFF;
+	line-height:24px;
+	margin:0;
 }
 .rb-temp {
-display: block;
-font-size: 1.2em;
+	display: block;
+	font-size: 1.2em;
+	font-weight:bold;
+	font-family: 'Lucida Sans Unicode',Tahoma, Helvetica, Arial, sans-serif;
+	line-height:20px;
 }
 
 #weathermap 
 {
     height:687px;
+	margin-bottom:20px;
 }
 </style>
 <script type="text/javascript" src="http://api.map.baidu.com/api?v=1.5&ak=C17ce0c9f897bac7d7bb25196aca89d2"></script>
@@ -69,17 +81,17 @@ font-size: 1.2em;
 <div class="span12">
 
 <div class="row-fluid">
-    <div class="span8">
+    <div class="span8" onDesktop="span8" onTablet="span12">
         <div id="weathermap"></div>
     </div>
-    <div class="span4">
+    <div onDesktop="span4"  onTablet="span12 noMarginLeft">
     <ul class="rb-grid">
     @foreach (var latest in Model.WeatherStations)
     {
-        <li class="icon-clima-2 @if(latest.WeatherStationName == "朝阳") {<text> rb-span2</text> } ">
+        <li class="icon-clima-2 @if(latest.WeatherStationName == "朝阳") {<text> rb-col2</text> }">
             <a href="/Weather/WeatherStation?WeatherStationId=@latest.WeatherStationId">
             <h3>@latest.WeatherStationName</h3>
-            <span class="rb-temp">@latest.Temperatures.First().Temperature ℃a</span>
+            <span class="rb-temp">@latest.Temperatures.First().Temperature ℃</span>
             </a>
         </li>
     }
@@ -178,13 +190,18 @@ font-size: 1.2em;
         var point = new BMap.Point(poi[i].latlng[0], poi[i].latlng[1]);    // 创建点坐标
         var marker = new BMap.Marker(point);  // 创建标注
         map.addOverlay(marker);              // 将标注添加到地图中
-        var label = new BMap.Label(poi[i].name + "<br/> " + $(".rb-grid li:eq( " + i + " ) span").html(), { offset: new BMap.Size(10, -10) });
+        var label = new BMap.Label(poi[i].name + "<br/> " + $(".rb-grid li:eq( " + i + " ) span").html(), { offset: new BMap.Size(0, -50) });
         label.setStyle({
-            color: "red",
-            fontSize: "18px",
-            height: "44px",
-            lineHeight: "24px",
-            fontFamily: "微软雅黑"
+            color: "white",
+			backgroundColor:"#378fc9",
+            fontSize: "16px",
+			padding:"5px",
+			borderRadius:"5px",
+            height: "40px",
+            lineHeight: "20px",
+            fontFamily: "微软雅黑",
+			border:"1px solid #FFF",
+			boxShadow:"1px 1px 2px rgba(0,0,0,0.5)"
         });
         marker.setLabel(label);
         marker.addEventListener("click", function () {
