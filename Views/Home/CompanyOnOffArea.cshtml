@@ -14,8 +14,8 @@
         var companyTotal = $.parseJSON($("input[name=companyTotal]").val());
         var companyOn = $.parseJSON($("input[name=companyOn]").val());
         var companyAreaBarchartData =  [
-		    { label: "总面积", data: companyTotal },
-		    { label: "实际投入面积", data: companyOn }
+		    { label: "总面积", data: companyTotal,bars:{fillColor:"#c7cbd5"} },
+		    { label: "实际投入面积", data: companyOn,bars:{fillColor:"#36a9e1"} }
 	    ];
 
         $.plot("#dashboard-company-area-barchart", companyAreaBarchartData, {
@@ -24,6 +24,7 @@
                 bars: {
                     show: true,
                     barWidth: 0.6,
+					borderWidth:0,
                     align: "center"
                 }
             },
@@ -36,7 +37,7 @@
             },
             grid: { tickColor: "#eee", borderWidth: 0
             },
-            colors: ["#cdcdcd", "#2FABE9"],
+            colors: ["#c7cbd5", "#36a9e1"],
 			legend: {
 				container:$('#dashboard-company-area-legend'),
 				noColumns:2

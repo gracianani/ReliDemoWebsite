@@ -36,6 +36,9 @@
 .crimson {
   color: #9e3f3d;
 }
+.gold {
+  color: #fabb3d;
+}
 .backgroundColor.blue {
   background: #378fc9;
 }
@@ -72,6 +75,9 @@
 .backgroundColor.crimson {
   background: #9e3f3d;
 }
+.backgroundColor.gold {
+  background: #fabb3d;
+}
 .backgroundColorTitle.blue .title {
   background: #378fc9;
 }
@@ -104,4 +110,7 @@
 }
 .backgroundColorTitle.grey .title {
   background: #c7cbd5;
+}
+.backgroundColorTitle.gold {
+  background: #fabb3d;
 }

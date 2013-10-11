@@ -10,7 +10,7 @@
 <div class="box blue span12 noMarginLeft" id="heatConsumptionGraph">
 	<div class="box-header">
 		<h2><i class="icon-bar-chart"></i>实际温度、供热量日统计</h2>
-		<div class="box-subTitle"><a class="btn btn-small" id="today">今日</a> <a class="btn btn-small selected" id="lastSevenDays">最近7天</a> <a class="btn btn-small" id="lastThirtyDays">最近30天</a> <a class="btn btn-small" id="thisYear">本供暖季</a>
+		<div class="box-subTitle"><a class="btn btn-small btn-warning" id="lastSevenDays">最近7天</a> <a class="btn btn-small btn-info" id="lastThirtyDays">最近30天</a> <a class="btn btn-small btn-info" id="thisYear">本供暖季</a>
 		</div>
 	</div>
 	<div class="box-content">
@@ -55,24 +55,24 @@
 
         }, {
 
-            label: "当日计划供热量",
+            label: "当日计划供热量(GJ)",
             data: d1,
-            bars: { show: true, order: 1, fill: true, barWidth: 24 * 60 * 60 * 100, lineWidth: 1 },
+            bars: { show: true, order: 0, fill: true, barWidth: 24 * 60 * 60 * 200, align:"left",fillColor:"#fabb3d",lineWidth:0 },
             yaxis: 2
 
 
         }, {
 
-            label: "当日折算供热量",
+            label: "当日折算供热量(GJ)",
             data: d2,
-            bars: { show: true, order: 2, fill: true, barWidth: 24 * 60 * 60 * 100, lineWidth: 1 },
+            bars: { show: true, order: 1, fill: true, barWidth: 24 * 60 * 60 * 200, align:"left",fillColor:"#c84628",color:"#c84628",borderColor:"#c84628",lineWidth:0  },
             yaxis: 2
 
         }, {
 
-            label: "当日累计供热量",
+            label: "当日累计供热量(GJ)",
             data: d3,
-            bars: { show: true, order: 3, fill: true, barWidth: 24 * 60 * 60 * 100, lineWidth: 1 },
+            bars: { show: true, order: 2, fill: true, barWidth: 24 * 60 * 60 * 200, align:"left",fillColor:"#2fabe9",lineWidth:0  },
             yaxis: 2
 
         }];
@@ -95,6 +95,7 @@
             yaxes: [{}, {
                 position: "right"
             }],
+			colors:["#ec6313","#00558e","#fabb3d","#c84628","#2fabe9"],
 			legend:{
 			container:lengendContainer,
 			noColumns:5
@@ -109,6 +110,7 @@
             }, yaxes: [{}, {
                 position: "right"
             }],
+			colors:["#ec6313","#00558e","#fabb3d","#c84628","#2fabe9"],
             grid: heatTempChartGrid,
 			legend:{
 			container:lengendContainer,
@@ -124,6 +126,7 @@
             }, yaxes: [{}, {
                 position: "right"
             }],
+			colors:["#ec6313","#00558e","#fabb3d","#c84628","#2fabe9"],
             grid: heatTempChartGrid,
 			legend:{
 			container:lengendContainer,

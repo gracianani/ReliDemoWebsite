@@ -5,7 +5,7 @@
                 calculPixel2XWidthConvert(plot); retrieveBarSeries(plot); calculBorderAndBarWidth(serie); if (nbOfBarsToOrder >= 2) {
                     var position = findPosition(serie); var dx = 0; var centerBarShift = calculCenterBarShift(); if (isBarAtLeftOfCenter(position)) { dx = -1 * (sumWidth(orderedBarSeries, position - 1, Math.floor(nbOfBarsToOrder / 2) - 1)) - centerBarShift + (35000000); } else { dx = sumWidth(orderedBarSeries, Math.ceil(nbOfBarsToOrder / 2), position - 2) + centerBarShift + borderWidthInXabsWidth * 2; }
                     shiftedPoints = shiftPoints(datapoints, serie, dx); datapoints.points = shiftedPoints;
-                } 
+                }
             }
             return shiftedPoints;
         }
@@ -28,8 +28,12 @@
             return pos + 1;
         }
         function calculCenterBarShift() {
-            var width = 0; if (nbOfBarsToOrder % 2 != 0)
-                width = (orderedBarSeries[Math.ceil(nbOfBarsToOrder / 2)].bars.barWidth) / 2; return width;
+            var width = 0;
+            if (nbOfBarsToOrder % 2 != 0) {
+                width = (orderedBarSeries[Math.ceil(nbOfBarsToOrder / 2)].bars.barWidth) / 2;
+            }
+            console.log(width);
+            return width;
         }
         function isBarAtLeftOfCenter(position) { return position <= Math.ceil(nbOfBarsToOrder / 2); }
         function sumWidth(series, start, end) {
@@ -41,6 +45,7 @@
             return points;
         }
         plot.hooks.processDatapoints.push(reOrderBars);
+        console.log('here');
     }
     var options = { series: { bars: { order: null}} }; $.plot.plugins.push({ init: init, options: options, name: "orderBars", version: "0.2" });
 })(jQuery)

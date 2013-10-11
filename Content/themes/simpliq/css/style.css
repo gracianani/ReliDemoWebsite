@@ -199,145 +199,157 @@ blockquote {
 }
 /* Main Colors
 =================================================================== */
-/* line 25, less\colors.less */
+/* line 26, less\colors.less */
 .blue {
   color: #378fc9;
 }
-/* line 26, less\colors.less */
+/* line 27, less\colors.less */
 .lightBlue {
   color: #67c2ef;
 }
-/* line 27, less\colors.less */
+/* line 28, less\colors.less */
 .green {
   color: #bdea74;
 }
-/* line 28, less\colors.less */
+/* line 29, less\colors.less */
 .darkGreen {
   color: #7fb30c;
 }
-/* line 29, less\colors.less */
+/* line 30, less\colors.less */
 .pink {
   color: #e84c8a;
 }
-/* line 30, less\colors.less */
+/* line 31, less\colors.less */
 .orange {
   color: #ec6313;
 }
-/* line 31, less\colors.less */
+/* line 32, less\colors.less */
 .lightOrange {
   color: #fabb3d;
 }
-/* line 32, less\colors.less */
+/* line 33, less\colors.less */
 .red {
   color: #ff5454;
 }
-/* line 33, less\colors.less */
+/* line 34, less\colors.less */
 .yellow {
   color: #eae874;
 }
-/* line 34, less\colors.less */
+/* line 35, less\colors.less */
 .white {
   color: white;
 }
-/* line 35, less\colors.less */
+/* line 36, less\colors.less */
 .grey {
   color: #c7cbd5;
 }
-/* line 36, less\colors.less */
+/* line 37, less\colors.less */
 .crimson {
   color: #9e3f3d;
 }
-/* line 39, less\colors.less */
+/* line 38, less\colors.less */
+.gold {
+  color: #fabb3d;
+}
+/* line 41, less\colors.less */
 .backgroundColor.blue {
   background: #378fc9;
 }
-/* line 40, less\colors.less */
+/* line 42, less\colors.less */
 .backgroundColor.lightBlue {
   background: #67c2ef;
 }
-/* line 41, less\colors.less */
+/* line 43, less\colors.less */
 .backgroundColor.green {
   background: #bdea74;
 }
-/* line 42, less\colors.less */
+/* line 44, less\colors.less */
 .backgroundColor.darkGreen {
   background: #7fb30c;
 }
-/* line 43, less\colors.less */
+/* line 45, less\colors.less */
 .backgroundColor.pink {
   background: #e84c8a;
 }
-/* line 44, less\colors.less */
+/* line 46, less\colors.less */
 .backgroundColor.orange {
   background: #ec6313;
 }
-/* line 45, less\colors.less */
+/* line 47, less\colors.less */
 .backgroundColor.lightOrange {
   background: #fabb3d;
 }
-/* line 46, less\colors.less */
+/* line 48, less\colors.less */
 .backgroundColor.red {
   background: #ff5454;
 }
-/* line 47, less\colors.less */
+/* line 49, less\colors.less */
 .backgroundColor.yellow {
   background: #eae874;
 }
-/* line 48, less\colors.less */
+/* line 50, less\colors.less */
 .backgroundColor.white {
   background: white;
 }
-/* line 49, less\colors.less */
+/* line 51, less\colors.less */
 .backgroundColor.grey {
   background: #c7cbd5;
 }
-/* line 50, less\colors.less */
+/* line 52, less\colors.less */
 .backgroundColor.crimson {
   background: #9e3f3d;
 }
-/* line 56, less\colors.less */
+/* line 53, less\colors.less */
+.backgroundColor.gold {
+  background: #fabb3d;
+}
+/* line 59, less\colors.less */
 .backgroundColorTitle.blue .title {
   background: #378fc9;
 }
-/* line 59, less\colors.less */
+/* line 62, less\colors.less */
 .backgroundColorTitle.lightBlue .title {
   background: #67c2ef;
 }
-/* line 62, less\colors.less */
+/* line 65, less\colors.less */
 .backgroundColorTitle.green .title {
   background: #bdea74;
 }
-/* line 65, less\colors.less */
+/* line 68, less\colors.less */
 .backgroundColorTitle.darkGreen .title {
   background: #7fb30c;
 }
-/* line 68, less\colors.less */
+/* line 71, less\colors.less */
 .backgroundColorTitle.pink .title {
   background: #e84c8a;
 }
-/* line 71, less\colors.less */
+/* line 74, less\colors.less */
 .backgroundColorTitle.orange .title {
   background: #ec6313;
 }
-/* line 74, less\colors.less */
+/* line 77, less\colors.less */
 .backgroundColorTitle.lightOrange .title {
   background: #fabb3d;
 }
-/* line 77, less\colors.less */
+/* line 80, less\colors.less */
 .backgroundColorTitle.red .title {
   background: #ff5454;
 }
-/* line 80, less\colors.less */
+/* line 83, less\colors.less */
 .backgroundColorTitle.yellow .title {
   background: #eae874;
 }
-/* line 83, less\colors.less */
+/* line 86, less\colors.less */
 .backgroundColorTitle.white .title {
   background: white;
 }
-/* line 86, less\colors.less */
+/* line 89, less\colors.less */
 .backgroundColorTitle.grey .title {
   background: #c7cbd5;
+}
+/* line 91, less\colors.less */
+.backgroundColorTitle.gold {
+  background: #fabb3d;
 }
 /* line 45, less\mixins.less */
 .clearfix {
@@ -658,53 +670,57 @@ ul.notifications li .icon {
   display: inline-block;
   text-align: center;
 }
-/* line 39, less\colors.less */
+/* line 41, less\colors.less */
 ul.notifications li .icon.blue {
   background: #378fc9;
 }
-/* line 40, less\colors.less */
+/* line 42, less\colors.less */
 ul.notifications li .icon.lightBlue {
   background: #67c2ef;
 }
-/* line 41, less\colors.less */
+/* line 43, less\colors.less */
 ul.notifications li .icon.green {
   background: #bdea74;
 }
-/* line 42, less\colors.less */
+/* line 44, less\colors.less */
 ul.notifications li .icon.darkGreen {
   background: #7fb30c;
 }
-/* line 43, less\colors.less */
+/* line 45, less\colors.less */
 ul.notifications li .icon.pink {
   background: #e84c8a;
 }
-/* line 44, less\colors.less */
+/* line 46, less\colors.less */
 ul.notifications li .icon.orange {
   background: #ec6313;
 }
-/* line 45, less\colors.less */
+/* line 47, less\colors.less */
 ul.notifications li .icon.lightOrange {
   background: #fabb3d;
 }
-/* line 46, less\colors.less */
+/* line 48, less\colors.less */
 ul.notifications li .icon.red {
   background: #ff5454;
 }
-/* line 47, less\colors.less */
+/* line 49, less\colors.less */
 ul.notifications li .icon.yellow {
   background: #eae874;
 }
-/* line 48, less\colors.less */
+/* line 50, less\colors.less */
 ul.notifications li .icon.white {
   background: white;
 }
-/* line 49, less\colors.less */
+/* line 51, less\colors.less */
 ul.notifications li .icon.grey {
   background: #c7cbd5;
 }
-/* line 50, less\colors.less */
+/* line 52, less\colors.less */
 ul.notifications li .icon.crimson {
   background: #9e3f3d;
+}
+/* line 53, less\colors.less */
+ul.notifications li .icon.gold {
+  background: #fabb3d;
 }
 /* line 291, less\header.less */
 ul.notifications li .time,
@@ -1533,49 +1549,53 @@ footer a {
   color: #383e4b;
   padding: 10px;
 }
-/* line 56, less\colors.less */
+/* line 59, less\colors.less */
 .smallchart.blue .title {
   background: #378fc9;
 }
-/* line 59, less\colors.less */
+/* line 62, less\colors.less */
 .smallchart.lightBlue .title {
   background: #67c2ef;
 }
-/* line 62, less\colors.less */
+/* line 65, less\colors.less */
 .smallchart.green .title {
   background: #bdea74;
 }
-/* line 65, less\colors.less */
+/* line 68, less\colors.less */
 .smallchart.darkGreen .title {
   background: #7fb30c;
 }
-/* line 68, less\colors.less */
+/* line 71, less\colors.less */
 .smallchart.pink .title {
   background: #e84c8a;
 }
-/* line 71, less\colors.less */
+/* line 74, less\colors.less */
 .smallchart.orange .title {
   background: #ec6313;
 }
-/* line 74, less\colors.less */
+/* line 77, less\colors.less */
 .smallchart.lightOrange .title {
   background: #fabb3d;
 }
-/* line 77, less\colors.less */
+/* line 80, less\colors.less */
 .smallchart.red .title {
   background: #ff5454;
 }
-/* line 80, less\colors.less */
+/* line 83, less\colors.less */
 .smallchart.yellow .title {
   background: #eae874;
 }
-/* line 83, less\colors.less */
+/* line 86, less\colors.less */
 .smallchart.white .title {
   background: white;
 }
-/* line 86, less\colors.less */
+/* line 89, less\colors.less */
 .smallchart.grey .title {
   background: #c7cbd5;
+}
+/* line 91, less\colors.less */
+.smallchart.gold {
+  background: #fabb3d;
 }
 /* Sparkline stats
 =================================================================== */
@@ -1637,53 +1657,57 @@ footer a {
   float: left;
   overflow: hidden;
 }
-/* line 39, less\colors.less */
+/* line 41, less\colors.less */
 .smallstat .boxchart-overlay.blue {
   background: #378fc9;
 }
-/* line 40, less\colors.less */
+/* line 42, less\colors.less */
 .smallstat .boxchart-overlay.lightBlue {
   background: #67c2ef;
 }
-/* line 41, less\colors.less */
+/* line 43, less\colors.less */
 .smallstat .boxchart-overlay.green {
   background: #bdea74;
 }
-/* line 42, less\colors.less */
+/* line 44, less\colors.less */
 .smallstat .boxchart-overlay.darkGreen {
   background: #7fb30c;
 }
-/* line 43, less\colors.less */
+/* line 45, less\colors.less */
 .smallstat .boxchart-overlay.pink {
   background: #e84c8a;
 }
-/* line 44, less\colors.less */
+/* line 46, less\colors.less */
 .smallstat .boxchart-overlay.orange {
   background: #ec6313;
 }
-/* line 45, less\colors.less */
+/* line 47, less\colors.less */
 .smallstat .boxchart-overlay.lightOrange {
   background: #fabb3d;
 }
-/* line 46, less\colors.less */
+/* line 48, less\colors.less */
 .smallstat .boxchart-overlay.red {
   background: #ff5454;
 }
-/* line 47, less\colors.less */
+/* line 49, less\colors.less */
 .smallstat .boxchart-overlay.yellow {
   background: #eae874;
 }
-/* line 48, less\colors.less */
+/* line 50, less\colors.less */
 .smallstat .boxchart-overlay.white {
   background: white;
 }
-/* line 49, less\colors.less */
+/* line 51, less\colors.less */
 .smallstat .boxchart-overlay.grey {
   background: #c7cbd5;
 }
-/* line 50, less\colors.less */
+/* line 52, less\colors.less */
 .smallstat .boxchart-overlay.crimson {
   background: #9e3f3d;
+}
+/* line 53, less\colors.less */
+.smallstat .boxchart-overlay.gold {
+  background: #fabb3d;
 }
 /* line 19, less\smallstats.less */
 .smallstat i {
@@ -1699,53 +1723,57 @@ footer a {
   float: left;
   margin-right: 10px;
 }
-/* line 39, less\colors.less */
+/* line 41, less\colors.less */
 .smallstat i.blue {
   background: #378fc9;
 }
-/* line 40, less\colors.less */
+/* line 42, less\colors.less */
 .smallstat i.lightBlue {
   background: #67c2ef;
 }
-/* line 41, less\colors.less */
+/* line 43, less\colors.less */
 .smallstat i.green {
   background: #bdea74;
 }
-/* line 42, less\colors.less */
+/* line 44, less\colors.less */
 .smallstat i.darkGreen {
   background: #7fb30c;
 }
-/* line 43, less\colors.less */
+/* line 45, less\colors.less */
 .smallstat i.pink {
   background: #e84c8a;
 }
-/* line 44, less\colors.less */
+/* line 46, less\colors.less */
 .smallstat i.orange {
   background: #ec6313;
 }
-/* line 45, less\colors.less */
+/* line 47, less\colors.less */
 .smallstat i.lightOrange {
   background: #fabb3d;
 }
-/* line 46, less\colors.less */
+/* line 48, less\colors.less */
 .smallstat i.red {
   background: #ff5454;
 }
-/* line 47, less\colors.less */
+/* line 49, less\colors.less */
 .smallstat i.yellow {
   background: #eae874;
 }
-/* line 48, less\colors.less */
+/* line 50, less\colors.less */
 .smallstat i.white {
   background: white;
 }
-/* line 49, less\colors.less */
+/* line 51, less\colors.less */
 .smallstat i.grey {
   background: #c7cbd5;
 }
-/* line 50, less\colors.less */
+/* line 52, less\colors.less */
 .smallstat i.crimson {
   background: #9e3f3d;
+}
+/* line 53, less\colors.less */
+.smallstat i.gold {
+  background: #fabb3d;
 }
 /* line 33, less\smallstats.less */
 .smallstat .title {
@@ -3345,29 +3373,30 @@ h3 {
   position: absolute;
   display: none;
   border: 1px solid white;
-  padding: 2px;
+  padding: 3px;
   background-color: #378fc9;
   color: white;
   font-size: 14px;
+  border-radius: 3px;
 }
-/* line 19, less\custom.less */
+/* line 20, less\custom.less */
 #content > h2 {
   font-size: 24px;
   line-height: 1.5em;
   font-family: "Microsoft Yahei", "Yahei", sans-serif;
   margin-bottom: 0.9em;
 }
-/* line 26, less\custom.less */
+/* line 27, less\custom.less */
 .fullWidth {
   width: 100%;
   display: block;
 }
-/* line 29, less\custom.less */
+/* line 30, less\custom.less */
 .fullWidth tr {
   width: 100%;
   display: block;
 }
-/* line 35, less\custom.less */
+/* line 36, less\custom.less */
 .smallstat .date-overlay {
   width: 22%;
   padding-left: 1%;
@@ -3378,125 +3407,134 @@ h3 {
   border-radius: 2px;
   float: left;
 }
-/* line 43, less\custom.less */
+/* line 44, less\custom.less */
 .smallstat .date-overlay .title {
   color: white;
   font-size: 20px;
+  font-family: "Microsoft Yahei", "Yahei", sans-serif;
 }
-/* line 47, less\custom.less */
+/* line 49, less\custom.less */
 .smallstat .date-overlay .value {
   color: white;
   font-size: 12px;
+  font-family: "Microsoft Yahei", "Yahei", sans-serif;
+  vertical-align: bottom;
 }
-/* line 53, less\custom.less */
+/* line 57, less\custom.less */
 .smallstat .data {
   float: left;
   width: 25%;
 }
-/* line 57, less\custom.less */
+/* line 61, less\custom.less */
 .smallstat a:hover {
   text-decoration: none;
 }
-/* line 60, less\custom.less */
+/* line 64, less\custom.less */
 .smallstat:hover {
   text-decoration: none;
 }
-/* line 63, less\custom.less */
+/* line 67, less\custom.less */
 .smallstat small {
   font-size: 50%;
+  vertical-align: bottom;
 }
-/* line 66, less\custom.less */
+/* line 71, less\custom.less */
 .smallstat .time {
   font-size: 10px;
   float: none;
   clear: both;
   display: block;
+  font-family: "Microsoft Yahei", "Yahei", sans-serif;
 }
-/* line 75, less\custom.less */
+/* line 78, less\custom.less */
+.smallstat .alignvalue {
+  padding-left: 60px;
+}
+/* line 84, less\custom.less */
 .table {
   margin-bottom: 0;
 }
-/* line 77, less\custom.less */
+/* line 86, less\custom.less */
 .table .right {
   text-align: right;
 }
-/* line 82, less\custom.less */
+/* line 91, less\custom.less */
 .table-condensed input {
   margin-bottom: 0;
 }
-/* line 85, less\custom.less */
+/* line 94, less\custom.less */
 .table-condensed select {
   margin-bottom: 0;
 }
-/* line 90, less\custom.less */
+/* line 99, less\custom.less */
 .backgroundColorHeader.blue {
   background: #378fc9;
 }
-/* line 94, less\custom.less */
+/* line 103, less\custom.less */
 .backgroundColorHeader.blue .box-icon {
   background: #2c73a1;
 }
-/* line 96, less\custom.less */
+/* line 105, less\custom.less */
 .backgroundColorHeader.blue .box-icon i {
   border-left-color: #2c73a1;
 }
-/* line 101, less\custom.less */
+/* line 110, less\custom.less */
 .backgroundColorHeader.lightBlue {
   background: #67c2ef;
 }
-/* line 102, less\custom.less */
+/* line 111, less\custom.less */
 .backgroundColorHeader.green {
   background: #bdea74;
 }
-/* line 103, less\custom.less */
+/* line 112, less\custom.less */
 .backgroundColorHeader.darkGreen {
   background: #7fb30c;
 }
-/* line 104, less\custom.less */
+/* line 113, less\custom.less */
 .backgroundColorHeader.pink {
   background: #e84c8a;
 }
-/* line 105, less\custom.less */
+/* line 114, less\custom.less */
 .backgroundColorHeader.orange {
   background: #ec6313;
 }
-/* line 106, less\custom.less */
+/* line 115, less\custom.less */
 .backgroundColorHeader.lightOrange {
   background: #fabb3d;
 }
-/* line 107, less\custom.less */
+/* line 116, less\custom.less */
 .backgroundColorHeader.red {
   background: #ff5454;
 }
-/* line 108, less\custom.less */
+/* line 117, less\custom.less */
 .backgroundColorHeader.yellow {
   background: #eae874;
 }
-/* line 109, less\custom.less */
+/* line 118, less\custom.less */
 .backgroundColorHeader.white {
   background: white;
 }
-/* line 110, less\custom.less */
+/* line 119, less\custom.less */
 .backgroundColorHeader.grey {
   background: #c7cbd5;
 }
-/* line 111, less\custom.less */
+/* line 120, less\custom.less */
 .backgroundColorHeader.crimson {
   background: #9e3f3d;
 }
-/* line 115, less\custom.less */
+/* line 124, less\custom.less */
 .backgroundColorHeader.crimson .box-icon {
   background: #79302f;
 }
-/* line 117, less\custom.less */
+/* line 126, less\custom.less */
 .backgroundColorHeader.crimson .box-icon i {
   border-left-color: #79302f;
 }
-/* line 121, less\custom.less */
+/* line 130, less\custom.less */
 .backgroundColorHeader.crimson h2 i {
   background: #79302f;
 }
-/* line 129, less\custom.less */
+/* line 138, less\custom.less */
 .box .box-header .box-subTitle {
   float: right;
   font-size: 16px;
@@ -3504,45 +3542,45 @@ h3 {
   padding: 8px 0;
   margin: 0 20px 0 0;
 }
-/* line 137, less\custom.less */
+/* line 146, less\custom.less */
 .box .box-header h2 {
   font-size: 16px;
   font-weight: normal;
   line-height: 16px;
 }
-/* line 142, less\custom.less */
+/* line 151, less\custom.less */
 .box .box-header .btn-small {
   padding: 0 10px;
   line-height: 20px;
 }
-/* line 149, less\custom.less */
+/* line 158, less\custom.less */
 .makeTableHeaderAsBoxHeader {
   position: relative;
   top: -46px;
   margin-bottom: -46px;
 }
-/* line 153, less\custom.less */
+/* line 162, less\custom.less */
 .makeTableHeaderAsBoxHeader th {
   color: #FFF;
   background: none!important;
 }
-/* line 156, less\custom.less */
+/* line 165, less\custom.less */
 .makeTableHeaderAsBoxHeader th a {
   color: #FFF;
 }
-/* line 160, less\custom.less */
+/* line 169, less\custom.less */
 .makeTableHeaderAsBoxHeader tbody tr:first-child td {
   border-top: none;
 }
 /* table
 =================================================================== */
-/* line 168, less\custom.less */
+/* line 177, less\custom.less */
 .table.table-bordered {
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   border-radius: 0;
 }
-/* line 173, less\custom.less */
+/* line 182, less\custom.less */
 .table.table-bordered thead:first-child tr:first-child > th:first-child,
 .table.table-bordered tbody:first-child tr:first-child > td:first-child,
 .table.table-bordered tbody:first-child tr:first-child > th:first-child,
@@ -3555,23 +3593,23 @@ h3 {
   -moz-border-radius: 0;
   border-radius: 0;
 }
-/* line 179, less\custom.less */
+/* line 188, less\custom.less */
 .table th {
   background: #ededed;
   color: #000;
   font-weight: bold;
 }
-/* line 184, less\custom.less */
+/* line 193, less\custom.less */
 .table td {
   color: #111;
 }
 /* station
 ========================*/
-/* line 191, less\custom.less */
+/* line 200, less\custom.less */
 .subNav {
   margin-left: 0;
 }
-/* line 194, less\custom.less */
+/* line 203, less\custom.less */
 .subNav li {
   float: left;
   display: inline-block;
@@ -3582,59 +3620,59 @@ h3 {
   border-right: 1px solid rgba(255, 255, 255, 0.1);
   border-left: 1px solid rgba(0, 0, 0, 0.5);
 }
-/* line 203, less\custom.less */
+/* line 212, less\custom.less */
 .subNav li.current {
   background-color: #0074c1;
 }
-/* line 206, less\custom.less */
+/* line 215, less\custom.less */
 .subNav li:first-child {
   border-radius: 4px 0 0 4px;
   border-left: none;
 }
-/* line 210, less\custom.less */
+/* line 219, less\custom.less */
 .subNav li:last-child {
   border-radius: 0 4px 4px 0;
   border-right: none;
 }
-/* line 214, less\custom.less */
+/* line 223, less\custom.less */
 .subNav li a {
   color: #fff;
 }
-/* line 217, less\custom.less */
+/* line 226, less\custom.less */
 .subNav li a:hover {
   text-decoration: none;
 }
-/* line 223, less\custom.less */
+/* line 232, less\custom.less */
 .table-zebra td {
   color: #333;
 }
-/* line 227, less\custom.less */
+/* line 236, less\custom.less */
 .table-zebra tr td:nth-child(2n) {
   background-color: #f9f9f9;
 }
-/* line 231, less\custom.less */
+/* line 240, less\custom.less */
 .table-zebra tr:nth-child(2n) {
   background-color: #f9f9f9;
 }
-/* line 233, less\custom.less */
+/* line 242, less\custom.less */
 .table-zebra tr:nth-child(2n) td:nth-child(2n) {
   background-color: white;
 }
-/* line 237, less\custom.less */
+/* line 246, less\custom.less */
 .table-zebra em {
   font-style: normal;
   color: #000;
   font-size: 18px;
 }
-/* line 243, less\custom.less */
+/* line 252, less\custom.less */
 .table-zebra a {
   color: #378fc9;
 }
-/* line 249, less\custom.less */
+/* line 258, less\custom.less */
 .pieChartWithCenterText {
   position: relative;
 }
-/* line 251, less\custom.less */
+/* line 260, less\custom.less */
 .pieChartWithCenterText .centerText {
   position: absolute;
   top: 45%;
@@ -3645,22 +3683,22 @@ h3 {
   z-index: 100;
   color: #000;
 }
-/* line 263, less\custom.less */
+/* line 272, less\custom.less */
 .topmenu {
   position: relative;
   top: 15px;
   margin-bottom: 20px;
 }
-/* line 267, less\custom.less */
+/* line 276, less\custom.less */
 .topmenu .btn {
   background-color: #393f4c;
   color: #FFF;
 }
-/* line 271, less\custom.less */
+/* line 280, less\custom.less */
 .topmenu .btn:hover {
   background-color: #0071c0;
 }
-/* line 275, less\custom.less */
+/* line 284, less\custom.less */
 .stationTitle {
   margin-bottom: 20px;
 }
