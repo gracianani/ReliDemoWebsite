@@ -6,75 +6,82 @@
 }
 <h2>@Model.Company.公司</h2>
 <div class="row-fluid">
-    <div class="span6">
-        <a class="span4 smallstat box noMargin" onTablet="span12" onDesktop="span6"  href="#">
+		<div class="smallstat box" onTablet="span12" onDesktop="span6">
+			<i class="icon-user red"></i>
+			<span class="title">2013年12月10日　星期三</span>
+			<span class="value">姓名 <small>超级管理员</small></span>
+            <span class="time">欢迎进入智能化热网热耗管理系统</span>
+		</div>
+		<div class=" smallstat box" onTablet="span6 noMarginLeft" onDesktop="span3" href="#">
+			<i class="icon-cloud orange"></i>
+			<span class="title">今日-晴 微风</span>
+			<span class="value"><small>平均</small>@Model.TodaysAverageTemperature<small>℃</small></span>
+			<span class="time alignvalue">@Model.TodaysHighestTemperature ℃ / @Model.TodaysLowestTemperature ℃</span>
+		</div>
+		 <div class=" smallstat box" onTablet="span6 " onDesktop="span3"  href="#">
+			<i class="icon-time darkGreen"></i>
+			<span class="title">累计供热时间</span>
+			<span class="value">@Model.TotalHeatSupplyDays<small>天</small></span>
+            <span class="time">供热开始日期: @Model.起始供热时间.ToShortDateString() </span>
+		</div>
+        <div class=" smallstat box" id="todaysGJ" onTablet="span6 noMarginLeft" onDesktop="span3 noMarginLeft">
 			<i class="icon-fire crimson"></i>
 			<span class="title">今日累计供热量</span>
-			<span class="value">@Model.今日累计供热量 万GJ</span>
-            <span class="time">截止到2013-11-02 15:30PM</span>
-		</a>
+			<span class="value highlightRed">@Model.今日累计供热量<small>万GJ</small></span>
+            <span class="time highlightRed">截至　2013-11-02 15:30PM</span>
+		</div>
 
-		<a class="span4 smallstat box noMargin" onTablet="span12" onDesktop="span6"  href="#">
+		<div class="smallstat box" onTablet="span6" onDesktop="span3">
 			<i class="icon-fire blue"></i>
-			<span class="title">昨日累计供热量</span>
-			<span class="value">@Model.昨日累计供热量 万GJ</span>
-		</a>
-		
-		 <a class="span4 smallstat box noMargin" onTablet="span12" onDesktop="span6"  href="#">
-			<i class="icon-calendar darkGreen"></i>
-			<span class="title">累计供热时间</span>
-			<span class="value">@Model.TotalHeatSupplyDays 天</span>
-            <span class="time">供热开始日期:@Model.起始供热时间.ToShortDateString()</span>
-		</a>			
-    </div>
-    <div class="span6">
-		<a class="span4 smallstat box noMargin" onTablet="span12" onDesktop="span4" href="#">
-			<i class="icon-ok crimson"></i>
+			<span class="title">昨日累计供热量</span> 
+			<span class="value">@Model.昨日累计供热量<small>万GJ</small></span>
+			<span class="time">　</span>
+		</div>
+
+		<div class=" smallstat box" onTablet="span6" onDesktop="span3" href="#">
+			<i class="icon-calendar-empty gold"></i>
 			<span class="title">计划投停面积</span>
-			<span class="value">@Model.计划投入面积 / @Model.计划停止面积 <small>万㎡</small></span>
-		</a>
-		<a class="span4 smallstat box noMargin" onTablet="span12" onDesktop="span4" href="#">
-			<i class="icon-ok crimson"></i>
+			<span class="value"><small>投入</small>@Model.计划投入面积<small>万㎡</small></span>
+			<span class="time alignvalue">停止 @Model.计划停止面积  万㎡</span>
+		</div>
+		<div class=" smallstat box" onTablet="span6 noMarginLeft" onDesktop="span3" href="#">
+			<i class="icon-calendar blue"></i>
 			<span class="title">实际投停面积</span>
-			<span class="value">@Model.实际投入面积 / @Model.实际停止面积 <small>万㎡</small></span>
-		</a>
-		
-		<a class="span4 smallstat box noMargin" onTablet="span12" onDesktop="span4" href="#">
-			<i class="icon-sun orange"></i>
-			<span class="title">今日天气 - 晴 微风</span>
-			<span class="value">  <small> @Model.TodaysHighestTemperature ℃ / @Model.TodaysLowestTemperature ℃ 平均 @Model.TodaysAverageTemperature ℃</small></span>
-		</a>
-    </div>
+			<span class="value"><small>投入</small>@Model.实际投入面积 <small>万㎡</small></span>
+			<span class="time alignvalue">停止 @Model.实际停止面积 万㎡</span>
+		</div>
 </div>
 <div class="row-fluid">
-    <div class="span6" onTablet="span12">
+    <div class="span6" onDesktop="span6" onTablet="span12">
         @Html.Partial("HeatConsumptionTotal", Model.TodayGJ)
         @Html.Partial("HeatConsumptionTotal", Model.YesterdayGJ)
-		@Html.Partial("HeatConsumptionGraph", Model.Histories)
+		
     </div>
-    <div class="span6" onTablet="span12">
-		
-        <table class="table table-bordered table-hover  table-condensed backgroundColor white">
-            <tr><td>热力站总数量(个)</td><td>@Model.Company.Managerships.Sum(i=>i.Stations.Count())</td><td>平均热负荷(GCal/h)</td><td colspan="3"> @Model.Company.平均热负荷 </td></tr>
-            <tr><td>万平米循环水量(t/h)</td><td> @Model.Company.万平方米流量 </td><td>瞬时单耗(GJ/h·㎡)</td><td> @Model.Company.瞬时单耗 </td><td>累计单耗(GJ/h·㎡)</td><td> @Model.Company.供暖季累计单耗 </td></tr>
-            <tr><td>总瞬时流量(t/h)</td><td> @Model.Company.总瞬时流量 </td><td>总瞬时热量(GJ/h)</td><td> @Model.Company.总瞬时热量 </td><td>超标站数量(个)</td><td> @Model.Company.Stations.Count(i => i.昨日实际单耗 > i.计划热指标)  </td></tr>
-        </table>
-		
-		<div class="box backgroundColor white">
-			<div class="row-fluid">
-				<div class="span6">
-					<div id="company_exceed_station" class="pieChartWithCenterText" style="height:165px;padding-top:20px;">
-					</div>
+    <div onDesktop="span6" onTablet="span12 noMarginLeft">
+		<div class="box">
+		<div class="box-header">
+				<h2><i class="icon-list"></i>状态统计</h2>
 				</div>
-				<div class="span6">
-                    <div id="company_exceed_area" class="pieChartWithCenterText" style="height:165px;padding-top:20px;">
-					</div>
+				<div class="box-content">
+				<table class="table table-bordered table-hover table-condensed">
+					<tr><th>热力站总数(个)</th><td>@Model.Company.Managerships.Sum(i=>i.Stations.Count())</td><th>平均热负荷(GCal/h)</th><td>@Model.Company.平均热负荷 </td></tr>
+					<tr><th>超标站数量(个)</th><td><big class="red"> @Model.Company.Stations.Count(i => i.昨日实际单耗 > i.计划热指标)  </big></td><th>万平米循环水量(t/h)</th><td> @Model.Company.万平方米流量 </td></tr>
+					<tr><th>瞬时单耗(GJ/h·㎡)</th><td> @Model.Company.瞬时单耗 </td><th>累计单耗(GJ/h·㎡)</th><td> @Model.Company.供暖季累计单耗 </td></tr>
+					<tr><th>总瞬时流量(t/h)</th><td> @Model.Company.总瞬时流量 </td><th>总瞬时热量(GJ/h)</th><td> @Model.Company.总瞬时热量 </td></tr>
+				</table>
+				<div class="row-fluid">
+						<div onDesktop="span6" onTablet="span12 noMarginLeft">
+							<div id="company_exceed_station" class="pieChartWithCenterText" style="height:165px;padding-top:20px;">
+							</div>
+						</div>
+						<div onDesktop="span6" onTablet="span12 noMarginLeft">
+							<div id="company_exceed_area" class="pieChartWithCenterText" style="height:165px;padding-top:20px;">
+							</div>
+						</div>
 				</div>
-			</div>
+				</div>
 		</div>
-		
-		<div class="row-fluid">	
-		    <div class="box span12 noMarginLeft">
+		<div class="box">
 				<div class="box-header">
 				<h2><i class="icon-tasks"></i>节能/超标热力站排行</h2>
 				</div>
@@ -82,14 +89,15 @@
 				<div class="row-fluid">
 				    @Html.Partial("EnergyTopChart", Model.EnergyTopChart)
 			    </div><!--/row-->
-		        </div><!--/box-->
-            </div><!--/row-->
-        </div>
-</div>
+		        </div><!--/box-content-->
+        </div><!--/box-->
+
+	</div>
 </div>
 <div class="row-fluid">
+@Html.Partial("HeatConsumptionGraph", Model.Histories)
     <div class="span12" onTablet="span12">
-        <table class="table table-bordered backgroundColor white">
+        <table class="table table-bordered backgroundColor white table-condensed ">
             @foreach( var center in Model.Centers){
                 if (Model.Centers.First() == center)
                 {

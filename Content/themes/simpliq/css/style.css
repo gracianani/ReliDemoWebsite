@@ -3427,134 +3427,132 @@ h3 {
   border-radius: 2px;
   float: left;
 }
-/* line 44, less\custom.less */
-.smallstat .date-overlay .title {
-  color: white;
-  font-size: 18px;
-  vertical-align: bottom;
-}
-/* line 49, less\custom.less */
-.smallstat .date-overlay .value {
-  color: white;
-  font-size: 12px;
-  vertical-align: bottom;
-  line-height: 24px;
-}
-/* line 57, less\custom.less */
+/* line 45, less\custom.less */
 .smallstat .data {
   float: left;
   width: 25%;
 }
-/* line 61, less\custom.less */
+/* line 49, less\custom.less */
 .smallstat a:hover {
   text-decoration: none;
 }
-/* line 64, less\custom.less */
+/* line 52, less\custom.less */
 .smallstat:hover {
   text-decoration: none;
 }
-/* line 67, less\custom.less */
+/* line 55, less\custom.less */
 .smallstat small {
   font-size: 14px;
   vertical-align: bottom;
   line-height: 24px;
 }
-/* line 72, less\custom.less */
+/* line 60, less\custom.less */
 .smallstat .time {
   font-size: 12px;
   float: none;
   clear: both;
   display: block;
 }
-/* line 78, less\custom.less */
+/* line 66, less\custom.less */
 .smallstat .alignvalue {
   padding-left: 60px;
 }
-/* line 84, less\custom.less */
+/* line 69, less\custom.less */
+.smallstat .title {
+  font-size: 14px;
+  vertical-align: bottom;
+}
+/* line 74, less\custom.less */
+.smallstat .value {
+  font-size: 22px;
+  vertical-align: bottom;
+  line-height: 24px;
+}
+/* line 83, less\custom.less */
 .table {
   margin-bottom: 0;
 }
-/* line 86, less\custom.less */
+/* line 85, less\custom.less */
 .table .right {
   text-align: right;
 }
-/* line 91, less\custom.less */
+/* line 90, less\custom.less */
 .table-condensed input {
   margin-bottom: 0;
 }
-/* line 94, less\custom.less */
+/* line 93, less\custom.less */
 .table-condensed select {
   margin-bottom: 0;
 }
-/* line 99, less\custom.less */
+/* line 98, less\custom.less */
 .backgroundColorHeader.blue {
   background: #378fc9;
 }
-/* line 103, less\custom.less */
+/* line 102, less\custom.less */
 .backgroundColorHeader.blue .box-icon {
   background: #2c73a1;
 }
-/* line 105, less\custom.less */
+/* line 104, less\custom.less */
 .backgroundColorHeader.blue .box-icon i {
   border-left-color: #2c73a1;
 }
-/* line 110, less\custom.less */
+/* line 109, less\custom.less */
 .backgroundColorHeader.lightBlue {
   background: #67c2ef;
 }
-/* line 111, less\custom.less */
+/* line 110, less\custom.less */
 .backgroundColorHeader.green {
   background: #bdea74;
 }
-/* line 112, less\custom.less */
+/* line 111, less\custom.less */
 .backgroundColorHeader.darkGreen {
   background: #7fb30c;
 }
-/* line 113, less\custom.less */
+/* line 112, less\custom.less */
 .backgroundColorHeader.pink {
   background: #e84c8a;
 }
-/* line 114, less\custom.less */
+/* line 113, less\custom.less */
 .backgroundColorHeader.orange {
   background: #ec6313;
 }
-/* line 115, less\custom.less */
+/* line 114, less\custom.less */
 .backgroundColorHeader.lightOrange {
   background: #fabb3d;
 }
-/* line 116, less\custom.less */
+/* line 115, less\custom.less */
 .backgroundColorHeader.red {
   background: #c84628;
 }
-/* line 117, less\custom.less */
+/* line 116, less\custom.less */
 .backgroundColorHeader.yellow {
   background: #eae874;
 }
-/* line 118, less\custom.less */
+/* line 117, less\custom.less */
 .backgroundColorHeader.white {
   background: white;
 }
-/* line 119, less\custom.less */
+/* line 118, less\custom.less */
 .backgroundColorHeader.grey {
   background: #c7cbd5;
 }
-/* line 120, less\custom.less */
+/* line 119, less\custom.less */
 .backgroundColorHeader.crimson {
   background: #9e3f3d;
 }
-/* line 124, less\custom.less */
+/* line 123, less\custom.less */
 .backgroundColorHeader.crimson .box-icon {
   background: #79302f;
 }
-/* line 126, less\custom.less */
+/* line 125, less\custom.less */
 .backgroundColorHeader.crimson .box-icon i {
   border-left-color: #79302f;
 }
-/* line 130, less\custom.less */
+/* line 129, less\custom.less */
 .backgroundColorHeader.crimson h2 i {
   background: #79302f;
 }
-/* line 138, less\custom.less */
+/* line 137, less\custom.less */
 .box .box-header .box-subTitle {
   float: right;
   font-size: 16px;
@@ -3562,55 +3560,55 @@ h3 {
   padding: 8px 0;
   margin: 0 20px 0 0;
 }
-/* line 146, less\custom.less */
+/* line 145, less\custom.less */
 .box .box-header h2 {
   font-size: 16px;
   font-weight: normal;
   line-height: 16px;
 }
-/* line 151, less\custom.less */
+/* line 150, less\custom.less */
 .box .box-header .btn-small {
   padding: 0 10px;
   line-height: 20px;
 }
-/* line 158, less\custom.less */
+/* line 157, less\custom.less */
 .makeTableHeaderAsBoxHeader {
   position: relative;
   top: -46px;
   margin-bottom: -46px;
 }
-/* line 162, less\custom.less */
+/* line 161, less\custom.less */
 .makeTableHeaderAsBoxHeader th {
   color: #FFF;
   background: none!important;
 }
-/* line 165, less\custom.less */
+/* line 164, less\custom.less */
 .makeTableHeaderAsBoxHeader th a {
   color: #FFF;
 }
-/* line 169, less\custom.less */
+/* line 168, less\custom.less */
 .makeTableHeaderAsBoxHeader tbody tr:first-child td {
   border-top: none;
 }
 /* highlight
 ========================*/
-/* line 176, less\custom.less */
+/* line 175, less\custom.less */
 .highlighting .highlightBlue {
   color: #378fc9;
 }
-/* line 179, less\custom.less */
+/* line 178, less\custom.less */
 .highlighting .highlightRed {
   color: #c84628;
 }
 /* table
 =================================================================== */
-/* line 186, less\custom.less */
+/* line 185, less\custom.less */
 .table.table-bordered {
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   border-radius: 0;
 }
-/* line 191, less\custom.less */
+/* line 190, less\custom.less */
 .table.table-bordered thead:first-child tr:first-child > th:first-child,
 .table.table-bordered tbody:first-child tr:first-child > td:first-child,
 .table.table-bordered tbody:first-child tr:first-child > th:first-child,
@@ -3623,23 +3621,23 @@ h3 {
   -moz-border-radius: 0;
   border-radius: 0;
 }
-/* line 197, less\custom.less */
+/* line 196, less\custom.less */
 .table th {
   background: #ededed;
   color: #000;
   font-weight: bold;
 }
-/* line 202, less\custom.less */
+/* line 201, less\custom.less */
 .table td {
   color: #111;
 }
 /* station
 ========================*/
-/* line 210, less\custom.less */
+/* line 209, less\custom.less */
 .subNav {
   margin-left: 0;
 }
-/* line 213, less\custom.less */
+/* line 212, less\custom.less */
 .subNav li {
   float: left;
   display: inline-block;
@@ -3650,59 +3648,59 @@ h3 {
   border-right: 1px solid rgba(255, 255, 255, 0.1);
   border-left: 1px solid rgba(0, 0, 0, 0.5);
 }
-/* line 222, less\custom.less */
+/* line 221, less\custom.less */
 .subNav li.current {
   background-color: #0074c1;
 }
-/* line 225, less\custom.less */
+/* line 224, less\custom.less */
 .subNav li:first-child {
   border-radius: 4px 0 0 4px;
   border-left: none;
 }
-/* line 229, less\custom.less */
+/* line 228, less\custom.less */
 .subNav li:last-child {
   border-radius: 0 4px 4px 0;
   border-right: none;
 }
-/* line 233, less\custom.less */
+/* line 232, less\custom.less */
 .subNav li a {
   color: #fff;
 }
-/* line 236, less\custom.less */
+/* line 235, less\custom.less */
 .subNav li a:hover {
   text-decoration: none;
 }
-/* line 242, less\custom.less */
+/* line 241, less\custom.less */
 .table-zebra td {
   color: #333;
 }
-/* line 246, less\custom.less */
+/* line 245, less\custom.less */
 .table-zebra tr td:nth-child(2n) {
   background-color: #f9f9f9;
 }
-/* line 250, less\custom.less */
+/* line 249, less\custom.less */
 .table-zebra tr:nth-child(2n) {
   background-color: #f9f9f9;
 }
-/* line 252, less\custom.less */
+/* line 251, less\custom.less */
 .table-zebra tr:nth-child(2n) td:nth-child(2n) {
   background-color: white;
 }
-/* line 256, less\custom.less */
+/* line 255, less\custom.less */
 .table-zebra em {
   font-style: normal;
   color: #000;
   font-size: 18px;
 }
-/* line 262, less\custom.less */
+/* line 261, less\custom.less */
 .table-zebra a {
   color: #378fc9;
 }
-/* line 268, less\custom.less */
+/* line 267, less\custom.less */
 .pieChartWithCenterText {
   position: relative;
 }
-/* line 270, less\custom.less */
+/* line 269, less\custom.less */
 .pieChartWithCenterText .centerText {
   position: absolute;
   top: 45%;
@@ -3713,22 +3711,22 @@ h3 {
   z-index: 100;
   color: #000;
 }
-/* line 282, less\custom.less */
+/* line 281, less\custom.less */
 .topmenu {
   position: relative;
   top: 15px;
   margin-bottom: 20px;
 }
-/* line 286, less\custom.less */
+/* line 285, less\custom.less */
 .topmenu .btn {
   background-color: #393f4c;
   color: #FFF;
 }
-/* line 290, less\custom.less */
+/* line 289, less\custom.less */
 .topmenu .btn:hover {
   background-color: #0071c0;
 }
-/* line 294, less\custom.less */
+/* line 293, less\custom.less */
 .stationTitle {
   margin-bottom: 20px;
 }
