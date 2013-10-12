@@ -229,7 +229,7 @@ blockquote {
 }
 /* line 33, less\colors.less */
 .red {
-  color: #ff5454;
+  color: #c84628;
 }
 /* line 34, less\colors.less */
 .yellow {
@@ -251,103 +251,111 @@ blockquote {
 .gold {
   color: #fabb3d;
 }
-/* line 41, less\colors.less */
+/* line 39, less\colors.less */
+.magenta {
+  color: #ff5454;
+}
+/* line 42, less\colors.less */
 .backgroundColor.blue {
   background: #378fc9;
 }
-/* line 42, less\colors.less */
+/* line 43, less\colors.less */
 .backgroundColor.lightBlue {
   background: #67c2ef;
 }
-/* line 43, less\colors.less */
+/* line 44, less\colors.less */
 .backgroundColor.green {
   background: #bdea74;
 }
-/* line 44, less\colors.less */
+/* line 45, less\colors.less */
 .backgroundColor.darkGreen {
   background: #7fb30c;
 }
-/* line 45, less\colors.less */
+/* line 46, less\colors.less */
 .backgroundColor.pink {
   background: #e84c8a;
 }
-/* line 46, less\colors.less */
+/* line 47, less\colors.less */
 .backgroundColor.orange {
   background: #ec6313;
 }
-/* line 47, less\colors.less */
+/* line 48, less\colors.less */
 .backgroundColor.lightOrange {
   background: #fabb3d;
 }
-/* line 48, less\colors.less */
-.backgroundColor.red {
-  background: #ff5454;
-}
 /* line 49, less\colors.less */
+.backgroundColor.red {
+  background: #c84628;
+}
+/* line 50, less\colors.less */
 .backgroundColor.yellow {
   background: #eae874;
 }
-/* line 50, less\colors.less */
+/* line 51, less\colors.less */
 .backgroundColor.white {
   background: white;
 }
-/* line 51, less\colors.less */
+/* line 52, less\colors.less */
 .backgroundColor.grey {
   background: #c7cbd5;
 }
-/* line 52, less\colors.less */
+/* line 53, less\colors.less */
 .backgroundColor.crimson {
   background: #9e3f3d;
 }
-/* line 53, less\colors.less */
+/* line 54, less\colors.less */
 .backgroundColor.gold {
   background: #fabb3d;
 }
-/* line 59, less\colors.less */
+/* line 55, less\colors.less */
+.backgroundColor.magenta {
+  background: #ff5454;
+}
+/* line 61, less\colors.less */
 .backgroundColorTitle.blue .title {
   background: #378fc9;
 }
-/* line 62, less\colors.less */
+/* line 64, less\colors.less */
 .backgroundColorTitle.lightBlue .title {
   background: #67c2ef;
 }
-/* line 65, less\colors.less */
+/* line 67, less\colors.less */
 .backgroundColorTitle.green .title {
   background: #bdea74;
 }
-/* line 68, less\colors.less */
+/* line 70, less\colors.less */
 .backgroundColorTitle.darkGreen .title {
   background: #7fb30c;
 }
-/* line 71, less\colors.less */
+/* line 73, less\colors.less */
 .backgroundColorTitle.pink .title {
   background: #e84c8a;
 }
-/* line 74, less\colors.less */
+/* line 76, less\colors.less */
 .backgroundColorTitle.orange .title {
   background: #ec6313;
 }
-/* line 77, less\colors.less */
+/* line 79, less\colors.less */
 .backgroundColorTitle.lightOrange .title {
   background: #fabb3d;
 }
-/* line 80, less\colors.less */
+/* line 82, less\colors.less */
 .backgroundColorTitle.red .title {
-  background: #ff5454;
+  background: #c84628;
 }
-/* line 83, less\colors.less */
+/* line 85, less\colors.less */
 .backgroundColorTitle.yellow .title {
   background: #eae874;
 }
-/* line 86, less\colors.less */
+/* line 88, less\colors.less */
 .backgroundColorTitle.white .title {
   background: white;
 }
-/* line 89, less\colors.less */
+/* line 91, less\colors.less */
 .backgroundColorTitle.grey .title {
   background: #c7cbd5;
 }
-/* line 91, less\colors.less */
+/* line 93, less\colors.less */
 .backgroundColorTitle.gold {
   background: #fabb3d;
 }
@@ -670,57 +678,61 @@ ul.notifications li .icon {
   display: inline-block;
   text-align: center;
 }
-/* line 41, less\colors.less */
+/* line 42, less\colors.less */
 ul.notifications li .icon.blue {
   background: #378fc9;
 }
-/* line 42, less\colors.less */
+/* line 43, less\colors.less */
 ul.notifications li .icon.lightBlue {
   background: #67c2ef;
 }
-/* line 43, less\colors.less */
+/* line 44, less\colors.less */
 ul.notifications li .icon.green {
   background: #bdea74;
 }
-/* line 44, less\colors.less */
+/* line 45, less\colors.less */
 ul.notifications li .icon.darkGreen {
   background: #7fb30c;
 }
-/* line 45, less\colors.less */
+/* line 46, less\colors.less */
 ul.notifications li .icon.pink {
   background: #e84c8a;
 }
-/* line 46, less\colors.less */
+/* line 47, less\colors.less */
 ul.notifications li .icon.orange {
   background: #ec6313;
 }
-/* line 47, less\colors.less */
+/* line 48, less\colors.less */
 ul.notifications li .icon.lightOrange {
   background: #fabb3d;
 }
-/* line 48, less\colors.less */
-ul.notifications li .icon.red {
-  background: #ff5454;
-}
 /* line 49, less\colors.less */
+ul.notifications li .icon.red {
+  background: #c84628;
+}
+/* line 50, less\colors.less */
 ul.notifications li .icon.yellow {
   background: #eae874;
 }
-/* line 50, less\colors.less */
+/* line 51, less\colors.less */
 ul.notifications li .icon.white {
   background: white;
 }
-/* line 51, less\colors.less */
+/* line 52, less\colors.less */
 ul.notifications li .icon.grey {
   background: #c7cbd5;
 }
-/* line 52, less\colors.less */
+/* line 53, less\colors.less */
 ul.notifications li .icon.crimson {
   background: #9e3f3d;
 }
-/* line 53, less\colors.less */
+/* line 54, less\colors.less */
 ul.notifications li .icon.gold {
   background: #fabb3d;
+}
+/* line 55, less\colors.less */
+ul.notifications li .icon.magenta {
+  background: #ff5454;
 }
 /* line 291, less\header.less */
 ul.notifications li .time,
@@ -919,18 +931,18 @@ a#main-menu-toggle {
 /* line 47, less\buttons.less */
 .btn-danger {
   color: #ffffff;
-  background: #ff5454;
+  background: #c84628;
 }
 /* line 51, less\buttons.less */
 .btn-danger:hover,
 .btn-danger.disabled,
 .btn-danger[disabled] {
-  background-color: #ff2121;
+  background-color: #9e3720;
 }
 /* line 57, less\buttons.less */
 .btn-danger:active,
 .btn-danger.active {
-  background-color: #ff1717;
+  background-color: #95341e;
 }
 /* line 63, less\buttons.less */
 .btn-success {
@@ -1121,7 +1133,7 @@ div.uploader {
 /* line 32, less\notifications_labels.less */
 .notification.small.red,
 .notification.red {
-  background: #ff5454;
+  background: #c84628;
 }
 /* line 37, less\notifications_labels.less */
 .notification.small.green,
@@ -1136,7 +1148,7 @@ div.uploader {
 /* line 47, less\notifications_labels.less */
 .notification.small.red,
 .notification.red {
-  background: #ff5454;
+  background: #c84628;
 }
 /* line 52, less\notifications_labels.less */
 .label,
@@ -1159,7 +1171,7 @@ div.uploader {
 .badge-important,
 .label-important[href],
 .badge-important[href] {
-  background: #ff5454;
+  background: #c84628;
 }
 /* line 73, less\notifications_labels.less */
 .label-warning,
@@ -1482,7 +1494,7 @@ footer a {
 }
 /* line 274, less\charts.less */
 .multi-stat-box .header .right .percent i.icon-double-angle-down {
-  color: #ff5454;
+  color: #c84628;
 }
 /* line 283, less\charts.less */
 .multi-stat-box .content .left {
@@ -1549,51 +1561,51 @@ footer a {
   color: #383e4b;
   padding: 10px;
 }
-/* line 59, less\colors.less */
+/* line 61, less\colors.less */
 .smallchart.blue .title {
   background: #378fc9;
 }
-/* line 62, less\colors.less */
+/* line 64, less\colors.less */
 .smallchart.lightBlue .title {
   background: #67c2ef;
 }
-/* line 65, less\colors.less */
+/* line 67, less\colors.less */
 .smallchart.green .title {
   background: #bdea74;
 }
-/* line 68, less\colors.less */
+/* line 70, less\colors.less */
 .smallchart.darkGreen .title {
   background: #7fb30c;
 }
-/* line 71, less\colors.less */
+/* line 73, less\colors.less */
 .smallchart.pink .title {
   background: #e84c8a;
 }
-/* line 74, less\colors.less */
+/* line 76, less\colors.less */
 .smallchart.orange .title {
   background: #ec6313;
 }
-/* line 77, less\colors.less */
+/* line 79, less\colors.less */
 .smallchart.lightOrange .title {
   background: #fabb3d;
 }
-/* line 80, less\colors.less */
+/* line 82, less\colors.less */
 .smallchart.red .title {
-  background: #ff5454;
+  background: #c84628;
 }
-/* line 83, less\colors.less */
+/* line 85, less\colors.less */
 .smallchart.yellow .title {
   background: #eae874;
 }
-/* line 86, less\colors.less */
+/* line 88, less\colors.less */
 .smallchart.white .title {
   background: white;
 }
-/* line 89, less\colors.less */
+/* line 91, less\colors.less */
 .smallchart.grey .title {
   background: #c7cbd5;
 }
-/* line 91, less\colors.less */
+/* line 93, less\colors.less */
 .smallchart.gold {
   background: #fabb3d;
 }
@@ -1657,57 +1669,61 @@ footer a {
   float: left;
   overflow: hidden;
 }
-/* line 41, less\colors.less */
+/* line 42, less\colors.less */
 .smallstat .boxchart-overlay.blue {
   background: #378fc9;
 }
-/* line 42, less\colors.less */
+/* line 43, less\colors.less */
 .smallstat .boxchart-overlay.lightBlue {
   background: #67c2ef;
 }
-/* line 43, less\colors.less */
+/* line 44, less\colors.less */
 .smallstat .boxchart-overlay.green {
   background: #bdea74;
 }
-/* line 44, less\colors.less */
+/* line 45, less\colors.less */
 .smallstat .boxchart-overlay.darkGreen {
   background: #7fb30c;
 }
-/* line 45, less\colors.less */
+/* line 46, less\colors.less */
 .smallstat .boxchart-overlay.pink {
   background: #e84c8a;
 }
-/* line 46, less\colors.less */
+/* line 47, less\colors.less */
 .smallstat .boxchart-overlay.orange {
   background: #ec6313;
 }
-/* line 47, less\colors.less */
+/* line 48, less\colors.less */
 .smallstat .boxchart-overlay.lightOrange {
   background: #fabb3d;
 }
-/* line 48, less\colors.less */
-.smallstat .boxchart-overlay.red {
-  background: #ff5454;
-}
 /* line 49, less\colors.less */
+.smallstat .boxchart-overlay.red {
+  background: #c84628;
+}
+/* line 50, less\colors.less */
 .smallstat .boxchart-overlay.yellow {
   background: #eae874;
 }
-/* line 50, less\colors.less */
+/* line 51, less\colors.less */
 .smallstat .boxchart-overlay.white {
   background: white;
 }
-/* line 51, less\colors.less */
+/* line 52, less\colors.less */
 .smallstat .boxchart-overlay.grey {
   background: #c7cbd5;
 }
-/* line 52, less\colors.less */
+/* line 53, less\colors.less */
 .smallstat .boxchart-overlay.crimson {
   background: #9e3f3d;
 }
-/* line 53, less\colors.less */
+/* line 54, less\colors.less */
 .smallstat .boxchart-overlay.gold {
   background: #fabb3d;
+}
+/* line 55, less\colors.less */
+.smallstat .boxchart-overlay.magenta {
+  background: #ff5454;
 }
 /* line 19, less\smallstats.less */
 .smallstat i {
@@ -1723,57 +1739,61 @@ footer a {
   float: left;
   margin-right: 10px;
 }
-/* line 41, less\colors.less */
+/* line 42, less\colors.less */
 .smallstat i.blue {
   background: #378fc9;
 }
-/* line 42, less\colors.less */
+/* line 43, less\colors.less */
 .smallstat i.lightBlue {
   background: #67c2ef;
 }
-/* line 43, less\colors.less */
+/* line 44, less\colors.less */
 .smallstat i.green {
   background: #bdea74;
 }
-/* line 44, less\colors.less */
+/* line 45, less\colors.less */
 .smallstat i.darkGreen {
   background: #7fb30c;
 }
-/* line 45, less\colors.less */
+/* line 46, less\colors.less */
 .smallstat i.pink {
   background: #e84c8a;
 }
-/* line 46, less\colors.less */
+/* line 47, less\colors.less */
 .smallstat i.orange {
   background: #ec6313;
 }
-/* line 47, less\colors.less */
+/* line 48, less\colors.less */
 .smallstat i.lightOrange {
   background: #fabb3d;
 }
-/* line 48, less\colors.less */
-.smallstat i.red {
-  background: #ff5454;
-}
 /* line 49, less\colors.less */
+.smallstat i.red {
+  background: #c84628;
+}
+/* line 50, less\colors.less */
 .smallstat i.yellow {
   background: #eae874;
 }
-/* line 50, less\colors.less */
+/* line 51, less\colors.less */
 .smallstat i.white {
   background: white;
 }
-/* line 51, less\colors.less */
+/* line 52, less\colors.less */
 .smallstat i.grey {
   background: #c7cbd5;
 }
-/* line 52, less\colors.less */
+/* line 53, less\colors.less */
 .smallstat i.crimson {
   background: #9e3f3d;
 }
-/* line 53, less\colors.less */
+/* line 54, less\colors.less */
 .smallstat i.gold {
   background: #fabb3d;
+}
+/* line 55, less\colors.less */
+.smallstat i.magenta {
+  background: #ff5454;
 }
 /* line 33, less\smallstats.less */
 .smallstat .title {
@@ -2029,7 +2049,7 @@ footer a {
   -webkit-border-radius: 50em;
   -moz-border-radius: 50em;
   border-radius: 50em;
-  background: #ff5454;
+  background: #c84628;
 }
 /* line 77, less\chat.less */
 .chat .conversation {
@@ -2627,7 +2647,7 @@ ul.tickets li.ticket .number {
 /* line 141, less\sliders_progress_bars.less */
 .sliderRed .ui-slider-range,
 .progressRed .ui-progressbar-value {
-  background: #ff5454;
+  background: #c84628;
 }
 /* line 145, less\sliders_progress_bars.less */
 .sliderYellow .ui-slider-range,
@@ -2913,7 +2933,7 @@ ul.tickets li.ticket .number {
 }
 /* line 69, less\circle-stats.less */
 .tempStatBox .tempStat.t100 {
-  border-color: #ff5454;
+  border-color: #c84628;
 }
 /* line 73, less\circle-stats.less */
 .tempStatBox span {
@@ -3410,15 +3430,15 @@ h3 {
 /* line 44, less\custom.less */
 .smallstat .date-overlay .title {
   color: white;
-  font-size: 20px;
-  font-family: "Microsoft Yahei", "Yahei", sans-serif;
+  font-size: 18px;
+  vertical-align: bottom;
 }
 /* line 49, less\custom.less */
 .smallstat .date-overlay .value {
   color: white;
   font-size: 12px;
-  font-family: "Microsoft Yahei", "Yahei", sans-serif;
   vertical-align: bottom;
+  line-height: 24px;
 }
 /* line 57, less\custom.less */
 .smallstat .data {
@@ -3435,16 +3455,16 @@ h3 {
 }
 /* line 67, less\custom.less */
 .smallstat small {
-  font-size: 50%;
+  font-size: 14px;
   vertical-align: bottom;
+  line-height: 24px;
 }
-/* line 71, less\custom.less */
+/* line 72, less\custom.less */
 .smallstat .time {
-  font-size: 10px;
+  font-size: 12px;
   float: none;
   clear: both;
   display: block;
-  font-family: "Microsoft Yahei", "Yahei", sans-serif;
 }
 /* line 78, less\custom.less */
 .smallstat .alignvalue {
@@ -3504,7 +3524,7 @@ h3 {
 }
 /* line 116, less\custom.less */
 .backgroundColorHeader.red {
-  background: #ff5454;
+  background: #c84628;
 }
 /* line 117, less\custom.less */
 .backgroundColorHeader.yellow {
@@ -3572,15 +3592,25 @@ h3 {
 .makeTableHeaderAsBoxHeader tbody tr:first-child td {
   border-top: none;
 }
+/* highlight
+========================*/
+/* line 176, less\custom.less */
+.highlighting .highlightBlue {
+  color: #378fc9;
+}
+/* line 179, less\custom.less */
+.highlighting .highlightRed {
+  color: #c84628;
+}
 /* table
 =================================================================== */
-/* line 177, less\custom.less */
+/* line 186, less\custom.less */
 .table.table-bordered {
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   border-radius: 0;
 }
-/* line 182, less\custom.less */
+/* line 191, less\custom.less */
 .table.table-bordered thead:first-child tr:first-child > th:first-child,
 .table.table-bordered tbody:first-child tr:first-child > td:first-child,
 .table.table-bordered tbody:first-child tr:first-child > th:first-child,
@@ -3593,23 +3623,23 @@ h3 {
   -moz-border-radius: 0;
   border-radius: 0;
 }
-/* line 188, less\custom.less */
+/* line 197, less\custom.less */
 .table th {
   background: #ededed;
   color: #000;
   font-weight: bold;
 }
-/* line 193, less\custom.less */
+/* line 202, less\custom.less */
 .table td {
   color: #111;
 }
 /* station
 ========================*/
-/* line 201, less\custom.less */
+/* line 210, less\custom.less */
 .subNav {
   margin-left: 0;
 }
-/* line 204, less\custom.less */
+/* line 213, less\custom.less */
 .subNav li {
   float: left;
   display: inline-block;
@@ -3620,59 +3650,59 @@ h3 {
   border-right: 1px solid rgba(255, 255, 255, 0.1);
   border-left: 1px solid rgba(0, 0, 0, 0.5);
 }
-/* line 213, less\custom.less */
+/* line 222, less\custom.less */
 .subNav li.current {
   background-color: #0074c1;
 }
-/* line 216, less\custom.less */
+/* line 225, less\custom.less */
 .subNav li:first-child {
   border-radius: 4px 0 0 4px;
   border-left: none;
 }
-/* line 220, less\custom.less */
+/* line 229, less\custom.less */
 .subNav li:last-child {
   border-radius: 0 4px 4px 0;
   border-right: none;
 }
-/* line 224, less\custom.less */
+/* line 233, less\custom.less */
 .subNav li a {
   color: #fff;
 }
-/* line 227, less\custom.less */
+/* line 236, less\custom.less */
 .subNav li a:hover {
   text-decoration: none;
 }
-/* line 233, less\custom.less */
+/* line 242, less\custom.less */
 .table-zebra td {
   color: #333;
 }
-/* line 237, less\custom.less */
+/* line 246, less\custom.less */
 .table-zebra tr td:nth-child(2n) {
   background-color: #f9f9f9;
 }
-/* line 241, less\custom.less */
+/* line 250, less\custom.less */
 .table-zebra tr:nth-child(2n) {
   background-color: #f9f9f9;
 }
-/* line 243, less\custom.less */
+/* line 252, less\custom.less */
 .table-zebra tr:nth-child(2n) td:nth-child(2n) {
   background-color: white;
 }
-/* line 247, less\custom.less */
+/* line 256, less\custom.less */
 .table-zebra em {
   font-style: normal;
   color: #000;
   font-size: 18px;
 }
-/* line 253, less\custom.less */
+/* line 262, less\custom.less */
 .table-zebra a {
   color: #378fc9;
 }
-/* line 259, less\custom.less */
+/* line 268, less\custom.less */
 .pieChartWithCenterText {
   position: relative;
 }
-/* line 261, less\custom.less */
+/* line 270, less\custom.less */
 .pieChartWithCenterText .centerText {
   position: absolute;
   top: 45%;
@@ -3683,22 +3713,22 @@ h3 {
   z-index: 100;
   color: #000;
 }
-/* line 273, less\custom.less */
+/* line 282, less\custom.less */
 .topmenu {
   position: relative;
   top: 15px;
   margin-bottom: 20px;
 }
-/* line 277, less\custom.less */
+/* line 286, less\custom.less */
 .topmenu .btn {
   background-color: #393f4c;
   color: #FFF;
 }
-/* line 281, less\custom.less */
+/* line 290, less\custom.less */
 .topmenu .btn:hover {
   background-color: #0071c0;
 }
-/* line 285, less\custom.less */
+/* line 294, less\custom.less */
 .stationTitle {
   margin-bottom: 20px;
 }
@@ -3857,12 +3887,12 @@ ul.messagesList li span.date {
 }
 /* line 17, less\page-tasks.less */
 .priority.high {
-  background: #ffeded;
+  background: #ebac9e;
   margin-bottom: 1px;
 }
 /* line 21, less\page-tasks.less */
 .priority.high span {
-  background: #ff5454;
+  background: #c84628;
   padding: 2px 10px;
   color: white;
   display: inline-block;
@@ -3934,7 +3964,7 @@ ul.messagesList li span.date {
 }
 /* line 95, less\page-tasks.less */
 .task.high {
-  border-left: 2px solid #ff5454;
+  border-left: 2px solid #c84628;
 }
 /* line 99, less\page-tasks.less */
 .task.medium {

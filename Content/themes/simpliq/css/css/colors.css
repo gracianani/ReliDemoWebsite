@@ -22,7 +22,7 @@
   color: #fabb3d;
 }
 .red {
-  color: #ff5454;
+  color: #c84628;
 }
 .yellow {
   color: #eae874;
@@ -38,6 +38,9 @@
 }
 .gold {
   color: #fabb3d;
+}
+.magenta {
+  color: #ff5454;
 }
 .backgroundColor.blue {
   background: #378fc9;
@@ -61,7 +64,7 @@
   background: #fabb3d;
 }
 .backgroundColor.red {
-  background: #ff5454;
+  background: #c84628;
 }
 .backgroundColor.yellow {
   background: #eae874;
@@ -77,6 +80,9 @@
 }
 .backgroundColor.gold {
   background: #fabb3d;
+}
+.backgroundColor.magenta {
+  background: #ff5454;
 }
 .backgroundColorTitle.blue .title {
   background: #378fc9;
@@ -100,7 +106,7 @@
   background: #fabb3d;
 }
 .backgroundColorTitle.red .title {
-  background: #ff5454;
+  background: #c84628;
 }
 .backgroundColorTitle.yellow .title {
   background: #eae874;

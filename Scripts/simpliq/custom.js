@@ -1480,3 +1480,21 @@ function widthFunctions(e) {
 	}
 
 }
+/* ---------- Plugins ---------- */
+$.prototype.highlightAfterUpdate = function(highlightColor,delay){
+    var self,originBackgroundColor;
+    if ( !highlightColor ) {
+        highlightColor = "#ffffaa";
+    }
+    if ( !delay ) {
+        delay = 10000;
+    }
+    self = $(this).addClass('highlighting');
+    originBackgroundColor = self.css('background-color');
+    self.css('background-color', highlightColor);
+    $(this).delay(delay).animate({
+    backgroundColor: originBackgroundColor
+    },4000,function(){
+        $(this).removeClass('highlighting');
+    });
+}
