@@ -31,6 +31,7 @@
 @Html.Hidden("toDate", @Model.ToDate)
 @Html.Hidden("companyId", @Model.CompanyId)
 @Html.Hidden("managershipId", @Model.ManagershipId)
+@Html.Hidden("stationId", @Model.StationId)
 @Html.Hidden("type", @Model.类型)
 
 <script>
@@ -137,7 +138,9 @@
 
 
     function getSevenDaysHeatConsumption() {
-        var url = "http://localhost:11223/HeatConsumptionService/GetHeatConsumptionGraphData/" + $("input[name=type]").val() + "/" + (new Date() - (7 * 24 * 60 * 60 * 1000)) + "/" + (new Date()).getTime() + "/" + $("input[name=companyId]").val() + "/0";
+        var url = "http://localhost:11223/HeatConsumptionService/GetHeatConsumptionGraphData/" + $("input[name=type]").val() + "/"
+                    + (new Date() - (7 * 24 * 60 * 60 * 1000)) + "/" + (new Date()).getTime() + "/" + $("input[name=companyId]").val() + "/"
+                    + $("input[name=managershipId]").val() + "/" + $("input[name=stationId]").val();
 
         $.ajax({
             url: url,
@@ -157,7 +160,9 @@
     }
 
     function getThirtyDaysHeatConsumption() {
-        var url = "http://localhost:11223/HeatConsumptionService/GetHeatConsumptionGraphData/" + $("input[name=type]").val() + "/" + (new Date() - (30 * 24 * 60 * 60 * 1000)) + "/" + (new Date()).getTime() + "/" + $("input[name=companyId]").val() + "/0";
+        var url = "http://localhost:11223/HeatConsumptionService/GetHeatConsumptionGraphData/" + $("input[name=type]").val() + "/"
+                 + (new Date() - (30 * 24 * 60 * 60 * 1000)) + "/" + (new Date()).getTime() + "/" + $("input[name=companyId]").val() + "/" 
+                 + $("input[name=managershipId]").val() + "/" + $("input[name=stationId]").val();
   
         $.ajax({
             url: url,
