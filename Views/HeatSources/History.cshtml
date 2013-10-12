@@ -1,0 +1,124 @@
+﻿@{
+    ViewBag.Title = "History";
+}
+
+@model ReliDemo.ViewModels.HeatSourceHistoryViewModel 
+
+@{
+    ViewBag.Title = "History";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row-fluid">
+<div class="span8">
+<p>
+    @Html.ActionLink("返回热力站列表", "Paged")
+</p>
+</div>
+</div>
+<div class="row-fluid clearfix stationTitle">
+    <h1 class="span3">@Model.HeatSourceName</h1>
+    <div onDesktop="span4" onTablet="span6" onMobile="span12">@Html.Partial("_TopNav")</div>
+</div>
+<div class="row-fluid">
+    @using (Html.BeginForm("Paged", "Stations", FormMethod.Get)) {
+        <text>选择日期:</text>
+        @Html.TextBox("dateFrom")
+        <text>到</text>
+        @Html.TextBox("dateTo")
+        <text>多耗% 从 </text>
+        @Html.TextBox("duohaoFrom", "", new { @class = "span1" })
+        <text>到</text>
+        @Html.TextBox("duohaoTo", "", new { @class = "span1" })
+        <input type="submit" value="搜索" class="btn btn-primary" style="vertical-align: top;"/>
+        <input type="button" value="还原" class="btn " style="vertical-align: top;"/>
+    }
+</div>
+
+<div class="rolw-fluid">
+<table class="table table-bordered table-hover  table-condensed">
+		<tr>
+		<th>时间</th>
+		<th>机组号</th>
+		<th>供温<span class="symbol">(℃)</span></th>
+		<th>回温<span class="symbol">(℃)</span></th>
+		<th>供压<span class="symbol">(MPa)</span></th>
+		<th>回压<span class="symbol">(MPa)</span></th>
+		<th>累计供水流量 <span class="symbol">(t/h)</span></th>
+        <th>累计回水流量<span class="symbol">(t)</span></th>
+		<th>累计供水热量<span class="symbol">(GJ)</span></th>
+		<th>累计回水热量<span class="symbol">(GJ)</span></th>
+		<th>瞬时供水流量<span class="symbol">(t/h)</span></th>
+        <th>瞬时回水流量<span class="symbol">(t/h)</span></th>
+		<th>瞬时供水热量<span class="symbol">(GJ/h)</span></th>
+        <th>瞬时回水热量<span class="symbol">(GJ/h)</span></th>
+		<th>累计热量<span class="symbol">(GJ)</span></th>
+		<th>瞬时热量<span class="symbol">(GJ/h)</span></th>
+		<th>累计补水量<span class="symbol">(t)</span></th>
+        <th>瞬时补水量<span class="symbol">(t)</span></th>
+		<th>当日<span class="symbol">(GJ)</span></th>
+		</tr>
+        @foreach (var history in @Model.Histories)
+        {
+            <tr>
+                <td>
+                    @history.时间
+                </td>
+                <td>
+                    @history.机组号
+                </td>
+                <td>
+                    @history.供温
+                </td>
+                <td>
+                    @history.回温
+                </td>
+                <td>
+                    @history.供压
+                </td>
+                <td>
+                    @history.回压
+                </td>
+                <td>
+                    @history.累计供水流量
+                </td>
+                <td>
+                    @history.累计回水流量
+                </td>
+                <td>
+                    @history.累计供水热量
+                </td>
+                <td>
+                    @history.累计回水热量
+                </td>
+                <td>
+                    @history.瞬时供水流量
+                </td>
+                <td>
+                    @history.瞬时回水流量
+                </td>
+                <td>
+                    @history.瞬时供水热量
+                </td>
+                <td>
+                    @history.瞬时回水热量
+                </td>
+                <td>
+                    @history.累计热量
+                </td>
+                <td>
+                    @history.瞬时热量
+                </td>
+                <td>
+                    @history.累计补水量
+                </td>
+                <td>
+                    @history.瞬时补水量
+                </td>
+                <td>
+                    @history.今日GJ
+                </td>
+            </tr>
+        }
+		</table>
+</div>

@@ -42,6 +42,7 @@
     var tempActu = $.parseJSON($("input[name=temperatureActual]").val());
     var lengendContainer = $('#dashboard-heat-temp-lengend');
 
+    
     var heatTempChartData = [{
         label: "实际平均温度",
         data: tempPlan,
@@ -122,7 +123,6 @@
         xaxis: {
             mode: "time",
             minTickSize: [1, "day"],
-            minTickSize: [1, "day"],
             timeformat: "%m月%d日"
         }, yaxes: [{}, {
             position: "right"
@@ -137,12 +137,8 @@
 
 
     function getSevenDaysHeatConsumption() {
+        var url = "http://localhost:11223/HeatConsumptionService/GetHeatConsumptionGraphData/" + $("input[name=type]").val() + "/" + (new Date() - (7 * 24 * 60 * 60 * 1000)) + "/" + (new Date()).getTime() + "/" + $("input[name=companyId]").val() + "/0";
 
-    }
-
-    function getThirtyDaysHeatConsumption() {
-        var url = "http://localhost:11223/HeatConsumptionService/GetHeatConsumptionGraphData/" + $("input[name=type]").val() + "/" + (new Date()).getTime() + "/" + (new Date() - (-1)) + "/" + $("input[name=companyId]").val() + "/0";
-        console.log(url);
         $.ajax({
             url: url,
             type: "GET",
@@ -150,13 +146,32 @@
             dataType: "jsonp",
             data: "",
             success: function (data) {
-                tempPlan = data["预报温度"];
-                tempActu = data["实际温度"];
-                console.log(data);
-                d1 = data["计划Data"];
-                d2 = data["核算Data"];
-                d3 = data["实际Data"];
+                heatTempChartData[1].data = $.parseJSON(data["预报温度"]);
+                heatTempChartData[0].data = $.parseJSON(data["实际温度"]);
+                heatTempChartData[2].data = $.parseJSON(data["计划Data"]);
+                heatTempChartData[3].data = $.parseJSON(data["核算Data"]);
+                heatTempChartData[4].data = $.parseJSON(data["实际Data"]);
+                dashboardHeatTempChart = $.plot("#dashboard-heat-temp-chart", heatTempChartData, heatTempChartOptionsLastWeek);
+            }
+        });
+    }
 
+    function getThirtyDaysHeatConsumption() {
+        var url = "http://localhost:11223/HeatConsumptionService/GetHeatConsumptionGraphData/" + $("input[name=type]").val() + "/" + (new Date() - (30 * 24 * 60 * 60 * 1000)) + "/" + (new Date()).getTime() + "/" + $("input[name=companyId]").val() + "/0";
+  
+        $.ajax({
+            url: url,
+            type: "GET",
+            contentType: "application/json; charset=utf-8",
+            dataType: "jsonp",
+            data: "",
+            success: function (data) {
+                heatTempChartData[1].data = $.parseJSON(data["预报温度"]);
+                heatTempChartData[0].data = $.parseJSON(data["实际温度"]);
+                heatTempChartData[2].data = $.parseJSON(data["计划Data"]);
+                heatTempChartData[3].data = $.parseJSON(data["核算Data"]);
+                heatTempChartData[4].data = $.parseJSON(data["实际Data"]);
+                dashboardHeatTempChart = $.plot("#dashboard-heat-temp-chart", heatTempChartData, heatTempChartOptionsLastMonth);
             }
         });
     }
@@ -188,10 +203,11 @@
         });
 
         $("#lastSevenDays").click(function () {
-            dashboardHeatTempChart = $.plot("#dashboard-heat-temp-chart", heatTempChartData, heatTempChartOptionsLastWeek);
+            getSevenDaysHeatConsumption();
         });
         $("#lastThirtyDays").click(function () {
-            dashboardHeatTempChart = $.plot("#dashboard-heat-temp-chart", heatTempChartData, heatTempChartOptionsLastMonth);
+            getThirtyDaysHeatConsumption();
+
         });
     });
 
