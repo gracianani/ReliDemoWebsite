@@ -1,7 +1,7 @@
 ﻿<div class='btn-group topmenu'>
+    @Html.ActionLink("实时数据", "StationRealTime", new { stationId = Model.StationId }, new { @class = "btn" })
     @Html.ActionLink("基础信息", "BasicInfo", new { stationId = Model.StationId }, new { @class = "btn" })
     @Html.ActionLink("热耗历史", "History", new { stationId = Model.StationId }, new { @class = "btn" })
     @Html.ActionLink("热耗图表", "Graph", new { stationId = Model.StationId }, new { @class = "btn" })
     @Html.ActionLink("所辖用户", "Customers", new { stationId = Model.StationId }, new { @class = "btn" })
-    @Html.ActionLink("实时数据", "StationRealTime", new { stationId = Model.StationId }, new { @class = "btn" })
 </div>
