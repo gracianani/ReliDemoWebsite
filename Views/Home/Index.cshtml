@@ -12,13 +12,13 @@
 
 		<div class="smallstat box" onTablet="span12" onDesktop="span6">
 			<i class="icon-user red"></i>
-			<span class="title">2013年12月10日　星期三</span>
-			<span class="value">姓名 <small>超级管理员</small></span>
+			<span class="title">@Model.当前时间.ToString("yyyy年MM月dd日")  @Model.当前时间.ToString("dddd",new System.Globalization.CultureInfo("zh-cn"))  </span>
+			<span class="value">@Model.当前用户.姓名 <small>@Model.当前用户.权限们</small></span>
             <span class="time">欢迎进入智能化热网热耗管理系统</span>
 		</div>
 		<div class=" smallstat box" onTablet="span6 noMarginLeft" onDesktop="span3" href="#">
 			<i class="icon-cloud orange"></i>
-			<span class="title">今日-晴 微风</span>
+			<span class="title">@Model.TodaysWeather</span>
 			<span class="value"><small>平均</small>@Model.TodaysAverageTemperature<small>℃</small></span>
 			<span class="time alignvalue">@Model.TodaysHighestTemperature ℃ / @Model.TodaysLowestTemperature ℃</span>
 		</div>
@@ -26,13 +26,13 @@
 			<i class="icon-time darkGreen"></i>
 			<span class="title">累计供热时间</span>
 			<span class="value">@Model.TotalHeatSupplyDays<small>天</small></span>
-            <span class="time">供热开始日期: @Model.起始供热时间.ToShortDateString() </span>
+            <span class="time">供热开始日期: @Model.起始供热时间.ToString("yyyy-MM-dd") </span>
 		</div>
         <div class=" smallstat box" id="todaysGJ" onTablet="span6 noMarginLeft" onDesktop="span3 noMarginLeft">
 			<i class="icon-fire crimson"></i>
 			<span class="title">今日累计供热量</span>
-			<span class="value highlightRed">@Model.TodayGJ[1].全网.Value<small>万GJ</small></span>
-            <span class="time highlightRed">截至　2013-11-02 15:30PM</span>
+			<span class="value highlightRed">@Model.TodayGJ[1].全网.Value<small>GJ</small></span>
+            <span class="time highlightRed">截至 @Model.当前时间.ToString("yyyy-MM-dd HH:mm tt")</span>
 		</div>
 
 		<div class="smallstat box" onTablet="span6" onDesktop="span3">

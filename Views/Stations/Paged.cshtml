@@ -13,7 +13,7 @@ line-height: 30px;'>@ViewBag.Title</h2>
     @using (Html.BeginForm("Paged", "Stations", FormMethod.Get)) {
         @Html.DropDownList("heatSources", new SelectList(Model.HeatSources, "ItemID", "热源名称"), "请选择热源厂", new { @class = "span2" })
         <text>&nbsp;</text>
-        @Html.DropDownList("companies", new SelectList(Model.Companies, "ItemID", "公司"), "请选择公司", new { @class = "span2" })
+        @Html.DropDownList("companies", new SelectList(Model.Companies, "Id", "Name"), "请选择公司", new { @class = "span2" })
         <text>&nbsp;</text>
         @Html.DropDownList("managerships", new SelectList(Model.Managerships, "ItemID", "管理单位"), "请选择管理单位", new { id = "managerships", @class = "span2" })
         <text>&nbsp;</text>

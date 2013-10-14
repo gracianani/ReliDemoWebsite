@@ -40,19 +40,7 @@ h1,h2,h3 {
 		margin-right: 2%;
 		.border-radius(2px);
 		float: left;
-	
-		.title {
-			color: white;
-			font-size: 20px;
-			font-family:"Microsoft Yahei","Yahei",sans-serif;
-		}
-		.value {
-			color: white;
-			font-size: 12px;
-			font-family:"Microsoft Yahei","Yahei",sans-serif;
-			vertical-align:bottom;
-		}
-		
+
 	}
 	.data {
 		float: left;
@@ -65,19 +53,30 @@ h1,h2,h3 {
 		text-decoration: none;
 	}
 	small {
-			font-size:50%;
+			font-size:14px;
 			vertical-align:bottom;
+			line-height:24px;
 	}
 	.time {
-		font-size:10px;
+		font-size:12px;
 		float:none;
 		clear:both;
 		display:block;
-		font-family:"Microsoft Yahei","Yahei",sans-serif;
 	}
 	.alignvalue {
 		padding-left:60px;
 	}
+	.title {
+
+			font-size: 14px;
+			vertical-align:bottom;
+		}
+		.value {
+
+			font-size: 22px;
+			vertical-align:bottom;
+			line-height:24px;
+		}
 }
 
 
@@ -170,7 +169,16 @@ h1,h2,h3 {
 		border-top: none;
 	}
 }
-
+/* highlight
+========================*/
+.highlighting {
+	.highlightBlue {
+		color:@blue;
+	}
+	.highlightRed {
+		color:@red;
+	}
+}
 /* table
 =================================================================== */
 .table {
@@ -193,6 +201,7 @@ h1,h2,h3 {
 	td {
 		color: #111;
 	}
+	
 }
 
 /* station
