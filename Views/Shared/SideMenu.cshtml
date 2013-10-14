@@ -1,32 +1,39 @@
 ﻿
 <!-- start: Main Menu -->
 			<div id="sidebar-left" class="span2">
-				
-				<div class="row-fluid actions">
-													
-					<input type="text" class="search span12" placeholder="...">
-				
-				</div>	
-				
 				<div class="nav-collapse sidebar-nav">
 					<ul class="nav nav-tabs nav-stacked main-menu">
+                        @if (ReliDemo.Infrastructure.Services.MembershipService.CurrentUser != null && ReliDemo.Infrastructure.Services.MembershipService.CurrentUser.是否有集团权限)
+                        {
 						<li><a href="/"><i class="icon-bar-chart"></i><span class="hidden-tablet"> 全网监测</span></a></li>
-						<li><a class="dropmenu" ><i class="icon-plus-sign-alt"></i><span class="hidden-tablet"> 公司</span></a>
-							<ul >
-								<li><a class="submenu" href="/Companies/Index?companyId=0"><i class="icon-sitemap"></i><span class="hidden-tablet"> 创合供热公司</span></a></li>
-								<li><a class="submenu" href="/Companies/Index?companyId=1"><i class="icon-sitemap"></i><span class="hidden-tablet"> 合格服务商</span></a></li>
-								<li><a class="submenu" href="/Companies/Index?companyId=2"><i class="icon-sitemap"></i><span class="hidden-tablet"> 科利源供热公司</span></a></li>
-								<li><a class="submenu" href="/Companies/Index?companyId=3"><i class="icon-sitemap"></i><span class="hidden-tablet"> 特诚公司</span></a></li>
-								<li><a class="submenu" href="/Companies/Index?companyId=4"><i class="icon-sitemap"></i><span class="hidden-tablet"> 特力昆公司</span></a></li>
-								<li><a class="submenu" href="/Companies/Index?companyId=5"><i class="icon-sitemap"></i><span class="hidden-tablet"> 天禹供热公司</span></a></li>
-								<li><a class="submenu" href="/Companies/Index?companyId=6"><i class="icon-sitemap"></i><span class="hidden-tablet"> 销售公司</span></a></li>
-							</ul>
-						</li>	
+                        }
+                        @if (ReliDemo.Infrastructure.Services.MembershipService.CurrentUser != null && (ReliDemo.Infrastructure.Services.MembershipService.CurrentUser.是否有集团权限 ||  ReliDemo.Infrastructure.Services.MembershipService.CurrentUser.是否有分公司权限 ) && ReliDemo.Infrastructure.Services.MembershipService.CurrentUser.VisibleCompanies.Count > 0)
+                        {
+                            <li><a class="dropmenu" ><i class="icon-plus-sign-alt"></i><span class="hidden-tablet">公司</span></a>
+							    <ul >
+                                    @foreach (var companyIdAndName in ReliDemo.Infrastructure.Services.MembershipService.CurrentUser.VisibleCompanies)
+                                    {
+                                        <li><a class="submenu" href="/Companies/Index?companyId=@companyIdAndName.Id"><i class="icon-sitemap"></i><span class="hidden-tablet"> @companyIdAndName.Name</span></a></li>
+                                    }
+							    </ul>
+						    </li>
+                        }
+                        @if (ReliDemo.Infrastructure.Services.MembershipService.CurrentUser != null && ReliDemo.Infrastructure.Services.MembershipService.CurrentUser.是否有供热中心权限 && ReliDemo.Infrastructure.Services.MembershipService.CurrentUser.VisibleManagerships.Count > 0)
+                        {
+                            <li><a class="dropmenu" ><i class="icon-plus-sign-alt"></i><span class="hidden-tablet">供热中心</span></a>
+							    <ul >
+                                    @foreach (var managershipIdAndName in ReliDemo.Infrastructure.Services.MembershipService.CurrentUser.VisibleManagerships)
+                                    {
+                                        <li><a class="submenu" href="/Companies/ManagershipInfo?managershipId=@managershipIdAndName.Id"><i class="icon-sitemap"></i><span class="hidden-tablet"> @managershipIdAndName.Name</span></a></li>
+                                    }
+							    </ul>
+						    </li>
+                        }
 						<li><a class="dropmenu"><i class="icon-plus-sign-alt"></i><span class="hidden-tablet"> 热源厂</span></a>
 						<ul>
-								<li><a class="submenu" href="/HeatSources/Index"><i class="icon-list-alt"></i><span class="hidden-tablet"> 基础信息</span></a></li>
-								<li><a class="submenu" href="/HeatSources/RealTime"><i class="icon-eye-open"></i><span class="hidden-tablet"> 实时监测</span></a></li>
-							</ul>
+							<li><a class="submenu" href="/HeatSources/Index"><i class="icon-list-alt"></i><span class="hidden-tablet"> 基础信息</span></a></li>
+							<li><a class="submenu" href="/HeatSources/RealTime"><i class="icon-eye-open"></i><span class="hidden-tablet"> 实时监测</span></a></li>
+						</ul>
 						</li>
 						<li><a class="dropmenu"><i class="icon-plus-sign-alt"></i><span class="hidden-tablet"> 热力站</span></a>
 							<ul>
