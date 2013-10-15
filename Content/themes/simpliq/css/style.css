@@ -1038,22 +1038,22 @@ a#main-menu-toggle {
 input[placeholder],
 [placeholder],
 *[placeholder] {
-  color: white !important;
+  color: #333 !important;
 }
 /* line 7, less\forms.less */
 input:-moz-placeholder,
 textarea:-moz-placeholder {
-  color: white;
+  color: #333;
 }
 /* line 12, less\forms.less */
 input:-ms-input-placeholder,
 textarea:-ms-input-placeholder {
-  color: white;
+  color: #333;
 }
 /* line 17, less\forms.less */
 input::-webkit-input-placeholder,
 textarea::-webkit-input-placeholder {
-  color: white;
+  color: #333;
 }
 /* line 22, less\forms.less */
 .add-on,
