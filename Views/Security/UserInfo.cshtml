@@ -17,6 +17,9 @@
         <th>
             上次登录时间
         </th>
+        <th>
+            修改权限
+        </th>
     </tr>
 @for (var i = 0; i < Model.Count(); i++)
 {
@@ -30,6 +33,9 @@
         </td>
         <td>
             @user.webpages_Membership.CreateDate
+        </td>
+        <td>
+            @Html.ActionLink("修改", "ViewProfile", new { userId = @user.userId } )
         </td>
     </tr>
 }

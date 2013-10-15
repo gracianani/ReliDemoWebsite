@@ -1,0 +1,83 @@
+﻿@model ReliDemo.ViewModels.ProfileViewModel
+
+@{
+    ViewBag.Title = "Profile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row-fluid">
+<div class="span8">
+<p>
+    @Html.ActionLink("返回用户列表", "UserInfo")
+</p>
+</div>
+</div>
+
+@using (Html.BeginForm("ViewProfile", "Security", FormMethod.Post))
+{
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>个人信息</legend>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.姓名)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.姓名)
+            @Html.ValidationMessageFor(model => model.姓名)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.UserName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.UserName)
+            @Html.ValidationMessageFor(model => model.UserName)
+        </div>
+        
+        <div class="editor-label">
+            @Html.LabelFor(model => model.TheUser.所属公司)
+        </div>
+        <div class="editor-field">
+            <select name="Companies">
+            <option>无所属公司</option>
+            @foreach (var company in ReliDemo.Models.CompanyHelper.GetAllCompany())
+            {
+                <option id="@company.Id" @if (company.Id == Model.TheUser.所属公司)
+                                         {<text>selected</text>} value="@company.Name">@company.Name</option>
+            }
+            </select>
+        </div>
+        <div class="editor-label">
+        @Html.LabelFor(model => model.TheUser.所属中心)
+        </div>
+        <div class="editor-field">
+
+            <select name="Managerships">
+            <option>所有供热中心</option>
+            @foreach (var managership in ReliDemo.Models.CompanyHelper.GetAllManagershipByCompanyId(Model.TheUser.Managership!=null?Model.TheUser.Managership.Company.ItemID : Model.TheUser.Company != null ? Model.TheUser.Company.ItemID : -1))
+            {
+                <option id="@managership.Id" @if (managership.Id == Model.TheUser.所属中心)
+                    {<text>selected</text>} value="@managership.Name">@managership.Name</option>
+            }
+            </select>
+        </div>
+        <div class="editor-field">
+            <label> 是否为集团员工 <input type="checkbox" 
+                    @if (Model.TheUser.是否为集团员工)
+                    { <text>checked</text> } />
+            </label>
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend>权限设置</legend>
+        @foreach (var role in @Model.Authorizes)
+        {
+            <div class="row-fluid">
+                <div class="span2"><label><input type="checkbox" name="@role.Name" @if (role.Checked) { <text>checked="checked"</text> } /> @role.Name</label></div> 
+            </div>
+        }
+    </fieldset>
+    <fieldset>
+        <p style="margin-top:20px">
+            <input type="submit" value="修改" class="btn btn-primary"/>
+        </p>
+    </fieldset>
+}

@@ -12,7 +12,7 @@
     @Html.ValidationSummary(true)
     <fieldset>
         <legend>登陆</legend>
-
+        <div name="cookieEnabled"> </div>
         <div class="editor-label">
             @Html.LabelFor(model => model.UserName)
         </div>
@@ -45,3 +45,22 @@
 <div>
     @Html.ActionLink("注册","Register", "Accounts")
 </div>
+
+<script type="text/javascript">
+    var cookieEnabled = (navigator.cookieEnabled) ? true : false
+
+    //if not IE4+ nor NS6+
+    if (typeof navigator.cookieEnabled == "undefined" && !cookieEnabled) {
+        document.cookie = "testcookie"
+        cookieEnabled = (document.cookie.indexOf("testcookie") != -1) ? true : false
+    }
+
+    if (cookieEnabled) //if cookies are enabled on client's browser
+    //do whatever
+    {
+        $('div[name=cookieEnabled]').html("");
+    }
+    else {
+        $('div[name=cookieEnabled]').html("您的浏览器不支持cookie, 请更改设置. ");
+    }
+</script>
