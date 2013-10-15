@@ -48,7 +48,8 @@ line-height: 30px;'>@ViewBag.Title</h2>
 
 </ul>
 </div>
-<table class="table  table-bordered table-hover  table-condensed" style="background:white">
+<div class="scrollableTableContainer">
+<table class="table  table-bordered table-hover  table-condensed table-clickhighlight" style="background:white">
 
 @foreach (var p in Model.Stations)
 {
@@ -64,7 +65,7 @@ line-height: 30px;'>@ViewBag.Title</h2>
         <th>
             @Html.DisplayName("热力站编码")
         </th>
-        <th>
+        <th width="200px">
             @Html.DisplayName("用热地址")
         </th>
         <th>
@@ -182,7 +183,7 @@ line-height: 30px;'>@ViewBag.Title</h2>
     </tr>
 }
 </table>
-
+</div><!--scrollableTableContainer-->
 <div class="row-fluid">
 <div class="pagination pagination-centered">
     <ul>
@@ -224,5 +225,7 @@ line-height: 30px;'>@ViewBag.Title</h2>
                 }
             });
         });
+
+
     });
 </script>

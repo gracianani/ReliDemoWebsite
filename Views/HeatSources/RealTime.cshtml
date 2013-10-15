@@ -25,8 +25,8 @@
 </li>
 </ul>
 </div>
-
-<table class="table  table-bordered table-hover  table-condensed" style="background:white">
+<div class="scrollableTableContainer">
+<table class="table  table-bordered table-hover  table-condensed table-clickhighlight" style="background:white">
     <tr>
         <th>
             热源名称
@@ -177,13 +177,13 @@
             <td>
                 @heatSourceRecent.昨日GJ
             </td>
-            <td>
-                @heatSourceRecent.采集时间
+            <td class="time">
+                @heatSourceRecent.采集时间.Value.ToString("yyyy-MM-dd HH:mm")
             </td>
         </tr>   
     }
 </table>
-
+</div>
 <div class="row-fluid">
 <div class="pagination pagination-centered">
     <ul>

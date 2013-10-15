@@ -1498,3 +1498,10 @@ $.prototype.highlightAfterUpdate = function(highlightColor,delay){
         $(this).removeClass('highlighting');
     });
 }
+
+/* ---------- table ---------- */
+$(".table-clickhighlight td").on("click", function(e){
+    var tr =  $(e.currentTarget).parent();
+    tr.siblings(".alert").removeClass("alert");
+    tr.addClass("alert");
+});
