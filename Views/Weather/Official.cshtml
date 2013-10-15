@@ -184,7 +184,8 @@
     var map = new BMap.Map("weathermap");            // 创建Map实例
     var center = new BMap.Point(116.354, 39.935);    // 创建点坐标
     map.centerAndZoom(center, 12);   
-    map.enableScrollWheelZoom();                            //启用滚轮放大缩小
+    //map.enableScrollWheelZoom();                            //启用滚轮放大缩小
+	map.disableDoubleClickZoom();
     var markers = [];
     for (var i = 0; i < poi.length; i++) {
         var point = new BMap.Point(poi[i].latlng[0], poi[i].latlng[1]);    // 创建点坐标
@@ -212,7 +213,7 @@
         markers.push(marker);
     }
 
-    map.addControl(new BMap.NavigationControl());  //添加默认缩放平移控件
+    //map.addControl(new BMap.NavigationControl());  //添加默认缩放平移控件
 
     
 </script>

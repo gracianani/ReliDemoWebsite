@@ -3767,6 +3767,22 @@ h3 {
   background-color: #ecf4fa;
   color: black;
 }
+/* line 337, less\custom.less */
+::-webkit-input-placeholder {
+  color: #666!important;
+}
+/* line 340, less\custom.less */
+:-moz-placeholder {
+  color: #666!important;
+}
+/* line 343, less\custom.less */
+::-moz-placeholder {
+  color: #666!important;
+}
+/* line 346, less\custom.less */
+:-ms-input-placeholder {
+  color: #666!important;
+}
 /* Page: Messages
 =================================================================== */
 /* line 3, less\page-messages.less */

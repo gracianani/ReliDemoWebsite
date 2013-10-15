@@ -225,7 +225,12 @@ line-height: 30px;'>@ViewBag.Title</h2>
                 }
             });
         });
-
+		$(".table tr").dblclick(function(e){
+			var url = $(e.currentTarget).find("td:first a").attr("href");
+			if ( url ) {
+				window.location = url;
+			}
+		});
 
     });
 </script>
