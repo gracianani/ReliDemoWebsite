@@ -3822,6 +3822,35 @@ h3 {
   height: auto!important;
   line-height: 30px;
 }
+/* Sidebar
+============================*/
+/* line 386, less\custom.less */
+.dropmenu [class^="icon-"],
+.dropmenu [class*=" icon-"] {
+  background-color: white;
+  color: #383e4b;
+  padding: 2px 2px;
+  border-radius: 2px;
+  width: 14px;
+  display: inline-block;
+  text-align: center;
+}
+/* line 397, less\custom.less */
+.icon-companyname:before {
+  content: "" !important;
+  display: none;
+}
+/* line 401, less\custom.less */
+.icon-companyname {
+  background-color: white;
+  color: #383e4b;
+  padding: 2px 2px;
+  border-radius: 5px;
+  width: 14px;
+  font-size: 12px;
+  display: inline-block;
+  text-align: center;
+}
 /* Page: Messages
 =================================================================== */
 /* line 3, less\page-messages.less */
