@@ -1510,3 +1510,10 @@ $(".icon-companyname").each(function(){
     name = $(this).next().text().substr(0,2);
     $(this).html(name);
 });
+
+$(".table-dblclickactive tr").dblclick(function(e){
+			var url = $(e.currentTarget).find("td:first a");
+			if ( url.size() > 0 ) {
+				window.location = url.attr("href");
+			}
+});

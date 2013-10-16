@@ -1,9 +1,9 @@
 ﻿@model IEnumerable<ReliDemo.Models.Company>
 
-<table class="table table-condensed table-bordered">
+<table class="table table-condensed table-bordered table-hover table-clickhighlight table-dblclickactive">
     <tr><th>公司</th><th>计划供热量(GJ)</th> <th>实际供热量(GJ)</th><th>平均单耗(Kcal/h*㎡)</th><th>万平米循环水量(t/h)</th></tr>
     @foreach (var company in Model)
     {
-        <tr><td>@company.公司</td><td>@company.今日计划GJ</td><td>@company.今日累计GJ</td><td>@company.日平均单耗</td> <td>@company.万平方米流量</td></tr>
+        <tr><td>@Html.ActionLink(company.公司, "../Companies/Index", new {companyId = company.ItemID })</td><td>@company.今日计划GJ</td><td>@company.今日累计GJ</td><td>@company.日平均单耗</td> <td>@company.万平方米流量</td></tr>
     }
 </table>
