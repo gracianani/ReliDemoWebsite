@@ -75,45 +75,52 @@ function retina(){
 	
 }
 
-jQuery(document).ready(function($){
-	
-	/* ---------- Add class .active to current link  ---------- */
-	$('ul.main-menu li a').each(function(){
-		
-			if($($(this))[0].href==String(window.location)) {
-				
-				$(this).parent().addClass('active');
-				
-			}
-	
-	});
-	
-	$('ul.main-menu li ul li a').each(function(){
-		
-			if($($(this))[0].href==String(window.location)) {
-				
-				$(this).parent().addClass('active');
-				$(this).parent().parent().show();
-				
-			}
-	
-	});
+jQuery(document).ready(function ($) {
 
-	/* ---------- Submenu  ---------- */
+    /* ---------- Add class .active to current link  ---------- */
+    $('ul.main-menu li a').each(function () {
 
-	$('.dropmenu').click(function(e){
+        if ($($(this))[0].href == String(window.location)) {
 
-		e.preventDefault();
+            $(this).parent().addClass('active');
 
-		$(this).parent().find('ul').slideToggle();
-		
-		var icon = $(this).find('i');
-		if ( icon.length ) {
-			icon.toggleClass('icon-minus-sign-alt');
-			icon.toggleClass('icon-add-sign-alt');
-		}
-		
-	});
+        }
+
+    });
+
+    $('ul.main-menu li ul li a').each(function () {
+
+        if ($($(this))[0].href == String(window.location)) {
+
+            $(this).parent().addClass('active');
+            $(this).parent().parent().show();
+
+        }
+
+    });
+
+    /* ---------- Submenu  ---------- */
+
+    $('.dropmenu').click(function (e) {
+
+        e.preventDefault();
+
+        $(this).parent().find('ul').slideToggle();
+
+        var icon = $(this).find('i');
+        if (icon.length) {
+            if (icon.hasClass('icon-chevron-up')) {
+                icon.attr('class', icon.data('originClass'));
+                
+            } else {
+                icon.data('originClass', icon.attr('class'));
+                icon.attr('class', 'icon-chevron-up');
+            }
+
+
+        }
+
+    });
 
 });
 

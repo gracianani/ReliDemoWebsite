@@ -1505,3 +1505,8 @@ $(".table-clickhighlight td").on("click", function(e){
     tr.siblings(".alert").removeClass("alert");
     tr.addClass("alert");
 });
+
+$(".icon-companyname").each(function(){
+    name = $(this).next().text().substr(0,2);
+    $(this).html(name);
+});
