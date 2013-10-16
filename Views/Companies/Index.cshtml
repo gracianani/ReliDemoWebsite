@@ -97,7 +97,7 @@
 <div class="row-fluid">
 @Html.Partial("HeatConsumptionGraph", Model.Histories)
     <div class="span12" onTablet="span12">
-        <table class="table table-bordered backgroundColor white table-condensed ">
+        <table class="table table-bordered backgroundColor white table-condensed table-hover table-clickhighlight table-dblclickactive">
             @foreach( var center in Model.Centers){
                 if (Model.Centers.First() == center)
                 {
