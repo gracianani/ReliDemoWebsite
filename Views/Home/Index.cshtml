@@ -102,16 +102,9 @@
 <script>
     /* ---------- dashboard ---------- */
     jQuery(document).ready(function ($) {
-
-
-
-	
-
-		
-    setInterval("getTodaysGJ()", 5*60*1000)
-});
+        setInterval("getTodaysGJ()", 5*60*1000)
+    });
     function getTodaysGJ() {
-		
         $.ajax({
             url: "http://localhost:11223/HeatConsumptionService/GetTodaysGJ",
             type: "GET",
@@ -122,9 +115,7 @@
                 $("#todaysGJ span.time").html('更新时间:' + updatedAt.getFullYear() + '-' + (updatedAt.getMonth() + 1) + '-' + updatedAt.getDate() + ' ' + updatedAt.getHours() + ":" + updatedAt.getMinutes() + ":" + updatedAt.getSeconds() + (updatedAt.getHours() >= 12 ? 'PM' : 'AM'));
                 $("#todaysGJ span.value").html(data.Value + "" + data.Unit);
 				$("#todaysGJ").highlightAfterUpdate();
-
             }
         });
     }
-
 </script>

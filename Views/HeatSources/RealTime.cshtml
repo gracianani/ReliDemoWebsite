@@ -15,13 +15,13 @@
         每页显示：
 <ul class="nav nav-pills" id="pills">
 <li @if( Model.PageSize == 10) {<text> class="active" </text>} >
-    @Html.ActionLink("10", "RealTime", new { startIndex = 0, pageSize = 10})
+    @Html.ActionLink("10", "RealTime", new { startIndex = 0, pageSize = 10, selectedRegion = Model.SelectedRegion})
 </li>
 <li @if( Model.PageSize == 50) {<text> class="active" </text>} >
-    @Html.ActionLink("50", "RealTime", new { startIndex = 0, pageSize = 50})
+    @Html.ActionLink("50", "RealTime", new { startIndex = 0, pageSize = 50, selectedRegion = Model.SelectedRegion })
 </li>
 <li @if( Model.PageSize == 100) {<text> class="active" </text>} >
-    @Html.ActionLink("100", "RealTime", new { startIndex = 0, pageSize =100})
+    @Html.ActionLink("100", "RealTime", new { startIndex = 0, pageSize = 100, selectedRegion = Model.SelectedRegion })
 </li>
 </ul>
 </div>
@@ -189,28 +189,29 @@
     <ul>
         @if ((Model.StartIndex % 10 - 1) * Model.PageSize >=0)
         {
-            <li>@Html.ActionLink("« 前一个", "RealTime", new { startIndex = Model.StartIndex - 1, pageSize = Model.PageSize })</li>
+            <li>@Html.ActionLink("« 前一个", "RealTime", new { startIndex = Model.StartIndex - 1, pageSize = Model.PageSize, selectedRegion = Model.SelectedRegion })</li>
         }
         @if ((Model.StartIndex % 10 - 12) * Model.PageSize >=0)
         {
-            <li>@Html.ActionLink("« 前十个", "RealTime", new { startIndex = Model.StartIndex - 10, pageSize = Model.PageSize })</li>
+            <li>@Html.ActionLink("« 前十个", "RealTime", new { startIndex = Model.StartIndex - 10, pageSize = Model.PageSize, selectedRegion = Model.SelectedRegion })</li>
         }
         @for (int i = Model.StartIndex/10*10;  i < Model.StartIndex/10*10+10 ; i++)
         {
-            if (i * Model.PageSize <= Model.TotalItemCount)
+            if (i <= Model.TotalItemCount / Model.PageSize)
             {
-            <li @if(i == Model.StartIndex) { <text>class="active"</text>}>
-                @Html.ActionLink((i +1).ToString(), "RealTime", new { startIndex = i, pageSize = Model.PageSize }) 
+            <li @if (i == Model.StartIndex)
+                { <text>class="active"</text>}>
+                @Html.ActionLink((i + 1).ToString(), "RealTime", new { startIndex = i, pageSize = Model.PageSize, selectedRegion = Model.SelectedRegion }) 
             </li>
             }
         }
         @if ((Model.StartIndex % 10 + 11) * Model.PageSize <= Model.TotalItemCount)
         {
-            <li>@Html.ActionLink("下十个 »", "RealTime", new { startIndex = Model.StartIndex + 11, pageSize = Model.PageSize  })</li>
+            <li>@Html.ActionLink("下十个 »", "RealTime", new { startIndex = Model.StartIndex + 11, pageSize = Model.PageSize, selectedRegion = Model.SelectedRegion })</li>
         }
         @if ((Model.StartIndex % 10 + 1) * Model.PageSize <= Model.TotalItemCount)
         {
-            <li>@Html.ActionLink("下一个 »", "RealTime", new { startIndex = Model.StartIndex + 1, pageSize = Model.PageSize })</li>
+            <li>@Html.ActionLink("下一个 »", "RealTime", new { startIndex = Model.StartIndex + 1, pageSize = Model.PageSize, selectedRegion = Model.SelectedRegion })</li>
         }
     </ul>
 </div>
