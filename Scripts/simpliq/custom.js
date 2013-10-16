@@ -1332,24 +1332,9 @@ function widthFunctions(e) {
 			}
 			
 		});
-		
-		$(".circleStatsItem, .circleStatsItemBox").each(function() {
-			
-			var getOnTablet = $(this).parent().attr('onTablet');
-			var getOnDesktop = $(this).parent().attr('onDesktop');
-			
-			if (getOnTablet) {
-			
-				$(this).parent().removeClass(getOnDesktop);
-				$(this).parent().addClass(getOnTablet);
-			
-			}
-			  			
-		});
-		
-		$(".tempStatBox").each(function() {
-			
-			var getOnTablet = $(this).attr('onTablet');
+
+        $('[onTablet]').each(function() {
+            var getOnTablet = $(this).attr('onTablet');
 			var getOnDesktop = $(this).attr('onDesktop');
 			
 			if (getOnTablet) {
@@ -1358,22 +1343,9 @@ function widthFunctions(e) {
 				$(this).addClass(getOnTablet);
 			
 			}
-			  			
-		});
+        });
 		
-		$("div").each(function(){
-			
-			var getOnTablet = $(this).attr('onTablet');
-			var getOnDesktop = $(this).attr('onDesktop');
-			
-			if (getOnTablet) {
-			
-				$(this).removeClass(getOnDesktop);
-				$(this).addClass(getOnTablet);
-			
-			}
-			  			
-		});
+		
 							
 	} else {
 		
@@ -1408,24 +1380,8 @@ function widthFunctions(e) {
 			}
 			
 		});
-		
-		$(".circleStatsItem, .circleStatsItemBox").each(function() {
-			
-			var getOnTablet = $(this).parent().attr('onTablet');
-			var getOnDesktop = $(this).parent().attr('onDesktop');
-			
-			if (getOnTablet) {
-			
-				$(this).parent().removeClass(getOnTablet);
-				$(this).parent().addClass(getOnDesktop);
-			
-			}
-			  			
-		});
-		
-		$(".tempStatBox").each(function() {
-			
-			var getOnTablet = $(this).attr('onTablet');
+		$('[onDesktop]').each(function() {
+            var getOnTablet = $(this).attr('onTablet');
 			var getOnDesktop = $(this).attr('onDesktop');
 			
 			if (getOnTablet) {
@@ -1434,36 +1390,8 @@ function widthFunctions(e) {
 				$(this).addClass(getOnDesktop);
 			
 			}
-			  			
-		});
+        });
 		
-		$("div").each(function(){
-			
-			var getOnTablet = $(this).attr('onTablet');
-			var getOnDesktop = $(this).attr('onDesktop');
-			
-			if (getOnTablet) {
-			
-				$(this).removeClass(getOnTablet);
-				$(this).addClass(getOnDesktop);
-			
-			}
-			  			
-		});
-		
-		$(".widget").each(function(){
-			
-			var getOnTablet = $(this).attr('onTablet');
-			var getOnDesktop = $(this).attr('onDesktop');
-			
-			if (getOnTablet) {
-			
-				$(this).removeClass(getOnTablet);
-				$(this).addClass(getOnDesktop);
-			
-			}
-			  			
-		});
 		
 	}
 	
