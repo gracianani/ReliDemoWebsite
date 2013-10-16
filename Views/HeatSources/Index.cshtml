@@ -8,6 +8,8 @@
 <h2>@ViewBag.Title</h2>
 @Html.Hidden("hf_compareEastAndWest", "[{ \"label\": \"东部面积\", \"data\": " + @Model.EastFuelInSquareMeter + "}, {\"label\": \"西部面积\", \"data\": " + @Model.WestFuelInSquareMeter + " }]")
 @Html.Hidden("hf_compareFossilAndGas", "[{ \"label\": \"燃煤\", \"data\": " + @Model.FuelInFossil + "}, {\"label\": \"燃气\", \"data\": " + @Model.FuelInGas + " }]")
+@Html.Hidden("hf_heatload", Model.HeatLoadsData)
+@Html.HiddenFor(model => model.TotalHeatLoad)
 <div class="row-fluid">
     <div  class="box span4">
 		<div class="box-header">
@@ -94,7 +96,7 @@
     <div class="span6">
 		<div class="pieChartWithCenterText backgroundColor white box">
 			<div id="placeholder_heatSources" style="height:465px"></div>
-			<div class="centerText">总热负荷：23111GJ </div>
+			<div class="centerText">总热负荷：@Model.TotalHeatLoad GJ</div>
 		</div>
     </div>
 </div>
@@ -107,17 +109,17 @@
             series: {
                 pie: {
                     show: true,
-					label : {
-						show:true
-					}
+                    label: {
+                        show: true
+                    }
                 }
             },
-			colors:["#2fabe9","#fabb3d"],
-			
-			grid: {
-				hoverable:true,
-				clickable:true
-			}
+            colors: ["#2fabe9", "#fabb3d"],
+
+            grid: {
+                hoverable: true,
+                clickable: true
+            }
         };
 
         var data = $.parseJSON($("input[name=hf_compareEastAndWest]").val());
@@ -149,28 +151,30 @@
 	        { label: "东郊供热厂(花家地)", data: 0 }
         ];
 
-        $.plot("#placeholder_heatSources", data4, {
+        var data5 = $.parseJSON($("input[name=hf_heatload]").val());
+
+        $.plot("#placeholder_heatSources", data5, {
             series: {
                 pie: {
                     show: true,
-                    innerRadius:1/2,
+                    innerRadius: 1 / 2,
                     label: {
                         show: true,
-						radius:0.9,
+                        radius: 0.9,
                         background: {
                             opacity: 0
                         }
                     }
                 }
             },
-			colors:["#2fabe9","#fabb3d","#c84628","#fa5833","#9440ed","#78cd51","#3cff41","#3c4451","#3c44f1","#0074c1","#383e4b","#00558e","#fa913d","#28c8b3","#68930a","#2877c8"],
+            colors: ["#2fabe9", "#fabb3d", "#c84628", "#fa5833", "#9440ed", "#78cd51", "#3cff41", "#3c4451", "#3c44f1", "#0074c1", "#383e4b", "#00558e", "#fa913d", "#28c8b3", "#68930a", "#2877c8"],
             legend: {
                 show: false
             },
-			grid: {
-				hoverable:true,
-				clickable:true
-			}
+            grid: {
+                hoverable: true,
+                clickable: true
+            }
         });
 
     });

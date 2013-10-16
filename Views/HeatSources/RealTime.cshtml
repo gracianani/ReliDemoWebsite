@@ -1,10 +1,10 @@
-﻿@model IEnumerable<ReliDemo.Models.HeatSourceRecent>
+﻿@model ReliDemo.ViewModels.HeatSourceRealTimeViewModel 
 
 @{
     ViewBag.Title = "RealTime";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<p>上次更新时间 2013-07-31</p>
+<p>上次更新时间 @Model.UpdatedAt</p>
 <div class="row-fluid clearfix stationTitle">
     <h1 class="span3">热源厂实时监测</h1>
     <div onDesktop="span4" onTablet="span6" onMobile="span12">@Html.Partial("_TopMenu") </div>
@@ -14,14 +14,14 @@
 <div class="row-fluid">
         每页显示：
 <ul class="nav nav-pills" id="pills">
-<li class="active">
+<li @if( Model.PageSize == 10) {<text> class="active" </text>} >
     @Html.ActionLink("10", "RealTime", new { startIndex = 0, pageSize = 10})
 </li>
-<li>
-    @Html.ActionLink("50", "RealTime", new { startIndex = 0, pageSize = 50 })
+<li @if( Model.PageSize == 50) {<text> class="active" </text>} >
+    @Html.ActionLink("50", "RealTime", new { startIndex = 0, pageSize = 50})
 </li>
-<li>
-    @Html.ActionLink("100", "RealTime", new { startIndex = 10, pageSize = 100 })
+<li @if( Model.PageSize == 100) {<text> class="active" </text>} >
+    @Html.ActionLink("100", "RealTime", new { startIndex = 0, pageSize =100})
 </li>
 </ul>
 </div>
@@ -112,12 +112,12 @@
             采集时间
         </th>
     </tr>
-    @for (int i = 0; i < Model.Count(); i++)
+    @for (int i = 0; i < Model.HeatSourceRecents.Count(); i++)
     {
-        var heatSourceRecent = Model.ElementAt(i);
+        var heatSourceRecent = Model.HeatSourceRecents.ElementAt(i);
         <tr>
             <td>
-                @heatSourceRecent.热源名称
+                @Html.ActionLink(heatSourceRecent.热源名称, "BasicInfo", new { heatSourceId = heatSourceRecent.ItemID })
             </td>
             <td>
                 @heatSourceRecent.机组名
@@ -178,7 +178,7 @@
                 @heatSourceRecent.昨日GJ
             </td>
             <td class="time">
-                @heatSourceRecent.采集时间.Value.ToString("yyyy-MM-dd HH:mm")
+                @(heatSourceRecent.采集时间.HasValue? heatSourceRecent.采集时间.Value.ToString("yyyy-MM-dd HH:mm") : "")
             </td>
         </tr>   
     }
@@ -187,16 +187,31 @@
 <div class="row-fluid">
 <div class="pagination pagination-centered">
     <ul>
-        <li>@Html.ActionLink("« 前一个", "RealTime", new { startIndex = 10, pageSize = 50 })</li>
-        <li>@Html.ActionLink("« 前十个", "RealTime", new { startIndex = 10, pageSize = 10 })</li>
-        @for (int i = 0;  i < 10; i++)
+        @if ((Model.StartIndex % 10 - 1) * Model.PageSize >=0)
         {
-            <li>
-                <a>@(i + 1)</a> 
-            </li>
+            <li>@Html.ActionLink("« 前一个", "RealTime", new { startIndex = Model.StartIndex - 1, pageSize = Model.PageSize })</li>
         }
-        <li>@Html.ActionLink("下十个 »", "RealTime", new { startIndex = 10, pageSize = 10 })</li>
-        <li>@Html.ActionLink("下一个 »", "RealTime", new { startIndex = 1, pageSize = 10 })</li>
+        @if ((Model.StartIndex % 10 - 12) * Model.PageSize >=0)
+        {
+            <li>@Html.ActionLink("« 前十个", "RealTime", new { startIndex = Model.StartIndex - 10, pageSize = Model.PageSize })</li>
+        }
+        @for (int i = Model.StartIndex/10*10;  i < Model.StartIndex/10*10+10 ; i++)
+        {
+            if (i * Model.PageSize <= Model.TotalItemCount)
+            {
+            <li @if(i == Model.StartIndex) { <text>class="active"</text>}>
+                @Html.ActionLink((i +1).ToString(), "RealTime", new { startIndex = i, pageSize = Model.PageSize }) 
+            </li>
+            }
+        }
+        @if ((Model.StartIndex % 10 + 11) * Model.PageSize <= Model.TotalItemCount)
+        {
+            <li>@Html.ActionLink("下十个 »", "RealTime", new { startIndex = Model.StartIndex + 11, pageSize = Model.PageSize  })</li>
+        }
+        @if ((Model.StartIndex % 10 + 1) * Model.PageSize <= Model.TotalItemCount)
+        {
+            <li>@Html.ActionLink("下一个 »", "RealTime", new { startIndex = Model.StartIndex + 1, pageSize = Model.PageSize })</li>
+        }
     </ul>
 </div>
 </div>

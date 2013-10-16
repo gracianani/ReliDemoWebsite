@@ -153,6 +153,24 @@ h1,h2,h3 {
 			padding:0 10px;
 			line-height:20px;
 		}
+		&.nav-tabs {
+			font-weight:bold;
+			margin-bottom:0;
+			border-bottom:none;
+			a {
+				color:white;
+			}
+			.active>a{
+				color:black;
+			}
+			li:hover>a {
+				color:@blue;
+			}
+		}
+	}
+
+	.form-inline label {
+		padding-right:10px;
 	}
 }
 
@@ -288,7 +306,7 @@ h1,h2,h3 {
 		background-color:#393f4c;
 		color:#FFF;
 	}
-	.btn:hover {
+	.btn:hover,.selected {
 		background-color:#0071c0;
 	}
 }
@@ -345,4 +363,19 @@ h1,h2,h3 {
 }
 :-ms-input-placeholder {
 	color:#666!important;
+}
+
+/* Station
+=============================*/
+#submitFilter {
+height:87px;
+line-height:80px;
+font-weight:bold;
+margin-bottom:20px;
+overflow:hidden;
+width:100%;
+}
+.heightAuto #submitFilter {
+height:auto!important;
+line-height:30px;
 }
