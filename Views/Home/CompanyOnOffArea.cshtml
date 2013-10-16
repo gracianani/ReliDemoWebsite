@@ -10,9 +10,38 @@
 @Html.Hidden("companyOn", Model.CompanyAreaOnData)
 
 <script type="text/javascript">
+	function getShortName(fullName) {
+		if ( fullName == "创合供热公司") {
+			return "创合";
+		}
+		if ( fullName =="合格服务商") {
+			return "合服";
+		}
+		if ( fullName =="科利源供热公司") {
+			return "科利源";
+		}
+		if ( fullName =="特诚公司") {
+			return "特诚";
+		}
+		if ( fullName =="特力昆公司") {
+			return "特力昆";
+		}
+		if ( fullName =="天禹供热公司") {
+			return "天禹";
+		}
+		if ( fullName =="销售公司") {
+			return "销售";
+		}
+		return fullName;
+	}
     jQuery(document).ready(function ($) {
         var companyTotal = $.parseJSON($("input[name=companyTotal]").val());
         var companyOn = $.parseJSON($("input[name=companyOn]").val());
+		console.log(companyTotal);
+		for (var i = 0 ; i < companyTotal.length; i++ ) {
+			companyTotal[i][0] = getShortName(companyTotal[i][0]);
+			companyOn[i][0] = getShortName(companyOn[i][0]);
+		}
         var companyAreaBarchartData =  [
 		    { label: "总面积", data: companyTotal,bars:{fillColor:"#c7cbd5"} },
 		    { label: "实际投入面积", data: companyOn,bars:{fillColor:"#36a9e1"} }

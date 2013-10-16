@@ -3573,44 +3573,66 @@ h3 {
   padding: 0 10px;
   line-height: 20px;
 }
-/* line 159, less\custom.less */
+/* line 156, less\custom.less */
+.box .box-header.nav-tabs {
+  font-weight: bold;
+  margin-bottom: 0;
+  border-bottom: none;
+}
+/* line 160, less\custom.less */
+.box .box-header.nav-tabs a {
+  color: white;
+}
+/* line 163, less\custom.less */
+.box .box-header.nav-tabs .active > a {
+  color: black;
+}
+/* line 166, less\custom.less */
+.box .box-header.nav-tabs li:hover > a {
+  color: #378fc9;
+}
+/* line 172, less\custom.less */
+.box .form-inline label {
+  padding-right: 10px;
+}
+/* line 177, less\custom.less */
 .makeTableHeaderAsBoxHeader {
   position: relative;
   top: -46px;
   margin-bottom: -46px;
 }
-/* line 163, less\custom.less */
+/* line 181, less\custom.less */
 .makeTableHeaderAsBoxHeader th {
   color: #FFF;
   background: none!important;
 }
-/* line 166, less\custom.less */
+/* line 184, less\custom.less */
 .makeTableHeaderAsBoxHeader th a {
   color: #FFF;
 }
-/* line 170, less\custom.less */
+/* line 188, less\custom.less */
 .makeTableHeaderAsBoxHeader tbody tr:first-child td {
   border-top: none;
 }
 /* highlight
 ========================*/
-/* line 177, less\custom.less */
+/* line 195, less\custom.less */
 .highlighting .highlightBlue {
   color: #378fc9;
 }
-/* line 180, less\custom.less */
+/* line 198, less\custom.less */
 .highlighting .highlightRed {
   color: #c84628;
 }
 /* table
 =================================================================== */
-/* line 187, less\custom.less */
+/* line 205, less\custom.less */
 .table.table-bordered {
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   border-radius: 0;
 }
-/* line 192, less\custom.less */
+/* line 210, less\custom.less */
 .table.table-bordered thead:first-child tr:first-child > th:first-child,
 .table.table-bordered tbody:first-child tr:first-child > td:first-child,
 .table.table-bordered tbody:first-child tr:first-child > th:first-child,
@@ -3623,23 +3645,23 @@ h3 {
   -moz-border-radius: 0;
   border-radius: 0;
 }
-/* line 198, less\custom.less */
+/* line 216, less\custom.less */
 .table th {
   background: #ededed;
   color: #000;
   font-weight: bold;
 }
-/* line 203, less\custom.less */
+/* line 221, less\custom.less */
 .table td {
   color: #111;
 }
 /* station
 ========================*/
-/* line 211, less\custom.less */
+/* line 229, less\custom.less */
 .subNav {
   margin-left: 0;
 }
-/* line 214, less\custom.less */
+/* line 232, less\custom.less */
 .subNav li {
   float: left;
   display: inline-block;
@@ -3650,59 +3672,59 @@ h3 {
   border-right: 1px solid rgba(255, 255, 255, 0.1);
   border-left: 1px solid rgba(0, 0, 0, 0.5);
 }
-/* line 223, less\custom.less */
+/* line 241, less\custom.less */
 .subNav li.current {
   background-color: #0074c1;
 }
-/* line 226, less\custom.less */
+/* line 244, less\custom.less */
 .subNav li:first-child {
   border-radius: 4px 0 0 4px;
   border-left: none;
 }
-/* line 230, less\custom.less */
+/* line 248, less\custom.less */
 .subNav li:last-child {
   border-radius: 0 4px 4px 0;
   border-right: none;
 }
-/* line 234, less\custom.less */
+/* line 252, less\custom.less */
 .subNav li a {
   color: #fff;
 }
-/* line 237, less\custom.less */
+/* line 255, less\custom.less */
 .subNav li a:hover {
   text-decoration: none;
 }
-/* line 243, less\custom.less */
+/* line 261, less\custom.less */
 .table-zebra td {
   color: #333;
 }
-/* line 247, less\custom.less */
+/* line 265, less\custom.less */
 .table-zebra tr td:nth-child(2n) {
   background-color: #f9f9f9;
 }
-/* line 251, less\custom.less */
+/* line 269, less\custom.less */
 .table-zebra tr:nth-child(2n) {
   background-color: #f9f9f9;
 }
-/* line 253, less\custom.less */
+/* line 271, less\custom.less */
 .table-zebra tr:nth-child(2n) td:nth-child(2n) {
   background-color: white;
 }
-/* line 257, less\custom.less */
+/* line 275, less\custom.less */
 .table-zebra em {
   font-style: normal;
   color: #000;
   font-size: 18px;
 }
-/* line 263, less\custom.less */
+/* line 281, less\custom.less */
 .table-zebra a {
   color: #378fc9;
 }
-/* line 269, less\custom.less */
+/* line 287, less\custom.less */
 .pieChartWithCenterText {
   position: relative;
 }
-/* line 271, less\custom.less */
+/* line 289, less\custom.less */
 .pieChartWithCenterText .centerText {
   position: absolute;
   top: 45%;
@@ -3713,75 +3735,92 @@ h3 {
   z-index: 100;
   color: #000;
 }
-/* line 283, less\custom.less */
+/* line 301, less\custom.less */
 .topmenu {
   position: relative;
   top: 15px;
   margin-bottom: 20px;
 }
-/* line 287, less\custom.less */
+/* line 305, less\custom.less */
 .topmenu .btn {
   background-color: #393f4c;
   color: #FFF;
 }
-/* line 291, less\custom.less */
-.topmenu .btn:hover {
+/* line 309, less\custom.less */
+.topmenu .btn:hover,
+.topmenu .selected {
   background-color: #0071c0;
 }
-/* line 295, less\custom.less */
+/* line 313, less\custom.less */
 .stationTitle {
   margin-bottom: 20px;
 }
 /* table 
 ===========================*/
-/* line 302, less\custom.less */
+/* line 320, less\custom.less */
 .scrollableTableContainer {
   width: 100%;
   overflow: scroll;
   overflow-x: scroll;
   overflow-y: visible;
 }
-/* line 308, less\custom.less */
+/* line 326, less\custom.less */
 .scrollableTableContainer table th,
 .scrollableTableContainer table td {
   min-width: 120px;
   width: auto;
   max-width: none;
 }
-/* line 315, less\custom.less */
+/* line 333, less\custom.less */
 .scrollableTableContainer .table {
   width: auto;
   max-width: none;
 }
-/* line 321, less\custom.less */
+/* line 339, less\custom.less */
 .table .alert td {
   font-weight: bold;
 }
-/* line 325, less\custom.less */
+/* line 343, less\custom.less */
 .table .time {
   font-size: 10px;
   letter-spacing: -1px;
 }
-/* line 331, less\custom.less */
+/* line 349, less\custom.less */
 .table-hover tbody tr:hover > td {
   background-color: #ecf4fa;
   color: black;
 }
-/* line 337, less\custom.less */
+/* line 355, less\custom.less */
 ::-webkit-input-placeholder {
   color: #666!important;
 }
-/* line 340, less\custom.less */
+/* line 358, less\custom.less */
 :-moz-placeholder {
   color: #666!important;
 }
-/* line 343, less\custom.less */
+/* line 361, less\custom.less */
 ::-moz-placeholder {
   color: #666!important;
 }
-/* line 346, less\custom.less */
+/* line 364, less\custom.less */
 :-ms-input-placeholder {
   color: #666!important;
+}
+/* Station
+=============================*/
+/* line 370, less\custom.less */
+#submitFilter {
+  height: 87px;
+  line-height: 80px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  overflow: hidden;
+  width: 100%;
+}
+/* line 378, less\custom.less */
+.heightAuto #submitFilter {
+  height: auto!important;
+  line-height: 30px;
 }
 /* Page: Messages
 =================================================================== */

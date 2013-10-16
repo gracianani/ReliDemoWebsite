@@ -1,6 +1,6 @@
 ﻿@model ReliDemo.ViewModels.WeatherStationsLastestViewModel
 @{
-    ViewBag.Title = "Official";
+    ViewBag.Title = "气象检测数据";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -74,7 +74,7 @@
 </style>
 <script type="text/javascript" src="http://api.map.baidu.com/api?v=1.5&ak=C17ce0c9f897bac7d7bb25196aca89d2"></script>
 
-<h2>北京市专业气象站 <span style="font-size:14px"> 上次更新时间 @string.Format("{0:yyyy-MM-dd HH:mm:ss tt}", Model.UpdatedAt ) </span></h2>
+<h2>气象监测数据 <span style="font-size:14px"> 上次更新时间 @string.Format("{0:yyyy-MM-dd HH:mm:ss tt}", Model.UpdatedAt ) </span></h2>
 
 <div class="row-fluid">
 
@@ -88,7 +88,7 @@
     <ul class="rb-grid">
     @foreach (var latest in Model.WeatherStations)
     {
-        <li class="icon-clima-2 @if(latest.WeatherStationName == "朝阳") {<text> rb-col2</text> }">
+        <li class="icon-clima-2 @if(latest.WeatherStationName == "朝阳") {<text> rb-col2 makeFirst</text> }">
             <a href="/Weather/WeatherStation?WeatherStationId=@latest.WeatherStationId">
             <h3>@latest.WeatherStationName</h3>
             <span class="rb-temp">@latest.Temperatures.First().Temperature ℃</span>
@@ -105,7 +105,7 @@
     var poi = [
         {
             "name": "双榆树",
-            "latlng": [116.332532, 39.975438]
+            "latlng": [116.346729,39.97884]
         },
         {
             "name": "古观象台",
@@ -137,7 +137,7 @@
         },
         {
             "name": "宝能",
-            "latlng": [116.311636, 39.900988]
+            "latlng": [116.31198,39.897373]
         },
         {
             "name": "左热",
@@ -145,7 +145,7 @@
         },
         {
             "name": "方庄",
-            "latlng": [116.43414, 39.867541]
+            "latlng": [116.45232,39.859036]
         },
         {
             "name": "朝阳",
@@ -165,7 +165,7 @@
         },
         {
             "name": "观象台",
-            "latlng": [116.509897, 39.833394]
+            "latlng": [116.480087,39.813819]
         },
         {
             "name": "车道沟",
@@ -186,6 +186,7 @@
     map.centerAndZoom(center, 12);   
     //map.enableScrollWheelZoom();                            //启用滚轮放大缩小
 	map.disableDoubleClickZoom();
+	map.disableDragging();
     var markers = [];
     for (var i = 0; i < poi.length; i++) {
         var point = new BMap.Point(poi[i].latlng[0], poi[i].latlng[1]);    // 创建点坐标
@@ -214,6 +215,7 @@
     }
 
     //map.addControl(new BMap.NavigationControl());  //添加默认缩放平移控件
-
+	var gridList = $('.rb-grid');
+	$('.makeFirst').prependTo(gridList);
     
 </script>
