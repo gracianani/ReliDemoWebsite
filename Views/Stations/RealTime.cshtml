@@ -7,7 +7,7 @@
  <h2 style='font-family: "Microsoft Yahei",sans-serif;
 font-size: 24px;
 margin-bottom: 0.9em;
-line-height: 30px;'>@ViewBag.Title <span style="font-size:14px"> 上次更新时间 2013-07-31 </span></h2>
+line-height: 30px;'>@ViewBag.Title <span style="font-size:14px"> 上次更新时间 @Model.UpdatedAt </span></h2>
 <div class="row-fluid">
     @using (Html.BeginForm("RealTime", "Stations", FormMethod.Get)) {
         @Html.DropDownList("heatSources", new SelectList(Model.HeatSources, "ItemID", "热源名称"), "请选择热源厂", new { @class = "span2" })
@@ -96,10 +96,10 @@ line-height: 30px;'>@ViewBag.Title <span style="font-size:14px"> 上次更新时
     }
     <tr>
         <td>
-            @Html.ActionLink(p.Station.热力站名称, "StationRealTime", new { stationId = p.ItemID })
+            @Html.ActionLink(p.热力站名称, "StationRealTime", new { stationId = p.ItemID })
         </td>
         <td class="time">
-            @p.时间.Value.ToString("yyyy-MM-dd HH:mm")
+            @p.采集时间
         </td>
         <td>
             @p.一次供压
