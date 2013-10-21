@@ -169,7 +169,7 @@ line-height: 30px;'>@ViewBag.Title <span style="font-size:14px"> 上次更新时
                 type: "post",
                 data: { companyId: $(this).val() },
                 success: function (response, textStatus, jqXHR) {
-                    $("#managerships").html("<option value>请选择管理单位<option>" + response).css("display", "");
+                    $("#managerships").html("<option value>请选择管理单位</option>" + response).css("display", "");
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
                 },
