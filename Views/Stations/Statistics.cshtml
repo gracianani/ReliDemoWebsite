@@ -120,13 +120,13 @@ line-height: 30px;'>@ViewBag.Title
 </div>
 
 <div class="scrollableTableContainer">
-<table class="table  table-bordered table-hover  table-condensed table-clickhighlight" style="background:white">
+<table class="table  table-bordered table-hover  table-condensed table-clickhighlight datatable" style="background:white">
 
 @foreach (var p in Model.StationsStatistic)
 {
     if (Model.StationsStatistic.IndexOf(p) == 0)
     {
-        <tr>
+        <thead><tr>
         <th>
             @Html.DisplayName("热力站名称")
         </th>
@@ -163,7 +163,7 @@ line-height: 30px;'>@ViewBag.Title
         <th>
             @Html.DisplayName("实际温度")<span class="symbol">(℃)</span>
         </th>
-    </tr>
+    </tr></thead>
     }
     <tr>
         <td>
