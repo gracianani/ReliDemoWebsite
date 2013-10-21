@@ -210,11 +210,12 @@ line-height: 30px;'>@ViewBag.Title
 <div class="row-fluid">
 <div class="pagination pagination-centered">
     <ul>
-        <li>@Html.ActionLink("« 前一个", "Statistics", new { startIndex = Model.StationsStatistic.PageIndex - 1, pageSize = Model.StationsStatistic.PageSize, regions = Model.SelectedRegion, companies = Model.SelectedCompanyId, managerships = Model.SelectedManagershipId, heatsource = Model.SelectedHeatSourceId, searchSpan = Model.SearchSpan, date_customday = Model.FromDate })</li>
+       
         @if (Model.StationsStatistic.PageIndex >= 10)
         {
-            <li>@Html.ActionLink("« 前十个", "Statistics", new { startIndex = Model.StationsStatistic.PageIndex - 10, pageSize = 10, regions = Model.SelectedRegion, companies = Model.SelectedCompanyId, managerships = Model.SelectedManagershipId, heatsource = Model.SelectedHeatSourceId, searchSpan = Model.SearchSpan, date_customday = Model.FromDate })</li>
+            <li>@Html.ActionLink("« 前十页", "Statistics", new { startIndex = Model.StationsStatistic.PageIndex - 10, pageSize = 10, regions = Model.SelectedRegion, companies = Model.SelectedCompanyId, managerships = Model.SelectedManagershipId, heatsource = Model.SelectedHeatSourceId, searchSpan = Model.SearchSpan, date_customday = Model.FromDate })</li>
         }
+		 <li>@Html.ActionLink("« 上一页", "Statistics", new { startIndex = Model.StationsStatistic.PageIndex - 1, pageSize = Model.StationsStatistic.PageSize, regions = Model.SelectedRegion, companies = Model.SelectedCompanyId, managerships = Model.SelectedManagershipId, heatsource = Model.SelectedHeatSourceId, searchSpan = Model.SearchSpan, date_customday = Model.FromDate })</li>
         @for (int i = Model.StationsStatistic.PageIndex / 10 * 10; (i < Model.StationsStatistic.PageIndex / 10 * 10 + 10) && i < Model.StationsStatistic.TotalPages; i++)
         {
             <li @if (Model.StationsStatistic.PageIndex == i)
@@ -223,11 +224,12 @@ line-height: 30px;'>@ViewBag.Title
                 @Html.ActionLink((i + 1).ToString(), "Statistics", new { startIndex = i, pageSize = Model.StationsStatistic.PageSize, regions = Model.SelectedRegion, companies = Model.SelectedCompanyId, managerships = Model.SelectedManagershipId, heatsource = Model.SelectedHeatSourceId, searchSpan = Model.SearchSpan, date_customday = Model.FromDate })
             </li>
         }
+		<li>@Html.ActionLink("下一页 »", "Statistics", new { startIndex = Model.StationsStatistic.PageIndex + 1, pageSize = Model.StationsStatistic.PageSize, regions = Model.SelectedRegion, companies = Model.SelectedCompanyId, managerships = Model.SelectedManagershipId, heatsource = Model.SelectedHeatSourceId, searchSpan = Model.SearchSpan, date_customday = Model.FromDate })</li>
         @if (Model.StationsStatistic.PageIndex < Model.StationsStatistic.TotalPages - 10)
         {
-            <li>@Html.ActionLink("下十个 »", "Statistics", new { startIndex = (Model.StationsStatistic.PageIndex / 10 + 1) * 10, pageSize = Model.StationsStatistic.PageSize, regions = Model.SelectedRegion, companies = Model.SelectedCompanyId, managerships = Model.SelectedManagershipId, heatsource = Model.SelectedHeatSourceId, searchSpan = Model.SearchSpan, date_customday = Model.FromDate })</li>
+            <li>@Html.ActionLink("后十页 »", "Statistics", new { startIndex = (Model.StationsStatistic.PageIndex / 10 + 1) * 10, pageSize = Model.StationsStatistic.PageSize, regions = Model.SelectedRegion, companies = Model.SelectedCompanyId, managerships = Model.SelectedManagershipId, heatsource = Model.SelectedHeatSourceId, searchSpan = Model.SearchSpan, date_customday = Model.FromDate })</li>
         }
-        <li>@Html.ActionLink("下一个 »", "Statistics", new { startIndex = Model.StationsStatistic.PageIndex + 1, pageSize = Model.StationsStatistic.PageSize, regions = Model.SelectedRegion, companies = Model.SelectedCompanyId, managerships = Model.SelectedManagershipId, heatsource = Model.SelectedHeatSourceId, searchSpan = Model.SearchSpan, date_customday = Model.FromDate })</li>
+       
     </ul>
 </div>
 </div>

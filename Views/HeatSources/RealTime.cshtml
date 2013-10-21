@@ -117,7 +117,7 @@
         var heatSourceRecent = Model.HeatSourceRecents.ElementAt(i);
         <tr>
             <td>
-                @Html.ActionLink(heatSourceRecent.热源名称, "BasicInfo", new { heatSourceId = heatSourceRecent.ItemID })
+                @Html.ActionLink(heatSourceRecent.热源名称, "History", new { heatSourceId = heatSourceRecent.ItemID })
             </td>
             <td>
                 @heatSourceRecent.机组名
@@ -187,14 +187,15 @@
 <div class="row-fluid">
 <div class="pagination pagination-centered">
     <ul>
+		@if ((Model.StartIndex % 10 - 12) * Model.PageSize >=0)
+        {
+            <li>@Html.ActionLink("« 前十页", "RealTime", new { startIndex = Model.StartIndex - 10, pageSize = Model.PageSize, selectedRegion = Model.SelectedRegion })</li>
+        }
         @if ((Model.StartIndex % 10 - 1) * Model.PageSize >=0)
         {
-            <li>@Html.ActionLink("« 前一个", "RealTime", new { startIndex = Model.StartIndex - 1, pageSize = Model.PageSize, selectedRegion = Model.SelectedRegion })</li>
+            <li>@Html.ActionLink("« 上一页", "RealTime", new { startIndex = Model.StartIndex - 1, pageSize = Model.PageSize, selectedRegion = Model.SelectedRegion })</li>
         }
-        @if ((Model.StartIndex % 10 - 12) * Model.PageSize >=0)
-        {
-            <li>@Html.ActionLink("« 前十个", "RealTime", new { startIndex = Model.StartIndex - 10, pageSize = Model.PageSize, selectedRegion = Model.SelectedRegion })</li>
-        }
+        
         @for (int i = Model.StartIndex/10*10;  i < Model.StartIndex/10*10+10 ; i++)
         {
             if (i <= Model.TotalItemCount / Model.PageSize)
@@ -205,13 +206,14 @@
             </li>
             }
         }
-        @if ((Model.StartIndex % 10 + 11) * Model.PageSize <= Model.TotalItemCount)
-        {
-            <li>@Html.ActionLink("下十个 »", "RealTime", new { startIndex = Model.StartIndex + 11, pageSize = Model.PageSize, selectedRegion = Model.SelectedRegion })</li>
-        }
+       
         @if ((Model.StartIndex % 10 + 1) * Model.PageSize <= Model.TotalItemCount)
         {
-            <li>@Html.ActionLink("下一个 »", "RealTime", new { startIndex = Model.StartIndex + 1, pageSize = Model.PageSize, selectedRegion = Model.SelectedRegion })</li>
+            <li>@Html.ActionLink("下一页 »", "RealTime", new { startIndex = Model.StartIndex + 1, pageSize = Model.PageSize, selectedRegion = Model.SelectedRegion })</li>
+        }
+		 @if ((Model.StartIndex % 10 + 11) * Model.PageSize <= Model.TotalItemCount)
+        {
+            <li>@Html.ActionLink("后十页 »", "RealTime", new { startIndex = Model.StartIndex + 11, pageSize = Model.PageSize, selectedRegion = Model.SelectedRegion })</li>
         }
     </ul>
 </div>
