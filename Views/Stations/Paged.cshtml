@@ -187,11 +187,12 @@ line-height: 30px;'>@ViewBag.Title</h2>
 <div class="row-fluid">
 <div class="pagination pagination-centered">
     <ul>
-        <li>@Html.ActionLink("« 前一个", "Paged", new { startIndex = Model.Stations.PageIndex - 1, pageSize = Model.Stations.PageSize, managerships = Model.SelectedManagershipId, companies = Model.SelectedCompanyId, heatSources = Model.SelectedHeatSourceId })</li>
-        @if (Model.Stations.PageIndex >= 10)
+		@if (Model.Stations.PageIndex >= 10)
         {
-            <li>@Html.ActionLink("« 前十个", "Paged", new { startIndex = Model.Stations.PageIndex - 10, pageSize = 10, managerships = Model.SelectedManagershipId, companies = Model.SelectedCompanyId, heatSources = Model.SelectedHeatSourceId })</li>
+            <li>@Html.ActionLink("« 前十页", "Paged", new { startIndex = Model.Stations.PageIndex - 10, pageSize = 10, managerships = Model.SelectedManagershipId, companies = Model.SelectedCompanyId, heatSources = Model.SelectedHeatSourceId })</li>
         }
+        <li>@Html.ActionLink("« 上一页", "Paged", new { startIndex = Model.Stations.PageIndex - 1, pageSize = Model.Stations.PageSize, managerships = Model.SelectedManagershipId, companies = Model.SelectedCompanyId, heatSources = Model.SelectedHeatSourceId })</li>
+        
         @for (int i = Model.Stations.PageIndex / 10 * 10; (i < Model.Stations.PageIndex / 10 * 10 + 10) && i < Model.Stations.TotalPages; i++)
         {
             <li @if (Model.Stations.PageIndex == i)
@@ -200,11 +201,12 @@ line-height: 30px;'>@ViewBag.Title</h2>
                 @Html.ActionLink((i + 1).ToString(), "Paged", new { startIndex = i, pageSize = Model.Stations.PageSize, managerships = Model.SelectedManagershipId, companies = Model.SelectedCompanyId, heatSources = Model.SelectedHeatSourceId })
             </li>
         }
-        @if (Model.Stations.PageIndex < Model.Stations.TotalPages - 10)
+        
+        <li>@Html.ActionLink("下一页 »", "Paged", new { startIndex = Model.Stations.PageIndex + 1, pageSize = Model.Stations.PageSize, managerships = Model.SelectedManagershipId, companies = Model.SelectedCompanyId, heatSources = Model.SelectedHeatSourceId })</li>
+		@if (Model.Stations.PageIndex < Model.Stations.TotalPages - 10)
         {
-            <li>@Html.ActionLink("下十个 »", "Paged", new { startIndex = (Model.Stations.PageIndex / 10 + 1) * 10, pageSize = Model.Stations.PageSize, managerships = Model.SelectedManagershipId, companies = Model.SelectedCompanyId, heatSources = Model.SelectedHeatSourceId })</li>
+            <li>@Html.ActionLink("后十页 »", "Paged", new { startIndex = (Model.Stations.PageIndex / 10 + 1) * 10, pageSize = Model.Stations.PageSize, managerships = Model.SelectedManagershipId, companies = Model.SelectedCompanyId, heatSources = Model.SelectedHeatSourceId })</li>
         }
-        <li>@Html.ActionLink("下一个 »", "Paged", new { startIndex = Model.Stations.PageIndex + 1, pageSize = Model.Stations.PageSize, managerships = Model.SelectedManagershipId, companies = Model.SelectedCompanyId, heatSources = Model.SelectedHeatSourceId })</li>
     </ul>
 </div>
 </div>

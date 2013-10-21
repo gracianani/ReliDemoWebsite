@@ -139,11 +139,12 @@ line-height: 30px;'>@ViewBag.Title <span style="font-size:14px"> 上次更新时
 <div class="row-fluid">
 <div class="pagination pagination-centered">
     <ul>
-        <li>@Html.ActionLink("« 前一个", "RealTime", new { startIndex = Model.StationsRealTime.PageIndex - 1, pageSize = Model.StationsRealTime.PageSize })</li>
-        @if (Model.StationsRealTime.PageIndex >= 10)
+		@if (Model.StationsRealTime.PageIndex >= 10)
         {
-            <li>@Html.ActionLink("« 前十个", "RealTime", new { startIndex = Model.StationsRealTime.PageIndex - 10, pageSize = 10 })</li>
+            <li>@Html.ActionLink("« 前十页", "RealTime", new { startIndex = Model.StationsRealTime.PageIndex - 10, pageSize = 10 })</li>
         }
+        <li>@Html.ActionLink("« 上一页", "RealTime", new { startIndex = Model.StationsRealTime.PageIndex - 1, pageSize = Model.StationsRealTime.PageSize })</li>
+        
         @for (int i = Model.StationsRealTime.PageIndex / 10 * 10; (i < Model.StationsRealTime.PageIndex / 10 * 10 + 10) && i < Model.StationsRealTime.TotalPages; i++)
         {
             <li @if (Model.StationsRealTime.PageIndex == i)
@@ -152,11 +153,12 @@ line-height: 30px;'>@ViewBag.Title <span style="font-size:14px"> 上次更新时
                 @Html.ActionLink((i + 1).ToString(), "RealTime", new { startIndex = i, pageSize = Model.StationsRealTime.PageSize })
             </li>
         }
+		<li>@Html.ActionLink("下一页 »", "RealTime", new { startIndex = Model.StationsRealTime.PageIndex + 1, pageSize = Model.StationsRealTime.PageSize })</li>
         @if (Model.StationsRealTime.PageIndex < Model.StationsRealTime.TotalPages - 10)
         {
-            <li>@Html.ActionLink("下十个 »", "RealTime", new { startIndex = (Model.StationsRealTime.PageIndex / 10 + 1) * 10, pageSize = Model.StationsRealTime.PageSize })</li>
+            <li>@Html.ActionLink("后十页 »", "RealTime", new { startIndex = (Model.StationsRealTime.PageIndex / 10 + 1) * 10, pageSize = Model.StationsRealTime.PageSize })</li>
         }
-        <li>@Html.ActionLink("下一个 »", "RealTime", new { startIndex = Model.StationsRealTime.PageIndex + 1, pageSize = Model.StationsRealTime.PageSize })</li>
+        
     </ul>
 </div>
 </div>

@@ -27,23 +27,23 @@
     <div class="input-group col-sm-4">
     @using (Html.BeginForm("ManualDataInput", "Stations", FormMethod.Get))
     {
-        @Html.DropDownList("热力站编号", new SelectList(Model.Stations, "热力站编码", "热力站编码"), "生产编号检索", new { @class = "span2" })
+        @Html.DropDownList("热力站编号", new SelectList(Model.Stations, "热力站编码", "热力站编码"), "生产编号检索", new { @class = "input-inline input-medium" })
         <text>&nbsp;</text>
-        @Html.TextBox("keyword", "", new { placeholder = "热力站名称检索", @class = "span2" })
+        @Html.TextBox("keyword", "", new { placeholder = "热力站名称检索", @class = "input-inline  input-medium" })
         <text>&nbsp;</text>
-        @Html.DropDownList("热力站编号", new SelectList(Model.Stations, "热力站编码", "热力站编码"), "热表编号", new { @class = "span2" })
+        @Html.DropDownList("热力站编号", new SelectList(Model.Stations, "热力站编码", "热力站编码"), "热表编号", new { @class = "input-inline input-medium" })
         <text>&nbsp;</text>
-        @Html.TextBox("status", "故障状态", new { @class = "span2" })
+        @Html.TextBox("status", "故障状态", new { @class = "input-inline input-medium" })
         <text>&nbsp;</text>
 		<span class="input-group-addon"><i class="icon-calendar"></i></span>
-		<input type="text" class="form-control" id="daterange" value="09/09/2013 - 09/28/2013">
-        <input type="submit" value="搜索" class="btn  btn-primary" style="vertical-align: top;"/>
+		<input type="text" class="form-control input-medium input-inline" id="daterange" value="09/09/2013 - 09/28/2013">
+        <input type="submit" value="搜索" class="btn  btn-primary input-inline" style="vertical-align: top;"/>
     }
 
     @using (Html.BeginForm("UploadManualDataInput", "Stations", FormMethod.Post, new { enctype = "multipart/form-data" }))
     {
         <input type="file" name="file" />
-        <input type="submit" value="上传文件" />
+        <input type="submit" value="上传文件" class="btn btn-primary" />
     }
     </div>
 </div>
