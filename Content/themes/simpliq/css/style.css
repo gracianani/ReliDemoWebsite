@@ -3865,6 +3865,12 @@ h3 {
 a.box {
   display: inline-block;
 }
+/* alert
+======================*/
+/* line 429, less\custom.less */
+.alert a {
+  color: #c09853;
+}
 /* Page: Messages
 =================================================================== */
 /* line 3, less\page-messages.less */
