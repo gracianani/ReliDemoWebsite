@@ -17,7 +17,7 @@ line-height: 30px;'>@ViewBag.Title</h2>
         <text>&nbsp;</text>
         @Html.DropDownList("managerships", new SelectList(Model.Managerships, "ItemID", "管理单位"), "请选择管理单位", new { id = "managerships", @class = "span2" })
         <text>&nbsp;</text>
-        @Html.DropDownList("area", new SelectList(Model.Managerships, "ItemID", "管理单位"), "请选择区域", new { id = "area", @class = "span2" })
+        @Html.DropDownList("area", new SelectList(Model.Regions, "Id", "Name"), "请选择区域", new { id = "area", @class = "span2" })
         <text>&nbsp;</text>
         @Html.TextBox("keyword","" , new {@placeholder = "按关键字检索"})
         <text>&nbsp;</text>
@@ -217,7 +217,7 @@ line-height: 30px;'>@ViewBag.Title</h2>
                 type: "post",
                 data: { companyId: $(this).val() },
                 success: function (response, textStatus, jqXHR) {
-                    $("#managerships").html("<option value>请选择管理单位<option>"+response).css("display","");
+                    $("#managerships").html("<option value>请选择管理单位</option>"+response).css("display","");
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
                 },

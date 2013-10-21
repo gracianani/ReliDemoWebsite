@@ -1,9 +1,9 @@
 ﻿@model IEnumerable<ReliDemo.Models.HeatConsumptionTotalItem>
 
-<div class="box">
+<div class="box realTimeTable" >
     <div class="box-header  backgroundColorHeader 
              @if( Model.Count() > 0 && Model.First().IsToday ) 
-             { <text>crimson</text> } 
+             { <text>crimson today</text> } 
              else 
              { <text>blue</text> } 
              ">
@@ -62,3 +62,42 @@
         </table>
     </div>
 </div>
+
+
+<script>
+    /* ---------- dashboard ---------- */
+    jQuery(document).ready(function ($) {
+        setInterval("getRealTime()", 5 * 60* 1000)
+    });
+    function getRealTime() {
+        $.ajax({
+            url: "http://localhost:11223/HeatConsumptionService/GetRealTime/" + $("input[name=CompanyId]").val() + "/" + $("input[name=ManagershipId]").val(),
+            type: "GET",
+            contentType: "application/json; charset=utf-8",
+            dataType: "jsonp",
+            data: '',
+            success: function (data) {
+                for (i = 0; i < data.length; i++) {
+                    var today = $(".realTimeTable").filter(function () { return $(this).has("div.today") }).first();
+                    if (today != null) {
+                        var row = $(today).find("tr").filter(function () { return $(this).find("td:eq(0)").html() == data[i].Title });
+                        if (row.length > 0) {
+                            console.log(row[0]);
+                            if (data[i].总 != null) {
+                                $(row[0]).find("td:eq(1)").val(data[i].总);
+                                $(row[0]).find("td:eq(2)").val(data[i].监测站);
+                                $(row[0]).find("td:eq(3)").val(data[i].智能卡);
+                            }
+                            else {
+                                $(row[0]).find("td:eq(1)").val(data[i].东部);
+                                $(row[0]).find("td:eq(2)").val(data[i].西部);
+                                $(row[0]).find("td:eq(3)").val(data[i].全网);
+                            }
+                            $(row[0]).highlightAfterUpdate();
+                        }
+                    }
+                }
+            }
+        });
+    }
+</script>
