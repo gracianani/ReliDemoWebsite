@@ -47,13 +47,17 @@ line-height: 30px;'>@ViewBag.Title <span style="font-size:14px"> 上次更新时
 
 </ul>
 </div>
+<div class="alert alert-block">
+	 @Html.ActionLink("有5条新数据，请点击刷新", "RealTime", new { startIndex = Model.StationsRealTime.PageIndex, pageSize = 10 })
+</div>
 <div class="scrollableTableContainer">
-<table class="table  table-bordered table-hover  table-condensed table-clickhighlight" style="background:white">
+<table class="table  table-bordered table-hover  table-condensed table-clickhighlight datatable" style="background:white">
 
 @foreach (var p in Model.StationsRealTime)
 {
     if (Model.StationsRealTime.IndexOf(p) == 0)
     {
+		<thead>
         <tr>
         <th>
             @Html.DisplayName("采集点")
@@ -92,7 +96,7 @@ line-height: 30px;'>@ViewBag.Title <span style="font-size:14px"> 上次更新时
             @Html.DisplayName("万平方米流量(t/h)")
         </th>
         
-    </tr>
+    </tr></thead>
     }
     <tr>
         <td>

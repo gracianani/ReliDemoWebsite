@@ -36,8 +36,8 @@
 </div>
 
 <div class="rolw-fluid">
-<table class="table  table-bordered table-hover  table-condensed table-clickhighlight" style="background:white">
-		<tr>
+<table class="table  table-bordered table-hover  table-condensed table-clickhighlight datatable" style="background:white">
+		<thead><tr>
 		<th>时间</th>
 		<th>机组号</th>
 		<th>供温<span class="symbol">(℃)</span></th>
@@ -57,7 +57,7 @@
 		<th>累计补水量<span class="symbol">(t)</span></th>
         <th>瞬时补水量<span class="symbol">(t)</span></th>
 		<th>当日<span class="symbol">(GJ)</span></th>
-		</tr>
+		</tr></thead>
         @foreach (var history in @Model.Histories)
         {
             <tr>

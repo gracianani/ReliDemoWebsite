@@ -33,8 +33,8 @@
 
 <div class="rolw-fluid">
 <div class="scrollableTableContainer">
-<table class="table  table-bordered table-hover  table-condensed table-clickhighlight" style="background:white">
-	<tbody>
+<table class="table  table-bordered table-hover  table-condensed table-clickhighlight datatable" style="background:white">
+	<thead>
     <tr>
         <th>#</th>
         <th>日期</th>
@@ -51,7 +51,8 @@
         <th>热水耗能 <span class="symbol">(GJ)</span></th>
         <th>万平米流量 <span class="symbol">(t/h)</span></th>
         
-    </tr>
+    </tr></thead>
+	<tbody>
     @for (int i = 0; i < 10 && i < Model.StationHistories.Count(); i++)
     {
         var history = @Model.StationHistories.ElementAt(i);
