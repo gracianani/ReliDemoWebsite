@@ -35,7 +35,10 @@
             @user.webpages_Membership.CreateDate
         </td>
         <td>
-            @Html.ActionLink("修改", "ViewProfile", new { userId = @user.userId } )
+            @if (HttpContext.Current.User.IsInRole("系统管理员"))
+            {
+                <text>@Html.ActionLink("修改", "ViewProfile", new { userId = @user.userId })</text>
+            }
         </td>
     </tr>
 }

@@ -10,7 +10,7 @@ margin-bottom: 0.9em;
 line-height: 30px;'>@ViewBag.Title <span style="font-size:14px"> 上次更新时间 @Model.UpdatedAt </span></h2>
 <div class="row-fluid">
     @using (Html.BeginForm("RealTime", "Stations", FormMethod.Get)) {
-        @Html.DropDownList("heatSources", new SelectList(Model.HeatSources, "ItemID", "热源名称"), "请选择热源厂", new { @class = "span2" })
+        @Html.DropDownListFor(i=>i.SelectedHeatSourceId, new SelectList(Model.HeatSources, "ItemID", "热源名称"), "请选择热源厂", new { @class = "span2" })
         <text>&nbsp;</text>
         @Html.DropDownListFor(model => model.SelectedCompanyId, new SelectList(Model.Companies, "ItemID", "公司"), "请选择公司", new { @class = "span2" })
         <text>&nbsp;</text>
@@ -30,19 +30,19 @@ line-height: 30px;'>@ViewBag.Title <span style="font-size:14px"> 上次更新时
     {
     <text> class="active" </text> 
     } >
-    @Html.ActionLink("10", "RealTime", new { startIndex = Model.StationsRealTime.PageIndex, pageSize = 10 })
+    @Html.ActionLink("10", "RealTime", new { startIndex = Model.StationsRealTime.PageIndex, pageSize = 10, selectedCompanyId = Model.SelectedCompanyId, managerships = Model.SelectedManagershipId, heatsources = Model.SelectedHeatSourceId, selectedRegion = Model.SelectedArea })
 </li>
 <li @if (Model.StationsRealTime.PageSize == 50)
     {
     <text> class="active" </text> 
     } >
-    @Html.ActionLink("50", "RealTime", new { startIndex = Model.StationsRealTime.PageIndex, pageSize = 50 })
+    @Html.ActionLink("50", "RealTime", new { startIndex = Model.StationsRealTime.PageIndex, pageSize = 50, selectedCompanyId = Model.SelectedCompanyId, managerships = Model.SelectedManagershipId, heatsources = Model.SelectedHeatSourceId, selectedRegion = Model.SelectedArea })
 </li>
 <li @if (Model.StationsRealTime.PageSize == 100)
     {
     <text> class="active" </text> 
     }>
-    @Html.ActionLink("100", "RealTime", new { startIndex = Model.StationsRealTime.PageIndex, pageSize = 100 })
+    @Html.ActionLink("100", "RealTime", new { startIndex = Model.StationsRealTime.PageIndex, pageSize = 100, selectedCompanyId = Model.SelectedCompanyId, managerships = Model.SelectedManagershipId, heatsources = Model.SelectedHeatSourceId, selectedRegion = Model.SelectedArea })
 </li>
 
 </ul>
@@ -139,29 +139,38 @@ line-height: 30px;'>@ViewBag.Title <span style="font-size:14px"> 上次更新时
 <div class="row-fluid">
 <div class="pagination pagination-centered">
     <ul>
-		@if (Model.StationsRealTime.PageIndex >= 10)
+                @if ((Model.StationsRealTime.PageIndex % 10 - 12) * Model.StationsRealTime.PageSize >= 0)
         {
-            <li>@Html.ActionLink("« 前十页", "RealTime", new { startIndex = Model.StationsRealTime.PageIndex - 10, pageSize = 10 })</li>
+            <li>@Html.ActionLink("« 前十页", "RealTime", new { startIndex = Model.StationsRealTime.PageIndex - 10, pageSize = Model.StationsRealTime.PageSize, selectedCompanyId = Model.SelectedCompanyId, managerships = Model.SelectedManagershipId, heatsources = Model.SelectedHeatSourceId, selectedRegion = Model.SelectedArea })</li>
         }
-        <li>@Html.ActionLink("« 上一页", "RealTime", new { startIndex = Model.StationsRealTime.PageIndex - 1, pageSize = Model.StationsRealTime.PageSize })</li>
-        
-        @for (int i = Model.StationsRealTime.PageIndex / 10 * 10; (i < Model.StationsRealTime.PageIndex / 10 * 10 + 10) && i < Model.StationsRealTime.TotalPages; i++)
+        @if ((Model.StationsRealTime.PageIndex % 10 - 1) * Model.StationsRealTime.PageSize >= 0)
         {
-            <li @if (Model.StationsRealTime.PageIndex == i)
-                { <text>class="active"</text> } >
-
-                @Html.ActionLink((i + 1).ToString(), "RealTime", new { startIndex = i, pageSize = Model.StationsRealTime.PageSize })
+            <li>@Html.ActionLink("« 上一页", "RealTime", new { startIndex = Model.StationsRealTime.PageIndex - 1, pageSize = Model.StationsRealTime.PageSize, selectedCompanyId = Model.SelectedCompanyId, managerships = Model.SelectedManagershipId, heatsources = Model.SelectedHeatSourceId, selectedRegion = Model.SelectedArea })</li>
+        }
+        
+        @for (int i = Model.StationsRealTime.PageIndex / 10 * 10; i < Model.StationsRealTime.PageIndex / 10 * 10 + 10; i++)
+        {
+            if (i <= Model.StationsRealTime.TotalCount / Model.StationsRealTime.PageSize)
+            {
+            <li @if (i == Model.StationsRealTime.PageIndex)
+                { <text>class="active"</text>}>
+                @Html.ActionLink((i + 1).ToString(), "RealTime", new { startIndex = i, pageSize = Model.StationsRealTime.PageSize, selectedCompanyId = Model.SelectedCompanyId, managerships = Model.SelectedManagershipId, heatsources = Model.SelectedHeatSourceId, selectedRegion = Model.SelectedArea }) 
             </li>
+            }
         }
-		<li>@Html.ActionLink("下一页 »", "RealTime", new { startIndex = Model.StationsRealTime.PageIndex + 1, pageSize = Model.StationsRealTime.PageSize })</li>
-        @if (Model.StationsRealTime.PageIndex < Model.StationsRealTime.TotalPages - 10)
+       
+        @if ((Model.StationsRealTime.PageIndex % 10 + 1) * Model.StationsRealTime.PageSize <= Model.StationsRealTime.TotalCount)
         {
-            <li>@Html.ActionLink("后十页 »", "RealTime", new { startIndex = (Model.StationsRealTime.PageIndex / 10 + 1) * 10, pageSize = Model.StationsRealTime.PageSize })</li>
+            <li>@Html.ActionLink("下一页 »", "RealTime", new { startIndex = Model.StationsRealTime.PageIndex + 1, pageSize = Model.StationsRealTime.PageSize, selectedCompanyId=Model.SelectedCompanyId, managerships=Model.SelectedManagershipId, heatsources=Model.SelectedHeatSourceId, selectedRegion = Model.SelectedArea })</li>
         }
-        
+                 @if ((Model.StationsRealTime.PageIndex % 10 + 11) * Model.StationsRealTime.PageSize <= Model.StationsRealTime.TotalCount)
+        {
+            <li>@Html.ActionLink("后十页 »", "RealTime", new { startIndex = Model.StationsRealTime.PageIndex + 11, pageSize = Model.StationsRealTime.PageSize, selectedCompanyId = Model.SelectedCompanyId, managerships = Model.SelectedManagershipId, heatsources = Model.SelectedHeatSourceId, selectedRegion = Model.SelectedArea })</li>
+        }
     </ul>
 </div>
 </div>
+
 
 <script>
     $(function () {

@@ -257,7 +257,8 @@ line-height: 30px;'>@ViewBag.Title
                 window.location = url;
             }
         });
-        $("#daterange").daterangepicker({ format: 'MM/DD/YYYY',
+        $("#daterange").daterangepicker({ 
+            format: 'MM/DD/YYYY',
             locale: {
                 applyLabel: '确定',
                 cancelLabel: '取消',
@@ -270,8 +271,8 @@ line-height: 30px;'>@ViewBag.Title
                 firstDay: 0
             }
         },
-      function (start, end) {
-          $("#customAll").attr("checked", "checked").parent().addClass("checked");
-      });
+        function (start, end) {
+            $("#customAll").attr("checked", "checked").parent().addClass("checked");
+        });
     });
 </script>
