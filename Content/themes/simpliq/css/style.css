@@ -3669,19 +3669,19 @@ h3 {
 .table .sorting_asc {
   background-image: url("../img/sort_asc.png");
   background-repeat: no-repeat;
-  background-position: right bottom;
+  background-position: right center;
 }
 /* line 240, less\custom.less */
 .table .sorting_desc {
   background-image: url("../img/sort_desc.png");
   background-repeat: no-repeat;
-  background-position: right bottom;
+  background-position: right center;
 }
 /* line 245, less\custom.less */
 .table .sorting {
   background-image: url("../img/sort_both.png");
   background-repeat: no-repeat;
-  background-position: right bottom;
+  background-position: right center;
 }
 /* station
 ========================*/
@@ -3886,7 +3886,7 @@ a.box {
 /* alert
 ======================*/
 /* line 443, less\custom.less */
-.alert a {
+.alert-block a {
   color: #c09853;
 }
 /* Page: Messages

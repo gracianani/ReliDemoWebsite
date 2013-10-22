@@ -65,12 +65,12 @@ line-height: 30px;'>@ViewBag.Title
 			    </div>
             </label>
         </div>
-        <div class="tab-pane @if(Model.SelectedSearchMethod.HasValue && Model.SelectedSearchMethod.Value == 4){ <text>active</text> } fprm-inline " id="custom">
+        <div class="tab-pane @if(Model.SelectedSearchMethod.HasValue && Model.SelectedSearchMethod.Value == 4){ <text>active</text> } form-inline " id="custom">
 			<label class="radio"> 
                 <div class="input-prepend date" >
                     <label class="radio"> <input type="radio" id="customAll" name="searchSpan" value="customAll"  @if(Model.SearchSpan == "customAll" ){<text>checked</text>} /> 自选日期  </label>
 			        <span class="add-on"><i class="icon-calendar"></i></span>
-                    <input type="text" class="form-control input-large" id="daterange" name="daterange" value="@if(Model.SearchSpan == "customAll" ){ <text>@Model.FromDate.Value.ToShortDateString() - @Model.ToDate.Value.ToShortDateString()</text> }"  >
+                    <input type="text" class="form-control input-xlarge" id="daterange" name="daterange" value="@if(Model.SearchSpan == "customAll" ){ <text>@Model.FromDate.Value.ToShortDateString() - @Model.ToDate.Value.ToShortDateString()</text> }"  >
 			    </div>
             </label>
         </div>
@@ -121,12 +121,7 @@ line-height: 30px;'>@ViewBag.Title
 
 <div class="scrollableTableContainer">
 <table class="table  table-bordered table-hover  table-condensed table-clickhighlight datatable" style="background:white">
-
-@foreach (var p in Model.StationsStatistic)
-{
-    if (Model.StationsStatistic.IndexOf(p) == 0)
-    {
-        <thead><tr>
+<thead><tr>
         <th>
             @Html.DisplayName("热力站名称")
         </th>
@@ -164,7 +159,8 @@ line-height: 30px;'>@ViewBag.Title
             @Html.DisplayName("实际温度")<span class="symbol">(℃)</span>
         </th>
     </tr></thead>
-    }
+@foreach (var p in Model.StationsStatistic)
+{
     <tr>
         <td>
             @Html.ActionLink(p.Station.热力站名称, "BasicInfo", new { stationId = p.ItemID })
@@ -236,6 +232,7 @@ line-height: 30px;'>@ViewBag.Title
 
 <script>
     $(function () {
+		
         $("select[name=companies]").change(function () {
             $.ajax({
                 url: "/Stations/GetManagershipsByCompanyId",
@@ -258,7 +255,7 @@ line-height: 30px;'>@ViewBag.Title
             }
         });
         $("#daterange").daterangepicker({ 
-            format: 'MM/DD/YYYY',
+            format: 'YYYY年MM月DD日',
             locale: {
                 applyLabel: '确定',
                 cancelLabel: '取消',

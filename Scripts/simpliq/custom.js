@@ -1,5 +1,4 @@
 $(document).ready(function(){
-			
 	/* ---------- Acivate Functions ---------- */
 	template_functions();
 	init_masonry();
@@ -268,7 +267,7 @@ function template_functions(){
             "bFilter":false,
             "bInfo":false,
 			"oLanguage": {
-			"sLengthMenu": "_MENU_ records per page"
+			"sEmptyTable": "暂无数据"
 			}
 		} );
 	$('.btn-close').click(function(e){
@@ -1324,14 +1323,11 @@ function widthFunctions(e) {
 			
 		}
 				
-		$("a").each(function(){
-			
-			if($(this).hasClass("quick-button-small span1")) {
+		$(".quick-button-small.span1").each(function(){
 
 				$(this).removeClass("quick-button-small span1");
 				$(this).addClass("quick-button span2 changed");
 			
-			}
 			
 		});
 
@@ -1372,14 +1368,10 @@ function widthFunctions(e) {
 			
 		}
 		
-		$("a").each(function(){
+		$(".quick-button.span2.changed").each(function(){
 			
-			if($(this).hasClass("quick-button span2 changed")) {
-
 				$(this).removeClass("quick-button span2 changed");
 				$(this).addClass("quick-button-small span1");
-			
-			}
 			
 		});
 		$('[onDesktop]').each(function() {
@@ -1447,3 +1439,8 @@ $(".table-dblclickactive tr").dblclick(function(e){
 				window.location = url.attr("href");
 			}
 });
+
+/* ---------- lang setting ---------- */
+moment.lang("zh-cn");
+
+
