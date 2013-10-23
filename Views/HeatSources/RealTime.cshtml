@@ -10,6 +10,7 @@
     <div onDesktop="span4" onTablet="span6" onMobile="span12">@Html.Partial("_TopMenu") </div>
 </div>
 
+@Html.HiddenFor(model=>model.UpdatedAt)
 
 <div class="row-fluid">
         每页显示：
@@ -25,7 +26,7 @@
 </li>
 </ul>
 </div>
-<div class="alert alert-block">
+<div class="alert alert-block hidden">
 	 @Html.ActionLink("有5条新数据，请点击刷新", "RealTime", new { startIndex = 0, pageSize = 10, selectedRegion = Model.SelectedRegion})
 </div>
 <div class="scrollableTableContainer">
@@ -221,3 +222,26 @@
     </ul>
 </div>
 </div>
+
+<script>
+    $(function () {
+        setInterval("CheckNewData()", 5 * 60 * 1000);
+    });
+
+    function CheckNewData() {
+        var dataurl = "GetNewDataCount?fromTime=" + $("#UpdatedAt").val();
+
+        function onDataReceived(series) {
+            if (series.newDataCount > 0) {
+                $(".alert").removeClass("hidden");
+            }
+        }
+
+        $.ajax({
+            url: dataurl,
+            type: "GET",
+            dataType: "json",
+            success: onDataReceived
+        });
+    }
+</script>

@@ -94,7 +94,7 @@
 
             // Find the URL in the link right next to us, then fetch the data
             var searchSpan = $("label :has(span.checked) input").val();
-            console.log(searchSpan);
+          
             var dataurl = "HistoryData?stationId=" + $("#StationId").val() + "&searchSpan=" + searchSpan + "&daterange=" + $("#daterange").val();
 
             function onDataReceived(series) {

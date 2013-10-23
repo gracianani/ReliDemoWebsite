@@ -38,39 +38,42 @@
     <tr>
         <th>#</th>
         <th>日期</th>
-        <th>投入面积 <span class="symbol">(万㎡)</span></th>
-        <th>实际热指标 <span class="symbol">(kcal/h·㎡)</span></th>
-        <th>计划供热量 <span class="symbol">(GJ)</span></th>
-        <th>折算供热量 <span class="symbol">(GJ)</span></th>
-        <th>实际供热量 <span class="symbol">(GJ)</span></th>
-        <th>计划单耗 <span class="symbol">(GJ/㎡)</span></th>
-        <th>核算单耗 <span class="symbol">(GJ/㎡)</span></th>
+        <th>投入面积A <span class="symbol">(万㎡)</span></th>
+        <th>投入面积B <span class="symbol">(万㎡)</span></th>
+        <th>实际面积A <span class="symbol">(万㎡)</span></th>
+        <th>实际面积B <span class="symbol">(万㎡)</span></th>
+        <th>理论单耗 <span class="symbol">(GJ/㎡)</span></th>
+        <th>预报温度 <span class="symbol">(℃)</span></th>
         <th>实际单耗 <span class="symbol">(GJ/㎡)</span></th>
-        <th>多耗 <span class="symbol">(GJ/㎡)</span></th>
-        <th>多耗百分比 <span class="symbol">(%)</span></th>
-        <th>热水耗能 <span class="symbol">(GJ)</span></th>
-        <th>万平米流量 <span class="symbol">(t/h)</span></th>
-        
+        <th>实际温度 <span class="symbol">(℃)</span></th>
+        <th>累计单耗 <span class="symbol">(GJ/㎡)</span></th>
+        <th>采暖季单耗 <span class="symbol">(GJ/㎡)</span></th>
+        <th>计划GJ <span class="symbol">(GJ)</span></th>
+        <th>采暖GJ <span class="symbol">(GJ)</span></th>
+        <th>热水GJ <span class="symbol">(GJ)</span></th>
+        <th>供暖季GJ <span class="symbol">(GJ)</span></th>
     </tr></thead>
 	<tbody>
-    @for (int i = 0; i < 10 && i < Model.StationHistories.Count(); i++)
+    @for (int i = 0; i < 10 && i < Model.StationAccuHistories.Count(); i++)
     {
-        var history = @Model.StationHistories.ElementAt(i);
+        var history = @Model.StationAccuHistories.ElementAt(i);
         <tr>
             <td>@(i + 1)</td>
-            <td>@history.Date.ToString("yyyy-MM-dd")</td>
-            <td>@history.投入面积</td>
-            <td>@history.实际热指标</td>
-            <td>@history.计划供热量</td>
-            <td>@history.折算供热量</td>
-            <td>@history.实际供热量</td>
-            <td>@history.计划单耗</td>
-            <td>@history.折算单耗</td>
+            <td>@history.日期.Date.ToString("yyyy-MM-dd")</td>
+            <td>@history.投入面积A</td>
+            <td>@history.投入面积B</td>
+            <td>@history.实际面积A</td>
+            <td>@history.实际面积B</td>
+            <td>@history.理论单耗</td>
+            <td>@history.预报温度</td>
             <td>@history.实际单耗</td>
-            <td>@history.多耗</td>
-            <td>@history.多耗percent</td>
-            <td>@history.热水耗能</td>
-            <td>@history.万平米流量</td>
+            <td>@history.实际温度</td>
+            <td>@history.累计单耗</td>
+            <td>@history.采暖季单耗</td>
+            <td>@history.计划GJ</td>
+            <td>@history.采暖GJ</td>
+            <td>@history.热水GJ</td>
+            <td>@history.供暖季GJ</td>
         </tr>
     }
  </tbody>
