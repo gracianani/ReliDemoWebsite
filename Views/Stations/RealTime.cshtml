@@ -30,25 +30,26 @@ line-height: 30px;'>@ViewBag.Title <span style="font-size:14px"> 上次更新时
     {
     <text> class="active" </text> 
     } >
-    @Html.ActionLink("10", "RealTime", new { startIndex = Model.StationsRealTime.PageIndex, pageSize = 10, selectedCompanyId = Model.SelectedCompanyId, managerships = Model.SelectedManagershipId, heatsources = Model.SelectedHeatSourceId, selectedRegion = Model.SelectedArea })
+    @Html.ActionLink("10", "RealTime", new { startIndex = Model.StationsRealTime.PageIndex, pageSize = 10, selectedCompanyId = Model.SelectedCompanyId, managerships = Model.SelectedManagershipId, heatsources = Model.SelectedHeatSourceId, selectedRegion = Model.SelectedArea, searchKeyWord = Model.SearchKeyword })
 </li>
 <li @if (Model.StationsRealTime.PageSize == 50)
     {
     <text> class="active" </text> 
     } >
-    @Html.ActionLink("50", "RealTime", new { startIndex = Model.StationsRealTime.PageIndex, pageSize = 50, selectedCompanyId = Model.SelectedCompanyId, managerships = Model.SelectedManagershipId, heatsources = Model.SelectedHeatSourceId, selectedRegion = Model.SelectedArea })
+    @Html.ActionLink("50", "RealTime", new { startIndex = Model.StationsRealTime.PageIndex, pageSize = 50, selectedCompanyId = Model.SelectedCompanyId, managerships = Model.SelectedManagershipId, heatsources = Model.SelectedHeatSourceId, selectedRegion = Model.SelectedArea, searchKeyWord = Model.SearchKeyword })
 </li>
 <li @if (Model.StationsRealTime.PageSize == 100)
     {
     <text> class="active" </text> 
     }>
-    @Html.ActionLink("100", "RealTime", new { startIndex = Model.StationsRealTime.PageIndex, pageSize = 100, selectedCompanyId = Model.SelectedCompanyId, managerships = Model.SelectedManagershipId, heatsources = Model.SelectedHeatSourceId, selectedRegion = Model.SelectedArea })
+    @Html.ActionLink("100", "RealTime", new { startIndex = Model.StationsRealTime.PageIndex, pageSize = 100, selectedCompanyId = Model.SelectedCompanyId, managerships = Model.SelectedManagershipId, heatsources = Model.SelectedHeatSourceId, selectedRegion = Model.SelectedArea, searchKeyWord = Model.SearchKeyword })
 </li>
 
 </ul>
 </div>
-<div class="alert alert-block">
-	 @Html.ActionLink("有5条新数据，请点击刷新", "RealTime", new { startIndex = Model.StationsRealTime.PageIndex, pageSize = 10 })
+@Html.HiddenFor(model=>model.UpdatedAt)
+<div class="alert alert-block hidden">
+	 @Html.ActionLink("有{count}条新数据，请点击刷新", "RealTime", new { startIndex = Model.StationsRealTime.PageIndex, pageSize = 10, selectedCompanyId = Model.SelectedCompanyId, managerships = Model.SelectedManagershipId, heatsources = Model.SelectedHeatSourceId, selectedRegion = Model.SelectedArea, searchKeyWord = Model.SearchKeyword })
 </div>
 <div class="scrollableTableContainer">
 <table class="table  table-bordered table-hover  table-condensed table-clickhighlight datatable" style="background:white">
@@ -145,11 +146,11 @@ line-height: 30px;'>@ViewBag.Title <span style="font-size:14px"> 上次更新时
     <ul>
                 @if ((Model.StationsRealTime.PageIndex % 10 - 12) * Model.StationsRealTime.PageSize >= 0)
         {
-            <li>@Html.ActionLink("« 前十页", "RealTime", new { startIndex = Model.StationsRealTime.PageIndex - 10, pageSize = Model.StationsRealTime.PageSize, selectedCompanyId = Model.SelectedCompanyId, managerships = Model.SelectedManagershipId, heatsources = Model.SelectedHeatSourceId, selectedRegion = Model.SelectedArea })</li>
+            <li>@Html.ActionLink("« 前十页", "RealTime", new { startIndex = Model.StationsRealTime.PageIndex - 10, pageSize = Model.StationsRealTime.PageSize, selectedCompanyId = Model.SelectedCompanyId, managerships = Model.SelectedManagershipId, heatsources = Model.SelectedHeatSourceId, selectedRegion = Model.SelectedArea, searchKeyWord = Model.SearchKeyword })</li>
         }
         @if ((Model.StationsRealTime.PageIndex % 10 - 1) * Model.StationsRealTime.PageSize >= 0)
         {
-            <li>@Html.ActionLink("« 上一页", "RealTime", new { startIndex = Model.StationsRealTime.PageIndex - 1, pageSize = Model.StationsRealTime.PageSize, selectedCompanyId = Model.SelectedCompanyId, managerships = Model.SelectedManagershipId, heatsources = Model.SelectedHeatSourceId, selectedRegion = Model.SelectedArea })</li>
+            <li>@Html.ActionLink("« 上一页", "RealTime", new { startIndex = Model.StationsRealTime.PageIndex - 1, pageSize = Model.StationsRealTime.PageSize, selectedCompanyId = Model.SelectedCompanyId, managerships = Model.SelectedManagershipId, heatsources = Model.SelectedHeatSourceId, selectedRegion = Model.SelectedArea, searchKeyWord = Model.SearchKeyword })</li>
         }
         
         @for (int i = Model.StationsRealTime.PageIndex / 10 * 10; i < Model.StationsRealTime.PageIndex / 10 * 10 + 10; i++)
@@ -158,18 +159,18 @@ line-height: 30px;'>@ViewBag.Title <span style="font-size:14px"> 上次更新时
             {
             <li @if (i == Model.StationsRealTime.PageIndex)
                 { <text>class="active"</text>}>
-                @Html.ActionLink((i + 1).ToString(), "RealTime", new { startIndex = i, pageSize = Model.StationsRealTime.PageSize, selectedCompanyId = Model.SelectedCompanyId, managerships = Model.SelectedManagershipId, heatsources = Model.SelectedHeatSourceId, selectedRegion = Model.SelectedArea }) 
+                @Html.ActionLink((i + 1).ToString(), "RealTime", new { startIndex = i, pageSize = Model.StationsRealTime.PageSize, selectedCompanyId = Model.SelectedCompanyId, managerships = Model.SelectedManagershipId, heatsources = Model.SelectedHeatSourceId, selectedRegion = Model.SelectedArea, searchKeyWord = Model.SearchKeyword }) 
             </li>
             }
         }
        
         @if ((Model.StationsRealTime.PageIndex % 10 + 1) * Model.StationsRealTime.PageSize <= Model.StationsRealTime.TotalCount)
         {
-            <li>@Html.ActionLink("下一页 »", "RealTime", new { startIndex = Model.StationsRealTime.PageIndex + 1, pageSize = Model.StationsRealTime.PageSize, selectedCompanyId=Model.SelectedCompanyId, managerships=Model.SelectedManagershipId, heatsources=Model.SelectedHeatSourceId, selectedRegion = Model.SelectedArea })</li>
+            <li>@Html.ActionLink("下一页 »", "RealTime", new { startIndex = Model.StationsRealTime.PageIndex + 1, pageSize = Model.StationsRealTime.PageSize, selectedCompanyId = Model.SelectedCompanyId, managerships = Model.SelectedManagershipId, heatsources = Model.SelectedHeatSourceId, selectedRegion = Model.SelectedArea, searchKeyWord = Model.SearchKeyword })</li>
         }
                  @if ((Model.StationsRealTime.PageIndex % 10 + 11) * Model.StationsRealTime.PageSize <= Model.StationsRealTime.TotalCount)
         {
-            <li>@Html.ActionLink("后十页 »", "RealTime", new { startIndex = Model.StationsRealTime.PageIndex + 11, pageSize = Model.StationsRealTime.PageSize, selectedCompanyId = Model.SelectedCompanyId, managerships = Model.SelectedManagershipId, heatsources = Model.SelectedHeatSourceId, selectedRegion = Model.SelectedArea })</li>
+            <li>@Html.ActionLink("后十页 »", "RealTime", new { startIndex = Model.StationsRealTime.PageIndex + 11, pageSize = Model.StationsRealTime.PageSize, selectedCompanyId = Model.SelectedCompanyId, managerships = Model.SelectedManagershipId, heatsources = Model.SelectedHeatSourceId, selectedRegion = Model.SelectedArea, searchKeyWord = Model.SearchKeyword })</li>
         }
     </ul>
 </div>
@@ -197,6 +198,26 @@ line-height: 30px;'>@ViewBag.Title <span style="font-size:14px"> 上次更新时
 			if ( url ) {
 				window.location = url;
 			}
-		});
+        });
+        setInterval("CheckNewData()", 5 * 60 * 1000);
     });
+
+    function CheckNewData() {
+        var dataurl = "GetNewDataCount?fromTime=" + $("#UpdatedAt").val();
+
+        function onDataReceived(series) {
+
+            if (series.newDataCount > 0) {
+                var newHtml = $(".alert").removeClass("hidden").find("a").html().replace("{count}", series.newDataCount);
+                $(".alert").removeClass("hidden").find("a").html(newHtml);
+            }
+        }
+
+        $.ajax({
+            url: dataurl,
+            type: "GET",
+            dataType: "json",
+            success: onDataReceived
+        });
+    }
 </script>

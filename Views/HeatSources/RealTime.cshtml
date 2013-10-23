@@ -27,7 +27,7 @@
 </ul>
 </div>
 <div class="alert alert-block hidden">
-	 @Html.ActionLink("有5条新数据，请点击刷新", "RealTime", new { startIndex = 0, pageSize = 10, selectedRegion = Model.SelectedRegion})
+	 @Html.ActionLink("有<big></big>条新数据，请点击刷新", "RealTime", new { startIndex = 0, pageSize = 10, selectedRegion = Model.SelectedRegion})
 </div>
 <div class="scrollableTableContainer">
 <table class="table  table-bordered table-hover  table-condensed table-clickhighlight datatable" style="background:white">
@@ -233,7 +233,7 @@
 
         function onDataReceived(series) {
             if (series.newDataCount > 0) {
-                $(".alert").removeClass("hidden");
+                $(".alert").removeClass("hidden").find("big").html(series.newDataCount) ;
             }
         }
 
