@@ -20,7 +20,7 @@
     <h1 class="span3">@Model.HeatSourceName</h1>
     <div onDesktop="span4" onTablet="span6" onMobile="span12">@Html.Partial("_TopNav")</div>
 </div>
-<div class="row-fluid">
+<div class="row-fluid form-inline">
     @using (Html.BeginForm("History", "HeatSources", new { heatSourceId = @Model.HeatSourceId }, FormMethod.Get )) {
         <div class="input-prepend date" >
             <label>选择日期</label>
@@ -28,7 +28,7 @@
             <input type="text" class="form-control input-large" id="daterange" name="daterange" value="@Model.FromDate.Value.ToShortDateString() - @Model.ToDate.Value.ToShortDateString()"  >
 		</div>
         @Html.HiddenFor(i=>i.HeatSourceId)
-        <button type="submit" id="submitFilter" class="btn btn-primary" ><i class="icon-search"></i> 搜索</button>
+        <button type="submit" class="btn btn-primary" ><i class="icon-search"></i> 搜索</button>
     }
 </div>
 

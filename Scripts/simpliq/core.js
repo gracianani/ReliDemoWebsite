@@ -104,21 +104,24 @@ jQuery(document).ready(function ($) {
     $('.dropmenu').click(function (e) {
 
         e.preventDefault();
-
-        $(this).parent().find('ul').slideToggle();
-
         var icon = $(this).find('i');
-        if (icon.length) {
-            if (icon.hasClass('icon-chevron-up')) {
-                icon.attr('class', icon.data('originClass'));
-                
-            } else {
-                icon.data('originClass', icon.attr('class'));
-                icon.attr('class', 'icon-chevron-up');
+        var ul = $(this).parent().find('ul').slideToggle(function () {
+            if (icon.length) {
+                if (ul.is(':hidden')) {
+                    icon.attr('class', icon.data('originClass'));
+
+                } else {
+                    icon.data('originClass', icon.attr('class'));
+                    icon.attr('class', 'icon-chevron-up');
+                }
+
+
             }
 
+        });
 
-        }
+       
+       
 
     });
 
