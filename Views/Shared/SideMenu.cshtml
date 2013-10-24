@@ -56,12 +56,18 @@
                                 <li><a class="submenu" href="/Weather/Official"><i class="icon-map-marker"></i><span class="hidden-tablet"> 气象监测数据 </span></a></li>
 							</ul>
 						</li>
-                        <li><a href="/Cost/Index"><i class="icon-money"></i><span class="hidden-tablet"> 成本分析</span></a></li>
-                        <li><a class="dropmenu"><i class="icon-unlock-alt"></i><span class="hidden-tablet"> 安全日志</span></a>
-							<ul>
-								<li><a href="/Security/UserInfo"><i class="icon-user"></i><span class="hidden-tablet"> 用户信息</span></a></li>
-							</ul>
-						</li>
+                        @if (ReliDemo.Infrastructure.Services.MembershipService.CurrentUser != null && ReliDemo.Infrastructure.Services.MembershipService.CurrentUser.是否有集团权限)
+                        {
+                            <li><a href="/Cost/Index"><i class="icon-money"></i><span class="hidden-tablet"> 成本分析</span></a></li>
+                        }
+                        @if (ReliDemo.Infrastructure.Services.MembershipService.CurrentUser != null && HttpContext.Current.User.IsInRole("系统管理员"))
+                        {
+                            <li><a class="dropmenu"><i class="icon-unlock-alt"></i><span class="hidden-tablet"> 安全日志</span></a>
+							    <ul>
+								    <li><a href="/Security/UserInfo"><i class="icon-user"></i><span class="hidden-tablet"> 用户信息</span></a></li>
+							    </ul>
+						    </li>
+                        }
 						<li><a href="/Reports/Index"><i class="icon-download-alt"></i><span class="hidden-tablet"> 常用报表</span></a></li>
 					</ul>
 				</div>

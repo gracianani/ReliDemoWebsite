@@ -52,10 +52,15 @@
 
             <select name="Managerships">
             <option>所有供热中心</option>
-            @foreach (var managership in ReliDemo.Models.CompanyHelper.GetAllManagershipByCompanyId(Model.TheUser.Managership!=null?Model.TheUser.Managership.Company.ItemID : Model.TheUser.Company != null ? Model.TheUser.Company.ItemID : -1))
+            @foreach (var company in ReliDemo.Models.CompanyHelper.GetAllCompany())
             {
-                <option id="@managership.Id" @if (managership.Id == Model.TheUser.所属中心)
-                    {<text>selected</text>} value="@managership.Name">@managership.Name</option>
+                <optgroup label="@company.Name">  
+                @foreach (var managership in ReliDemo.Models.CompanyHelper.GetAllManagershipByCompanyId(company.Id))
+                {
+                    <option id="@managership.Id" @if (managership.Id == Model.TheUser.所属中心)
+                                                 {<text>selected</text>} value="@managership.Name">@managership.Name</option>
+                }
+                </optgroup>
             }
             </select>
         </div>
@@ -71,7 +76,8 @@
         @foreach (var role in @Model.Authorizes)
         {
             <div class="row-fluid">
-                <div class="span2"><label><input type="checkbox" name="@role.Name" @if (role.Checked) { <text>checked="checked"</text> } /> @role.Name</label></div> 
+                <div class="span2"><label><input type="checkbox" name="@role.Name" @if (role.Checked)
+                                                                                   { <text>checked="checked"</text> } /> @role.Name</label></div> 
             </div>
         }
     </fieldset>
