@@ -503,7 +503,7 @@ a.brand.noBg span {
   text-align: left;
   padding: 0px;
   float: left;
-  margin-top: -5px;
+  margin-top: -8px;
 }
 /* line 124, less\header.less */
 .header-nav .user .hello {
@@ -520,7 +520,7 @@ a.brand.noBg span {
   line-height: 15px;
   height: 15px;
   overflow: hidden;
-  margin-top: -5px;
+  margin-top: -1px;
 }
 /* line 146, less\header.less */
 .navbar .nav li.dropdown.open > .dropdown-toggle,
