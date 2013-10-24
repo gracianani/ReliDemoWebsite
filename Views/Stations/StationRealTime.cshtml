@@ -31,7 +31,7 @@
 							<input type="text" class="form-control input-xlarge" id="daterange" name="daterange" value=""  >
 						</div>
 					</label>
-					<input type="submit" value="计算" id="search" class="btn btn-primary" style="vertical-align: top;"/>
+					<input type="submit" value="计算" id="calculate" class="btn btn-primary" style="vertical-align: top;"/>
 				</div>
 				<br />
 				<div class="well">
@@ -93,10 +93,10 @@
     </div>
 </div>
 <script>
-$(function(){
-$("#daterange").daterangepicker({
+    $(function () {
+        $("#daterange").daterangepicker({
             format: 'YYYY年MM月DD日',
-			opens:'left',
+            opens: 'left',
             locale: {
                 applyLabel: '确定',
                 cancelLabel: '取消',
@@ -110,7 +110,22 @@ $("#daterange").daterangepicker({
             }
         },
         function (start, end) {
-           
+        }
+        );
+
+        $("#calculate").click(function () {
+            var dataurl = "GetUnitHeatConsumption?dateRange=" + $("#daterange").val();
+
+            function onDataReceived(series) {
+                $("#unitHeatResult").html(series.GJ);
+            }
+
+            $.ajax({
+                url: dataurl,
+                type: "GET",
+                dataType: "json",
+                success: onDataReceived
+            });
         });
-});
+    });
 </script>

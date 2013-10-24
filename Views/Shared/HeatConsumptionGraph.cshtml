@@ -165,7 +165,7 @@
         var url = "http://localhost:11223/HeatConsumptionService/GetHeatConsumptionGraphData/" + $("input[name=type]").val() + "/"
                  + (new Date() - (30 * 24 * 60 * 60 * 1000)) + "/" + (new Date()).getTime() + "/" + $("input[name=companyId]").val() + "/" 
                  + $("input[name=managershipId]").val() + "/" + $("input[name=stationId]").val();
-  
+
         $.ajax({
             url: url,
             type: "GET",
@@ -173,6 +173,7 @@
             dataType: "jsonp",
             data: "",
             success: function (data) {
+                console.log(data);
                 heatTempChartData[1].data = $.parseJSON(data["预报温度"]);
                 heatTempChartData[0].data = $.parseJSON(data["实际温度"]);
                 heatTempChartData[2].data = $.parseJSON(data["计划Data"]);
