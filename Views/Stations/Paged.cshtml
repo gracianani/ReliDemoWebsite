@@ -15,7 +15,7 @@ line-height: 30px;'>@ViewBag.Title</h2>
         <text>&nbsp;</text>
         @Html.DropDownList("companies", new SelectList(Model.Companies, "Id", "Name"), "请选择公司", new { @class = "span2" })
         <text>&nbsp;</text>
-        @Html.DropDownList("managerships", new SelectList(Model.Managerships, "ItemID", "管理单位"), "请选择管理单位", new { id = "managerships", @class = "span2" })
+        @Html.DropDownList("managerships", new SelectList(Model.Managerships, "Id", "Name"), "请选择管理单位", new { id = "managerships", @class = "span2" })
         <text>&nbsp;</text>
         @Html.DropDownList("area", new SelectList(Model.Regions, "Id", "Name"), "请选择区域", new { id = "area", @class = "span2" })
         <text>&nbsp;</text>
@@ -113,7 +113,7 @@ line-height: 30px;'>@ViewBag.Title</h2>
     }
     <tr>
         <td>
-            @Html.ActionLink(p.热力站名称, "BasicInfo", new { stationId = p.ItemID })
+            @Html.ActionLink(p.热力站名称 + " ", "BasicInfo", new { stationId = p.ItemID })
         </td>
         <td>
             @p.热力站编号

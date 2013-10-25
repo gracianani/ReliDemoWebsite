@@ -49,12 +49,15 @@
 			<div class="row-fluid">
 				<div class="span4">
 				<table class="table table-bordered table-condensed">
-					<tr><th>供热能力(GJ/h)</th></tr>
-					<tr><td>1000</td></tr>
-					<tr><th>已出力(GJ/h)</th></tr>
-					<tr><td>1000</td></tr>
-					<tr><th>出力％</th></tr>
-					<tr><td>50</td></tr>
+                    @{
+                        var heatsourceCapacity = @Model.HeatSource.HeatsourceCapacity.Count() > 0 ? @Model.HeatSource.HeatsourceCapacity.First() : null;
+					    <tr><th>供热能力(GJ/h)</th></tr>
+					    <tr><td id="gongrenengli">@( heatsourceCapacity != null ? heatsourceCapacity.供热能力GJ : 0 ) </td></tr>
+					    <tr><th>已出力(GJ/h)</th></tr>
+					    <tr><td id="yichuli">@( heatsourceCapacity != null ? heatsourceCapacity.已出力GJ : 0 )</td></tr>
+					    <tr><th>出力％</th></tr>
+					    <tr><td>@( heatsourceCapacity != null && heatsourceCapacity.供热能力GJ.HasValue && heatsourceCapacity.供热能力GJ.Value > 0 ? heatsourceCapacity.已出力GJ ?? 0 / heatsourceCapacity.供热能力GJ : 0)</td></tr>
+                    }
 				</table>
 				</div>
 				<div class="span8">
@@ -156,11 +159,14 @@
 </div><!--box-->
 
 <script>
-$(function () {
-        var data = [ {label: "已出力(GJ/h)", data:1000},{label: "剩余供热能力(GJ/h)", data:1000}];
-
-
-
+    $(function () {
+        var yichuli = parseInt($("#yichuli").html());
+        var gongrenengli = parseInt($("#gongrenengli").html());
+        var shengyu = gongrenengli-yichuli;
+        if(yichuli == 0){ yichuli =1;}
+        if(shengyu == 0) {shengyu = 1;}
+        var data = [{ label: "已出力(GJ/h)", data: yichuli }, { label: "剩余供热能力(GJ/h)", data: shengyu}];
+        console.log(data);
         $.plot('#heatsoursechart', data, {
             series: {
                 pie: {

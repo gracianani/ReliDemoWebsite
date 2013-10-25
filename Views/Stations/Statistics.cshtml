@@ -15,7 +15,7 @@ line-height: 30px;'>@ViewBag.Title
         <text>&nbsp;</text>
         @Html.DropDownList("companies", new SelectList(Model.Companies, "Id", "Name"), "全部公司", new { @class = "span2" })
         <text>&nbsp;</text>
-        @Html.DropDownList("managerships", new List<SelectListItem>(), "全部中心", new { id = "managerships", @class = "span2" })
+        @Html.DropDownList("managerships", new SelectList(Model.Managerships, "Id", "Name"), "全部中心", new { id = "managerships", @class = "span2" })
         <text>&nbsp;</text>
         @Html.DropDownList("heatsource", new SelectList(Model.HeatSources, "Id","Name"), "全部热源", new { id = "heatsources", @class = "span2" })
         <text>&nbsp;</text>

@@ -12,9 +12,9 @@ line-height: 30px;'>@ViewBag.Title <span style="font-size:14px"> 上次更新时
     @using (Html.BeginForm("RealTime", "Stations", FormMethod.Get)) {
         @Html.DropDownListFor(i=>i.SelectedHeatSourceId, new SelectList(Model.HeatSources, "ItemID", "热源名称"), "请选择热源厂", new { @class = "span2" })
         <text>&nbsp;</text>
-        @Html.DropDownListFor(model => model.SelectedCompanyId, new SelectList(Model.Companies, "ItemID", "公司"), "请选择公司", new { @class = "span2" })
+        @Html.DropDownListFor(model => model.SelectedCompanyId, new SelectList(Model.Companies, "Id", "Name"), "请选择公司", new { @class = "span2" })
         <text>&nbsp;</text>
-        @Html.DropDownList("managerships", new SelectList(Model.Managerships, "ItemID", "管理单位"), "请选择管理单位", new { id = "managerships", @class = "span2" })
+        @Html.DropDownList("managerships", new SelectList(Model.Managerships, "Id", "Name"), "请选择管理单位", new { id = "managerships", @class = "span2" })
         <text>&nbsp;</text>
         @Html.DropDownListFor(model => model.SelectedArea, new SelectList(Model.Regions, "Id", "Name"), "请选择区域", new { @class = "span2" })
         <text>&nbsp;</text>
@@ -53,13 +53,8 @@ line-height: 30px;'>@ViewBag.Title <span style="font-size:14px"> 上次更新时
 </div>
 <div class="scrollableTableContainer">
 <table class="table  table-bordered table-hover  table-condensed table-clickhighlight datatable" style="background:white">
-
-@foreach (var p in Model.StationsRealTime)
-{
-    if (Model.StationsRealTime.IndexOf(p) == 0)
-    {
-		<thead>
-        <tr>
+<thead>
+    <tr>
         <th>
             @Html.DisplayName("采集点")
         </th>
@@ -97,8 +92,10 @@ line-height: 30px;'>@ViewBag.Title <span style="font-size:14px"> 上次更新时
             @Html.DisplayName("万平方米流量(t/h)")
         </th>
         
-    </tr></thead>
-    }
+    </tr>
+</thead>
+@foreach (var p in Model.StationsRealTime)
+{
     <tr>
         <td>
             @Html.ActionLink(p.热力站名称, "StationRealTime", new { stationId = p.ItemID })
