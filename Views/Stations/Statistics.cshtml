@@ -169,7 +169,7 @@ line-height: 30px;'>@ViewBag.Title
 {
     <tr>
         <td>
-            @Html.ActionLink(p.Station.热力站名称, "BasicInfo", new { stationId = p.ItemID })
+            @Html.ActionLink(p.Station.热力站名称, "StationRealTime", new { stationId = p.ItemID })
         </td>
         <td class="time">
             @p.日期.ToString("yyyy-MM-dd")
