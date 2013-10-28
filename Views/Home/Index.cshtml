@@ -9,25 +9,20 @@
 </div>
 <div class="row-fluid">
 	<div onTablet="span12 noMarginLeft" onDesktop="span6" >
-        @Html.Partial("HeatConsumptionTotal", Model.TodayGJ)
-        @Html.Partial("HeatConsumptionTotal", Model.YesterdayGJ)
-		<div class="box span12 noMarginLeft">
-			<div class="box-header">
-			    <h2><i class="icon-tasks"></i>节能/超标热力站排行</h2>
-			</div>
-			<div class="box-content">
-				<div class="row-fluid">
-				    @Html.Partial("EnergyTopChart", Model.EnergyTopChart)
-			    </div><!--/row-->
-		    </div><!--/box-->
-	    </div><!--/span-->	
+		@Html.Partial("HeatConsumptionTotal", Model.TodayGJ)
 	</div>
-	<div  onTablet="span12 noMarginLeft" onDesktop="span6" >
+	<div onTablet="span12 noMarginLeft" onDesktop="span6" >
+		@Html.Partial("HeatConsumptionTotal", Model.YesterdayGJ)
+	</div>
+</div>
+<div class="row-fluid">
+
+	<div class="span12">
 		<div class="row-fluid">
-            @Html.Partial("HeatConsumptionGraph", Model.Histories)
+           
 			<div class="box blue　span12 noMarginLeft">
 				<div class="box-header">
-					<h2><i class="icon-bar-chart"></i>供暖季各公司累计热耗</h2>
+					<h2><i class="icon-bar-chart"></i>今日各公司状态统计</h2>
 				</div>
 				<div class="box-content">
 					<div class="row-fluid">
@@ -37,7 +32,7 @@
 					</div>
 				</div>
 			</div>
-
+			 @Html.Partial("HeatConsumptionGraph", Model.Histories)
 			<div class="box blue span12 noMarginLeft">
 				<div class="box-header">
 					<h2><i class="icon-bar-chart"></i>各公司投停面积</h2>
