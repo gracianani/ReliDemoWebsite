@@ -13,7 +13,10 @@
 							    <ul >
                                     @foreach (var companyIdAndName in ReliDemo.Infrastructure.Services.MembershipService.CurrentUser.VisibleCompanies)
                                     {
-                                        <li><a class="submenu" href="/Companies/Index?companyId=@companyIdAndName.Id"><i class="icon-sitemap icon-companyname"></i><span class="hidden-tablet"> @companyIdAndName.Name</span></a></li>
+                                        if (companyIdAndName.Id == 0 || companyIdAndName.Id == 4 || companyIdAndName.Id == 5 || companyIdAndName.Id == 6)
+                                        {
+                                            <li><a class="submenu" href="/Companies/Index?companyId=@companyIdAndName.Id"><i class="icon-sitemap icon-companyname"></i><span class="hidden-tablet"> @companyIdAndName.Name</span></a></li>
+                                        }
                                     }
 							    </ul>
 						    </li>
@@ -33,13 +36,7 @@
 						<ul>
 							<li><a class="submenu" href="/HeatSources/Index"><i class="icon-list-alt"></i><span class="hidden-tablet"> 基础信息</span></a></li>
 							<li><a class="submenu" href="/HeatSources/RealTime"><i class="icon-eye-open"></i><span class="hidden-tablet"> 实时监测</span></a></li>
-              <li><a class="submenu" href="/HeatSources/BasicInfo?heatSourceId=11"><i class="icon-companyname"></i><span class="hidden-tablet"> 松榆里供热厂</span></a></li>
-              <li>
-                <a class="submenu" href="/HeatSources/BasicInfo?heatSourceId=5">
-                  <i class="icon-companyname"></i>
-                  <span class="hidden-tablet"> 东郊供热厂</span>
-                </a>
-              </li>
+                            
 						</ul>
 						</li>
 						<li><a class="dropmenu"><i class="icon-home"></i><span class="hidden-tablet"> 热力站</span></a>
@@ -69,6 +66,13 @@
 						    </li>
                         }
 						<li><a href="/Reports/Index"><i class="icon-download-alt"></i><span class="hidden-tablet"> 常用报表</span></a></li>
+                        <li><a class="dropmenu"><i class="icon-unlock-alt"></i> <span class="hidden-tablet">独网</span> </a> 
+                            <ul>
+                                <li><a class="submenu" href="/Companies/Index?companyId=2"><i class="icon-companyname"></i><span class="hidden-tablet"> 科利源供热公司 </span></a> </li>
+                                <li><a class="submenu" href="/HeatSources/BasicInfo?heatSourceId=11"><i class="icon-companyname"></i><span class="hidden-tablet"> 松榆里供热厂</span></a></li>
+                                <li><a class="submenu" href="/HeatSources/BasicInfo?heatSourceId=5"><i class="icon-companyname"></i><span class="hidden-tablet"> 东郊供热厂</span></a></li>   
+                            </ul>
+                        </li>
 					</ul>
 				</div>
 			</div>
