@@ -15,11 +15,7 @@
 		@Html.Partial("HeatConsumptionTotal", Model.YesterdayGJ)
 	</div>
 </div>
-<div class="row-fluid">
-
-	<div class="span12">
-		<div class="row-fluid">
-           
+<div class="row-fluid">      
 			<div class="box blue　span12 noMarginLeft">
 				<div class="box-header">
 					<h2><i class="icon-bar-chart"></i>今日各公司状态统计</h2>
@@ -33,17 +29,34 @@
 				</div>
 			</div>
 			 @Html.Partial("HeatConsumptionGraph", Model.Histories)
-			<div class="box blue span12 noMarginLeft">
+
+
+</div>
+<div class="row-fluid">
+	<div class="box" onDesktop="span6" onTablet="span12">
 				<div class="box-header">
-					<h2><i class="icon-bar-chart"></i>各公司投停面积</h2>
+					<h2><i class="icon-bar-chart"></i>超标站统计</h2>
+				</div>
+				<div class="box-content">
+					<table class="table datatable table-hover table-clickHighlight">
+						<thead>
+						<th>公司</th>
+						<th>站总数</th>
+						<th>单耗超标</th>
+						<th>流量超标</th>
+						<th>回温超标</th>
+						</thead>
+						<tbody></tbody>
+					</table>
+				</div>	
+	</div><!--/span-->
+	<div class="box blue" onDesktop="span6" onTablet="span12">
+				<div class="box-header">
+					<h2><i class="icon-bar-chart"></i>各公司供热面积</h2>
 				</div>
 				<div class="box-content">
 					@Html.Partial("CompanyOnOffArea", Model.CompanyAreaOnOff)	
 				</div>	
-			</div><!--/span-->
-
-		</div><!--/row-->
-       
 	</div><!--/span-->
 </div>
 
