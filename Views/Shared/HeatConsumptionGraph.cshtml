@@ -47,7 +47,7 @@
 
     
     var heatTempChartData = [{
-        label: "实际平均温度",
+        label: "平均温度",
         data: tempPlan,
         lines: { show: true },
         points: { show: true }
@@ -62,7 +62,8 @@
 
         label: "当日计划供热量(GJ)",
         data: d1,
-        bars: { show: true, order: 0, fill: true, barWidth: 24 * 60 * 60 * 200, align: "left", fillColor: "#fabb3d", lineWidth: 0 },
+       lines: { show: true },
+	   points:{ show:true, symbol:"cross"},
         yaxis: 2
 
 
@@ -70,14 +71,16 @@
 
         label: "当日折算供热量(GJ)",
         data: d2,
-        bars: { show: true, order: 1, fill: true, barWidth: 24 * 60 * 60 * 200, align: "left", fillColor: "#c84628", color: "#c84628", borderColor: "#c84628", lineWidth: 0 },
+        lines: { show: true },
+	   points:{ show:true, symbol:"cross"},
         yaxis: 2
 
     }, {
 
         label: "当日累计供热量(GJ)",
         data: d3,
-        bars: { show: true, order: 2, fill: true, barWidth: 24 * 60 * 60 * 200, align: "left", fillColor: "#2fabe9", lineWidth: 0 },
+        lines: { show: true },
+	   points:{  show:true, symbol:"cross"},
         yaxis: 2
 
     }];
