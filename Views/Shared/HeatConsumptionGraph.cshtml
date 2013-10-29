@@ -26,6 +26,9 @@
 @Html.Hidden("plan", @Model.计划Data)
 @Html.Hidden("theory", @Model.核算Data)
 @Html.Hidden("actual", @Model.实际Data)
+@Html.Hidden("plan_index", @Model.计划热指标)
+@Html.Hidden("theory_index", @Model.核算热指标)
+@Html.Hidden("actual_index", @Model.实际运行热指标)
 @Html.Hidden("temperatureForecast", @Model.预报温度)
 @Html.Hidden("temperatureActual", @Model.实际温度)
 
@@ -69,20 +72,36 @@
 
     }, {
 
-        label: "当日折算供热量(GJ)",
+        label: "当日核算供热量(GJ)",
         data: d2,
         lines: { show: true },
 	   points:{ show:true, symbol:"cross"},
         yaxis: 2
 
     }, {
-
         label: "当日累计供热量(GJ)",
         data: d3,
         lines: { show: true },
 	   points:{  show:true, symbol:"cross"},
         yaxis: 2
-
+    }, {
+        label: "当日计划热指标(kcal/h·㎡)",
+        data: d3,
+        lines: { show: true },
+        points: { show: true, symbol: "cross" },
+        yaxis: 2
+    }, {
+        label: "当日核算热指标(kcal/h·㎡)",
+        data: d3,
+        lines: { show: true },
+        points: { show: true, symbol: "cross" },
+        yaxis: 2
+    }, {
+        label: "当日实际运行热指标(kcal/h·㎡)",
+        data: d3,
+        lines: { show: true },
+        points: { show: true, symbol: "cross" },
+        yaxis: 2
     }];
 
 
@@ -159,6 +178,9 @@
                 heatTempChartData[2].data = $.parseJSON(data["计划Data"]);
                 heatTempChartData[3].data = $.parseJSON(data["核算Data"]);
                 heatTempChartData[4].data = $.parseJSON(data["实际Data"]);
+                heatTempChartData[5].data = $.parseJSON(data["计划热指标"]);
+                heatTempChartData[6].data = $.parseJSON(data["核算热指标"]);
+                heatTempChartData[7].data = $.parseJSON(data["实际运行热指标"]);
                 dashboardHeatTempChart = $.plot("#dashboard-heat-temp-chart", heatTempChartData, heatTempChartOptionsLastWeek);
             }
         });
@@ -182,6 +204,9 @@
                 heatTempChartData[2].data = $.parseJSON(data["计划Data"]);
                 heatTempChartData[3].data = $.parseJSON(data["核算Data"]);
                 heatTempChartData[4].data = $.parseJSON(data["实际Data"]);
+                heatTempChartData[5].data = $.parseJSON(data["计划热指标"]);
+                heatTempChartData[6].data = $.parseJSON(data["核算热指标"]);
+                heatTempChartData[7].data = $.parseJSON(data["实际运行热指标"]);
                 dashboardHeatTempChart = $.plot("#dashboard-heat-temp-chart", heatTempChartData, heatTempChartOptionsLastMonth);
             }
         });
