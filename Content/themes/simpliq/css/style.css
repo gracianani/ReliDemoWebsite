@@ -3638,11 +3638,15 @@ h3 {
 .box .box-header.nav-tabs li:hover > a {
   color: #378fc9;
 }
-/* line 217, less\custom.less */
+/* line 215, less\custom.less */
+.box .box-header.mergeWithBottom {
+  margin-bottom: 0;
+}
+/* line 220, less\custom.less */
 .box .form-inline label {
   padding-right: 10px;
 }
-/* line 222, less\custom.less */
+/* line 225, less\custom.less */
 .makeTableHeaderAsBoxHeader {
   position: relative;
   top: -46px;
@@ -3650,43 +3654,43 @@ h3 {
   border-top: none!important;
   border-right: none!important;
 }
-/* line 228, less\custom.less */
+/* line 231, less\custom.less */
 .makeTableHeaderAsBoxHeader thead th {
   color: #FFF!important;
   background: none!important;
   border: none!important;
 }
-/* line 232, less\custom.less */
+/* line 235, less\custom.less */
 .makeTableHeaderAsBoxHeader thead th a {
   color: #FFF;
 }
-/* line 236, less\custom.less */
+/* line 239, less\custom.less */
 .makeTableHeaderAsBoxHeader tbody tr:first-child td {
   border-top: none;
 }
-/* line 241, less\custom.less */
+/* line 244, less\custom.less */
 .centerhead th {
   text-align: center;
 }
 /* highlight
 ========================*/
-/* line 248, less\custom.less */
+/* line 251, less\custom.less */
 .highlighting .highlightBlue {
   color: #378fc9;
 }
-/* line 251, less\custom.less */
+/* line 254, less\custom.less */
 .highlighting .highlightRed {
   color: #c84628;
 }
 /* table
 =================================================================== */
-/* line 258, less\custom.less */
+/* line 261, less\custom.less */
 .table.table-bordered {
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   border-radius: 0;
 }
-/* line 263, less\custom.less */
+/* line 266, less\custom.less */
 .table.table-bordered thead:first-child tr:first-child > th:first-child,
 .table.table-bordered tbody:first-child tr:first-child > td:first-child,
 .table.table-bordered tbody:first-child tr:first-child > th:first-child,
@@ -3699,29 +3703,29 @@ h3 {
   -moz-border-radius: 0;
   border-radius: 0;
 }
-/* line 269, less\custom.less */
+/* line 272, less\custom.less */
 .table th {
   background-color: #ededed;
   color: #000;
   font-weight: bold;
 }
-/* line 274, less\custom.less */
+/* line 277, less\custom.less */
 .table td {
   color: #111;
 }
-/* line 277, less\custom.less */
+/* line 280, less\custom.less */
 .table .sorting_asc {
   background-image: url("../img/sort_asc.png");
   background-repeat: no-repeat;
   background-position: right center;
 }
-/* line 282, less\custom.less */
+/* line 285, less\custom.less */
 .table .sorting_desc {
   background-image: url("../img/sort_desc.png");
   background-repeat: no-repeat;
   background-position: right center;
 }
-/* line 287, less\custom.less */
+/* line 290, less\custom.less */
 .table .sorting {
   background-image: url("../img/sort_both.png");
   background-repeat: no-repeat;
@@ -3729,11 +3733,11 @@ h3 {
 }
 /* station
 ========================*/
-/* line 296, less\custom.less */
+/* line 299, less\custom.less */
 .subNav {
   margin-left: 0;
 }
-/* line 299, less\custom.less */
+/* line 302, less\custom.less */
 .subNav li {
   float: left;
   display: inline-block;
@@ -3744,59 +3748,59 @@ h3 {
   border-right: 1px solid rgba(255, 255, 255, 0.1);
   border-left: 1px solid rgba(0, 0, 0, 0.5);
 }
-/* line 308, less\custom.less */
+/* line 311, less\custom.less */
 .subNav li.current {
   background-color: #0074c1;
 }
-/* line 311, less\custom.less */
+/* line 314, less\custom.less */
 .subNav li:first-child {
   border-radius: 4px 0 0 4px;
   border-left: none;
 }
-/* line 315, less\custom.less */
+/* line 318, less\custom.less */
 .subNav li:last-child {
   border-radius: 0 4px 4px 0;
   border-right: none;
 }
-/* line 319, less\custom.less */
+/* line 322, less\custom.less */
 .subNav li a {
   color: #fff;
 }
-/* line 322, less\custom.less */
+/* line 325, less\custom.less */
 .subNav li a:hover {
   text-decoration: none;
 }
-/* line 328, less\custom.less */
+/* line 331, less\custom.less */
 .table-zebra td {
   color: #333;
 }
-/* line 332, less\custom.less */
+/* line 335, less\custom.less */
 .table-zebra tr td:nth-child(2n) {
   background-color: #f9f9f9;
 }
-/* line 336, less\custom.less */
+/* line 339, less\custom.less */
 .table-zebra tr:nth-child(2n) {
   background-color: #f9f9f9;
 }
-/* line 338, less\custom.less */
+/* line 341, less\custom.less */
 .table-zebra tr:nth-child(2n) td:nth-child(2n) {
   background-color: white;
 }
-/* line 342, less\custom.less */
+/* line 345, less\custom.less */
 .table-zebra em {
   font-style: normal;
   color: #000;
   font-size: 18px;
 }
-/* line 348, less\custom.less */
+/* line 351, less\custom.less */
 .table-zebra a {
   color: #378fc9;
 }
-/* line 354, less\custom.less */
+/* line 357, less\custom.less */
 .pieChartWithCenterText {
   position: relative;
 }
-/* line 356, less\custom.less */
+/* line 359, less\custom.less */
 .pieChartWithCenterText .centerText {
   position: absolute;
   top: 45%;
@@ -3807,92 +3811,92 @@ h3 {
   z-index: 100;
   color: #000;
 }
-/* line 368, less\custom.less */
+/* line 371, less\custom.less */
 .topmenu {
   position: relative;
   top: 15px;
   margin-bottom: 20px;
 }
-/* line 372, less\custom.less */
+/* line 375, less\custom.less */
 .topmenu .btn {
   background-color: #393f4c;
   color: #FFF;
 }
-/* line 376, less\custom.less */
+/* line 379, less\custom.less */
 .topmenu .btn:hover,
 .topmenu .selected {
   background-color: #0071c0;
 }
-/* line 380, less\custom.less */
+/* line 383, less\custom.less */
 .stationTitle {
   margin-bottom: 20px;
 }
 /* table 
 ===========================*/
-/* line 387, less\custom.less */
+/* line 390, less\custom.less */
 .scrollableTableContainer {
   width: 100%;
   overflow: scroll;
   overflow-x: scroll;
   overflow-y: visible;
 }
-/* line 393, less\custom.less */
+/* line 396, less\custom.less */
 .scrollableTableContainer table th,
 .scrollableTableContainer table td {
   min-width: 140px;
   width: auto;
   max-width: none;
 }
-/* line 400, less\custom.less */
+/* line 403, less\custom.less */
 .scrollableTableContainer .table {
   width: auto;
   max-width: none;
 }
-/* line 406, less\custom.less */
+/* line 409, less\custom.less */
 .table .groupColorBlue {
   background-color: #ecf4fa;
 }
-/* line 409, less\custom.less */
+/* line 412, less\custom.less */
 .table .groupColorGold {
   background-color: #fef8eb;
 }
-/* line 412, less\custom.less */
+/* line 415, less\custom.less */
 .table .groupColorGreen {
   background-color: #f8fdf0;
 }
-/* line 415, less\custom.less */
+/* line 418, less\custom.less */
 .table .alert td {
   font-weight: bold;
 }
-/* line 419, less\custom.less */
+/* line 422, less\custom.less */
 .table .time {
   font-size: 10px;
   letter-spacing: -1px;
 }
-/* line 425, less\custom.less */
+/* line 428, less\custom.less */
 .table-hover tbody tr:hover > td {
   background-color: #ecf4fa;
   color: black;
 }
-/* line 431, less\custom.less */
+/* line 434, less\custom.less */
 ::-webkit-input-placeholder {
   color: #666!important;
 }
-/* line 434, less\custom.less */
+/* line 437, less\custom.less */
 :-moz-placeholder {
   color: #666!important;
 }
-/* line 437, less\custom.less */
+/* line 440, less\custom.less */
 ::-moz-placeholder {
   color: #666!important;
 }
-/* line 440, less\custom.less */
+/* line 443, less\custom.less */
 :-ms-input-placeholder {
   color: #666!important;
 }
 /* Station
 =============================*/
-/* line 446, less\custom.less */
+/* line 449, less\custom.less */
 #submitFilter {
   height: 87px;
   line-height: 80px;
@@ -3901,14 +3905,14 @@ h3 {
   overflow: hidden;
   width: 100%;
 }
-/* line 454, less\custom.less */
+/* line 457, less\custom.less */
 .heightAuto #submitFilter {
   height: auto!important;
   line-height: 30px;
 }
 /* Sidebar
 ============================*/
-/* line 462, less\custom.less */
+/* line 465, less\custom.less */
 .dropmenu [class^="icon-"],
 .dropmenu [class*=" icon-"] {
   background-color: white;
@@ -3919,12 +3923,12 @@ h3 {
   display: inline-block;
   text-align: center;
 }
-/* line 473, less\custom.less */
+/* line 476, less\custom.less */
 .icon-companyname:before {
   content: "" !important;
   display: none;
 }
-/* line 477, less\custom.less */
+/* line 480, less\custom.less */
 .icon-companyname {
   background-color: white;
   color: #383e4b;
@@ -3935,17 +3939,17 @@ h3 {
   display: inline-block;
   text-align: center;
 }
-/* line 487, less\custom.less */
+/* line 490, less\custom.less */
 a.box {
   display: inline-block;
 }
 /* alert
 ======================*/
-/* line 494, less\custom.less */
+/* line 497, less\custom.less */
 .alert-block a {
   color: #c09853;
 }
-/* line 499, less\custom.less */
+/* line 502, less\custom.less */
 legend {
   margin-bottom: 0px;
 }
