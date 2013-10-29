@@ -115,7 +115,6 @@ h1,h2,h3 {
 	&.green { background: @green; }
 	&.darkGreen { background: @darkGreen; }
 	&.pink { background: @pink; }
-	&.orange { background: @orange; }
 	&.lightOrange { background: @lightOrange; }
 	&.red { background: @red; }
 	&.yellow { background: @yellow; }
@@ -135,7 +134,50 @@ h1,h2,h3 {
 			background: darken(@backgroundColor,10%);
 		}
 	}
+	&.gold { 
+	background: @gold; 
+	@backgroundColor:@gold;
+		
+		.box-icon {
+			background: darken(@backgroundColor,10%);
+			i {
+				border-left-color: darken(@backgroundColor,10%);
+			}
+		}
+		h2 i {
+			background: darken(@backgroundColor,10%);
+		}
+	}
+	&.orange { 
+	background: @orange; 
+	@backgroundColor:@orange;
+		
+		.box-icon {
+			background: darken(@backgroundColor,10%);
+			i {
+				border-left-color: darken(@backgroundColor,10%);
+			}
+		}
+		h2 i {
+			background: darken(@backgroundColor,10%);
+		}
+	}
+	&.red { 
+	background: @red; 
+	@backgroundColor:@red;
+		
+		.box-icon {
+			background: darken(@backgroundColor,10%);
+			i {
+				border-left-color: darken(@backgroundColor,10%);
+			}
+		}
+		h2 i {
+			background: darken(@backgroundColor,10%);
+		}
+	}
 }
+
 
 .box {
 	.box-header{
@@ -361,6 +403,15 @@ h1,h2,h3 {
 	}
 }
 .table {
+	.groupColorBlue{
+		background-color:lighten(@blue,45%);
+	}
+	.groupColorGold{
+		background-color:lighten(@gold,35%);
+	}
+	.groupColorGreen{
+		background-color:lighten(@green,28%);
+	}
 	.alert td {
 		font-weight:bold;
 
