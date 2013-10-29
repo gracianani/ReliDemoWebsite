@@ -11,20 +11,23 @@
 	<tr>
 		<th>计划</th>
 		<th>实际</th>
+        <th>计算</th>
 		<th>计划</th>
-		<th>计算</th>
 		<th>实际运行</th>
 	</tr>
     </thead>
 	@foreach (var company in Model)
     {
+        if (company.ItemID == 0 || company.ItemID == 4 || company.ItemID == 5 || company.ItemID == 6)
+        {
         <tr>
-		<td>@Html.ActionLink(company.公司, "../Companies/Index", new {companyId = company.ItemID })</td>
+		<td>@Html.ActionLink(company.公司, "../Companies/Index", new { companyId = company.ItemID })</td>
 		<td>@company.今日计划GJ</td>
 		<td>@company.今日累计GJ</td>
-		<td>@company.今日计划热指标_IC</td>
-		<td>@company.实际热指标</td>
+        <td>@company.参考热指标</td>
+		<td>@company.计划热指标</td>
 		<td>@company.实际热指标</td>
 		<td>@company.万平方米流量</td></tr>
+        }
     }
 </table>
