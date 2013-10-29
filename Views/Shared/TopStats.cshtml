@@ -39,13 +39,13 @@
 		<div class=" smallstat box span6">
 			<i class="icon-calendar-empty gold"></i>
 			<span class="title">供热总面积</span>
-			<span class="value">@Model.计划投入面积<small>万㎡</small></span>
+			<span class="value">@Model.总供热面积<small>万㎡</small></span>
 			<span class="time">　</span>
 		</div>
 		<div class=" smallstat box span6">
 			<i class="icon-calendar blue"></i>
 			<span class="title">实际投入面积</span>
-			<span class="value">@Model.实际投入面积 <small>万㎡</small></span>
+			<span class="value">@Model.实际供热总面积 / @Model.实际停热总面积 <small>万㎡</small></span>
 			<span class="time">　</span>
 		</div>
 	</div>
@@ -62,16 +62,16 @@
 				</thead>
 				<tbody>
 					<tr>
-						<td>计划投入面积</td><td>0<small>万m<sup>2</sup></td><td>0<small>万m<sup>2</sup></td>
+						<td>计划投入面积</td><td>@Model.今日计划投入面积<small>万m<sup>2</sup></small></td><td>@Model.昨日计划投入面积<small>万m<sup>2</sup></small></td>
 					</tr>
 					<tr>
-						<td>实际投入面积</td><td>0<small>万m<sup>2</sup></td><td>0<small>万m<sup>2</sup></td>
+						<td>实际投入面积</td><td>@Model.今日实际投入面积<small>万m<sup>2</sup></small></td><td>@Model.昨日实际投入面积<small>万m<sup>2</sup></small></td>
 					</tr>
 					<tr>
-						<td>计划停止面积</td><td>0<small>万m<sup>2</sup></td><td>0<small>万m<sup>2</sup></td>
+						<td>计划停止面积</td><td>@Model.今日计划停止面积<small>万m<sup>2</sup></small></td><td>@Model.昨日计划停止面积<small>万m<sup>2</sup></small></td>
 					</tr>
 					<tr>
-						<td>实际停止面积</td><td>0<small>万m<sup>2</sup></td><td>0<small>万m<sup>2</sup></td>
+						<td>实际停止面积</td><td>@Model.今日实际停止面积<small>万m<sup>2</sup></small></td><td>@Model.昨日实际停止面积<small>万m<sup>2</sup></small></td>
 					</tr>
 				</tbody>
 			</table>

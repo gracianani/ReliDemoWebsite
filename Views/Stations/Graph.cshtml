@@ -51,16 +51,24 @@
 @Html.HiddenFor(model=>model.StationId)
 @Html.HiddenFor(model=>model.FromDate)
 @Html.HiddenFor(model=>model.ToDate)
-@Html.Hidden("plan", @Model.理论单耗)
-@Html.Hidden("actual", @Model.实际单耗)
+@Html.Hidden("plan", @Model.计算热指标)
+@Html.Hidden("actual", @Model.计划热指标)
+@Html.Hidden("calculated", @Model.实际运行热指标)
+@Html.Hidden("plan_GJ", @Model.计划供热量GJ)
+@Html.Hidden("calculated_GJ", @Model.核算供热量GJ)
+@Html.Hidden("actual_GJ", @Model.实际供热量GJ)
 @Html.Hidden("temperatureForecast", @Model.预报温度)
 @Html.Hidden("temperatureActual", @Model.实际温度)
 
 <script type="text/javascript">
 
     $(function () {
-        var d1 = $.parseJSON($("input[name=plan]").val());
-        var d3 = $.parseJSON($("input[name=actual]").val());
+        var plan_index = $.parseJSON($("input[name=plan]").val());
+        var calculated_index = $.parseJSON($("input[name=calculated]").val());
+        var actual_index = $.parseJSON($("input[name=actual]").val());
+        var plan_gj = $.parseJSON($("input[name=plan_GJ]").val());
+        var calculated_gj = $.parseJSON($("input[name=calculated_GJ]").val());
+        var actual_gj = $.parseJSON($("input[name=actual_GJ]").val());
         var today = new Date();
         var tempPlan = $.parseJSON($("input[name=temperatureForecast]").val());
         var tempActu = $.parseJSON($("input[name=temperatureActual]").val());
@@ -87,7 +95,7 @@
             }
         };
 
-        $.plot("#stationgraph", [{ "label": "实际平均温度", "data": tempActu, yaxis: 2 }, { "label": "预报平均温度", "data": tempPlan }, { "label": "实际单耗", "data": d3 }, { "label": "理论单耗", "data": d1}], heatoptions);
+        $.plot("#stationgraph", [{ "label": "实际平均温度", "data": tempActu, yaxis: 2 }, { "label": "预报平均温度", "data": tempPlan }, { "label": "实际运行热指标", "data": actual_index }, { "label": "计划热指标", "data": plan_index }, { "label": "计算热指标", "data": calculated_index }, { "label": "实际GJ", "data": actual_gj }, { "label": "计划GJ", "data": plan_gj }, { "label": "核算GJ", "data": calculated_gj}], heatoptions);
 
         $("#search").click(function () {
 
@@ -95,12 +103,12 @@
 
             // Find the URL in the link right next to us, then fetch the data
             var searchSpan = $("label :has(span.checked) input").val();
-          
+
             var dataurl = "HistoryData?stationId=" + $("#StationId").val() + "&searchSpan=" + searchSpan + "&daterange=" + $("#daterange").val();
 
             function onDataReceived(series) {
                 console.log(series);
-                $.plot("#stationgraph", [{ "label": "实际平均温度", "data": $.parseJSON(series.tempActual), yaxis: 2 }, { "label": "预报平均温度", "data": $.parseJSON(series.tempForecast) }, { "label": "实际单耗", "data": $.parseJSON(series.actual) }, { "label": "计划单耗", "data": $.parseJSON(series.planned)}], heatoptions);
+                $.plot("#stationgraph", [{ "label": "实际平均温度", "data": $.parseJSON(series.tempActual), yaxis: 2 }, { "label": "预报平均温度", "data": $.parseJSON(series.tempForecast) }, { "label": "实际运行热指标", "data": $.parseJSON(series.actual) }, { "label": "计划热指标", "data": $.parseJSON(series.planned) }, { "label": "计算热指标", "data": series.calculated }, { "label": "实际GJ", "data": series.actual_gj }, { "label": "计划GJ", "data": series.plan_gj }, { "label": "核算GJ", "data": series.calculated_gj}], heatoptions);
             }
 
             $.ajax({

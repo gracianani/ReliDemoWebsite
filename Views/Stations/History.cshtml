@@ -58,41 +58,35 @@
     <tr>
         <th>#</th>
         <th>日期</th>
-        <th>投入面积A <span class="symbol">(㎡)</span></th>
-        <th>投入面积B <span class="symbol">(㎡)</span></th>
-        <th>实际面积A <span class="symbol">(㎡)</span></th>
-        <th>实际面积B <span class="symbol">(㎡)</span></th>
-        <th>理论单耗 <span class="symbol">(GJ/㎡)</span></th>
-        <th>预报温度 <span class="symbol">(℃)</span></th>
-        <th>实际单耗 <span class="symbol">(GJ/㎡)</span></th>
-        <th>实际温度 <span class="symbol">(℃)</span></th>
-        <th>累计单耗 <span class="symbol">(GJ/㎡)</span></th>
-        <th>采暖季单耗 <span class="symbol">(GJ/㎡)</span></th>
         <th>计划GJ <span class="symbol">(GJ)</span></th>
         <th>采暖GJ <span class="symbol">(GJ)</span></th>
         <th>热水GJ <span class="symbol">(GJ)</span></th>
-        <th>供暖季GJ <span class="symbol">(GJ)</span></th>
+        <th>计算热指标 <span class="symbol">(kcal/h·㎡)</span></th>
+        <th>计划热指标 <span class="symbol">(kcal/h·㎡)</span></th>
+        <th>实际热指标 <span class="symbol">(kcal/h·㎡)</span></th>
+        <th>预报温度 <span class="symbol">(℃)</span></th>
+        <th>实际温度 <span class="symbol">(℃)</span></th>
+        <th>投入面积 <span class="symbol">(㎡)</span></th>
+        <th>多耗 <span class="symbol">(GJ)</span></th>
+        <th>多耗% <span class="symbol">(GJ)</span></th>
     </tr></thead>
 	<tbody>
     @foreach (var history in Model.StationAccuHistories)
     {
         <tr>
             <td>@( Model.StationAccuHistories.ToList().IndexOf(history) + 1)</td>
-            <td>@history.日期.Date.ToString("yyyy-MM-dd")</td>
-            <td>@history.投入面积A</td>
-            <td>@history.投入面积B</td>
-            <td>@history.实际面积A</td>
-            <td>@history.实际面积B</td>
-            <td>@history.理论单耗</td>
+            <td>@history.Date</td>
+            <td>@history.计划供热量</td>
+            <td>@history.实际供热量</td>
+            <td>@history.核算供热量</td>
+            <td>@history.计算热指标</td>
+            <td>@history.计划热指标</td>
+            <td>@history.实际热指标</td>
+            <td>@history.投入面积</td>
             <td>@history.预报温度</td>
-            <td>@history.实际单耗</td>
             <td>@history.实际温度</td>
-            <td>@history.累计单耗</td>
-            <td>@history.采暖季单耗</td>
-            <td>@history.计划GJ</td>
-            <td>@history.采暖GJ</td>
-            <td>@history.热水GJ</td>
-            <td>@history.供暖季GJ</td>
+            <td>@history.多耗</td>
+            <td>@history.多耗percent</td>
         </tr>
     }
  </tbody>

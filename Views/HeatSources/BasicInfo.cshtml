@@ -82,7 +82,6 @@
 			<th>今日热价<span class="symbol">(元)</span></th>
 			<th>昨日热价<span class="symbol">(元)</span></th>
 			<th>本小时热价<span class="symbol">(元)</span></th>
-			<th>上小时热价<span class="symbol">(元)</span></th>
 			<th>单价（元/GJ)</th>
 			</tr>
             @foreach (var recent in @Model.HeatSource.HeatSourceRecents)
@@ -94,7 +93,6 @@
                     <td>@recent.今日热价</td>
                     <td>@recent.昨日热价</td>
                     <td>@recent.本小时热价</td>
-                    <td>@recent.上小时热价</td>
                     <td>@recent.单价</td>
                 </tr>
             }

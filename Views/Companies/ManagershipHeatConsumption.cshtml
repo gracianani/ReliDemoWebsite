@@ -1,4 +1,4 @@
-﻿@model IEnumerable<ReliDemo.Models.Company>
+﻿@model IEnumerable<ReliDemo.Models.Managership>
 
 <table class="table table-condensed table-bordered table-hover table-clickhighlight table-dblclickactive datatable">
 	<thead>
@@ -16,15 +16,15 @@
 		<th>实际运行</th>
 	</tr>
     </thead>
-	@foreach (var company in Model)
+	@foreach (var center in Model)
     {
         <tr>
-		<td>@Html.ActionLink(company.公司, "../Companies/Index", new {companyId = company.ItemID })</td>
-		<td>@company.今日计划GJ</td>
-		<td>@company.今日累计GJ</td>
-		<td>@company.今日计划热指标_IC</td>
-		<td>@company.实际热指标</td>
-		<td>@company.实际热指标</td>
-		<td>@company.万平方米流量</td></tr>
+		<td>@Html.ActionLink(center.管理单位, "ManagershipInfo", new {managershipId = center.ItemID })</td>
+		<td>@center.今日计划GJ</td>
+		<td>@center.今日累计GJ</td>
+		<td>@center.今日计划热指标_IC</td>
+		<td>@center.实际热指标</td>
+		<td>@center.实际热指标</td>
+		<td>@center.万平方米流量</td></tr>
     }
 </table>
