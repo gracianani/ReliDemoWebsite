@@ -34,6 +34,9 @@
 			<span class="value">@Model.手抄表站个数 个</span>
 			<span class="time">最近更新时间 @string.Format("{0:yyyy年MM月dd日}", Model.手抄表最近更新时间)</span>
 		</div>
+
+        
+        @Html.Partial("ExceedGraph", @Model.ExceedGraph)
 		 <!--box-->
 	</div>
 </div><!--row-->

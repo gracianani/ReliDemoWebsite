@@ -8,9 +8,13 @@
              { <text>crimson</text> } 
              ">
 		<h2><i class="icon-eye-open"></i><span class="break"></span>
-             @if( Model.Count() > 0 && Model.First().IsToday ) 
-             { <text>今日 </text>   } 
-             else 
+             @if (Model.Count() > 0 && Model.First().IsPeriod)
+             {
+                 <text>人工抄表</text>
+             }
+             else if (Model.Count() > 0 && Model.First().IsToday)
+             { <text>今日</text>   }
+             else
              { <text>昨日</text> } 
         </h2>
 		<div class="box-icon">
@@ -28,6 +32,11 @@
                         <th><a href="#">西部</a></th>
                         <th ><a href="#">全网</a></th>
                         </text>              
+                    }
+                    else if(Model.ElementAt(0).人工抄表.HasValue){
+                        <text>
+                        <th><a href="#">人工抄表</a></th>
+                        </text>
                     }
                     else
                     {
@@ -49,6 +58,10 @@
                             <td>@GJItem.东部</td> 
                             <td>@GJItem.西部</td> 
                             <td>@GJItem.全网</td>
+                        }
+                        else if(GJItem.人工抄表.HasValue)
+                        {
+                            <td>@GJItem.人工抄表</td> 
                         }
                         else
                         {
