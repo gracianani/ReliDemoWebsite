@@ -11,7 +11,7 @@
 <div class="box blue span12 noMarginLeft" id="heatConsumptionGraph">
 	<div class="box-header">
 		<h2><i class="icon-bar-chart"></i>实际温度、供热量日统计</h2>
-		<div class="box-subTitle"><a class="btn btn-small btn-warning" id="lastSevenDays">最近7天</a> <a class="btn btn-small btn-info" id="lastThirtyDays">最近30天</a> <a class="btn btn-small btn-info" id="thisYear">本供暖季</a>
+		<div class="box-subTitle"><a class="btn btn-small btn-success" id="lastSevenDays">最近7天</a> <a class="btn btn-small btn-info" id="lastThirtyDays">最近30天</a> <a class="btn btn-small btn-info" id="thisYear">本供暖季</a>
 		</div>
 	</div>
 	<div class="box-content">
@@ -50,18 +50,6 @@
 
     
     var heatTempChartData = [{
-        label: "实际平均温度",
-        data: tempPlan,
-        lines: { show: true },
-        points: { show: true }
-
-    }, {
-        label: "预报平均温度",
-        data: tempActu,
-        lines: { show: true },
-        points: { show: true }
-
-    }, {
 
         label: "计划供热量(GJ)",
         data: d1,
@@ -81,29 +69,41 @@
 
     }, {
 
-        label: "累计供热量(GJ)",
+        label: "实际供热量(GJ)",
         data: d3,
         lines: { show: true },
 	   points:{  show:true, symbol:"cross"},
         yaxis: 2
     }, {
-        label: "当日计划热指标(kcal/h·㎡)",
+        label: "计划热指标(kcal/h·㎡)",
         data: d3,
         lines: { show: true },
-        points: { show: true, symbol: "cross" },
-        yaxis: 2
+        points: { show: true, symbol: "square" },
+        yaxis: 3
     }, {
-        label: "当日核算热指标(kcal/h·㎡)",
+        label: "核算热指标(kcal/h·㎡)",
         data: d3,
         lines: { show: true },
-        points: { show: true, symbol: "cross" },
-        yaxis: 2
+        points: { show: true, symbol: "square" },
+        yaxis: 3
     }, {
-        label: "当日实际运行热指标(kcal/h·㎡)",
+        label: "实际运行热指标(kcal/h·㎡)",
         data: d3,
         lines: { show: true },
-        points: { show: true, symbol: "cross" },
-        yaxis: 2
+        points: { show: true, symbol: "square" },
+        yaxis: 3
+    },{
+        label: "实际平均温度",
+        data: tempPlan,
+        lines: { show: true },
+        points: { show: true }
+
+    }, {
+        label: "预报平均温度",
+        data: tempActu,
+        lines: { show: true },
+        points: { show: true }
+
     }];
 
 
@@ -123,11 +123,13 @@
         grid: heatTempChartGrid,
         yaxes: [{min:-50,max:25}, {
             position: "right"
+        },{
+            position: "right"
         }],
-        colors: ["#ec6313", "#00558e", "#fabb3d", "#c84628", "#2fabe9"],
+        colors:["#fabb3d", "#ec6313", "#2fabe9","#fabb3d","#ec6313",  "#2fabe9"],
         legend: {
             container: lengendContainer,
-            noColumns: 5
+            noColumns: 3
         }
 
     };
@@ -138,12 +140,14 @@
             timeformat: "%m月%d日"
         }, yaxes: [{min:-50,max:25}, {
             position: "right"
+        },{
+            position: "right"
         }],
-        colors: ["#ec6313", "#00558e", "#fabb3d", "#c84628", "#2fabe9"],
+        colors:["#fabb3d", "#ec6313", "#79302f","#7fb30c","#2fabe9",  "#00558e"],
         grid: heatTempChartGrid,
         legend: {
             container: lengendContainer,
-            noColumns: 5
+            noColumns: 3
         }
     };
     var heatTempChartOptionsLastMonth = {
@@ -153,12 +157,14 @@
             timeformat: "%m月%d日"
         }, yaxes: [{min:-50,max:25}, {
             position: "right"
+        },{
+            position: "right"
         }],
-        colors: ["#ec6313", "#00558e", "#fabb3d", "#c84628", "#2fabe9"],
+        colors:["#fabb3d", "#ec6313", "#79302f","#7fb30c","#2fabe9",  "#00558e"],
         grid: heatTempChartGrid,
         legend: {
             container: lengendContainer,
-            noColumns: 5
+            noColumns: 3
         }
     };
 
