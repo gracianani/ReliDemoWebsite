@@ -1,40 +1,46 @@
-﻿@model  List<ReliDemo.Models.TimeTemperature>
+﻿@model  IEnumerable<ReliDemo.Models.ITemperatureGraphItem>
 
 
 <div id="graph"  style="height:250px">
 </div>
 
-@Html.Hidden("realtimeTemperatures", 
-        "[" + string.Join(",", Model.Where(i=>i.TemperatureType == ReliDemo.Models.TemperatureType.实时温度).Select(i=> string.Format("{{\"time\": \"{0:yyyy-MM-dd HH:mm:ss}\", \"temperature\" : {1}}}", i.时间 , i.Temperature)).ToArray() ) + "]"
+@Html.Hidden("forecastAverage", 
+        "[" + string.Join(",", Model.Where(i=>i.ForcastAverage.HasValue).OrderBy(i=>i.日期).Select(i=> string.Format("{{\"time\": \"{0:yyyy-MM-dd HH:mm:ss}\", \"temperature\" : {1}}}", i.日期, i.ForcastAverage)).ToArray() ) + "]"
 )
-@Html.Hidden("highestTemperatures",
-       "[" + string.Join(",", Model.Where(i => i.TemperatureType == ReliDemo.Models.TemperatureType.最高温度).Select(i => string.Format("{{\"time\": \"{0:yyyy-MM-dd HH:mm:ss}\", \"temperature\" : {1}}}", i.时间, i.Temperature)).ToArray()) + "]"
+@Html.Hidden("forecastHighest",
+                   "[" + string.Join(",", Model.Where(i => i.ForecastHighest.HasValue).Select(i => string.Format("{{\"time\": \"{0:yyyy-MM-dd HH:mm:ss}\", \"temperature\" : {1}}}", i.日期, i.ForecastHighest)).ToArray()) + "]"
 )
-@Html.Hidden("lowestTemperatures",
-       "[" + string.Join(",", Model.Where(i => i.TemperatureType == ReliDemo.Models.TemperatureType.最低温度).Select(i => string.Format("{{\"time\": \"{0:yyyy-MM-dd HH:mm:ss}\", \"temperature\" : {1}}}", i.时间, i.Temperature)).ToArray()) + "]"
+@Html.Hidden("forecastLowest",
+                           "[" + string.Join(",", Model.Where(i => i.ForecastLowest.HasValue).Select(i => string.Format("{{\"time\": \"{0:yyyy-MM-dd HH:mm:ss}\", \"temperature\" : {1}}}", i.日期, i.ForecastLowest)).ToArray()) + "]"
 )
-
+@Html.Hidden("actualAverage",
+                               "[" + string.Join(",", Model.Where(i => i.ActualAverage.HasValue).Select(i => string.Format("{{\"time\": \"{0:yyyy-MM-dd HH:mm:ss}\", \"temperature\" : {1}}}", i.日期, i.ActualAverage)).ToArray()) + "]"
+)
 
 <script type="text/javascript">
     $(document).ready(function () {
-        var realtimeTemperatureData = $.parseJSON($("input[name=realtimeTemperatures]").val());
+        var forecastAverageData = $.parseJSON($("input[name=forecastAverage]").val());
 
-        var realtimeTemperature = [];
-        for (var i = 0; i < realtimeTemperatureData.length; i++) {
-            realtimeTemperature.push([(new Date(realtimeTemperatureData[i].time).getTime()), realtimeTemperatureData[i].temperature]);
+        var forecastAverage = [];
+        for (var i = 0; i < forecastAverageData.length; i++) {
+            forecastAverage.push([(new Date(forecastAverageData[i].time).getTime()), forecastAverageData[i].temperature]);
         }
 
-        var highestTemperatureData = $.parseJSON($("input[name=highestTemperatures]").val());
-        var highestTemperature = [];
-        for (var i = 0; i < highestTemperatureData.length; i++) {
-            highestTemperature.push([(new Date(highestTemperatureData[i].time).getTime()), highestTemperatureData[i].temperature]);
+        var forecastHighestData = $.parseJSON($("input[name=forecastHighest]").val());
+        var forecastHighest = [];
+        for (var i = 0; i < forecastHighestData.length; i++) {
+            forecastHighest.push([(new Date(forecastHighestData[i].time).getTime()), forecastHighestData[i].temperature]);
         }
-        var lowestTemperatureData = $.parseJSON($("input[name=lowestTemperatures]").val());
-        var lowestTemperature = [];
-        for (var i = 0; i < lowestTemperatureData.length; i++) {
-            lowestTemperature.push([(new Date(lowestTemperatureData[i].time).getTime()), lowestTemperatureData[i].temperature]);
+        var forecastLowestData = $.parseJSON($("input[name=forecastLowest]").val());
+        var forecastLowest = [];
+        for (var i = 0; i < forecastLowestData.length; i++) {
+            forecastLowest.push([(new Date(forecastLowestData[i].time).getTime()), forecastLowestData[i].temperature]);
         }
-
+        var actualAverageData = $.parseJSON($("input[name=actualAverage]").val());
+        var actualAverage = [];
+        for (var i = 0; i < actualAverageData.length; i++) {
+            actualAverage.push([(new Date(actualAverageData[i].time).getTime()), actualAverageData[i].temperature]);
+        }
         var heatTempChartGrid = {
             tickColor: "#eee",
             borderWidth: 0,
@@ -57,30 +63,30 @@
         };
 
         var temperatureChartData = [];
-        if (realtimeTemperature.length > 0) {
-            temperatureChartData.push({
-                label: "当前温度",
-                data: realtimeTemperature,
-                lines: { show: true },
-                points: { show: true }
-            });
-        }
-        if (highestTemperature.length > 0) {
-            temperatureChartData.push({
-                label: "最高温度",
-                data: highestTemperature,
-                lines: { show: true },
-                points: { show: true }
-            });
-        }
-        if (lowestTemperature.length > 0) {
-            temperatureChartData.push({
-                label: "最低温度",
-                data: lowestTemperature,
-                lines: { show: true },
-                points: { show: true }
-            });
-        }
+        temperatureChartData.push({
+            label: "预报平均温度",
+            data: forecastAverage,
+            lines: { show: true },
+            points: { show: true }
+        });
+        temperatureChartData.push({
+            label: "预报最高温度",
+            data: forecastHighest,
+            lines: { show: true },
+            points: { show: true }
+        });
+        temperatureChartData.push({
+            label: "预报最低温度",
+            data: forecastLowest,
+            lines: { show: true },
+            points: { show: true }
+        });
+        temperatureChartData.push({
+            label: "实际平均温度",
+            data: actualAverage,
+            lines: { show: true },
+            points: { show: true }
+        });
         var dashboardHeatTempChart = $.plot($("#graph"), temperatureChartData, tempChartOptions);
 
         var points = dashboardHeatTempChart.getData();

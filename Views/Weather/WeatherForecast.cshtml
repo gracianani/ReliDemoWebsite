@@ -18,7 +18,7 @@ line-height: 30px;'>专业气象站</h2>
 				<h2><i class="icon-cloud"></i>温度趋势曲线图</h2>
 			</div>
 			<div class="box-content">
-				@Html.Partial("TemperatureGraph", Model.七日预测温度)
+				@Html.Partial("TemperatureGraph", Model.七日预测实际温度)
 			</div>
 		</div>
     </div>
@@ -134,10 +134,12 @@ line-height: 30px;'>专业气象站</h2>
         </div>
 		<div class="box span12 noMarginLeft">
 			<div class="box-header">
-				<h2><i class="icon-moon"></i>气象月报 (@Model.十日预测.预报时间 ) 发布</h2>
+				<h2><i class="icon-moon"></i>气象文本 (@Model.原始文本.日期.ToShortDateString()) 发布</h2>
 			</div>
 			<div class="box-content">
-                @Model.十日预测.预报内容
+                @Model.原始文本.六时
+                <br />
+                @Model.原始文本.十七时
             </div>
         </div>
     </div>
