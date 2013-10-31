@@ -1,9 +1,17 @@
 ﻿@model  IEnumerable<ReliDemo.Models.ITemperatureGraphItem>
 
-
+<style>
+#graph-legend table{
+	margin:0 auto;
+}
+</style>
+<div class="graphWrapper">
 <div id="graph"  style="height:250px">
 </div>
-
+<div id="graph-legend" ></div>
+<div class="forecastlabel">预报</div>
+<div class="actuallabel">历史</div>
+</div>
 @Html.Hidden("forecastAverage", 
         "[" + string.Join(",", Model.Where(i=>i.ForcastAverage.HasValue).OrderBy(i=>i.日期).Select(i=> string.Format("{{\"time\": \"{0:yyyy-MM-dd HH:mm:ss}\", \"temperature\" : {1}}}", i.日期, i.ForcastAverage)).ToArray() ) + "]"
 )
@@ -48,18 +56,22 @@
             clickable: true
         };
 
+		var maxTemp = 25;
+		var minTemp= 0;
         var tempChartOptions = {
             xaxis: {
                 mode: "time",
                 minTickSize: [1, "day"],
                 timeformat: "%m月%d日"
             },
-            yaxis: {
-                min: -20,
-                max: 45
-            },
+			yaxis: { max:maxTemp,min:minTemp},
             grid: heatTempChartGrid,
-			colors:["#ec6313","#00558e"]
+			colors:["#ec6313","#fabb3d","#00558e","#378fc9"],
+			legend: {
+            container: $("#graph-legend"),
+			show:true,
+            noColumns: 4
+			}
         };
 
         var temperatureChartData = [];
@@ -85,22 +97,33 @@
             label: "实际平均温度",
             data: actualAverage,
             lines: { show: true },
-            points: { show: true }
+            points: { show: true,fill:true }
+        });
+		console.log(forecastHighest);
+		temperatureChartData.push({
+            data: [[forecastHighest[6][0],30],[forecastHighest[6][0],-25]],
+            lines: { show: true },
+            points: { show: false },
+			color:"#444"
         });
         var dashboardHeatTempChart = $.plot($("#graph"), temperatureChartData, tempChartOptions);
 
         var points = dashboardHeatTempChart.getData();
+		console.log(points);
         var graphx = $('#graph').offset().left;
         graphx = graphx + 30; // replace with offset of canvas on graph
         var graphy = $('#graph').offset().top;
         graphy = graphy + 10; // how low you want the label to hang underneath the point
+		var weatherIcon = "";
         for (var k = 0; k < points.length; k++) {
             for (var m = 0; m < points[k].data.length; m++) {
                 if (points[k].data[m][0] != null && points[k].data[m][1] != null) {
-                    if (k == 0) {
-                        showTooltip(graphx + points[k].xaxis.p2c(points[k].data[m][0]), graphy + points[k].yaxis.p2c(points[k].data[m][1]) - 40, points[k].data[m][1], "#ec6313")
+                    if (k == 0 && m > 6) {
+						//forecast tempreture line
+						weatherIcon = '<div class="weathericon weather-1"></div>';
+                        showInfoWindow(graphx + points[k].xaxis.p2c(points[k].data[m][0]) - 25, graphy + points[k].yaxis.p2c(points[k].data[m][1]) -40, weatherIcon + points[k].data[m][1], "#ec6313")
                     } else {
-                        showTooltip(graphx + points[k].xaxis.p2c(points[k].data[m][0]), graphy + points[k].yaxis.p2c(points[k].data[m][1]) + 5, points[k].data[m][1], "#00558e")
+                        //showInfoWindow(graphx + points[k].xaxis.p2c(points[k].data[m][0]), graphy + points[k].yaxis.p2c(points[k].data[m][1]) + 5, points[k].data[m][1], "#00558e")
                     }
 
                 }
@@ -108,12 +131,25 @@
         }
 
     });
-    function showTooltip(x, y, contents, colour) {
+	$("<div id='tooltip'></div>").appendTo("body");
+
+   $("#graph").bind("plothover", function (event, pos, item) {
+            if (item) {
+                var x = item.datapoint[0];
+                $("#tooltip").html(item.series.label + " : " + item.datapoint[1])
+				.css({ top: item.pageY + 5, left: item.pageX + 5 })
+				.fadeIn(200);
+            } else {
+                $("#tooltip").hide();
+            }
+	});
+    function showInfoWindow(x, y, contents, colour) {
         $('<div id="value">' + contents + " ℃" + '</div>').css({
             position: 'absolute',
-            display: 'none',
             top: y,
             left: x,
+			'width':'50px',
+			'text-align':'center',
             'border-style': 'solid',
             'border-width': '2px',
             'border-color': "#FFF",
@@ -121,7 +157,7 @@
             'background-color': colour,
             color: '#FFF',
             padding: '2px'
-        }).appendTo("body").fadeIn(200);
+        }).appendTo("body");
     } 
     
 </script>
