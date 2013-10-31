@@ -51,7 +51,16 @@
             <tbody>
                 @foreach (var GJItem in Model)
                 {
-                    <tr>
+                    <tr class="
+					@if ( GJItem.Title.Contains("供热量")) {
+					<text>groupColorBlue</text>
+					}else if ( GJItem.Title.Contains("热指标")) {
+					<text>groupColorGold</text>
+					}else if ( GJItem.Title.Contains("单耗")) {
+					<text>groupColorGreen</text>
+					}
+					"
+					>
 					    <td>@GJItem.Title</td>
                         @if (GJItem.东部.HasValue)
                         {
@@ -70,7 +79,23 @@
                             <td>@GJItem.智能卡</td>
                         }
 				    </tr>
+					
                 }
+				
+				<tr class="groupColorBlue">
+						<td>实际供热量超计划(GJ)</td>
+						<td class="differenceValue">0</td>
+						<td class="differenceValue">103</td>
+						<td class="differenceValue">-4</td>
+				</tr>
+				<tr class="groupColorBlue">
+						<td>实际供热量超核算(GJ)</td>
+						<td class="differenceValue">0</td>
+						<td class="differenceValue">140</td>
+						<td class="differenceValue">-4</td>
+				</tr>
+				
+				
             </tbody>
         </table>
     </div>

@@ -1,5 +1,5 @@
 ﻿@model IEnumerable<ReliDemo.Models.Company>
-
+<div class="scrollableTableContainer">
 <table class="table table-condensed table-bordered table-hover table-clickhighlight table-dblclickactive datatable">
 	<thead>
     <tr>
@@ -7,6 +7,8 @@
 		<th colspan="2">供热量(GJ)</th>
 		<th colspan="3">热指标(kcal/h•㎡)</th>
 		<th rowspan="2">万平米循环水量<br/>(t/h)</th>
+		<th rowspan="2">站总数(个）</th>
+		<th colspan="4">超标站（个)</th>
 	</tr>
 	<tr>
 		<th>计划</th>
@@ -14,6 +16,10 @@
         <th>计算</th>
 		<th>计划</th>
 		<th>实际运行</th>
+		<th>超标总数</th>
+		<th>单耗超标</th>
+		<th>流量超标</th>
+		<th>回温超标</th>
 	</tr>
     </thead>
 	@foreach (var company in Model)
@@ -27,7 +33,14 @@
         <td>@company.参考热指标</td>
 		<td>@company.计划热指标</td>
 		<td>@company.实际热指标</td>
-		<td>@company.万平方米流量</td></tr>
+		<td>@company.万平方米流量</td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		</tr>
         }
     }
 </table>
+</div>

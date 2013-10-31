@@ -286,7 +286,17 @@ function template_functions(){
 		$('#myModal').modal('show');
 	});
 	
-	
+	/* ----------Difference Value ---- */
+    $('.differenceValue').each(function(){
+        value = parseInt($(this).text());
+        if ( typeof(value) != NaN ) {
+            if (value > 0) {
+                $(this).html('<strong class="red">+' + value + '</strong>');
+            } else if (value < 0){
+                $(this).html('<strong class="darkGreen">' + value + '</strong>');
+            }
+        }
+    });
 	/* ---------- Progress  ---------- */
 
 		$(".simpleProgress").progressbar({

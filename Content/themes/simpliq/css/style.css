@@ -3601,7 +3601,11 @@ h3 {
 .backgroundColorHeader.red h2 i {
   background: #9e3720;
 }
-/* line 184, less\custom.less */
+/* line 182, less\custom.less */
+.box {
+  margin-bottom: 15px;
+}
+/* line 185, less\custom.less */
 .box .box-header .box-subTitle {
   float: right;
   font-size: 16px;
@@ -3609,44 +3613,44 @@ h3 {
   padding: 8px 0;
   margin: 0 20px 0 0;
 }
-/* line 192, less\custom.less */
+/* line 193, less\custom.less */
 .box .box-header h2 {
   font-size: 16px;
   font-weight: normal;
   line-height: 16px;
 }
-/* line 197, less\custom.less */
+/* line 198, less\custom.less */
 .box .box-header .btn-small {
   padding: 0 10px;
   line-height: 20px;
 }
-/* line 201, less\custom.less */
+/* line 202, less\custom.less */
 .box .box-header.nav-tabs {
   font-weight: bold;
   margin-bottom: 0;
   border-bottom: none;
 }
-/* line 205, less\custom.less */
+/* line 206, less\custom.less */
 .box .box-header.nav-tabs a {
   color: white;
 }
-/* line 208, less\custom.less */
+/* line 209, less\custom.less */
 .box .box-header.nav-tabs .active > a {
   color: black;
 }
-/* line 211, less\custom.less */
+/* line 212, less\custom.less */
 .box .box-header.nav-tabs li:hover > a {
   color: #378fc9;
 }
-/* line 215, less\custom.less */
+/* line 216, less\custom.less */
 .box .box-header.mergeWithBottom {
   margin-bottom: 0;
 }
-/* line 220, less\custom.less */
+/* line 221, less\custom.less */
 .box .form-inline label {
   padding-right: 10px;
 }
-/* line 225, less\custom.less */
+/* line 226, less\custom.less */
 .makeTableHeaderAsBoxHeader {
   position: relative;
   top: -46px;
@@ -3654,43 +3658,43 @@ h3 {
   border-top: none!important;
   border-right: none!important;
 }
-/* line 231, less\custom.less */
+/* line 232, less\custom.less */
 .makeTableHeaderAsBoxHeader thead th {
   color: #FFF!important;
   background: none!important;
   border: none!important;
 }
-/* line 235, less\custom.less */
+/* line 236, less\custom.less */
 .makeTableHeaderAsBoxHeader thead th a {
   color: #FFF;
 }
-/* line 239, less\custom.less */
+/* line 240, less\custom.less */
 .makeTableHeaderAsBoxHeader tbody tr:first-child td {
   border-top: none;
 }
-/* line 244, less\custom.less */
+/* line 245, less\custom.less */
 .centerhead th {
   text-align: center;
 }
 /* highlight
 ========================*/
-/* line 251, less\custom.less */
+/* line 252, less\custom.less */
 .highlighting .highlightBlue {
   color: #378fc9;
 }
-/* line 254, less\custom.less */
+/* line 255, less\custom.less */
 .highlighting .highlightRed {
   color: #c84628;
 }
 /* table
 =================================================================== */
-/* line 261, less\custom.less */
+/* line 262, less\custom.less */
 .table.table-bordered {
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   border-radius: 0;
 }
-/* line 266, less\custom.less */
+/* line 267, less\custom.less */
 .table.table-bordered thead:first-child tr:first-child > th:first-child,
 .table.table-bordered tbody:first-child tr:first-child > td:first-child,
 .table.table-bordered tbody:first-child tr:first-child > th:first-child,
@@ -3703,29 +3707,29 @@ h3 {
   -moz-border-radius: 0;
   border-radius: 0;
 }
-/* line 272, less\custom.less */
+/* line 273, less\custom.less */
 .table th {
   background-color: #ededed;
   color: #000;
   font-weight: bold;
 }
-/* line 277, less\custom.less */
+/* line 278, less\custom.less */
 .table td {
   color: #111;
 }
-/* line 280, less\custom.less */
+/* line 281, less\custom.less */
 .table .sorting_asc {
   background-image: url("../img/sort_asc.png");
   background-repeat: no-repeat;
   background-position: right center;
 }
-/* line 285, less\custom.less */
+/* line 286, less\custom.less */
 .table .sorting_desc {
   background-image: url("../img/sort_desc.png");
   background-repeat: no-repeat;
   background-position: right center;
 }
-/* line 290, less\custom.less */
+/* line 291, less\custom.less */
 .table .sorting {
   background-image: url("../img/sort_both.png");
   background-repeat: no-repeat;
@@ -3733,11 +3737,11 @@ h3 {
 }
 /* station
 ========================*/
-/* line 299, less\custom.less */
+/* line 300, less\custom.less */
 .subNav {
   margin-left: 0;
 }
-/* line 302, less\custom.less */
+/* line 303, less\custom.less */
 .subNav li {
   float: left;
   display: inline-block;
@@ -3748,59 +3752,59 @@ h3 {
   border-right: 1px solid rgba(255, 255, 255, 0.1);
   border-left: 1px solid rgba(0, 0, 0, 0.5);
 }
-/* line 311, less\custom.less */
+/* line 312, less\custom.less */
 .subNav li.current {
   background-color: #0074c1;
 }
-/* line 314, less\custom.less */
+/* line 315, less\custom.less */
 .subNav li:first-child {
   border-radius: 4px 0 0 4px;
   border-left: none;
 }
-/* line 318, less\custom.less */
+/* line 319, less\custom.less */
 .subNav li:last-child {
   border-radius: 0 4px 4px 0;
   border-right: none;
 }
-/* line 322, less\custom.less */
+/* line 323, less\custom.less */
 .subNav li a {
   color: #fff;
 }
-/* line 325, less\custom.less */
+/* line 326, less\custom.less */
 .subNav li a:hover {
   text-decoration: none;
 }
-/* line 331, less\custom.less */
+/* line 332, less\custom.less */
 .table-zebra td {
   color: #333;
 }
-/* line 335, less\custom.less */
+/* line 336, less\custom.less */
 .table-zebra tr td:nth-child(2n) {
   background-color: #f9f9f9;
 }
-/* line 339, less\custom.less */
+/* line 340, less\custom.less */
 .table-zebra tr:nth-child(2n) {
   background-color: #f9f9f9;
 }
-/* line 341, less\custom.less */
+/* line 342, less\custom.less */
 .table-zebra tr:nth-child(2n) td:nth-child(2n) {
   background-color: white;
 }
-/* line 345, less\custom.less */
+/* line 346, less\custom.less */
 .table-zebra em {
   font-style: normal;
   color: #000;
   font-size: 18px;
 }
-/* line 351, less\custom.less */
+/* line 352, less\custom.less */
 .table-zebra a {
   color: #378fc9;
 }
-/* line 357, less\custom.less */
+/* line 358, less\custom.less */
 .pieChartWithCenterText {
   position: relative;
 }
-/* line 359, less\custom.less */
+/* line 360, less\custom.less */
 .pieChartWithCenterText .centerText {
   position: absolute;
   top: 45%;
@@ -3811,92 +3815,92 @@ h3 {
   z-index: 100;
   color: #000;
 }
-/* line 371, less\custom.less */
+/* line 372, less\custom.less */
 .topmenu {
   position: relative;
   top: 15px;
   margin-bottom: 20px;
 }
-/* line 375, less\custom.less */
+/* line 376, less\custom.less */
 .topmenu .btn {
   background-color: #393f4c;
   color: #FFF;
 }
-/* line 379, less\custom.less */
+/* line 380, less\custom.less */
 .topmenu .btn:hover,
 .topmenu .selected {
   background-color: #0071c0;
 }
-/* line 383, less\custom.less */
+/* line 384, less\custom.less */
 .stationTitle {
   margin-bottom: 20px;
 }
 /* table 
 ===========================*/
-/* line 390, less\custom.less */
+/* line 391, less\custom.less */
 .scrollableTableContainer {
   width: 100%;
   overflow: scroll;
   overflow-x: scroll;
   overflow-y: visible;
 }
-/* line 396, less\custom.less */
+/* line 397, less\custom.less */
 .scrollableTableContainer table th,
 .scrollableTableContainer table td {
   min-width: 140px;
   width: auto;
   max-width: none;
 }
-/* line 403, less\custom.less */
+/* line 404, less\custom.less */
 .scrollableTableContainer .table {
   width: auto;
   max-width: none;
 }
-/* line 409, less\custom.less */
+/* line 410, less\custom.less */
 .table .groupColorBlue {
   background-color: #ecf4fa;
 }
-/* line 412, less\custom.less */
+/* line 413, less\custom.less */
 .table .groupColorGold {
   background-color: #fef8eb;
 }
-/* line 415, less\custom.less */
+/* line 416, less\custom.less */
 .table .groupColorGreen {
   background-color: #f8fdf0;
 }
-/* line 418, less\custom.less */
+/* line 419, less\custom.less */
 .table .alert td {
   font-weight: bold;
 }
-/* line 422, less\custom.less */
+/* line 423, less\custom.less */
 .table .time {
   font-size: 10px;
   letter-spacing: -1px;
 }
-/* line 428, less\custom.less */
+/* line 429, less\custom.less */
 .table-hover tbody tr:hover > td {
   background-color: #ecf4fa;
   color: black;
 }
-/* line 434, less\custom.less */
+/* line 435, less\custom.less */
 ::-webkit-input-placeholder {
   color: #666!important;
 }
-/* line 437, less\custom.less */
+/* line 438, less\custom.less */
 :-moz-placeholder {
   color: #666!important;
 }
-/* line 440, less\custom.less */
+/* line 441, less\custom.less */
 ::-moz-placeholder {
   color: #666!important;
 }
-/* line 443, less\custom.less */
+/* line 444, less\custom.less */
 :-ms-input-placeholder {
   color: #666!important;
 }
 /* Station
 =============================*/
-/* line 449, less\custom.less */
+/* line 450, less\custom.less */
 #submitFilter {
   height: 87px;
   line-height: 80px;
@@ -3905,14 +3909,14 @@ h3 {
   overflow: hidden;
   width: 100%;
 }
-/* line 457, less\custom.less */
+/* line 458, less\custom.less */
 .heightAuto #submitFilter {
   height: auto!important;
   line-height: 30px;
 }
 /* Sidebar
 ============================*/
-/* line 465, less\custom.less */
+/* line 466, less\custom.less */
 .dropmenu [class^="icon-"],
 .dropmenu [class*=" icon-"] {
   background-color: white;
@@ -3923,12 +3927,12 @@ h3 {
   display: inline-block;
   text-align: center;
 }
-/* line 476, less\custom.less */
+/* line 477, less\custom.less */
 .icon-companyname:before {
   content: "" !important;
   display: none;
 }
-/* line 480, less\custom.less */
+/* line 481, less\custom.less */
 .icon-companyname {
   background-color: white;
   color: #383e4b;
@@ -3939,17 +3943,17 @@ h3 {
   display: inline-block;
   text-align: center;
 }
-/* line 490, less\custom.less */
+/* line 491, less\custom.less */
 a.box {
   display: inline-block;
 }
 /* alert
 ======================*/
-/* line 497, less\custom.less */
+/* line 498, less\custom.less */
 .alert-block a {
   color: #c09853;
 }
-/* line 502, less\custom.less */
+/* line 503, less\custom.less */
 legend {
   margin-bottom: 0px;
 }
