@@ -30,68 +30,10 @@ line-height: 30px;'>专业气象站</h2>
 				<h2><i class="icon-list"></i>七日气象预报</h2>
 			</div>
 			<div class="box-content">
-			<table class="table table-bordered table-condensed" >
-            <tr><th colspan="6">天气实况</th></tr>
-            <tr>
-                <td rowspan="2">
-                    今天
-                </td>
-                <td>白天</td>
-                <td>
-                    @Model.今日预测.白天天气
-                </td>
-                <td>
-                    @Model.今日预测.白天风力
-                </td>
-                <td rowspan="2">
-                    平均 @Convert.ToInt32(@Model.今日预测.今日预报一天平均温.Value) ℃
-                </td>
-                <td>
-                    最高 @Convert.ToInt32(@Model.今日预测.今日预报白天最高温) ℃
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    夜间
-                </td>
-                <td>
-                    @Model.今日预测.夜间天气
-                </td>
-                <td>
-                    @Model.今日预测.夜间风力
-                </td>
-                <td>
-                    最低 @Convert.ToInt32(@Model.今日预测.今日预报夜间最低温) ℃
-                </td>
-            </tr>
-            <tr>
-                <td rowspan="2">
-                    昨日
-                </td>
-                <td>
-                    白天
-                </td>
-                <td colspan="2" rowspan="2">&nbsp;</td>
-                <td rowspan="2">
-                    平均 @Convert.ToInt32(@Model.今日预测.昨日实况一天平均温) ℃
-                </td>
-                <td>
-                    最高 @Convert.ToInt32(@Model.今日预测.昨日实况白天最高温) ℃
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    夜间
-                </td>
-                <td>
-                    最低 @Convert.ToInt32(@Model.今日预测.昨日实况夜间最低温) ℃
-                </td>
-            </tr>
-        </table>
-		<br />
+			
                 <table class="table table-condensed table-bordered">
                     <tr>
-                        <th>未来７日预报</th>
+                        <th>时间</th>
                         <th>天气现象</th>
                         <th>气温</th>
                         <th>风向</th>
@@ -124,7 +66,72 @@ line-height: 30px;'>专业气象站</h2>
     </div>
 
     <div class="span6">
-        <div class="box span12 noMarginLeft">
+		<div class="box">
+			<div class="box-header">
+				<h2><i class="icon-bar-chart"></i>天气实况</h2>
+			</div>
+			<div class="box-content">
+				<table class="table table-bordered table-condensed" >
+				<tr><th colspan="2">时间</th><th>天气现象</th><th>风向</th><th colspan="2">气温</th></tr>
+				<tr>
+					<td rowspan="2">
+						今天
+					</td>
+					<td>白天</td>
+					<td>
+						@Model.今日预测.白天天气
+					</td>
+					<td>
+						@Model.今日预测.白天风力
+					</td>
+					<td rowspan="2">
+						平均 @Convert.ToInt32(@Model.今日预测.今日预报一天平均温.Value) ℃
+					</td>
+					<td>
+						最高 @Convert.ToInt32(@Model.今日预测.今日预报白天最高温) ℃
+					</td>
+				</tr>
+				<tr>
+					<td>
+						夜间
+					</td>
+					<td>
+						@Model.今日预测.夜间天气
+					</td>
+					<td>
+						@Model.今日预测.夜间风力
+					</td>
+					<td>
+						最低 @Convert.ToInt32(@Model.今日预测.今日预报夜间最低温) ℃
+					</td>
+				</tr>
+				<tr>
+					<td rowspan="2">
+						昨日
+					</td>
+					<td>
+						白天
+					</td>
+					<td colspan="2" rowspan="2">&nbsp;</td>
+					<td rowspan="2">
+						平均 @Convert.ToInt32(@Model.今日预测.昨日实况一天平均温) ℃
+					</td>
+					<td>
+						最高 @Convert.ToInt32(@Model.今日预测.昨日实况白天最高温) ℃
+					</td>
+				</tr>
+				<tr>
+					<td>
+						夜间
+					</td>
+					<td>
+						最低 @Convert.ToInt32(@Model.今日预测.昨日实况夜间最低温) ℃
+					</td>
+				</tr>
+				</table>
+			</div>
+		</div>
+        <div class="box">
 			<div class="box-header">
 				<h2><i class="icon-bell"></i>气象旬报 (@Model.十日预测.预报时间 ) 发布</h2>
 			</div>
@@ -132,9 +139,9 @@ line-height: 30px;'>专业气象站</h2>
                 @Model.十日预测.预报内容
             </div>
         </div>
-		<div class="box span12 noMarginLeft">
+		<div class="box">
 			<div class="box-header">
-				<h2><i class="icon-moon"></i>气象文本 (@Model.原始文本.日期.ToShortDateString()) 发布</h2>
+				<h2><i class="icon-file-text"></i>原始文本 (@Model.原始文本.日期.ToShortDateString()) 发布</h2>
 			</div>
 			<div class="box-content">
                 @Model.原始文本.六时

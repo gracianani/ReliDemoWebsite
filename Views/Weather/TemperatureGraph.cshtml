@@ -56,7 +56,7 @@
             clickable: true
         };
 
-		var maxTemp = 25;
+		var maxTemp = 22;
 		var minTemp= 0;
         var tempChartOptions = {
             xaxis: {
@@ -121,7 +121,7 @@
                     if (k == 0 && m > 6) {
 						//forecast tempreture line
 						weatherIcon = '<div class="weathericon weather-1"></div>';
-                        showInfoWindow(graphx + points[k].xaxis.p2c(points[k].data[m][0]) - 25, graphy + points[k].yaxis.p2c(points[k].data[m][1]) -40, weatherIcon + points[k].data[m][1], "#ec6313")
+                        showInfoWindow(graphx + points[k].xaxis.p2c(points[k].data[m][0]) - 25, graphy + points[k].yaxis.p2c(points[k].data[m][1]) -30, weatherIcon + points[k].data[m][1], "#ec6313")
                     } else {
                         //showInfoWindow(graphx + points[k].xaxis.p2c(points[k].data[m][0]), graphy + points[k].yaxis.p2c(points[k].data[m][1]) + 5, points[k].data[m][1], "#00558e")
                     }
