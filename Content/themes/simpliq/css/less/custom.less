@@ -15,6 +15,7 @@ h1,h2,h3 {
    color:white;
    font-size:14px;
    border-radius:3px;
+   z-index:99;
 }
 #content {
 	> h2 {
@@ -502,4 +503,49 @@ a.box {
 
 legend {
 margin-bottom:0px;
+}
+
+/* Sidebar
+============================*/
+.weathericon {
+	width:24px;
+	height:24px;
+	display:block;
+	margin:0 auto;
+	&.weather-1 {
+		background:url("@{baseurl}/weather24/001.png") center center no-repeat;
+	}
+	&.weather-2 {
+		background:url("@{baseurl}/weather24/001.png") center center no-repeat;
+	}
+	&.weather-3 {
+		background:url("@{baseurl}/weather24/001.png") center center no-repeat;
+	}
+	&.weather-4 {
+		background:url("@{baseurl}/weather24/001.png") center center no-repeat;
+	}
+	&.weather-5 {
+		background:url("@{baseurl}/weather24/001.png") center center no-repeat;
+	}
+}
+.graphWrapper {
+	position:relative;
+	.forecastlabel,.actuallabel {
+		border-radius:3px;
+		border:1px solid white;
+		position:absolute;
+		top:0;
+		color:white;
+		padding:5px 10px;
+		font-size:14px;
+	}
+	.forecastlabel {
+		right:0;
+		background-color:@red;
+
+	}
+	.actuallabel{
+		left:40px;
+		background-color:@blue;
+	}
 }
