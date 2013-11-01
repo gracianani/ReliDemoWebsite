@@ -11,7 +11,8 @@
 			<div class="header">单耗超标站</div>
 			<span class="percent">%</span>
 			<div class="circleStat">
-	                    <input type="text" value="10" class="whiteCircle" />
+	                    <input type="text" value="@if (Model.单耗超标站个数 == 0)
+                                               {<text>0.1</text> } else { <text> @(Model.单耗超标站个数/Convert.ToDecimal(Model.热力站总数)*100.0m) </text>}" class="whiteCircle" />
 			</div>
 			<div class="footer">
 						<span class="count">
@@ -31,7 +32,8 @@
 			<div class="header">流量超标站</div>
 			<span class="percent">%</span>
 			<div class="circleStat">
-	                    <input type="text" value="58" class="whiteCircle" />
+	                    <input type="text" value="@if (Model.流量超标站个数 == 0)
+                                               {<text>0.1</text> } else { <text> @(Model.流量超标站个数/Convert.ToDecimal(Model.热力站总数)*100.0m) </text>}" class="whiteCircle" />
 			</div>
 			<div class="footer">
 						<span class="count">
@@ -46,24 +48,26 @@
 					</div>
 		</div>
 	</div><!--/span-->
+    
 	<div class="span4">
 		<div class="circleStatsItemBox backgroundColor red">
 			<div class="header">回温超标站</div>
 			<span class="percent">%</span>
 			<div class="circleStat">
-	                    <input type="text" value="58" class="whiteCircle" />
+	            <input type="text" value="@if (Model.温度超标站个数 == 0)
+                                               {<text>0.1</text> } else { <text> @(Model.温度超标站个数 / Convert.ToDecimal(Model.热力站总数) * 100.0m) </text>}" class="whiteCircle" />
 			</div>
 			<div class="footer">
-						<span class="count">
-							<span class="number">@Model.温度超标站个数</span>
-							<span class="unit">个</span>
-						</span>
-						<span class="sep"> / </span>
-						<span class="value">
-							<span class="number">@Model.热力站总数</span>
-							<span class="unit">个</span>
-						</span>	
-					</div>
+				<span class="count">
+					<span class="number">@Model.温度超标站个数</span>
+					<span class="unit">个</span>
+				</span>
+				<span class="sep"> / </span>
+				<span class="value">
+					<span class="number">@Model.热力站总数</span>
+					<span class="unit">个</span>
+				</span>	
+			</div>
 		</div>
 	</div><!--/span-->
 	<div class="clearfix"></div>
