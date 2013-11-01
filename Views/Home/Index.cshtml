@@ -34,13 +34,9 @@
 
 	<div onTablet="span12 noMarginLeft" onDesktop="span6">
 		@Html.Partial("HeatConsumptionGraph", Model.Histories)
-        
-
-		
 	</div>
-	<div onTablet="span12 noMarginLeft" onDesktop="span6">
-		气象
-
+	<div onTablet="span12 noMarginLeft" onDesktop="box span6">
+		@Html.Partial("TemperatureGraph", Model.WeatherGraph)
 	</div>
 </div><!--row-->
 <div class="row-fluid">
