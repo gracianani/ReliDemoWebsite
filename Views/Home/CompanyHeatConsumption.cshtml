@@ -36,9 +36,9 @@
 		<td>@company.万平方米流量</td>
 		<td>@company.热力站个数</td>
 		<td>@company.超标站个数</td>
-		<td>@Html.ActionLink(company.单耗超标站个数.ToString(), "../Stations/RealTime", new { selectedCompanyId = company.ItemID, exceedTemperatureFrom = 20, exceedTemperatureTo = 400 } ) </td>
-		<td>@Html.ActionLink(company.流量超标站个数.ToString(), "../Stations/RealTime", new { selectedCompanyId = company.ItemID,exceedWaterFrom = 40, exceedWaterTo =100 }) </td>
-        <td>@Html.ActionLink(company.温度超标站个数.ToString(), "../Stations/RealTime", new { selectedCompanyId = company.ItemID, exceedTemperatureFrom = 40, exceedTemperatureTo = 100 }) </td>
+		<td>@Html.ActionLink(company.单耗超标站个数.ToString(), "../Stations/RealTime", new { selectedCompanyId = company.ItemID, exceedHeatFrom = ReliDemo.Infrastructure.Services.ConfigurationService.HeatExceed} ) </td>
+		<td>@Html.ActionLink(company.流量超标站个数.ToString(), "../Stations/RealTime", new { selectedCompanyId = company.ItemID, exceedWaterFrom = ReliDemo.Infrastructure.Services.ConfigurationService.WaterExceed}) </td>
+        <td>@Html.ActionLink(company.温度超标站个数.ToString(), "../Stations/RealTime", new { selectedCompanyId = company.ItemID, exceedTemperatureFrom = ReliDemo.Infrastructure.Services.ConfigurationService.TemperatureExceed }) </td>
 		</tr>
         }
     }

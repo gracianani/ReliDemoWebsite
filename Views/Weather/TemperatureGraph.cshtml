@@ -13,7 +13,7 @@
 <div class="actuallabel">历史</div>
 </div>
 @Html.Hidden("forecastAverage", 
-        "[" + string.Join(",", Model.Where(i=>i.ForcastAverage.HasValue).OrderBy(i=>i.日期).Select(i=> string.Format("{{\"time\": \"{0:yyyy-MM-dd HH:mm:ss}\", \"temperature\" : {1}}}", i.日期, i.ForcastAverage)).ToArray() ) + "]"
+        "[" + string.Join(",", Model.Where(i=>i.ForcastAverage.HasValue).OrderBy(i=>i.日期).Select(i=> string.Format("{{\"time\": \"{0:yyyy-MM-dd HH:mm:ss}\", \"temperature\" : {1}, \"weathertype\" : {2} }}", i.日期, i.ForcastAverage,(int)i.WeatherType)).ToArray() ) + "]"
 )
 @Html.Hidden("forecastHighest",
                    "[" + string.Join(",", Model.Where(i => i.ForecastHighest.HasValue).Select(i => string.Format("{{\"time\": \"{0:yyyy-MM-dd HH:mm:ss}\", \"temperature\" : {1}}}", i.日期, i.ForecastHighest)).ToArray()) + "]"
@@ -25,13 +25,15 @@
                                "[" + string.Join(",", Model.Where(i => i.ActualAverage.HasValue).Select(i => string.Format("{{\"time\": \"{0:yyyy-MM-dd HH:mm:ss}\", \"temperature\" : {1}}}", i.日期, i.ActualAverage)).ToArray()) + "]"
 )
 
+@Html.Hidden("maxTemp", Model.Max(i=>i.ForecastHighest))
+@Html.Hidden("minTemp", Model.Min(i=>i.ForecastLowest))
 <script type="text/javascript">
     $(document).ready(function () {
         var forecastAverageData = $.parseJSON($("input[name=forecastAverage]").val());
 
         var forecastAverage = [];
         for (var i = 0; i < forecastAverageData.length; i++) {
-            forecastAverage.push([(new Date(forecastAverageData[i].time).getTime()), forecastAverageData[i].temperature]);
+            forecastAverage.push([(new Date(forecastAverageData[i].time).getTime()), forecastAverageData[i].temperature, forecastAverageData[i].weathertype]);
         }
 
         var forecastHighestData = $.parseJSON($("input[name=forecastHighest]").val());
@@ -56,22 +58,22 @@
             clickable: true
         };
 
-		var maxTemp = 25;
-		var minTemp= 0;
+        var maxTemp = parseFloat( $("#maxTemp").val() )+ 2;
+        var minTemp = parseFloat($("#minTemp").val()) - 2;
         var tempChartOptions = {
             xaxis: {
                 mode: "time",
                 minTickSize: [1, "day"],
                 timeformat: "%m月%d日"
             },
-			yaxis: { max:maxTemp,min:minTemp},
+            yaxis: { max: maxTemp, min: minTemp },
             grid: heatTempChartGrid,
-			colors:["#ec6313","#fabb3d","#00558e","#378fc9"],
-			legend: {
-            container: $("#graph-legend"),
-			show:true,
-            noColumns: 4
-			}
+            colors: ["#ec6313", "#fabb3d", "#00558e", "#378fc9"],
+            legend: {
+                container: $("#graph-legend"),
+                show: true,
+                noColumns: 4
+            }
         };
 
         var temperatureChartData = [];
@@ -97,34 +99,31 @@
             label: "实际平均温度",
             data: actualAverage,
             lines: { show: true },
-            points: { show: true,fill:true }
+            points: { show: true, fill: true }
         });
-		console.log(forecastHighest);
-		temperatureChartData.push({
-            data: [[forecastHighest[6][0],30],[forecastHighest[6][0],-25]],
+        temperatureChartData.push({
+            data: [[forecastHighest[6][0], 30], [forecastHighest[6][0], -25]],
             lines: { show: true },
             points: { show: false },
-			color:"#444"
+            color: "#444"
         });
         var dashboardHeatTempChart = $.plot($("#graph"), temperatureChartData, tempChartOptions);
 
         var points = dashboardHeatTempChart.getData();
-		console.log(points);
+        console.log(points);
         var graphx = $('#graph').offset().left;
         graphx = graphx + 30; // replace with offset of canvas on graph
         var graphy = $('#graph').offset().top;
         graphy = graphy + 10; // how low you want the label to hang underneath the point
-		var weatherIcon = "";
+        var weatherIcon = "";
         for (var k = 0; k < points.length; k++) {
             for (var m = 0; m < points[k].data.length; m++) {
                 if (points[k].data[m][0] != null && points[k].data[m][1] != null) {
                     if (k == 0 && m > 6) {
-						//forecast tempreture line
-						weatherIcon = '<div class="weathericon weather-1"></div>';
-                        showInfoWindow(graphx + points[k].xaxis.p2c(points[k].data[m][0]) - 25, graphy + points[k].yaxis.p2c(points[k].data[m][1]) -40, weatherIcon + points[k].data[m][1], "#ec6313")
-                    } else {
-                        //showInfoWindow(graphx + points[k].xaxis.p2c(points[k].data[m][0]), graphy + points[k].yaxis.p2c(points[k].data[m][1]) + 5, points[k].data[m][1], "#00558e")
-                    }
+                        //forecast tempreture line
+                        weatherIcon = '<div class="weathericon weather-' +points[k].data[m][2]  + '"></div>';
+                        showInfoWindow(graphx + points[k].xaxis.p2c(points[k].data[m][0]) - 25, graphy + points[k].yaxis.p2c(points[k].data[m][1]) - 40, weatherIcon + points[k].data[m][1], "#ec6313")
+                    } 
 
                 }
             }
