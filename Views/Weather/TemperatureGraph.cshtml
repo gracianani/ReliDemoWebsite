@@ -58,8 +58,10 @@
             clickable: true
         };
 
+
         var maxTemp = parseFloat( $("#maxTemp").val() )+ 2;
         var minTemp = parseFloat($("#minTemp").val()) - 2;
+
         var tempChartOptions = {
             xaxis: {
                 mode: "time",
@@ -120,11 +122,12 @@
             for (var m = 0; m < points[k].data.length; m++) {
                 if (points[k].data[m][0] != null && points[k].data[m][1] != null) {
                     if (k == 0 && m > 6) {
-                        //forecast tempreture line
-                        weatherIcon = '<div class="weathericon weather-' +points[k].data[m][2]  + '"></div>';
-                        showInfoWindow(graphx + points[k].xaxis.p2c(points[k].data[m][0]) - 25, graphy + points[k].yaxis.p2c(points[k].data[m][1]) - 40, weatherIcon + points[k].data[m][1], "#ec6313")
-                    } 
-
+						//forecast tempreture line
+						weatherIcon = '<div class="weathericon weather-' +points[k].data[m][2]  + '"></div>';
+                        showInfoWindow(graphx + points[k].xaxis.p2c(points[k].data[m][0]) - 25, graphy + points[k].yaxis.p2c(points[k].data[m][1]) -30, weatherIcon + points[k].data[m][1], "#ec6313")
+                    } else {
+                        //showInfoWindow(graphx + points[k].xaxis.p2c(points[k].data[m][0]), graphy + points[k].yaxis.p2c(points[k].data[m][1]) + 5, points[k].data[m][1], "#00558e")
+                    }
                 }
             }
         }
