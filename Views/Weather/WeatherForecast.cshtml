@@ -14,7 +14,12 @@ line-height: 30px;'>专业气象站</h2>
 <div class="row-fluid">
     <div class="span12">
         <div class="box span12 noMarginLeft">
+			<div class="box-header">
+				<h2><i class="icon-bar-chart"></i>气温趋势图</h2>
+			</div>
+			<div class="box-content">
 		    @Html.Partial("TemperatureGraph", Model.七日预测实际温度)
+			</div>
 		</div>
     </div>
 </div>

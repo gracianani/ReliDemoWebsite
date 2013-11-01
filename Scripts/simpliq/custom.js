@@ -1410,7 +1410,7 @@ function widthFunctions(e) {
 		});
 		
 	}
-
+    $(window).trigger('resizefinish');
 }
 /* ---------- Plugins ---------- */
 $.prototype.highlightAfterUpdate = function(highlightColor,delay){

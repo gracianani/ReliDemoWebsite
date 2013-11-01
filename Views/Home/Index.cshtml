@@ -32,15 +32,15 @@
 </div>
 <div class="row-fluid">
 
-	<div onTablet="span12 noMarginLeft" onDesktop="span6">
+	<div class="span6" onTablet="span12 noMarginLeft" onDesktop="span6">
 		@Html.Partial("HeatConsumptionGraph", Model.Histories)
 	</div>
-	<div onTablet="span12 noMarginLeft" onDesktop="box span6">
+	<div class="box span6" onTablet="span12 noMarginLeft" onDesktop="span6">
 		@Html.Partial("TemperatureGraph", Model.WeatherGraph)
 	</div>
 </div><!--row-->
 <div class="row-fluid">
-	<div onTablet="span12 noMarginLeft" onDesktop="span6" >
+	<div class="span6" onTablet="span12 noMarginLeft" onDesktop="span6" >
 	<div class="box blue　span12 noMarginLeft">
 	    <div class="box-header">
 		    <h2><i class="icon-bar-chart"></i>今日各公司状态统计</h2>

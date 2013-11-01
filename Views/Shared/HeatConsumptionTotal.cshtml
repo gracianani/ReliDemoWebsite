@@ -13,14 +13,14 @@
                  <text>人工抄表</text>
              }
              else if (Model.Count() > 0 && Model.First().IsToday)
-             { <text>今日</text>   }
+             { <text>今日监测</text>   }
              else
-             { <text>昨日</text> } 
+             { <text>昨日监测</text> } 
         </h2>
 		<div class="box-icon">
 		</div>
 	</div>
-    <div class="box-content">
+    <div class="box-content" style="@if (Model.Count() > 0 && Model.First().IsToday){<text>padding-bottom:80px;</text>}">
 		<table class="table makeTableHeaderAsBoxHeader">
 			<thead>
 				<tr>    

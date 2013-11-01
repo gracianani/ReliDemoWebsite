@@ -10,7 +10,7 @@
 </div>
 <div class="box-content">
     <div class="graphWrapper">
-    <div id="graph"  style="height:250px">
+    <div id="graph"  style="height:310px">
     </div>
     <div id="graph-legend" ></div>
     <div class="forecastlabel">预报</div>
@@ -33,6 +33,7 @@
 @Html.Hidden("maxTemp", Model.Max(i=>i.ForecastHighest))
 @Html.Hidden("minTemp", Model.Min(i=>i.ForecastLowest))
 <script type="text/javascript">
+	var dashboardTempChart;
     $(document).ready(function () {
         var forecastAverageData = $.parseJSON($("input[name=forecastAverage]").val());
 
@@ -80,62 +81,49 @@
                 container: $("#graph-legend"),
                 show: true,
                 noColumns: 4
-            }
+            },
+			series:{
+			shadowSize:0
+			}
         };
 
         var temperatureChartData = [];
         temperatureChartData.push({
-            label: "预报平均温度",
+            label: "预报平均温度(℃)",
             data: forecastAverage,
             lines: { show: true },
             points: { show: true }
         });
         temperatureChartData.push({
-            label: "预报最高温度",
+            label: "预报最高温度(℃)",
             data: forecastHighest,
             lines: { show: true },
             points: { show: true }
         });
         temperatureChartData.push({
-            label: "预报最低温度",
+            label: "预报最低温度(℃)",
             data: forecastLowest,
             lines: { show: true },
             points: { show: true }
         });
         temperatureChartData.push({
-            label: "实际平均温度",
+            label: "实际平均温度(℃)",
             data: actualAverage,
             lines: { show: true },
             points: { show: true, fill: true }
         });
+		var now = forecastHighest[0][0] - 1000 * 60 * 60 *24;
         temperatureChartData.push({
-            data: [[forecastAverage[parseInt((forecastAverage.length - 1) / 2)][0], maxTemp], [forecastAverage[parseInt((forecastAverage.length - 1) / 2)][0], minTemp]],
+            data: [[now, maxTemp], [now, minTemp]],
             lines: { show: true },
             points: { show: false },
             color: "#444"
         });
-        var dashboardHeatTempChart = $.plot($("#graph"), temperatureChartData, tempChartOptions);
+        dashboardTempChart = $.plot($("#graph"), temperatureChartData, tempChartOptions);
 
-        var points = dashboardHeatTempChart.getData();
-        console.log(points);
-        var graphx = $('#graph').offset().left;
-        graphx = graphx + 30; // replace with offset of canvas on graph
-        var graphy = $('#graph').offset().top;
-        graphy = graphy + 10; // how low you want the label to hang underneath the point
-        var weatherIcon = "";
-        for (var k = 0; k < points.length; k++) {
-            for (var m = 0; m < points[k].data.length; m++) {
-                if (points[k].data[m][0] != null && points[k].data[m][1] != null) {
-                    if (k == 0 && points[k].data[m][2] != 0) {
-						//forecast tempreture line
-						weatherIcon = '<div class="weathericon weather-' +points[k].data[m][2]  + '"></div>';
-                        showInfoWindow(graphx + points[k].xaxis.p2c(points[k].data[m][0]) - 25, graphy + points[k].yaxis.p2c(points[k].data[m][1]) -30, weatherIcon + points[k].data[m][1], "#ec6313")
-                    } else {
-                        //showInfoWindow(graphx + points[k].xaxis.p2c(points[k].data[m][0]), graphy + points[k].yaxis.p2c(points[k].data[m][1]) + 5, points[k].data[m][1], "#00558e")
-                    }
-                }
-            }
-        }
+        $(window).bind('resizefinish',function(){
+			drawWeatherIcon();
+		});
 
     });
 	$("<div id='tooltip'></div>").appendTo("body");
@@ -150,12 +138,27 @@
                 $("#tooltip").hide();
             }
 	});
+	function drawWeatherIcon() {
+		$('.weatherIconWindow').remove();
+		var points = dashboardTempChart.getData();
+		var weatherIcon = "";
+        var k = 0;
+        for (var m = 0; m < points[k].data.length; m++) {
+                if (points[k].data[m][0] != null && points[k].data[m][1] != null) {
+                    if (k == 0 && points[k].data[m][2] != 0) {
+						//forecast tempreture line
+						weatherIcon = '<div class="weathericon weather-' +points[k].data[m][2]  + '"></div>';
+                        showInfoWindow( points[k].xaxis.p2c(points[k].data[m][0]) , points[k].yaxis.p2c(points[k].data[m][1]) -30, weatherIcon + points[k].data[m][1], "#ec6313")
+                    } 
+                }
+        }
+	}
     function showInfoWindow(x, y, contents, colour) {
-        $('<div id="value">' + contents + " ℃" + '</div>').css({
+        $('<div class="weatherIconWindow">' + contents + " ℃" + '</div>').css({
             position: 'absolute',
             top: y,
             left: x,
-			'width':'50px',
+			'width':'45px',
 			'text-align':'center',
             'border-style': 'solid',
             'border-width': '2px',
@@ -163,8 +166,10 @@
             'border-radius': '5px',
             'background-color': colour,
             color: '#FFF',
-            padding: '2px'
-        }).appendTo("body");
+            padding: '2px',
+			'font-size':'12px',
+			'line-height':'14px'
+        }).appendTo("#graph");
     } 
     
 </script>
