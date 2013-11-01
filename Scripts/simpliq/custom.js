@@ -1017,6 +1017,18 @@ function calendars(){
 			
 		}
 	});
+
+
+    $('.dialog-close').click(function(){
+        $(this).parent().parent().hide();
+    });
+    $('dialog-overlay').click(function(){
+        $(this).hide();
+    });
+    $('.dialog-trigger').click( function(){
+        var dialog = $('#' + $(this).attr('data-dialog') );
+        dialog.show();
+    });
 	
 }
 

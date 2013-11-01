@@ -5,31 +5,41 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <h2>@Model.Company.公司</h2>
-<div class="row-fluid">
-	<div onTablet="span12" onDesktop="span6">
-		@Html.Partial("TopStats", Model.TopStats)
+@Html.Partial("TopStats", Model.TopStats)
 
-		<div class="row-fluid">
-			@Html.Partial("HeatConsumptionGraph", Model.Histories)
-		</div>
-        @Html.Partial("ExceedGraph", @Model.ExceedGraph)
-		
+<div class="row-fluid">
+	<div class="span6" onTablet="span12 noMarginLeft" onDesktop="span6">
+		@Html.Partial("HeatConsumptionTotal", Model.TodayGJ)
 	</div>
-	<div onDesktop="span6" onTablet="span12">
-		<div class="box smallstat">
+	<div class="span6" onTablet="span12 noMarginLeft" onDesktop="span6">
+		 @Html.Partial("HeatConsumptionTotal", Model.YesterdayGJ)
+		 <div class="box smallstat">
 			<i class="icon-eye-open crimson"></i>
 			<span class="title">监控站、智能卡站</span>
 			<span class="value">@(Model.监控站个数 + Model.智能卡站个数) 个</span>
 		</div>
-        @Html.Partial("HeatConsumptionTotal", Model.TodayGJ)
-        @Html.Partial("HeatConsumptionTotal", Model.YesterdayGJ)
+	</div>
+</div>
+<div class="row-fluid">
+	<div class="span6" onTablet="span12 noMarginLeft" onDesktop="span6">
+		@Html.Partial("HeatConsumptionGraph", Model.Histories)
+	</div>
+	<div class="span6" onTablet="span12 noMarginLeft" onDesktop="span6">
+		
+	</div>
+</div>
+<div class="row-fluid">
+	<div class="span6" onTablet="span12" onDesktop="span6">
+	
+        @Html.Partial("ExceedGraph", @Model.ExceedGraph)
+		
+	</div>
+	<div class="span6" onDesktop="span6" onTablet="span12 noMarginLeft">
 
-
-		<div class="box smallstat">
+		<div class="box smallstat mergeWithBottom">
 			<i class="icon-pencil blue"></i>
-			<span class="title">手抄表站</span>
-			<span class="value">@Model.手抄表站个数 个</span>
-			<span class="time">更新时间 : @string.Format("{0:yyyy年MM月dd日}",Model.手抄表最近更新时间)</span>
+			<span class="title">汇总时间 : @string.Format("{0:yyyy年MM月dd日}",Model.手抄表最近更新时间) 点击查看汇总</span>
+			<span class="value">@Model.手抄表站个数 <small>个手抄表站</small></span>
 		</div>
         @Html.Partial("HeatConsumptionTotal", Model.手抄GJ)
     </div>

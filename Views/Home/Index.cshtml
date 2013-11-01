@@ -19,14 +19,12 @@
 				<i class="icon-eye-open crimson"></i>
 				<span class="title">监测站总数</span>
 				<span class="value">@(Model.智能卡站个数+Model.监控站个数) 个</span>
-				<span class="time">更新时间：</span>
 			</div>
-			<div class="box smallstat span6">
+			<a class="box smallstat span6 dialog-trigger" data-dialog="heatTotalDialog">
 				<i class="icon-pencil blue"></i>
-				<span class="title">人工抄表站 点击查看汇总</span>
-				<span class="value">@Model.手抄表站个数 个</span>
-				<span class="time">汇总时间 @string.Format("{0:yyyy年MM月dd日}", Model.手抄表最近更新时间)</span>
-			</div>
+				<span class="title">汇总时间 : @string.Format("{0:yyyy-MM-dd}",Model.手抄表最近更新时间) 点击查看</span>
+				<span class="value">@Model.手抄表站个数 <small>个手抄表站</small></span>
+			</a>
 		</div>
 	</div>
 </div>
@@ -60,16 +58,19 @@
 		 <!--box-->
 	</div>
 </div>
-<div class="row-fluid">      
-
-	    
-
-
-</div>
-<div class="row-fluid">
-	
-	
-</div>
+<div class="dialog-overlay" id="heatTotalDialog">
+	<div class="dialog">
+		<div class="dialog-header">
+			<h2>手抄表站、监测站汇总后信息</h2>
+			<div class="dialog-subtitle">汇总时间 : @string.Format("{0:yyyy-MM-dd}",Model.手抄表最近更新时间) </div>
+		</div>
+		<div class="dialog-content">
+			@Html.Partial("HeatConsumptionTotal", Model.TodayGJ)
+			@Html.Partial("CompanyHeatConsumption", Model.Companies)
+		</div>
+		<div class="dialog-close"><i class="icon-remove"></i></div>
+	</div>
+</div><!--dialog-overlay-->
 
 
 

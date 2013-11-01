@@ -4134,6 +4134,52 @@ legend {
   left: 40px;
   background-color: #378fc9;
 }
+/* dialog */
+/* line 645, less\custom.less */
+.dialog-overlay {
+  position: absolute;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+}
+/* line 655, less\custom.less */
+.dialog-overlay .dialog {
+  width: 750px;
+  height: 80%;
+  position: absolute;
+  left: 50%;
+  top: 10%;
+  margin-left: -375px;
+  overflow-y: scroll;
+  background-color: white;
+}
+/* line 665, less\custom.less */
+.dialog-overlay .dialog-header {
+  background: #378fc9;
+  color: #FFF;
+  padding: 10px;
+}
+/* line 670, less\custom.less */
+.dialog-overlay .dialog-content {
+  padding: 10px;
+}
+/* line 673, less\custom.less */
+.dialog-overlay .dialog-close {
+  font-size: 20px;
+  color: #fff;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  cursor: pointer;
+}
+/* line 682, less\custom.less */
+.dialog-trigger {
+  cursor: pointer;
+}
 /* Page: Messages
 =================================================================== */
 /* line 3, less\page-messages.less */
