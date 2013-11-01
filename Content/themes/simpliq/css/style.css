@@ -3968,30 +3968,152 @@ legend {
   margin: 0 auto;
 }
 /* line 515, less\custom.less */
+.weathericon.weather-0 {
+  /* Unknow */
+
+  background: url("../img/weather24/018.png") center center no-repeat;
+}
+/* line 519, less\custom.less */
 .weathericon.weather-1 {
   background: url("../img/weather24/001.png") center center no-repeat;
 }
-/* line 518, less\custom.less */
+/* line 522, less\custom.less */
 .weathericon.weather-2 {
-  background: url("../img/weather24/001.png") center center no-repeat;
+  background: url("../img/weather24/003.png") center center no-repeat;
 }
-/* line 521, less\custom.less */
+/* line 525, less\custom.less */
 .weathericon.weather-3 {
-  background: url("../img/weather24/001.png") center center no-repeat;
+  background: url("../img/weather24/002.png") center center no-repeat;
 }
-/* line 524, less\custom.less */
+/* line 528, less\custom.less */
 .weathericon.weather-4 {
-  background: url("../img/weather24/001.png") center center no-repeat;
-}
-/* line 527, less\custom.less */
-.weathericon.weather-5 {
-  background: url("../img/weather24/001.png") center center no-repeat;
+  background: url("../img/weather24/004.png") center center no-repeat;
 }
 /* line 531, less\custom.less */
+.weathericon.weather-5 {
+  background: url("../img/weather24/004.png") center center no-repeat;
+}
+/* line 534, less\custom.less */
+.weathericon.weather-6 {
+  background: url("../img/weather24/004.png") center center no-repeat;
+}
+/* line 537, less\custom.less */
+.weathericon.weather-7 {
+  background: url("../img/weather24/003.png") center center no-repeat;
+}
+/* line 540, less\custom.less */
+.weathericon.weather-8 {
+  background: url("../img/weather24/003.png") center center no-repeat;
+}
+/* line 543, less\custom.less */
+.weathericon.weather-9 {
+  background: url("../img/weather24/007.png") center center no-repeat;
+}
+/* line 546, less\custom.less */
+.weathericon.weather-10 {
+  background: url("../img/weather24/007.png") center center no-repeat;
+}
+/* line 549, less\custom.less */
+.weathericon.weather-11 {
+  background: url("../img/weather24/008.png") center center no-repeat;
+}
+/* line 552, less\custom.less */
+.weathericon.weather-12 {
+  background: url("../img/weather24/008.png") center center no-repeat;
+}
+/* line 555, less\custom.less */
+.weathericon.weather-13 {
+  background: url("../img/weather24/009.png") center center no-repeat;
+}
+/* line 558, less\custom.less */
+.weathericon.weather-14 {
+  background: url("../img/weather24/009.png") center center no-repeat;
+}
+/* line 561, less\custom.less */
+.weathericon.weather-15 {
+  background: url("../img/weather24/015.png") center center no-repeat;
+}
+/* line 564, less\custom.less */
+.weathericon.weather-16 {
+  background: url("../img/weather24/016.png") center center no-repeat;
+}
+/* line 567, less\custom.less */
+.weathericon.weather-17 {
+  background: url("../img/weather24/011.png") center center no-repeat;
+}
+/* line 570, less\custom.less */
+.weathericon.weather-18 {
+  background: url("../img/weather24/012.png") center center no-repeat;
+}
+/* line 573, less\custom.less */
+.weathericon.weather-19 {
+  background: url("../img/weather24/014.png") center center no-repeat;
+}
+/* line 576, less\custom.less */
+.weathericon.weather-20 {
+  background: url("../img/weather24/013.png") center center no-repeat;
+}
+/* line 579, less\custom.less */
+.weathericon.weather-21 {
+  background: url("../img/weather24/017.png") center center no-repeat;
+}
+/* line 582, less\custom.less */
+.weathericon.weather-22 {
+  background: url("../img/weather24/015.png") center center no-repeat;
+}
+/* line 585, less\custom.less */
+.weathericon.weather-23 {
+  background: url("../img/weather24/Ice.png") center center no-repeat;
+}
+/* line 588, less\custom.less */
+.weathericon.weather-24 {
+  background: url("../img/weather24/Ice.png") center center no-repeat;
+}
+/* line 591, less\custom.less */
+.weathericon.weather-25 {
+  background: url("../img/weather24/Fog.png") center center no-repeat;
+}
+/* line 594, less\custom.less */
+.weathericon.weather-26 {
+  background: url("../img/weather24/Fog.png") center center no-repeat;
+}
+/* line 597, less\custom.less */
+.weathericon.weather-27 {
+  background: url("../img/weather24/006.png") center center no-repeat;
+}
+/* line 600, less\custom.less */
+.weathericon.weather-28 {
+  background: url("../img/weather24/006.png") center center no-repeat;
+}
+/* line 603, less\custom.less */
+.weathericon.weather-29 {
+  background: url("../img/weather24/006.png") center center no-repeat;
+}
+/* line 606, less\custom.less */
+.weathericon.weather-30 {
+  background: url("../img/weather24/006.png") center center no-repeat;
+}
+/* line 609, less\custom.less */
+.weathericon.weather-31 {
+  background: url("../img/weather24/006.png") center center no-repeat;
+}
+/* line 612, less\custom.less */
+.weathericon.weather-32 {
+  background: url("../img/weather24/006.png") center center no-repeat;
+}
+/* line 615, less\custom.less */
+.weathericon.weather-33 {
+  background: url("../img/weather24/010.png") center center no-repeat;
+}
+/* line 618, less\custom.less */
+.weathericon.weather-34 {
+  background: url("../img/weather24/024.png") center center no-repeat;
+}
+/* line 622, less\custom.less */
 .graphWrapper {
   position: relative;
 }
-/* line 533, less\custom.less */
+/* line 624, less\custom.less */
 .graphWrapper .forecastlabel,
 .graphWrapper .actuallabel {
   border-radius: 3px;
@@ -4002,12 +4124,12 @@ legend {
   padding: 5px 10px;
   font-size: 14px;
 }
-/* line 542, less\custom.less */
+/* line 633, less\custom.less */
 .graphWrapper .forecastlabel {
   right: 0;
   background-color: #c84628;
 }
-/* line 547, less\custom.less */
+/* line 638, less\custom.less */
 .graphWrapper .actuallabel {
   left: 40px;
   background-color: #378fc9;
