@@ -88,8 +88,7 @@ line-height: 30px;'>@ViewBag.Title
 		</div>
 	</div>
 	<div  onDesktop="span1" onTablet="span12 noMarginLeft heightAuto">
-    
-    <button type="submit" id="submitFilter" class="btn btn-primary" ><i class="icon-search"></i> 搜索</button>
+        <button type="submit" id="submitFilter" class="btn btn-primary" ><i class="icon-search"></i> 搜索</button>
 	</div>
 </div>
 
@@ -138,6 +137,21 @@ line-height: 30px;'>@ViewBag.Title
             @Html.DisplayName("热水")<span class="symbol">(GJ)</span>
         </th>
         <th>
+            @Html.DisplayName("核算")<span class="symbol">(GJ)</span>
+        </th>
+        <th>
+            @Html.DisplayName("计算热指标")<span class="symbol">(Kcal/h*㎡)</span>
+        </th>
+        <th>
+            @Html.DisplayName("计划热指标")<span class="symbol">(Kcal/h*㎡)</span>
+        </th>
+        <th>
+            @Html.DisplayName("核算热指标")<span class="symbol">(Kcal/h*㎡)</span>
+        </th>
+        <th>
+            @Html.DisplayName("实际运行热指标")<span class="symbol">(Kcal/h*㎡)</span>
+        </th>
+        <th>
             @Html.DisplayName("理论单耗")<span class="symbol">(GJ/㎡)</span>
         </th>
         <th>
@@ -153,13 +167,10 @@ line-height: 30px;'>@ViewBag.Title
             @Html.DisplayName("多耗百分比")<span class="symbol">(%)</span>
         </th>
         <th>
-            @Html.DisplayName("热指标")<span class="symbol">(Kcal/h*㎡)</span>
+            @Html.DisplayName("日单耗")<span class="symbol">(GJ/㎡)</span>
         </th>
         <th>
             @Html.DisplayName("预报温度")<span class="symbol">(℃)</span>
-        </th>
-        <th>
-            @Html.DisplayName("实际单耗")<span class="symbol">(GJ/㎡)</span>
         </th>
         <th>
             @Html.DisplayName("实际温度")<span class="symbol">(℃)</span>
@@ -184,13 +195,22 @@ line-height: 30px;'>@ViewBag.Title
             @p.热水GJ
         </td>
         <td>
-            @p.理论单耗
+            @p.核算GJ
         </td>
         <td>
-            @p.累计单耗
+            @p.Station.参考热指标
         </td>
         <td>
-            @p.采暖季单耗
+            @p.计划热指标
+        </td>
+        <td>
+            @p.核算热指标
+        </td>
+        <td>
+            @p.实际热指标
+        </td>
+        <td>
+            @p.日单耗
         </td>
         <td>
             @p.多耗
@@ -199,14 +219,8 @@ line-height: 30px;'>@ViewBag.Title
             @p.多耗percent
         </td>
         <td>
-            @p.Station.参考热指标
-        </td>
-        <td>
             @p.预报温度
         </td>  
-        <td>
-            @p.实际单耗
-        </td>
         <td>
             @p.实际温度
         </td>

@@ -41,9 +41,7 @@
                     else
                     {
                         <text>
-                        <th><a href="#">总</a></th>
-                        <th><a href="#">监测站</a></th>
-                        <th ><a href="#">智能卡</a></th>
+                        <th><a href="#">监控站,智能卡站</a></th>
                         </text>  
                     }      
 				</tr>
@@ -64,9 +62,18 @@
 					    <td>@GJItem.Title</td>
                         @if (GJItem.东部.HasValue)
                         {
-                            <td>@GJItem.东部</td> 
-                            <td>@GJItem.西部</td> 
-                            <td>@GJItem.全网</td>
+                            <td @if (GJItem.Title.Contains("超计划") || GJItem.Title.Contains("超核算") )
+                               {
+                                <text>class="differenceValue"</text>
+                               }>@GJItem.东部</td> 
+                            <td @if (GJItem.Title.Contains("超计划") || GJItem.Title.Contains("超核算") )
+                               {
+                                <text>class="differenceValue"</text>
+                               }>@GJItem.西部</td> 
+                            <td @if (GJItem.Title.Contains("超计划") || GJItem.Title.Contains("超核算") )
+                               {
+                                <text>class="differenceValue"</text>
+                               }>@GJItem.全网</td>
                         }
                         else if(GJItem.人工抄表.HasValue)
                         {
@@ -74,26 +81,17 @@
                         }
                         else
                         {
-                            <td>@GJItem.总</td>
-                            <td>@GJItem.监测站</td>
-                            <td>@GJItem.智能卡</td>
+                            <td 
+                               @if (GJItem.Title.Contains("超计划") || GJItem.Title.Contains("超核算") )
+                               {
+                                <text>class="differenceValue"</text>
+                               } >
+                            @GJItem.总</td>
+                            
                         }
 				    </tr>
 					
                 }
-				
-				<tr class="groupColorBlue">
-						<td>实际供热量超计划(GJ)</td>
-						<td class="differenceValue">0</td>
-						<td class="differenceValue">103</td>
-						<td class="differenceValue">-4</td>
-				</tr>
-				<tr class="groupColorBlue">
-						<td>实际供热量超核算(GJ)</td>
-						<td class="differenceValue">0</td>
-						<td class="differenceValue">140</td>
-						<td class="differenceValue">-4</td>
-				</tr>
 				
 				
             </tbody>

@@ -34,11 +34,11 @@
 		<td>@company.计划热指标</td>
 		<td>@company.实际热指标</td>
 		<td>@company.万平方米流量</td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
+		<td>@company.热力站个数</td>
+		<td>@company.超标站个数</td>
+		<td>@Html.ActionLink(company.单耗超标站个数.ToString(), "../Stations/RealTime", new { selectedCompanyId = company.ItemID, exceedTemperatureFrom = 20, exceedTemperatureTo = 400 } ) </td>
+		<td>@Html.ActionLink(company.流量超标站个数.ToString(), "../Stations/RealTime", new { selectedCompanyId = company.ItemID,exceedWaterFrom = 40, exceedWaterTo =100 }) </td>
+        <td>@Html.ActionLink(company.温度超标站个数.ToString(), "../Stations/RealTime", new { selectedCompanyId = company.ItemID, exceedTemperatureFrom = 40, exceedTemperatureTo = 100 }) </td>
 		</tr>
         }
     }
