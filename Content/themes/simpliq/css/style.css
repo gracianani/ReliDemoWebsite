@@ -3646,15 +3646,15 @@ h3 {
 .box .box-header.nav-tabs li:hover > a {
   color: #378fc9;
 }
-/* line 220, less\custom.less */
-.box .box-header.mergeWithBottom {
-  margin-bottom: 0;
-}
-/* line 225, less\custom.less */
+/* line 223, less\custom.less */
 .box .form-inline label {
   padding-right: 10px;
 }
-/* line 230, less\custom.less */
+/* line 226, less\custom.less */
+.box.mergeWithBottom {
+  margin-bottom: 0;
+}
+/* line 231, less\custom.less */
 .makeTableHeaderAsBoxHeader {
   position: relative;
   top: -46px;
@@ -3662,43 +3662,43 @@ h3 {
   border-top: none!important;
   border-right: none!important;
 }
-/* line 236, less\custom.less */
+/* line 237, less\custom.less */
 .makeTableHeaderAsBoxHeader thead th {
   color: #FFF!important;
   background: none!important;
   border: none!important;
 }
-/* line 240, less\custom.less */
+/* line 241, less\custom.less */
 .makeTableHeaderAsBoxHeader thead th a {
   color: #FFF;
 }
-/* line 244, less\custom.less */
+/* line 245, less\custom.less */
 .makeTableHeaderAsBoxHeader tbody tr:first-child td {
   border-top: none;
 }
-/* line 249, less\custom.less */
+/* line 250, less\custom.less */
 .centerhead th {
   text-align: center;
 }
 /* highlight
 ========================*/
-/* line 256, less\custom.less */
+/* line 257, less\custom.less */
 .highlighting .highlightBlue {
   color: #378fc9;
 }
-/* line 259, less\custom.less */
+/* line 260, less\custom.less */
 .highlighting .highlightRed {
   color: #c84628;
 }
 /* table
 =================================================================== */
-/* line 266, less\custom.less */
+/* line 267, less\custom.less */
 .table.table-bordered {
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   border-radius: 0;
 }
-/* line 271, less\custom.less */
+/* line 272, less\custom.less */
 .table.table-bordered thead:first-child tr:first-child > th:first-child,
 .table.table-bordered tbody:first-child tr:first-child > td:first-child,
 .table.table-bordered tbody:first-child tr:first-child > th:first-child,
@@ -3711,29 +3711,29 @@ h3 {
   -moz-border-radius: 0;
   border-radius: 0;
 }
-/* line 277, less\custom.less */
+/* line 278, less\custom.less */
 .table th {
   background-color: #ededed;
   color: #000;
   font-weight: bold;
 }
-/* line 282, less\custom.less */
+/* line 283, less\custom.less */
 .table td {
   color: #111;
 }
-/* line 285, less\custom.less */
+/* line 286, less\custom.less */
 .table .sorting_asc {
   background-image: url("../img/sort_asc.png");
   background-repeat: no-repeat;
   background-position: right center;
 }
-/* line 290, less\custom.less */
+/* line 291, less\custom.less */
 .table .sorting_desc {
   background-image: url("../img/sort_desc.png");
   background-repeat: no-repeat;
   background-position: right center;
 }
-/* line 295, less\custom.less */
+/* line 296, less\custom.less */
 .table .sorting {
   background-image: url("../img/sort_both.png");
   background-repeat: no-repeat;
@@ -3741,11 +3741,11 @@ h3 {
 }
 /* station
 ========================*/
-/* line 304, less\custom.less */
+/* line 305, less\custom.less */
 .subNav {
   margin-left: 0;
 }
-/* line 307, less\custom.less */
+/* line 308, less\custom.less */
 .subNav li {
   float: left;
   display: inline-block;
@@ -3756,59 +3756,59 @@ h3 {
   border-right: 1px solid rgba(255, 255, 255, 0.1);
   border-left: 1px solid rgba(0, 0, 0, 0.5);
 }
-/* line 316, less\custom.less */
+/* line 317, less\custom.less */
 .subNav li.current {
   background-color: #0074c1;
 }
-/* line 319, less\custom.less */
+/* line 320, less\custom.less */
 .subNav li:first-child {
   border-radius: 4px 0 0 4px;
   border-left: none;
 }
-/* line 323, less\custom.less */
+/* line 324, less\custom.less */
 .subNav li:last-child {
   border-radius: 0 4px 4px 0;
   border-right: none;
 }
-/* line 327, less\custom.less */
+/* line 328, less\custom.less */
 .subNav li a {
   color: #fff;
 }
-/* line 330, less\custom.less */
+/* line 331, less\custom.less */
 .subNav li a:hover {
   text-decoration: none;
 }
-/* line 336, less\custom.less */
+/* line 337, less\custom.less */
 .table-zebra td {
   color: #333;
 }
-/* line 340, less\custom.less */
+/* line 341, less\custom.less */
 .table-zebra tr td:nth-child(2n) {
   background-color: #f9f9f9;
 }
-/* line 344, less\custom.less */
+/* line 345, less\custom.less */
 .table-zebra tr:nth-child(2n) {
   background-color: #f9f9f9;
 }
-/* line 346, less\custom.less */
+/* line 347, less\custom.less */
 .table-zebra tr:nth-child(2n) td:nth-child(2n) {
   background-color: white;
 }
-/* line 350, less\custom.less */
+/* line 351, less\custom.less */
 .table-zebra em {
   font-style: normal;
   color: #000;
   font-size: 18px;
 }
-/* line 356, less\custom.less */
+/* line 357, less\custom.less */
 .table-zebra a {
   color: #378fc9;
 }
-/* line 362, less\custom.less */
+/* line 363, less\custom.less */
 .pieChartWithCenterText {
   position: relative;
 }
-/* line 364, less\custom.less */
+/* line 365, less\custom.less */
 .pieChartWithCenterText .centerText {
   position: absolute;
   top: 45%;
@@ -3819,92 +3819,92 @@ h3 {
   z-index: 100;
   color: #000;
 }
-/* line 376, less\custom.less */
+/* line 377, less\custom.less */
 .topmenu {
   position: relative;
   top: 15px;
   margin-bottom: 20px;
 }
-/* line 380, less\custom.less */
+/* line 381, less\custom.less */
 .topmenu .btn {
   background-color: #393f4c;
   color: #FFF;
 }
-/* line 384, less\custom.less */
+/* line 385, less\custom.less */
 .topmenu .btn:hover,
 .topmenu .selected {
   background-color: #0071c0;
 }
-/* line 388, less\custom.less */
+/* line 389, less\custom.less */
 .stationTitle {
   margin-bottom: 20px;
 }
 /* table 
 ===========================*/
-/* line 395, less\custom.less */
+/* line 396, less\custom.less */
 .scrollableTableContainer {
   width: 100%;
   overflow: scroll;
   overflow-x: scroll;
   overflow-y: visible;
 }
-/* line 401, less\custom.less */
+/* line 402, less\custom.less */
 .scrollableTableContainer table th,
 .scrollableTableContainer table td {
   min-width: 140px;
   width: auto;
   max-width: none;
 }
-/* line 408, less\custom.less */
+/* line 409, less\custom.less */
 .scrollableTableContainer .table {
   width: auto;
   max-width: none;
 }
-/* line 414, less\custom.less */
+/* line 415, less\custom.less */
 .table .groupColorBlue {
   background-color: #ecf4fa;
 }
-/* line 417, less\custom.less */
+/* line 418, less\custom.less */
 .table .groupColorGold {
   background-color: #fef8eb;
 }
-/* line 420, less\custom.less */
+/* line 421, less\custom.less */
 .table .groupColorGreen {
   background-color: #f8fdf0;
 }
-/* line 423, less\custom.less */
+/* line 424, less\custom.less */
 .table .alert td {
   font-weight: bold;
 }
-/* line 427, less\custom.less */
+/* line 428, less\custom.less */
 .table .time {
   font-size: 10px;
   letter-spacing: -1px;
 }
-/* line 433, less\custom.less */
+/* line 434, less\custom.less */
 .table-hover tbody tr:hover > td {
   background-color: #ecf4fa;
   color: black;
 }
-/* line 439, less\custom.less */
+/* line 440, less\custom.less */
 ::-webkit-input-placeholder {
   color: #666!important;
 }
-/* line 442, less\custom.less */
+/* line 443, less\custom.less */
 :-moz-placeholder {
   color: #666!important;
 }
-/* line 445, less\custom.less */
+/* line 446, less\custom.less */
 ::-moz-placeholder {
   color: #666!important;
 }
-/* line 448, less\custom.less */
+/* line 449, less\custom.less */
 :-ms-input-placeholder {
   color: #666!important;
 }
 /* Station
 =============================*/
-/* line 454, less\custom.less */
+/* line 455, less\custom.less */
 #submitFilter {
   height: 87px;
   line-height: 80px;
@@ -3913,14 +3913,14 @@ h3 {
   overflow: hidden;
   width: 100%;
 }
-/* line 462, less\custom.less */
+/* line 463, less\custom.less */
 .heightAuto #submitFilter {
   height: auto!important;
   line-height: 30px;
 }
 /* Sidebar
 ============================*/
-/* line 470, less\custom.less */
+/* line 471, less\custom.less */
 .dropmenu [class^="icon-"],
 .dropmenu [class*=" icon-"] {
   background-color: white;
@@ -3931,12 +3931,12 @@ h3 {
   display: inline-block;
   text-align: center;
 }
-/* line 481, less\custom.less */
+/* line 482, less\custom.less */
 .icon-companyname:before {
   content: "" !important;
   display: none;
 }
-/* line 485, less\custom.less */
+/* line 486, less\custom.less */
 .icon-companyname {
   background-color: white;
   color: #383e4b;
@@ -3947,176 +3947,176 @@ h3 {
   display: inline-block;
   text-align: center;
 }
-/* line 495, less\custom.less */
+/* line 496, less\custom.less */
 a.box {
   display: inline-block;
 }
 /* alert
 ======================*/
-/* line 502, less\custom.less */
+/* line 503, less\custom.less */
 .alert-block a {
   color: #c09853;
 }
-/* line 507, less\custom.less */
+/* line 508, less\custom.less */
 legend {
   margin-bottom: 0px;
 }
 /* Sidebar
 ============================*/
-/* line 513, less\custom.less */
+/* line 514, less\custom.less */
 .weathericon {
   width: 24px;
   height: 24px;
   display: block;
   margin: 0 auto;
 }
-/* line 518, less\custom.less */
+/* line 519, less\custom.less */
 .weathericon.weather-0 {
   /* Unknow */
 
   background: url("../img/weather24/018.png") center center no-repeat;
 }
-/* line 522, less\custom.less */
+/* line 523, less\custom.less */
 .weathericon.weather-1 {
   background: url("../img/weather24/001.png") center center no-repeat;
 }
-/* line 525, less\custom.less */
+/* line 526, less\custom.less */
 .weathericon.weather-2 {
   background: url("../img/weather24/003.png") center center no-repeat;
 }
-/* line 528, less\custom.less */
+/* line 529, less\custom.less */
 .weathericon.weather-3 {
   background: url("../img/weather24/002.png") center center no-repeat;
 }
-/* line 531, less\custom.less */
+/* line 532, less\custom.less */
 .weathericon.weather-4 {
   background: url("../img/weather24/004.png") center center no-repeat;
 }
-/* line 534, less\custom.less */
+/* line 535, less\custom.less */
 .weathericon.weather-5 {
   background: url("../img/weather24/004.png") center center no-repeat;
 }
-/* line 537, less\custom.less */
+/* line 538, less\custom.less */
 .weathericon.weather-6 {
   background: url("../img/weather24/004.png") center center no-repeat;
 }
-/* line 540, less\custom.less */
+/* line 541, less\custom.less */
 .weathericon.weather-7 {
   background: url("../img/weather24/003.png") center center no-repeat;
 }
-/* line 543, less\custom.less */
+/* line 544, less\custom.less */
 .weathericon.weather-8 {
   background: url("../img/weather24/003.png") center center no-repeat;
 }
-/* line 546, less\custom.less */
+/* line 547, less\custom.less */
 .weathericon.weather-9 {
   background: url("../img/weather24/007.png") center center no-repeat;
 }
-/* line 549, less\custom.less */
+/* line 550, less\custom.less */
 .weathericon.weather-10 {
   background: url("../img/weather24/007.png") center center no-repeat;
 }
-/* line 552, less\custom.less */
+/* line 553, less\custom.less */
 .weathericon.weather-11 {
   background: url("../img/weather24/008.png") center center no-repeat;
 }
-/* line 555, less\custom.less */
+/* line 556, less\custom.less */
 .weathericon.weather-12 {
   background: url("../img/weather24/008.png") center center no-repeat;
 }
-/* line 558, less\custom.less */
+/* line 559, less\custom.less */
 .weathericon.weather-13 {
   background: url("../img/weather24/009.png") center center no-repeat;
 }
-/* line 561, less\custom.less */
+/* line 562, less\custom.less */
 .weathericon.weather-14 {
   background: url("../img/weather24/009.png") center center no-repeat;
 }
-/* line 564, less\custom.less */
+/* line 565, less\custom.less */
 .weathericon.weather-15 {
   background: url("../img/weather24/015.png") center center no-repeat;
 }
-/* line 567, less\custom.less */
+/* line 568, less\custom.less */
 .weathericon.weather-16 {
   background: url("../img/weather24/016.png") center center no-repeat;
 }
-/* line 570, less\custom.less */
+/* line 571, less\custom.less */
 .weathericon.weather-17 {
   background: url("../img/weather24/011.png") center center no-repeat;
 }
-/* line 573, less\custom.less */
+/* line 574, less\custom.less */
 .weathericon.weather-18 {
   background: url("../img/weather24/012.png") center center no-repeat;
 }
-/* line 576, less\custom.less */
+/* line 577, less\custom.less */
 .weathericon.weather-19 {
   background: url("../img/weather24/014.png") center center no-repeat;
 }
-/* line 579, less\custom.less */
+/* line 580, less\custom.less */
 .weathericon.weather-20 {
   background: url("../img/weather24/013.png") center center no-repeat;
 }
-/* line 582, less\custom.less */
+/* line 583, less\custom.less */
 .weathericon.weather-21 {
   background: url("../img/weather24/017.png") center center no-repeat;
 }
-/* line 585, less\custom.less */
+/* line 586, less\custom.less */
 .weathericon.weather-22 {
   background: url("../img/weather24/015.png") center center no-repeat;
 }
-/* line 588, less\custom.less */
+/* line 589, less\custom.less */
 .weathericon.weather-23 {
   background: url("../img/weather24/Ice.png") center center no-repeat;
 }
-/* line 591, less\custom.less */
+/* line 592, less\custom.less */
 .weathericon.weather-24 {
   background: url("../img/weather24/Ice.png") center center no-repeat;
 }
-/* line 594, less\custom.less */
+/* line 595, less\custom.less */
 .weathericon.weather-25 {
   background: url("../img/weather24/Fog.png") center center no-repeat;
 }
-/* line 597, less\custom.less */
+/* line 598, less\custom.less */
 .weathericon.weather-26 {
   background: url("../img/weather24/Fog.png") center center no-repeat;
 }
-/* line 600, less\custom.less */
+/* line 601, less\custom.less */
 .weathericon.weather-27 {
   background: url("../img/weather24/006.png") center center no-repeat;
 }
-/* line 603, less\custom.less */
+/* line 604, less\custom.less */
 .weathericon.weather-28 {
   background: url("../img/weather24/006.png") center center no-repeat;
 }
-/* line 606, less\custom.less */
+/* line 607, less\custom.less */
 .weathericon.weather-29 {
   background: url("../img/weather24/006.png") center center no-repeat;
 }
-/* line 609, less\custom.less */
+/* line 610, less\custom.less */
 .weathericon.weather-30 {
   background: url("../img/weather24/006.png") center center no-repeat;
 }
-/* line 612, less\custom.less */
+/* line 613, less\custom.less */
 .weathericon.weather-31 {
   background: url("../img/weather24/006.png") center center no-repeat;
 }
-/* line 615, less\custom.less */
+/* line 616, less\custom.less */
 .weathericon.weather-32 {
   background: url("../img/weather24/006.png") center center no-repeat;
 }
-/* line 618, less\custom.less */
+/* line 619, less\custom.less */
 .weathericon.weather-33 {
   background: url("../img/weather24/010.png") center center no-repeat;
 }
-/* line 621, less\custom.less */
+/* line 622, less\custom.less */
 .weathericon.weather-34 {
   background: url("../img/weather24/024.png") center center no-repeat;
 }
-/* line 625, less\custom.less */
+/* line 626, less\custom.less */
 .graphWrapper {
   position: relative;
 }
-/* line 627, less\custom.less */
+/* line 628, less\custom.less */
 .graphWrapper .forecastlabel,
 .graphWrapper .actuallabel {
   border-radius: 3px;
@@ -4127,18 +4127,18 @@ legend {
   padding: 5px 10px;
   font-size: 14px;
 }
-/* line 636, less\custom.less */
+/* line 637, less\custom.less */
 .graphWrapper .forecastlabel {
   right: 0;
   background-color: #c84628;
 }
-/* line 641, less\custom.less */
+/* line 642, less\custom.less */
 .graphWrapper .actuallabel {
   left: 40px;
   background-color: #378fc9;
 }
 /* dialog */
-/* line 648, less\custom.less */
+/* line 649, less\custom.less */
 .dialog-overlay {
   position: absolute;
   position: fixed;
@@ -4149,7 +4149,7 @@ legend {
   background-color: rgba(0, 0, 0, 0.5);
   display: none;
 }
-/* line 658, less\custom.less */
+/* line 659, less\custom.less */
 .dialog-overlay .dialog {
   width: 750px;
   height: 80%;
@@ -4160,17 +4160,17 @@ legend {
   overflow-y: scroll;
   background-color: white;
 }
-/* line 668, less\custom.less */
+/* line 669, less\custom.less */
 .dialog-overlay .dialog-header {
   background: #378fc9;
   color: #FFF;
   padding: 10px;
 }
-/* line 673, less\custom.less */
+/* line 674, less\custom.less */
 .dialog-overlay .dialog-content {
   padding: 10px;
 }
-/* line 676, less\custom.less */
+/* line 677, less\custom.less */
 .dialog-overlay .dialog-close {
   font-size: 20px;
   color: #fff;
@@ -4179,7 +4179,7 @@ legend {
   top: 20px;
   cursor: pointer;
 }
-/* line 685, less\custom.less */
+/* line 686, less\custom.less */
 .dialog-trigger {
   cursor: pointer;
 }
