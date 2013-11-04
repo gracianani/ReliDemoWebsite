@@ -59,6 +59,7 @@
         }
         var heatTempChartGrid = {
             tickColor: "#eee",
+			backgroundColor:{colors:["#fef8eb","#ecf4fa"]},
             borderWidth: 0,
             hoverable: true,
             clickable: true
@@ -148,7 +149,7 @@
                     if (k == 0 && points[k].data[m][2] != 0) {
 						//forecast tempreture line
 						weatherIcon = '<div class="weathericon weather-' +points[k].data[m][2]  + '"></div>';
-                        showInfoWindow( points[k].xaxis.p2c(points[k].data[m][0]) , points[k].yaxis.p2c(points[k].data[m][1]) -30, weatherIcon + points[k].data[m][1], "#ec6313")
+                        showInfoWindow( points[k].xaxis.p2c(points[k].data[m][0]) , points[k].yaxis.p2c(points[k].data[m][1]) -25, weatherIcon + points[k].data[m][1], "#ec6313")
                     } 
                 }
         }
@@ -160,9 +161,6 @@
             left: x,
 			'width':'45px',
 			'text-align':'center',
-            'border-style': 'solid',
-            'border-width': '2px',
-            'border-color': "#FFF",
             'border-radius': '5px',
             'background-color': colour,
             color: '#FFF',
