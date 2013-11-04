@@ -42,7 +42,7 @@
             <th>是否并网供热</th>
             <td >@Html.CheckBoxFor(m=>m.HeatSource.是否并网供热.Value)
             <td colspan="2">
-            @if (Model.HeatSourceId==11)
+            @if (Model.HeatSourceId == 11 || Model.HeatSourceId == 5)
             {
                 @Html.ActionLink( @Convert.ToBoolean(Model.HeatSource.是否并网供热) ? "加入独网" : "加入并网", "AddToTotalHeatSource", "HeatSources", new { heatSourceId = @Model.HeatSourceId, isAddToTotal=!@Convert.ToBoolean(Model.HeatSource.是否并网供热) }, new { @class = "btn btn-primary" }) 
             }

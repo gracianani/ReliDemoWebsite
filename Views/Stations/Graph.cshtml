@@ -37,10 +37,6 @@
         </label>
         <input type="submit" value="搜索" id="search" class="btn btn-primary" style="vertical-align: bottom;"/>
     </div>
-
-	<div class="control-group"   onTablet="span12" onDesktop="span4">
-	<text>折合统一温度</text><input type="text" class="inline" style="width:100px" /><text>℃</text>
-	</div>
 </div>
 <div class="box">
 <div class="box-content">
@@ -85,7 +81,7 @@
                 minTickSize: [1, "day"],
                 timeformat: "%m月%d日"
             },
-            yaxis: [{}, {}],
+            yaxis: [{}, {}, {}],
             legend: { position: "sw" },
             grid: {
                 tickColor: "#eee",
@@ -95,7 +91,7 @@
             }
         };
 
-        $.plot("#stationgraph", [{ "label": "实际平均温度", "data": tempActu, yaxis: 2 }, { "label": "预报平均温度", "data": tempPlan }, { "label": "实际运行热指标", "data": actual_index }, { "label": "计划热指标", "data": plan_index }, { "label": "计算热指标", "data": calculated_index }, { "label": "实际GJ", "data": actual_gj }, { "label": "计划GJ", "data": plan_gj }, { "label": "核算GJ", "data": calculated_gj}], heatoptions);
+        $.plot("#stationgraph", [{ "label": "实际平均温度", "data": tempActu, yaxis: 2 }, { "label": "预报平均温度", "data": tempPlan, yaxis: 2 }, { "label": "实际运行热指标", "data": actual_index, yaxis: 1 }, { "label": "计划热指标", "data": plan_index, yaxis: 1 }, { "label": "核算热指标", "data": calculated_index, yaxis: 1 }, { "label": "实际GJ", "data": actual_gj, yaxis: 3 }, { "label": "计划GJ", "data": plan_gj, yaxis: 3 }, { "label": "核算GJ", "data": calculated_gj, yaxis: 3}], heatoptions);
 
         $("#search").click(function () {
 
@@ -108,7 +104,14 @@
 
             function onDataReceived(series) {
                 console.log(series);
-                $.plot("#stationgraph", [{ "label": "实际平均温度", "data": $.parseJSON(series.tempActual), yaxis: 2 }, { "label": "预报平均温度", "data": $.parseJSON(series.tempForecast) }, { "label": "实际运行热指标", "data": $.parseJSON(series.actual) }, { "label": "计划热指标", "data": $.parseJSON(series.planned) }, { "label": "计算热指标", "data": series.calculated }, { "label": "实际GJ", "data": series.actual_gj }, { "label": "计划GJ", "data": series.plan_gj }, { "label": "核算GJ", "data": series.calculated_gj}], heatoptions);
+                $.plot("#stationgraph", [{ "label": "实际平均温度", "data": $.parseJSON(series.tempActual), yaxis: 2 },
+                { "label": "预报平均温度", "data": $.parseJSON(series.tempForecast), yaxis :2 },
+                { "label": "实际运行热指标", "data": $.parseJSON(series.actual), yaxis:1 },
+                { "label": "计划热指标", "data": $.parseJSON(series.planned), yaxis : 1 },
+                { "label": "计算热指标", "data": $.parseJSON(series.calculated), yaxis: 1 },
+                { "label": "实际GJ", "data": $.parseJSON(series.actual_gj) ,yaxis:3},
+                { "label": "计划GJ", "data": $.parseJSON(series.planned_gj), yaxis: 3 },
+                { "label": "核算GJ", "data": $.parseJSON(series.calculated_gj), yaxis: 3}], heatoptions);
             }
 
             $.ajax({
