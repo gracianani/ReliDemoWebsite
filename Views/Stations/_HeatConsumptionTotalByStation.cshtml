@@ -21,7 +21,7 @@
                 @foreach (var GJItem in Model)
                 {
                     <tr  class="
-						@if ( GJItem.Title.Contains("供热量")) {
+						@if ( GJItem.Title.Contains("(GJ)")) {
 						<text>groupColorBlue</text>
 						}else if ( GJItem.Title.Contains("热指标")) {
 						<text>groupColorGold</text>
@@ -31,7 +31,12 @@
 					">
                         <td>@GJItem.Title</td>
                         <td>@GJItem.今日</td> 
-                        <td>@GJItem.昨日</td> 
+                        <td 
+						 @if (GJItem.Title.Contains("超计划") || GJItem.Title.Contains("超核算") )
+                               {
+                                <text>class="differenceValue"</text>
+                               } 
+						>@GJItem.昨日</td> 
 				    </tr>
                 }
             </tbody>
