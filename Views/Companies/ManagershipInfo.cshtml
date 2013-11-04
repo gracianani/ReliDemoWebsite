@@ -6,28 +6,48 @@
 }
 
 <h2>@Model.Managership.管理单位</h2>
+
+@Html.Partial("TopStats", Model.TopStats)
+
 <div class="row-fluid">
-	@Html.Partial("TopStats", Model.TopStats)
+    <div class="span6" onTablet="span12 noMarginLeft" onDesktop="span6">
+		@Html.Partial("HeatConsumptionTotal", Model.TodayGJ)
+	</div>
+	<div class="span6" onTablet="span12 noMarginLeft" onDesktop="span6">
+		 @Html.Partial("HeatConsumptionTotal", Model.YesterdayGJ)
+		 <div class="box smallstat">
+			<i class="icon-eye-open crimson"></i>
+			<span class="title">监控站、智能卡站</span>
+			<span class="value">@(Model.监控站个数 + Model.智能卡站个数) 个</span>
+		</div>
+    </div>
 </div>
 <div class="row-fluid">
-    <div class="span6" onTablet="span12">
-        @Html.Partial("HeatConsumptionTotal", Model.TodayGJ)
-        @Html.Partial("HeatConsumptionTotal", Model.YesterdayGJ)
+	<div class="span6" onTablet="span12 noMarginLeft" onDesktop="span6">
+		@Html.Partial("HeatConsumptionGraph", Model.Histories)
+	</div>
+	<div class="span6" onTablet="span12 noMarginLeft" onDesktop="span6">
+		气象图表
+	</div>
+</div>
+<div class="row-fluid">
+	<div class="span6" onTablet="span12" onDesktop="span6">
+	
+       超标站图表
 		
-    </div>
-    <div class="span6" onTablet="span12">
-        <div class="box smallstat">
+	</div>
+	<div class="span6" onDesktop="span6" onTablet="span12 noMarginLeft">
+		<div class="box smallstat mergeWithBottom">
 			<i class="icon-pencil blue"></i>
 			<span class="title">手抄表站</span>
 			<span class="value">@Model.手抄表站个数 个</span>
 			<span class="time">更新时间 : @string.Format("{0:yyyy年MM月dd日}",Model.手抄表最近更新时间)</span>
 		</div>
         @Html.Partial("HeatConsumptionTotal", Model.手抄GJ)
-    </div>
+	</div>
 </div>
 <div class="row-fluid">
-	@Html.Partial("HeatConsumptionGraph", Model.Histories)
-    <div class="span12 noMarginLeft">
+
         <table class="table table-bordered backgroundColor white table-condensed  table-hover table-clickhighlight table-dblclickactive">
             @foreach( var station in Model.Managership.Stations){
                 if (Model.Managership.Stations.First() == station)
@@ -45,7 +65,7 @@
                 </tr>
             }
         </table>
-    </div>
+
 </div>
 <script>
     jQuery(document).ready(function ($) {

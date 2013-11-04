@@ -20,7 +20,15 @@
             <tbody>
                 @foreach (var GJItem in Model)
                 {
-                    <tr>
+                    <tr  class="
+						@if ( GJItem.Title.Contains("供热量")) {
+						<text>groupColorBlue</text>
+						}else if ( GJItem.Title.Contains("热指标")) {
+						<text>groupColorGold</text>
+						}else if ( GJItem.Title.Contains("单耗")) {
+						<text>groupColorGreen</text>
+						}
+					">
                         <td>@GJItem.Title</td>
                         <td>@GJItem.今日</td> 
                         <td>@GJItem.昨日</td> 
