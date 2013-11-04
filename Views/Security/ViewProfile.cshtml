@@ -16,27 +16,36 @@
 {
     @Html.ValidationSummary(true)
     <fieldset>
+        @Html.HiddenFor(model=>model.UserId)
         <legend>个人信息</legend>
-		<div class="control-group">
-        <div class="control-label">
-            @Html.LabelFor(model => model.姓名)
-        </div>
-        <div class="controls">
-            @Html.EditorFor(model => model.姓名)
-            @Html.ValidationMessageFor(model => model.姓名)
-        </div>
-		</div>
-		<div class="control-group">
+        <div class="control-group">
         <div class="control-label">
             @Html.LabelFor(model => model.UserName)
         </div>
         <div class="controls">
             @Html.EditorFor(model => model.UserName)
-            @Html.ValidationMessageFor(model => model.UserName)
-			
         </div>
 		</div>
+		<div class="control-group">
+        <div class="control-label">
+            @Html.LabelFor(model => model.姓名)
+        </div>
         
+        <div class="controls">
+            @Html.EditorFor(model => model.姓名)
+            @Html.ValidationMessageFor(model => model.姓名)
+        </div>
+		</div>
+		
+        <div class="control-group">
+        <div class="control-label">
+            @Html.LabelFor(model => model.密码)
+            <p class="help-block"><span class="red">请在下方输入新密码,留空为不修改</span></p>
+        </div>
+        <div class="controls">
+            @Html.PasswordFor(model => model.密码)
+        </div>
+		</div>
 		</fieldset>
 		<fieldset>
         <legend>用户级别设置</legend>
