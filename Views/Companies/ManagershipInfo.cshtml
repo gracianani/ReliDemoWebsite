@@ -36,7 +36,7 @@
 	</div>
 	<div class="span6" onDesktop="span6" onTablet="span12 noMarginLeft">
 		<div class="row-fluid">
-		<a class="box smallstat mergeWithBottom span12 dialog-trigger " >
+		<a class="box smallstat mergeWithBottom span12 dialog-trigger " data-dialog="heatTotalDialog" >
 			<i class="icon-pencil blue"></i>
 			<span class="title">手抄表站</span>
 			<span class="value">@Model.手抄表站个数 个</span>
@@ -54,7 +54,7 @@
             @foreach( var station in Model.Managership.Stations){
                 if (Model.Managership.Stations.First() == station)
                 {
-                    <tr><th>热力站名称</th><th>热力站编号</th><th>供热面积(万㎡)</th><th>参考热指标(Kcal/h)</th><th>计划热指标(Kcal/h)</th><th>日累计单耗(w/㎡)</th><th>万平米循环水流量(t/h)</th></tr>
+                    <tr><th>热力站名称</th><th>热力站编号</th><th>供热面积(万㎡)</th><th>参考热指标(Kcal/h)</th><th>计划热指标(Kcal/h)</th><th>日累计单耗(w/㎡)</th><th>万平米循环水流量(t/h)</th><th>流量超标?</th><th>多耗%</th><th>单耗超标?</th><th>一次回温</th><th>温度超标?</th></tr>
                 }
                 <tr>
                     <td>@Html.ActionLink(station.热力站名称 + " ", "StationRealTime", "Stations", new { stationId = station.ItemID }, new { })</td>
@@ -64,6 +64,11 @@
                     <td>@station.计划热指标</td>
                     <td>@station.今日累计单耗</td>
                     <td>@station.万平方米流量</td>
+                    <td>@(station.万平方米流量 - ReliDemo.Infrastructure.Services.ConfigurationService.WaterExceed > 0)</td>
+                    <td>@station.多耗percent</td>
+                    <td>@(station.多耗percent > 20)</td>
+                    <td>@station.一次回温</td>
+                    <td>@(station.一次回温 - ReliDemo.Infrastructure.Services.ConfigurationService.TemperatureExceed > 0)</td>
                 </tr>
             }
         </table>
