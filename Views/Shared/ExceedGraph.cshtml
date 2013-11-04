@@ -12,7 +12,7 @@
 			<span class="percent">%</span>
 			<div class="circleStat">
 	                    <input type="text" value="@if (Model.单耗超标站个数 == 0)
-                                               {<text>0.1</text> } else { <text> @(Model.单耗超标站个数/Convert.ToDecimal(Model.热力站总数)*100.0m) </text>}" class="whiteCircle" />
+                                               {<text>0.01</text> } else { <text> @(Model.单耗超标站个数/Convert.ToDecimal(Model.热力站总数)*100.0m) </text>}" class="whiteCircle" />
 			</div>
 			<div class="footer">
 						<span class="count">
@@ -33,7 +33,7 @@
 			<span class="percent">%</span>
 			<div class="circleStat">
 	                    <input type="text" value="@if (Model.流量超标站个数 == 0)
-                                               {<text>0.1</text> } else { <text> @(Model.流量超标站个数/Convert.ToDecimal(Model.热力站总数)*100.0m) </text>}" class="whiteCircle" />
+                                               {<text>0.01</text> } else { <text> @(Model.流量超标站个数/Convert.ToDecimal(Model.热力站总数)*100.0m) </text>}" class="whiteCircle" />
 			</div>
 			<div class="footer">
 						<span class="count">
@@ -55,7 +55,7 @@
 			<span class="percent">%</span>
 			<div class="circleStat">
 	            <input type="text" value="@if (Model.温度超标站个数 == 0)
-                                               {<text>0.1</text> } else { <text> @(Model.温度超标站个数 / Convert.ToDecimal(Model.热力站总数) * 100.0m) </text>}" class="whiteCircle" />
+                                               {<text>0.01</text> } else { <text> @(Model.温度超标站个数 / Convert.ToDecimal(Model.热力站总数) * 100.0m) </text>}" class="whiteCircle" />
 			</div>
 			<div class="footer">
 				<span class="count">
