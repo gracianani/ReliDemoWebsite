@@ -49,14 +49,16 @@
 	</div>
 </div>
 <div class="row-fluid">
-
-        <table class="table table-bordered backgroundColor white table-condensed  table-hover table-clickhighlight table-dblclickactive">
+        <table class="table  table-bordered table-hover  table-condensed table-clickhighlight datatable" style="background:white">
             @foreach( var station in Model.Managership.Stations){
                 if (Model.Managership.Stations.First() == station)
                 {
-                    <tr><th>热力站名称</th><th>热力站编号</th><th>供热面积(万㎡)</th><th>参考热指标(Kcal/h)</th><th>计划热指标(Kcal/h)</th><th>日累计单耗(w/㎡)</th><th>万平米循环水流量(t/h)</th><th>流量超标?</th><th>多耗%</th><th>单耗超标?</th><th>一次回温</th><th>温度超标?</th></tr>
+                   <thead> <tr><th>热力站名称</th><th>热力站编号</th><th>供热面积(万㎡)</th><th>参考热指标(Kcal/h)</th><th>计划热指标(Kcal/h)</th><th>日累计单耗(w/㎡)</th><th>万平米循环水流量(t/h)</th><th>流量超标?</th><th>多耗%</th><th>单耗超标?</th><th>一次回温</th><th>温度超标?</th></tr></thead>
                 }
-                <tr>
+                <tr class="
+				@if(station.万平方米流量 - ReliDemo.Infrastructure.Services.ConfigurationService.WaterExceed > 0 || station.多耗percent > 20 || station.一次回温 - ReliDemo.Infrastructure.Services.ConfigurationService.TemperatureExceed > 0){
+					<text>alert-danger</text>
+				}">
                     <td>@Html.ActionLink(station.热力站名称 + " ", "StationRealTime", "Stations", new { stationId = station.ItemID }, new { })</td>
                     <td>@station.热力站编号 </td>
                     <td>@station.投入面积</td>
@@ -64,15 +66,26 @@
                     <td>@station.计划热指标</td>
                     <td>@station.今日累计单耗</td>
                     <td>@station.万平方米流量</td>
-                    <td>@(station.万平方米流量 - ReliDemo.Infrastructure.Services.ConfigurationService.WaterExceed > 0)</td>
+                    <td>@if(station.万平方米流量 - ReliDemo.Infrastructure.Services.ConfigurationService.WaterExceed > 0){
+						<i class="icon-ok red"></i>
+					} else {
+						<text>-</text>
+					}</td>
                     <td>@station.多耗percent</td>
-                    <td>@(station.多耗percent > 20)</td>
+                    <td>@if(station.多耗percent > 20){
+						<i class="icon-ok red"></i>
+					} else {
+						<text>-</text>
+					}</td>
                     <td>@station.一次回温</td>
-                    <td>@(station.一次回温 - ReliDemo.Infrastructure.Services.ConfigurationService.TemperatureExceed > 0)</td>
+                    <td>@if(station.一次回温 - ReliDemo.Infrastructure.Services.ConfigurationService.TemperatureExceed > 0){
+						<i class="icon-ok red"></i>
+					} else {
+						<text>-</text>
+					}</td>
                 </tr>
             }
         </table>
-
 </div>
 
 <div class="dialog-overlay" id="heatTotalDialog">
