@@ -26,23 +26,21 @@
 	<div class="span6" onTablet="span12 noMarginLeft" onDesktop="span6">
 		@Html.Partial("HeatConsumptionGraph", Model.Histories)
 	</div>
-	<div class="span6" onTablet="span12 noMarginLeft" onDesktop="span6">
-		气象图表
+	<div class="box span6" onTablet="span12 noMarginLeft" onDesktop="span6">
+		@Html.Partial("TemperatureGraph", Model.WeatherGraph)
 	</div>
 </div>
 <div class="row-fluid">
 	<div class="span6" onTablet="span12" onDesktop="span6">
-	
-       超标站图表
-		
+       @Html.Partial("ExceedGraph", @Model.ExceedGraph)
 	</div>
 	<div class="span6" onDesktop="span6" onTablet="span12 noMarginLeft">
-		<div class="box smallstat mergeWithBottom">
+		<a class="box smallstat mergeWithBottom span12 dialog-trigger " >
 			<i class="icon-pencil blue"></i>
 			<span class="title">手抄表站</span>
 			<span class="value">@Model.手抄表站个数 个</span>
 			<span class="time">更新时间 : @string.Format("{0:yyyy年MM月dd日}",Model.手抄表最近更新时间)</span>
-		</div>
+		</a>
         @Html.Partial("HeatConsumptionTotal", Model.手抄GJ)
 	</div>
 </div>
@@ -67,40 +65,16 @@
         </table>
 
 </div>
-<script>
-    jQuery(document).ready(function ($) {
-        var company_exceed_station_data = [
 
-        { label: "单耗合格站数量", data: 10 },
-
-        { label: "单耗超标站数量", data: 20 }
-
-    ];
-        var company_exceed_area_data = [
-
-        { label: "万平米流量合格站数量", data: 80 },
-
-        { label: "万平米流量超标站数量", data: 20 }
-
-    ];
-
-        var company_exceed_station_options = {
-            series: {
-                pie: {
-                    show: true
-                }
-            },
-            colors: ["#2fabe9", "#c84628"],
-            legend: {
-                show: false
-            },
-            grid: {
-                hoverable: true,
-                clickable: true
-            }
-        };
-
-        $.plot($("#company_exceed_station"), company_exceed_station_data, company_exceed_station_options);
-        $.plot($("#company_exceed_area"), company_exceed_area_data, company_exceed_station_options);
-    });
-</script>
+<div class="dialog-overlay" id="heatTotalDialog">
+	<div class="dialog">
+		<div class="dialog-header">
+			<h2>手抄表站、监测站汇总后信息</h2>
+			<div class="dialog-subtitle">汇总时间 : @string.Format("{0:yyyy-MM-dd}",Model.手抄表最近更新时间) </div>
+		</div>
+		<div class="dialog-content">
+			@Html.Partial("HeatConsumptionTotal", Model.GJ总)
+		</div>
+		<div class="dialog-close"><i class="icon-remove"></i></div>
+	</div>
+</div><!--dialog-overlay-->
