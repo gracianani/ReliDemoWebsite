@@ -45,6 +45,9 @@
     var d1 = $.parseJSON($("input[name=plan]").val());
     var d2 = $.parseJSON($("input[name=theory]").val());
     var d3 = $.parseJSON($("input[name=actual]").val());
+    var d4 = $.parseJSON($("input[name=plan_index]").val());
+    var d5 = $.parseJSON($("input[name=theory_index]").val());
+    var d6 = $.parseJSON($("input[name=actual_index]").val());
     var today = new Date();
     var tempPlan = $.parseJSON($("input[name=temperatureForecast]").val());
     var tempActu = $.parseJSON($("input[name=temperatureActual]").val());
@@ -58,17 +61,12 @@
        lines: { show: true },
 	   points:{ show:true, symbol:"cross"},
         yaxis: 2
-
-
     }, {
-
-
         label: "核算供热量(GJ)",
         data: d2,
         lines: { show: true },
 	   points:{ show:true, symbol:"cross"},
         yaxis: 2
-
     }, {
 
         label: "实际供热量(GJ)",
@@ -78,21 +76,21 @@
         yaxis: 2
     }, {
         label: "计划热指标(kcal/h·㎡)",
-        data: d3,
+        data: d4,
         lines: { show: true },
-        points: { show: true, symbol: "square" },
+        points: { show: true, symbol: "diamond" },
         yaxis: 3
     }, {
         label: "核算热指标(kcal/h·㎡)",
-        data: d3,
+        data: d5,
         lines: { show: true },
-        points: { show: true, symbol: "square" },
+        points: { show: true, symbol: "diamond" },
         yaxis: 3
     }, {
         label: "实际运行热指标(kcal/h·㎡)",
-        data: d3,
+        data: d6,
         lines: { show: true },
-        points: { show: true, symbol: "square" },
+        points: { show: true, symbol: "diamond" },
         yaxis: 3
     },{
         label: "实际平均温度(℃)",

@@ -44,7 +44,10 @@
 								<li><a class="submenu" href="/Stations/Paged"><i class="icon-list-alt"></i><span class="hidden-tablet"> 基础信息</span></a></li>
 								<li><a class="submenu" href="/Stations/RealTime"><i class="icon-eye-open"></i><span class="hidden-tablet"> 实时监测</span></a></li>
 								<li><a class="submenu" href="/Stations/Statistics?day=today"><i class="icon-bar-chart"></i><span class="hidden-tablet"> 热耗统计</span></a></li>
+                                @if (ReliDemo.Infrastructure.Services.MembershipService.CurrentUser != null && ReliDemo.Infrastructure.Services.MembershipService.CurrentUser.是否有集团权限)
+                                {
                                 <li><a class="submenu" href="/Stations/ManualDataInput"><i class="icon-pencil"></i><span class="hidden-tablet"> 人工抄表</span></a></li>
+                                }
 							</ul>
 						</li>
 						<li><a class="dropmenu"><i class="icon-cloud"></i><span class="hidden-tablet"> 气象信息</span></a>

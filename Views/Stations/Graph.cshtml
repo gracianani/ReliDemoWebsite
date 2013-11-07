@@ -55,7 +55,8 @@
 @Html.Hidden("actual_GJ", @Model.实际供热量GJ)
 @Html.Hidden("temperatureForecast", @Model.预报温度)
 @Html.Hidden("temperatureActual", @Model.实际温度)
-
+@Html.Hidden("fromDate", @Model.FromDate.Value.Subtract(new DateTime(1970, 1, 1)).TotalMilliseconds)
+@Html.Hidden("toDate", @Model.ToDate.Value.Subtract(new DateTime(1970, 1, 1)).TotalMilliseconds)
 <script type="text/javascript">
 
     $(function () {
@@ -79,9 +80,11 @@
             xaxis: {
                 mode: "time",
                 minTickSize: [1, "day"],
-                timeformat: "%m月%d日"
+                timeformat: "%m月%d日",
+                min: parseInt($("#fromDate").val()),
+                max: parseInt($("#toDate").val())
             },
-            yaxis: [{}, {}, {}],
+            yaxis: [{  }, {  }, { }],
             legend: { position: "sw" },
             grid: {
                 tickColor: "#eee",
@@ -104,12 +107,14 @@
 
             function onDataReceived(series) {
                 console.log(series);
+                heatoptions.xaxis.min = series.fromDate;
+                heatoptions.xaxis.max = series.toDate;
                 $.plot("#stationgraph", [{ "label": "实际平均温度", "data": $.parseJSON(series.tempActual), yaxis: 2 },
-                { "label": "预报平均温度", "data": $.parseJSON(series.tempForecast), yaxis :2 },
-                { "label": "实际运行热指标", "data": $.parseJSON(series.actual), yaxis:1 },
-                { "label": "计划热指标", "data": $.parseJSON(series.planned), yaxis : 1 },
+                { "label": "预报平均温度", "data": $.parseJSON(series.tempForecast), yaxis: 2 },
+                { "label": "实际运行热指标", "data": $.parseJSON(series.actual), yaxis: 1 },
+                { "label": "计划热指标", "data": $.parseJSON(series.planned), yaxis: 1 },
                 { "label": "计算热指标", "data": $.parseJSON(series.calculated), yaxis: 1 },
-                { "label": "实际GJ", "data": $.parseJSON(series.actual_gj) ,yaxis:3},
+                { "label": "实际GJ", "data": $.parseJSON(series.actual_gj), yaxis: 3 },
                 { "label": "计划GJ", "data": $.parseJSON(series.planned_gj), yaxis: 3 },
                 { "label": "核算GJ", "data": $.parseJSON(series.calculated_gj), yaxis: 3}], heatoptions);
             }
@@ -141,32 +146,29 @@
         });
 
         function showTooltip(x, y, contents) {
+            
             $("<div id='tooltip'>" + contents + "</div>").css({
-                position: "absolute",
-                display: "none",
                 top: y + 5,
-                left: x + 5,
-                border: "1px solid #fdd",
-                padding: "2px",
-                "background-color": "#fee",
-                opacity: 0.80
+                left: x + 5
             }).appendTo("body").fadeIn(200);
         }
         var previousPoint = null;
-        $("#stationgraph").bind("plotclick", function (event, pos, item) {
+        $("#stationgraph").bind("plothover", function (event, pos, item) {
             if (item) {
                 if (previousPoint != item.dataIndex) {
                     previousPoint = item.dataIndex;
                     $('#tooltip').remove();
-                    x = item.datapoint[0];
                     y = item.datapoint[1];
-                    showTooltip(item.pageX, item.pageY, item.series.label + " : " + x + "=" + y);
+                    showTooltip(item.pageX, item.pageY, item.series.label + " : " + y);
                 }
             } else {
                 $("#tooltip").remove();
                 previousPoint = null;
             }
         });
+
+
+
     });
 
 	</script>
