@@ -73,7 +73,7 @@
             xaxis: {
                 mode: "time",
                 minTickSize: [1, "day"],
-                timeformat: "%m月%d日"
+                timeformat: "%d日"
             },
             yaxis: { max: maxTemp, min: minTemp },
             grid: heatTempChartGrid,
@@ -149,24 +149,24 @@
                     if (k == 0 && points[k].data[m][2] != 0) {
 						//forecast tempreture line
 						weatherIcon = '<div class="weathericon weather-' +points[k].data[m][2]  + '"></div>';
-                        showInfoWindow( points[k].xaxis.p2c(points[k].data[m][0]) , points[k].yaxis.p2c(points[k].data[m][1]) -25, weatherIcon + points[k].data[m][1], "#ec6313")
+                        showInfoWindow( points[k].xaxis.p2c(points[k].data[m][0]) , points[k].yaxis.p2c(points[k].data[m][1]) -35, weatherIcon + '<div> '+ points[k].data[m][1] +'°</div>', "#ec6313")
                     } 
                 }
         }
 	}
     function showInfoWindow(x, y, contents, colour) {
-        $('<div class="weatherIconWindow">' + contents + " ℃" + '</div>').css({
+        $('<div class="weatherIconWindow">' + contents + '</div>').css({
             position: 'absolute',
+			'font-family':'Arial',
             top: y,
             left: x,
 			'width':'45px',
 			'text-align':'center',
             'border-radius': '5px',
-            'background-color': colour,
-            color: '#FFF',
+            color: '#333',
             padding: '2px',
-			'font-size':'12px',
-			'line-height':'14px'
+			'font-size':'10px',
+			'line-height':'12px'
         }).appendTo("#graph");
     } 
     

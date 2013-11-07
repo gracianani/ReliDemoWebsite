@@ -39,9 +39,12 @@
     </div>
 </div>
 <div class="box">
-<div class="box-content">
-    <div id="stationgraph" style="width:100%;height:400px">
+<div class="box-content" style="position:relative">
+    <div id="stationgraph" style="width:100%;height:400px;margin-top:20px;">
     </div>
+	<div class="axisLabel" style="position:absolute;top:5px;right:10px">(℃)</div>
+	<div class="axisLabel" style="position:absolute;top:5px;left:2px;font-size:10px;font-family:Arial">(kcal/h•㎡)</div>
+	<div class="axisLabel" style="position:absolute;top:5px;left:65px;font-size:10px;font-family:Arial">(GJ)</div>
 </div>
 </div>
 @Html.HiddenFor(model=>model.StationId)
@@ -77,6 +80,7 @@
             points: {
                 show: true
             },
+			colors: ["#378fc9", "#00558e","#fabb3d", "#ec6313", "#9e3f3d","#33CCCC","#7fb30c","#339966"],
             xaxis: {
                 mode: "time",
                 minTickSize: [1, "day"],
@@ -84,17 +88,30 @@
                 min: parseInt($("#fromDate").val()),
                 max: parseInt($("#toDate").val())
             },
-            yaxis: [{  }, {  }, { }],
-            legend: { position: "sw" },
+            yaxes: [ {
+            position: "left"
+        },{position: "right"},{
+            position: "left"
+        }],
+            legend: { position: "se" },
             grid: {
                 tickColor: "#eee",
                 borderWidth: 0,
                 hoverable: true,
-                clickable: true
+                clickable: true,
+				backgroundColor:{colors:["#fef8eb","#ecf4fa"]},
             }
         };
 
-        $.plot("#stationgraph", [{ "label": "实际平均温度", "data": tempActu, yaxis: 2 }, { "label": "预报平均温度", "data": tempPlan, yaxis: 2 }, { "label": "实际运行热指标", "data": actual_index, yaxis: 1 }, { "label": "计划热指标", "data": plan_index, yaxis: 1 }, { "label": "核算热指标", "data": calculated_index, yaxis: 1 }, { "label": "实际GJ", "data": actual_gj, yaxis: 3 }, { "label": "计划GJ", "data": plan_gj, yaxis: 3 }, { "label": "核算GJ", "data": calculated_gj, yaxis: 3}], heatoptions);
+        $.plot("#stationgraph", 
+		[{ "label":"实际平均温度", "data": tempActu, yaxis: 2 }, 
+		{ "label": "预报平均温度", "data": tempPlan, yaxis: 2 }, 
+		{ "label": "实际运行热指标", "data": actual_index, yaxis: 1 }, 
+		{ "label": "计划热指标", "data": plan_index, yaxis: 1 }, 
+		{ "label": "核算热指标", "data": calculated_index, yaxis: 1 }, 
+		{ "label": "实际供热量", "data": actual_gj, yaxis: 3 }, 
+		{ "label": "计划供热量", "data": plan_gj, yaxis: 3 }, 
+		{ "label": "核算供热量", "data": calculated_gj, yaxis: 3}], heatoptions);
 
         $("#search").click(function () {
 

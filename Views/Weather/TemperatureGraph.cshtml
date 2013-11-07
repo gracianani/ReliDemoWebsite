@@ -81,25 +81,25 @@
 
         var temperatureChartData = [];
         temperatureChartData.push({
-            label: "预报平均温度",
+            label: "预报平均温度(℃)",
             data: forecastAverage,
             lines: { show: true },
             points: { show: true }
         });
         temperatureChartData.push({
-            label: "预报最高温度",
+            label: "预报最高温度(℃)",
             data: forecastHighest,
             lines: { show: true },
             points: { show: true }
         });
         temperatureChartData.push({
-            label: "预报最低温度",
+            label: "预报最低温度(℃)",
             data: forecastLowest,
             lines: { show: true },
             points: { show: true }
         });
         temperatureChartData.push({
-            label: "实际平均温度",
+            label: "实际平均温度(℃)",
             data: actualAverage,
             lines: { show: true },
             points: { show: true, fill: true }
@@ -126,7 +126,7 @@
                     if (k == 0 && m > 6) {
 						//forecast tempreture line
 						weatherIcon = '<div class="weathericon weather-' +points[k].data[m][2]  + '"></div>';
-                        showInfoWindow(graphx + points[k].xaxis.p2c(points[k].data[m][0]) - 25, graphy + points[k].yaxis.p2c(points[k].data[m][1]) -30, weatherIcon + points[k].data[m][1], "#ec6313")
+                        showInfoWindow( points[k].xaxis.p2c(points[k].data[m][0]) , points[k].yaxis.p2c(points[k].data[m][1]) -35, weatherIcon + '<div> '+ points[k].data[m][1] +'°</div>', "#ec6313")
                     } else {
                         //showInfoWindow(graphx + points[k].xaxis.p2c(points[k].data[m][0]), graphy + points[k].yaxis.p2c(points[k].data[m][1]) + 5, points[k].data[m][1], "#00558e")
                     }
@@ -148,20 +148,19 @@
             }
 	});
     function showInfoWindow(x, y, contents, colour) {
-        $('<div id="value">' + contents + " ℃" + '</div>').css({
+        $('<div class="weatherIconWindow">' + contents + '</div>').css({
             position: 'absolute',
+			'font-family':'Arial',
             top: y,
             left: x,
-			'width':'50px',
+			'width':'45px',
 			'text-align':'center',
-            'border-style': 'solid',
-            'border-width': '2px',
-            'border-color': "#FFF",
             'border-radius': '5px',
-            'background-color': colour,
-            color: '#FFF',
-            padding: '2px'
-        }).appendTo("body");
+            color: '#333',
+            padding: '2px',
+			'font-size':'10px',
+			'line-height':'12px'
+        }).appendTo("#graph");
     } 
     
 </script>
