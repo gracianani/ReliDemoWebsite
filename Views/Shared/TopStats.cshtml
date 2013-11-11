@@ -21,12 +21,13 @@
 					<span class="value">@Model.昨日累计供热量<small>GJ</small></span>
 					<span class="time">　</span>
 				</div>
-				<div class=" smallstat box span12 noMarginLeft weatherBox">
-					<i class="gold"><span class="weathericon weather-1"></span></i>
-					<span class="title" title="今天白天: @Model.TodaysWeather 风力">今天白天: @Model.TodaysWeather 风力</span>
+
+				<div class=" smallstat box span6 noMarginLeft weatherBox">
+					<i class="gold"><span class="weathericon weather-@((int)Model.WeatherType)"></span></i>
+					<span class="title" title="今天白天: @Model.TodaysWeather 风力">今天白天: @Model.TodaysWeather 风力 @Model.TodaysWind</span>
 					<span class="title" title="白天至夜间温度: @Model.TodaysHighestTemperature ℃ 至 @Model.TodaysLowestTemperature ℃">白天至夜间温度: @Model.TodaysHighestTemperature ℃ 至 @Model.TodaysLowestTemperature ℃</span>
-					<span class="title" title="平均气温: 今日 @Model.TodaysAverageTemperature℃ ，昨日 ">平均气温: 今日 @Model.TodaysAverageTemperature℃ ，昨日 </span>
-					<span class="title">发布时间:</span>
+					<span class="title" title="平均气温: 今日 @Model.TodaysAverageTemperature℃ ，昨日 ">平均气温: 今日 @Model.TodaysAverageTemperature℃ ，昨日 @Model.YesterdayAverateTemperature℃ </span>
+					<span class="title">发布时间: @Model.WeatherPublishedAt.ToString("yyyy/MM/dd HH:mm tt")</span>
 				</div>
 			</div>
 		</div>
