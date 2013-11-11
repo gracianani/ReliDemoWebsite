@@ -123,10 +123,12 @@
         for (var k = 0; k < points.length; k++) {
             for (var m = 0; m < points[k].data.length; m++) {
                 if (points[k].data[m][0] != null && points[k].data[m][1] != null) {
-                    if (k == 0 && m > 6) {
+                    if (k == 0 ) {
 						//forecast tempreture line
-						weatherIcon = '<div class="weathericon weather-' +points[k].data[m][2]  + '"></div>';
-                        showInfoWindow( points[k].xaxis.p2c(points[k].data[m][0]) , points[k].yaxis.p2c(points[k].data[m][1]) -35, weatherIcon + '<div> '+ points[k].data[m][1] +'°</div>', "#ec6313")
+						if ( points[k].data[m][2] != 0 ) {
+							weatherIcon = '<div class="weathericon weather-' +points[k].data[m][2]  + '"></div>';
+							showInfoWindow( points[k].xaxis.p2c(points[k].data[m][0]) , points[k].yaxis.p2c(points[k].data[m][1]) -35, weatherIcon + '<div> '+ points[k].data[m][1] +'°</div>', "#ec6313")
+						}
                     } else if ( k == 1 ){
                        showInfoWindow( points[k].xaxis.p2c(points[k].data[m][0]) ,15, '<div> '+ points[k].data[m][1] +'°</div>', "#ec6313");
                     } else if ( k == 2 ) {
