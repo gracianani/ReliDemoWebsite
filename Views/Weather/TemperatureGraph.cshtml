@@ -6,7 +6,7 @@
 }
 </style>
 <div class="graphWrapper">
-<div id="graph"  style="height:250px">
+<div id="graph"  style="height:310px">
 </div>
 <div id="graph-legend" ></div>
 <div class="forecastlabel">预报</div>
@@ -127,9 +127,11 @@
 						//forecast tempreture line
 						weatherIcon = '<div class="weathericon weather-' +points[k].data[m][2]  + '"></div>';
                         showInfoWindow( points[k].xaxis.p2c(points[k].data[m][0]) , points[k].yaxis.p2c(points[k].data[m][1]) -35, weatherIcon + '<div> '+ points[k].data[m][1] +'°</div>', "#ec6313")
-                    } else {
-                        //showInfoWindow(graphx + points[k].xaxis.p2c(points[k].data[m][0]), graphy + points[k].yaxis.p2c(points[k].data[m][1]) + 5, points[k].data[m][1], "#00558e")
-                    }
+                    } else if ( k == 1 ){
+                       showInfoWindow( points[k].xaxis.p2c(points[k].data[m][0]) ,15, '<div> '+ points[k].data[m][1] +'°</div>', "#ec6313");
+                    } else if ( k == 2 ) {
+						showInfoWindow( points[k].xaxis.p2c(points[k].data[m][0]) ,265, '<div> '+ points[k].data[m][1] +'°</div>', "#ec6313");
+					}
                 }
             }
         }
