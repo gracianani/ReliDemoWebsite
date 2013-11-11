@@ -4192,6 +4192,10 @@ legend {
 .dialog-trigger {
   cursor: pointer;
 }
+/* line 697, less\custom.less */
+#dashborad-heat-temp-dataselect {
+  font-size: 12px;
+}
 /* Page: Messages
 =================================================================== */
 /* line 3, less\page-messages.less */

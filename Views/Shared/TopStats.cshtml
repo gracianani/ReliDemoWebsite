@@ -7,7 +7,7 @@
 					<i class="icon-user orange"></i>
 					<span class="title">@Model.当前时间.ToString("yyyy年MM月dd日")  @Model.当前时间.ToString("dddd",new System.Globalization.CultureInfo("zh-cn"))  </span>
 					<span class="value">@Model.当前用户.姓名 <small>@Model.当前用户.权限们</small></span>
-					<span class="time">欢迎进入智能化热网热耗管理系统</span>
+					<span class="time">累计供热 @Model.TotalHeatSupplyDays 天 供热开始日期: @Model.起始供热时间.ToString("yyyy-MM-dd") </span>
 				</div><!--box-->
 				<div class=" smallstat box span6 noMarginLeft" id="todaysGJ">
 					<i class="icon-fire crimson"></i>
@@ -21,18 +21,12 @@
 					<span class="value">@Model.昨日累计供热量<small>GJ</small></span>
 					<span class="time">　</span>
 				</div>
-				<div class=" smallstat box span6 noMarginLeft weatherBox">
+				<div class=" smallstat box span12 noMarginLeft weatherBox">
 					<i class="gold"><span class="weathericon weather-1"></span></i>
 					<span class="title" title="今天白天: @Model.TodaysWeather 风力">今天白天: @Model.TodaysWeather 风力</span>
 					<span class="title" title="白天至夜间温度: @Model.TodaysHighestTemperature ℃ 至 @Model.TodaysLowestTemperature ℃">白天至夜间温度: @Model.TodaysHighestTemperature ℃ 至 @Model.TodaysLowestTemperature ℃</span>
 					<span class="title" title="平均气温: 今日 @Model.TodaysAverageTemperature℃ ，昨日 ">平均气温: 今日 @Model.TodaysAverageTemperature℃ ，昨日 </span>
 					<span class="title">发布时间:</span>
-				</div>
-				<div class=" smallstat box span6">
-					<i class="icon-time darkGreen"></i>
-					<span class="title">累计供热时间</span>
-					<span class="value">@Model.TotalHeatSupplyDays<small>天</small></span>
-					<span class="time">供热开始日期: @Model.起始供热时间.ToString("yyyy-MM-dd") </span>
 				</div>
 			</div>
 		</div>
@@ -56,7 +50,7 @@
 					<div class="box-header backgroundColorHeader blue">
 					<h2><i class="icon-calendar"></i><span class="break"></span></h2>
 					</div>
-					<div class="box-content">
+					<div class="box-content" style="padding-bottom:25px">
 						<table class="table makeTableHeaderAsBoxHeader">
 							<thead>
 								<tr>
@@ -71,11 +65,16 @@
 									<td>实际投入面积</td><td>@Model.今日实际投入面积<small>万m<sup>2</sup></small></td><td>@Model.昨日实际投入面积<small>万m<sup>2</sup></small></td>
 								</tr>
 								<tr>
+									<td>未投入面积</td><td>@(Model.总供热面积 - Model.今日实际投入面积)<small>万m<sup>2</sup></small></td><td>@(Model.总供热面积 - Model.昨日实际投入面积)<small>万m<sup>2</sup></small></td>
+								</tr>
+								<!--
+								<tr>
 									<td>计划停止面积</td><td>@Model.今日计划停止面积<small>万m<sup>2</sup></small></td><td>@Model.昨日计划停止面积<small>万m<sup>2</sup></small></td>
 								</tr>
 								<tr>
 									<td>实际停止面积</td><td>@Model.今日实际停止面积<small>万m<sup>2</sup></small></td><td>@Model.昨日实际停止面积<small>万m<sup>2</sup></small></td>
 								</tr>
+								-->
 							</tbody>
 						</table>
 					</div><!--box-content-->
