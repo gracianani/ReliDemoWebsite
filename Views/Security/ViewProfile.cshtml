@@ -51,7 +51,7 @@
         <legend>用户级别设置</legend>
 		<div class="control-group">
 			<div class="controls">
-				<label> <input type="checkbox" id="isCompany"
+				<label> <input type="checkbox" id="isCompany" name="isCompany"
 						@if (Model.TheUser.是否为集团员工)
 						{ <text>checked</text> } /> <strong>集团级用户</strong>
 				</label> 
@@ -65,7 +65,7 @@
 			</div>
 			<div class="controls">
 				<select name="Companies">
-				<option>请选择所属公司</option>
+				<option value="-1">请选择所属公司</option>
 				@foreach (var company in ReliDemo.Models.CompanyHelper.GetAllCompany())
 				{
 					<option id="@company.Id" @if (company.Id == Model.TheUser.所属公司)
@@ -82,7 +82,7 @@
         <div class="controls">
 
             <select name="Managerships">
-            <option>请选择供所属热中心</option>
+            <option value="-1">请选择供所属热中心</option>
             @foreach (var company in ReliDemo.Models.CompanyHelper.GetAllCompany())
             {
                 <optgroup label="@company.Name">  

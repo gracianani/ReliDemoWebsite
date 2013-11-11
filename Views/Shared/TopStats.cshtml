@@ -22,7 +22,7 @@
 					<span class="time">　</span>
 				</div>
 
-				<div class=" smallstat box span6 noMarginLeft weatherBox">
+				<div class=" smallstat box span12 noMarginLeft weatherBox">
 					<i class="gold"><span class="weathericon weather-@((int)Model.WeatherType)"></span></i>
 					<span class="title" title="今天白天: @Model.TodaysWeather 风力">今天白天: @Model.TodaysWeather 风力 @Model.TodaysWind</span>
 					<span class="title" title="白天至夜间温度: @Model.TodaysHighestTemperature ℃ 至 @Model.TodaysLowestTemperature ℃">白天至夜间温度: @Model.TodaysHighestTemperature ℃ 至 @Model.TodaysLowestTemperature ℃</span>
@@ -68,14 +68,6 @@
 								<tr>
 									<td>未投入面积</td><td>@(Model.总供热面积 - Model.今日实际投入面积)<small>万m<sup>2</sup></small></td><td>@(Model.总供热面积 - Model.昨日实际投入面积)<small>万m<sup>2</sup></small></td>
 								</tr>
-								<!--
-								<tr>
-									<td>计划停止面积</td><td>@Model.今日计划停止面积<small>万m<sup>2</sup></small></td><td>@Model.昨日计划停止面积<small>万m<sup>2</sup></small></td>
-								</tr>
-								<tr>
-									<td>实际停止面积</td><td>@Model.今日实际停止面积<small>万m<sup>2</sup></small></td><td>@Model.昨日实际停止面积<small>万m<sup>2</sup></small></td>
-								</tr>
-								-->
 							</tbody>
 						</table>
 					</div><!--box-content-->
