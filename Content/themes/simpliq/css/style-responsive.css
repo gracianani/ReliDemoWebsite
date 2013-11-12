@@ -148,6 +148,9 @@
   .container-fluid-full #sidebar-left .actions {
     display: none;
   }
+  .container-fluid-full #sidebar-switch {
+    left: 8.334%;
+  }
   .sidebar-nav ul {
     text-align: center;
     width: 100% !important;
@@ -362,6 +365,9 @@
   }
   .discussions ul li .name {
     display: none;
+  }
+  #sidebar-switch {
+    display: none!important;
   }
 }
 /* Mobile Landscape Size to Tablet Portrait (devices and browsers)

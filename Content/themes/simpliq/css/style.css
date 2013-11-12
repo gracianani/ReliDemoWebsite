@@ -4196,6 +4196,29 @@ legend {
 #dashborad-heat-temp-dataselect {
   font-size: 12px;
 }
+/* line 700, less\custom.less */
+#sidebar-switch {
+  position: absolute;
+  position: fixed;
+  top: 40%;
+  left: 14.52991452991453%;
+  z-index: 2;
+  background: #383e4b;
+  width: 18px;
+  padding: 2px;
+  height: 18px;
+  line-height: 20px;
+  border-radius: 0 2px 2px 0;
+  display: block;
+  text-decoration: none;
+}
+/* line 714, less\custom.less */
+#sidebar-switch.close {
+  left: 0;
+  background: #383e4b;
+  opacity: 1;
+  text-shadow: none;
+}
 /* Page: Messages
 =================================================================== */
 /* line 3, less\page-messages.less */
