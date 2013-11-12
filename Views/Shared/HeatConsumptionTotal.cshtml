@@ -72,15 +72,15 @@
 					    <td>@GJItem.Title</td>
                         @if (GJItem.东部.HasValue)
                         {
-                            <td @if (GJItem.Title.Contains("超计划") || GJItem.Title.Contains("超核算") )
+                            <td @if (GJItem.Title.Contains("差值") )
                                {
                                 <text>class="differenceValue"</text>
                                }>@GJItem.东部</td> 
-                            <td @if (GJItem.Title.Contains("超计划") || GJItem.Title.Contains("超核算") )
+                            <td @if (GJItem.Title.Contains("差值"))
                                {
                                 <text>class="differenceValue"</text>
                                }>@GJItem.西部</td> 
-                            <td @if (GJItem.Title.Contains("超计划") || GJItem.Title.Contains("超核算") )
+                            <td @if (GJItem.Title.Contains("差值"))
                                {
                                 <text>class="differenceValue"</text>
                                }>@GJItem.全网</td>
@@ -92,7 +92,7 @@
                         else
                         {
                             <td 
-                               @if (GJItem.Title.Contains("超计划") || GJItem.Title.Contains("超核算") )
+                               @if (GJItem.Title.Contains("差值"))
                                {
                                 <text>class="differenceValue"</text>
                                } >
