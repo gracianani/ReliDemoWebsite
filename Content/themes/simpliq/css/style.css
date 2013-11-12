@@ -4217,7 +4217,8 @@ legend {
   left: 0;
   background: #383e4b;
   opacity: 1;
-  text-shadow: none;
+  text-shadow: none!important;
+  font-weight: normal;
 }
 /* Page: Messages
 =================================================================== */
