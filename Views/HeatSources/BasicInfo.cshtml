@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <p>
-    @Html.ActionLink("返回热源厂列表", "Index")
+    @Html.ActionLink("返回热源厂列表", "Index", new object { }, new { @class = "btn btn-primary"})
 </p>
 <div class="row-fluid clearfix stationTitle">
 <h1 class="span3">@Model.HeatSource.热源名称</h1>

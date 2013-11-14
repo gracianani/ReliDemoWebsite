@@ -4220,6 +4220,10 @@ legend {
   text-shadow: none!important;
   font-weight: normal;
 }
+/* line 722, less\custom.less */
+.textAlighRight {
+  text-align: right !important;
+}
 /* Page: Messages
 =================================================================== */
 /* line 3, less\page-messages.less */
