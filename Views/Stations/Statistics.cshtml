@@ -21,7 +21,7 @@ line-height: 30px;'>@ViewBag.Title
         <text>&nbsp;</text>
 </div>
 <div class="row-fluid">
-    <div class="box" onDesktop="span7" onTablet="span12">
+    <div class="box span7" onDesktop="span7" onTablet="span12">
     <ul class="nav nav-tabs box-header">
 		<li class="@if(Model.SelectedSearchMethod.HasValue && Model.SelectedSearchMethod.Value == 1){ <text>active</text> }"><a href="#daily" data-toggle="tab">按日查询</a></li>
 		<li class="@if(Model.SelectedSearchMethod.HasValue && Model.SelectedSearchMethod.Value == 2){ <text>active</text> }"><a href="#weekly" data-toggle="tab">按周查询</a></li>
@@ -77,7 +77,7 @@ line-height: 30px;'>@ViewBag.Title
     </div>
     </div>
 
-	<div class="box" onDesktop="span4" onTablet="span12 noMarginLeft">
+	<div class="box span4" onDesktop="span4" onTablet="span12 noMarginLeft">
 		<div class="box-header"><h2>多耗%筛选</h2></div>
 		<div class="box-content form-inline">
 		<label class="inline">从</label>
@@ -87,7 +87,7 @@ line-height: 30px;'>@ViewBag.Title
 		<label class="inline">%</label>
 		</div>
 	</div>
-	<div  onDesktop="span1" onTablet="span12 noMarginLeft heightAuto">
+	<div class="span1" onDesktop="span1" onTablet="span12 noMarginLeft heightAuto">
         <button type="submit" id="submitFilter" class="btn btn-primary" ><i class="icon-search"></i> 搜索</button>
 	</div>
 </div>
