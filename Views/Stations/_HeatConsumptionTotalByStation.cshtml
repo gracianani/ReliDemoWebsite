@@ -13,8 +13,8 @@
 			<thead>
 				<tr>    
                     <th>&nbsp;</th>
-                    <th><a href="#">今日</a></th>
-                    <th><a href="#">昨日</a></th>
+                    <th class="textAlighRight"><a href="#">今日</a></th>
+                    <th class="textAlighRight"><a href="#">昨日</a></th>
 				</tr>
 			</thead> 
             <tbody>
@@ -30,12 +30,14 @@
 						}
 					">
                         <td>@GJItem.Title</td>
-                        <td>@GJItem.今日</td> 
+                        <td class="textAlighRight">@GJItem.今日</td> 
                         <td 
 						 @if (GJItem.Title.Contains("超计划") || GJItem.Title.Contains("超核算") )
                                {
-                                <text>class="differenceValue"</text>
-                               } 
+                                <text>class="textAlighRight differenceValue"</text>
+                         } else {
+								 <text>class="textAlighRight"</text>
+						 }
 						>@GJItem.昨日</td> 
 				    </tr>
                 }
