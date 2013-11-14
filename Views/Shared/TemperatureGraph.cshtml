@@ -35,26 +35,26 @@
 	var dashboardTempChart;
     $(document).ready(function () {
         var forecastAverageData = $.parseJSON($("input[name=forecastAverage]").val());
-
+		var EIGHT_HOURS = 1000 * 60 * 60 * 8;
         var forecastAverage = [];
         for (var i = 0; i < forecastAverageData.length; i++) {
-            forecastAverage.push([(new Date(forecastAverageData[i].time).getTime()), forecastAverageData[i].temperature, forecastAverageData[i].weathertype]);
+            forecastAverage.push([(new Date(forecastAverageData[i].time).getTime()+ EIGHT_HOURS), forecastAverageData[i].temperature, forecastAverageData[i].weathertype]);
         }
 
         var forecastHighestData = $.parseJSON($("input[name=forecastHighest]").val());
         var forecastHighest = [];
         for (var i = 0; i < forecastHighestData.length; i++) {
-            forecastHighest.push([(new Date(forecastHighestData[i].time).getTime()), forecastHighestData[i].temperature]);
+            forecastHighest.push([(new Date(forecastHighestData[i].time).getTime()+ EIGHT_HOURS), forecastHighestData[i].temperature]);
         }
         var forecastLowestData = $.parseJSON($("input[name=forecastLowest]").val());
         var forecastLowest = [];
         for (var i = 0; i < forecastLowestData.length; i++) {
-            forecastLowest.push([(new Date(forecastLowestData[i].time).getTime()), forecastLowestData[i].temperature]);
+            forecastLowest.push([(new Date(forecastLowestData[i].time).getTime() + EIGHT_HOURS), forecastLowestData[i].temperature]);
         }
         var actualAverageData = $.parseJSON($("input[name=actualAverage]").val());
         var actualAverage = [];
         for (var i = 0; i < actualAverageData.length; i++) {
-            actualAverage.push([(new Date(actualAverageData[i].time).getTime()), actualAverageData[i].temperature]);
+            actualAverage.push([(new Date(actualAverageData[i].time).getTime()+ EIGHT_HOURS), actualAverageData[i].temperature]);
         }
         var heatTempChartGrid = {
             tickColor: "#eee",
@@ -72,8 +72,7 @@
             xaxis: {
                 mode: "time",
                 minTickSize: [1, "day"],
-                timeformat: "%d日",
-				timezone: "browser"
+                timeformat: "%d日"
             },
             yaxis: { max: maxTemp, min: minTemp },
             grid: heatTempChartGrid,
@@ -113,7 +112,7 @@
             lines: { show: true },
             points: { show: true, fill: true }
         });
-		var now = forecastHighest[0][0] - 1000 * 60 * 60 *24;
+		var now = forecastHighest[0][0];
         temperatureChartData.push({
             data: [[now, maxTemp], [now, minTemp]],
             lines: { show: true },
