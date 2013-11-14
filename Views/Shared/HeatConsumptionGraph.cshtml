@@ -27,13 +27,13 @@
 					<td><input type="checkbox" name="actualGJ" id="actualGJ" checked="checked"><span class="label" style="background-color:#9e3f3d">实际供热量</span></td>
 				</tr>
 				<tr>
-					<td><input type="checkbox" name="planIndex" id="planIndex" checked="checked"><span class="label" style="background-color:#33CCCC">计划热指标</span></td>
-					<td><input type="checkbox" name="theoryIndex" id="theoryIndex" checked="checked"><span class="label" style="background-color:#2fabe9">核算热指标</span></td>
-					<td><input type="checkbox" name="actualIndex" id="actualIndex" checked="checked"><span class="label" style="background-color:#00558e">实际运行热指标</span></td>
+					<td><input type="checkbox" name="planIndex" id="planIndex"><span class="label" style="background-color:#33CCCC">计划热指标</span></td>
+					<td><input type="checkbox" name="theoryIndex" id="theoryIndex"><span class="label" style="background-color:#2fabe9">核算热指标</span></td>
+					<td><input type="checkbox" name="actualIndex" id="actualIndex"><span class="label" style="background-color:#00558e">实际运行热指标</span></td>
 				</tr>
 				<tr>
-					<td><input type="checkbox" name="forecastTemperature" id="forecastTemperature" checked="checked"><span class="label" style="background-color:#7fb30c">预报温度</span></td>
-					<td><input type="checkbox" name="actualTemperature" id="actualTemperature" checked="checked"><span class="label" style="background-color:#009966">实际温度</span></td>
+					<td><input type="checkbox" name="forecastTemperature" id="forecastTemperature"><span class="label" style="background-color:#7fb30c">预报温度</span></td>
+					<td><input type="checkbox" name="actualTemperature" id="actualTemperature"><span class="label" style="background-color:#009966">实际温度</span></td>
 				</tr>
 			</table>
 		</div>
@@ -189,7 +189,7 @@
                 heatTempChartData[5].data = $.parseJSON(data["计划热指标"]);
                 heatTempChartData[6].data = $.parseJSON(data["核算热指标"]);
                 heatTempChartData[7].data = $.parseJSON(data["实际运行热指标"]);
-                dashboardHeatTempChart = $.plot("#dashboard-heat-temp-chart", heatTempChartData, heatTempChartOptionsLastWeek);
+                drawSelectedData();
             }
         });
     }
@@ -215,17 +215,31 @@
                 heatTempChartData[5].data = $.parseJSON(data["计划热指标"]);
                 heatTempChartData[6].data = $.parseJSON(data["核算热指标"]);
                 heatTempChartData[7].data = $.parseJSON(data["实际运行热指标"]);
-                dashboardHeatTempChart = $.plot("#dashboard-heat-temp-chart", heatTempChartData, heatTempChartOptionsLastMonth);
+
+				drawSelectedData();
             }
         });
     }
 
     function getSeasonalHeatConsumption() {
     }
+	function drawSelectedData() {
+		var selectedData = [];
+				for (var i = 0; i < heatTempChartData.length; i++) {
+					var id = heatTempChartData[i].checkboxId;
+					if ( id ) {
+						var checkbox = $('#' + id );
+						if ( checkbox.size() > 0  && checkbox.attr('checked')) {
+							selectedData.push(heatTempChartData[i]);
+						}
+					}
+		}
+
+        var dashboardHeatTempChart = $.plot($("#dashboard-heat-temp-chart"), selectedData, heatTempChartOptionsLastWeek);
+	}
 
     $(document).ready(function () {
-
-        var dashboardHeatTempChart = $.plot($("#dashboard-heat-temp-chart"), heatTempChartData, heatTempChartOptionsLastWeek);
+		drawSelectedData();
         $("<div id='tooltip'></div>").appendTo("body");
 
         $("#dashboard-heat-temp-chart").bind("plothover", function (event, pos, item) {
@@ -254,17 +268,7 @@
 
         });
 		$('#dashboard-heat-temp-checkbox input').change(function(){
-			var selectedData = [];
-			for (var i = 0; i < heatTempChartData.length; i++) {
-				var id = heatTempChartData[i].checkboxId;
-				if ( id ) {
-					var checkbox = $('#' + id );
-					if ( checkbox.size() > 0  && checkbox.attr('checked')) {
-						selectedData.push(heatTempChartData[i]);
-					}
-				}
-			}
-			var dashboardHeatTempChart = $.plot($("#dashboard-heat-temp-chart"), selectedData, heatTempChartOptionsLastWeek);
+			drawSelectedData();
 		});
     });
 
