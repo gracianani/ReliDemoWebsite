@@ -13,8 +13,14 @@
 </div>
 </div>
 <div class="row-fluid clearfix stationTitle">
-    <h1 class="span3">@Model.热力站名称</h1>
-    <div onDesktop="span4" onTablet="span6" onMobile="span12">@Html.Partial("_TopMenu")</div>
+    <h1 class="span6">@Model.热力站名称 
+	@if ( @Model.数据来源==null) {
+		<span class="label label-info"><i class="icon-pencil"></i> 手抄表站</span> 
+	} else {
+		<span class="label label-important"><i class="icon-eye-open"></i> @Model.数据来源</span>
+	}
+	</h1>
+    <div class="span6" onDesktop="span6" onTablet="span12 noMarginLeft">@Html.Partial("_TopMenu")</div>
 </div>
 <div class="row-fluid">
     <div class="box ">
@@ -79,7 +85,7 @@
 </div>
 
 <div class="row-fluid">
-    <div class="box span8">
+    <div class="box span8" onDesktop="span8" onTablet="span12">
         <div class="box-header">
             <h2><i class="icon-list"></i>面积信息</h2>
         </div>
@@ -139,7 +145,7 @@
             </div>
         </div>
     </div>
-    <div class="box span4">
+    <div class="box span4" onDesktop="span4" onTablet="span12 noMarginLeft">
         <div class="box-header">
             <h2><i class="icon-list"></i>地理位置</h2>
         </div>

@@ -133,7 +133,7 @@
             return "<div style='font-size:11pt; text-align:center; padding:2px; color:white;'>" + label + "<br/>" + Math.round(series.percent) + "%</div>";
         }
         var data5 = $.parseJSON($("input[name=hf_heatload]").val());
-
+		console.log(data5);
         $.plot("#placeholder_heatSources", data5, {
             series: {
                 pie: {

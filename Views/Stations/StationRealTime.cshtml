@@ -10,8 +10,13 @@
 </div>
 </div>
 <div class="row-fluid clearfix stationTitle">
-    <h1 class="span3">@Model.StationName</h1>
-    <div onDesktop="span4" onTablet="span6" onMobile="span12">@Html.Partial("_TopMenu")</div>
+    <h1 class="span6">@Model.StationName
+	@if ( true ) {
+		<span class="label label-info"><i class="icon-pencil"></i> 手抄表站</span> 
+	} else {
+		<span class="label label-important"><i class="icon-eye-open"></i> Model.数据来源</span>
+	}</h1>
+     <div class="span6" onDesktop="span6" onTablet="span12 noMarginLeft">@Html.Partial("_TopMenu")</div>
 </div>
 <div class="row-fluid">
     <div class="span6" onTablet="span12 noMarginLeft" onDesktop="span6" >

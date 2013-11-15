@@ -66,6 +66,9 @@ line-height: 30px;'>@ViewBag.Title</h2>
         <th>
             @Html.DisplayName("热力站编码")
         </th>
+		<th>
+            @Html.DisplayName("数据来源")
+        </th>
         <th width="200px">
             @Html.DisplayName("用热地址")
         </th>
@@ -120,6 +123,13 @@ line-height: 30px;'>@ViewBag.Title</h2>
         </td>
         <td>
             @p.热力站编码
+        </td>
+		<td>
+		@if ( @p.数据来源==null) {
+			<span class="label label-info"><i class="icon-pencil"></i> 手抄表站</span> 
+		} else {
+			<span class="label label-important"><i class="icon-eye-open"></i> @p.数据来源</span>
+		}
         </td>
         <td>
             @p.用热地址
