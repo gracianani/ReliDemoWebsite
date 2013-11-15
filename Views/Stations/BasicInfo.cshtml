@@ -108,7 +108,7 @@
                     </tr>
                     <tr>
                         <td>实际供热面积</td>
-                        <td >@Model.投入面积A @Model.投入面积B</td>
+                        <td >@(Model.投入面积A + Model.投入面积B)</td>
                         <td colspan="3">@if(Model.投入面积A.HasValue) {
                                             <text> @Model.投入面积A.Value </text>
                                         }
