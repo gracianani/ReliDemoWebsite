@@ -51,7 +51,9 @@
                     else
                     {
                         <text>
-                        <th class="textAlighRight"><a href="#">监控站,智能卡站</a></th>
+                        <th class="textAlighRight"><a href="#">监测站</a></th>
+                        <th class="textAlighRight"><a href="#">手抄站</a></th>
+                        <th class="textAlighRight"><a href="#">全部站</a></th>
                         </text>  
                     }      
 				</tr>
@@ -92,11 +94,8 @@
 								 <text>class="textAlighRight"</text>
 								}>@GJItem.全网</td>
                         }
-                        else if(GJItem.人工抄表.HasValue)
-                        {
-                            <td class="textAlighRight" >@GJItem.人工抄表</td> 
-                        }
-                        else
+                        
+                        else if (GJItem.监测站智能卡.HasValue)
                         {
                             <td
                                @if (GJItem.Title.Contains("差值"))
@@ -105,8 +104,13 @@
                                } else {
 								 <text>class="textAlighRight"</text>
 								} >
-                            @GJItem.总</td>
-                            
+                            @GJItem.监测站智能卡</td>
+                            <td>@GJItem.人工抄表</td>
+                            <td>@GJItem.总</td>
+                        }
+                        else 
+                        {
+                            <td class="textAlighRight" >@GJItem.人工抄表</td> 
                         }
 				    </tr>
 					

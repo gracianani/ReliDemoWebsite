@@ -68,11 +68,11 @@
         </tr>
         <tr>
             <th>热指标(Kcal/h*㎡)</th>
-            <td>32</td>
+            <td>@Model.参考热指标</td>
             <th>历史平均热指标(Kcal/h*㎡)</th>
-            <td>38</td>
+            <td>@Decimal.Round(Convert.ToDecimal(Model.StationIndex.三年平均), 2)</td>
             <th>历史最低热指标(Kcal/h*㎡)</th>
-            <td>36</td>
+            <td>@Model.StationIndex.三年最低</td>
         </tr>
     </table>
     </div>

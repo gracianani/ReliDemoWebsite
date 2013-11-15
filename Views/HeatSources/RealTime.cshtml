@@ -121,7 +121,7 @@
         var heatSourceRecent = Model.HeatSourceRecents.ElementAt(i);
         <tr>
             <td>
-                @Html.ActionLink(heatSourceRecent.热源名称, "History", new { heatSourceId = heatSourceRecent.ItemID })
+                @Html.ActionLink(heatSourceRecent.热源名称, "History", new { heatSourceId = heatSourceRecent.生产热源ID })
             </td>
             <td>
                 @heatSourceRecent.机组名
