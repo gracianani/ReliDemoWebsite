@@ -36,14 +36,14 @@
 				<div class=" smallstat box span6 noMarginLeft">
 						<i class="icon-calendar-empty blue"></i>
 						<span class="title">供热总面积</span>
-						<span class="value">@Model.投停面积信息.总供热面积<small>万㎡</small></span>
-						<span class="time red">计算用监测面积：@Model.投停面积信息.计算用监控面积 万㎡　</span>
+						<span class="value">@Convert.ToDecimal(Model.投停面积信息.总供热面积).ToString("0.00")<small>万㎡</small></span>
+						<span class="time red">计算用监测面积：@Convert.ToDecimal(Model.投停面积信息.计算用监控面积).ToString("0.00") 万㎡　</span>
 				</div>
 				<div class=" smallstat box span6">
 						<i class="icon-calendar blue"></i>
 						<span class="title">实际投入面积</span>
-						<span class="value">@Model.投停面积信息.当日实际供热总面积 <small>万㎡</small></span>
-						<span class="time alignvalue">未投入面积 @(Model.投停面积信息.总供热面积 - Model.投停面积信息.当日实际供热总面积) 万㎡</span>
+						<span class="value">@Convert.ToDecimal(Model.投停面积信息.当日实际供热总面积).ToString("0.00") <small>万㎡</small></span>
+						<span class="time alignvalue">未投入面积 @Convert.ToDecimal(Model.投停面积信息.总供热面积 - Model.投停面积信息.当日实际供热总面积).ToString("0.00") 万㎡</span>
 				</div>
 
 				<div class="box span12 noMarginLeft">
@@ -61,25 +61,35 @@
 								<tr>
                                     @if (Model.投停面积信息.当日计划是否投)
                                     {
-									    <td>计划投入面积 </td><td>@Model.投停面积信息.当日计划投入面积<small>万m<sup>2</sup></small></td><td>@Model.投停面积信息.前日计划投入面积<small>万m<sup>2</sup></small></td>
+									    <td>计划投入面积 </td>
+                                        <td>@Convert.ToDecimal(Model.投停面积信息.当日计划投入面积).ToString("0.00")<small>万m<sup>2</sup></small></td>
+                                        <td>@Convert.ToDecimal(Model.投停面积信息.前日计划投入面积).ToString("0.00")<small>万m<sup>2</sup></small></td>
                                     }
                                     else
                                     {
-                                        <td>计划停热面积 </td><td>@Model.投停面积信息.当日计划停热面积<small>万m<sup>2</sup></small></td><td>@Model.投停面积信息.前日计划停热面积<small>万m<sup>2</sup></small></td>
+                                        <td>计划停热面积 </td>
+                                        <td>@Convert.ToDecimal(Model.投停面积信息.当日计划停热面积).ToString("0.00")<small>万m<sup>2</sup></small></td>
+                                        <td>@Convert.ToDecimal(Model.投停面积信息.前日计划停热面积).ToString("0.00")<small>万m<sup>2</sup></small></td>
                                     }
 								</tr>
 								<tr>
                                     @if (Model.投停面积信息.当日实际是否投)
                                     {
-									    <td>实际投入面积</td><td>@Model.投停面积信息.当日实际投入面积<small>万m<sup>2</sup></small></td><td>@Model.投停面积信息.前日实际投入面积 <small>万m<sup>2</sup></small></td>
+									    <td>实际投入面积</td>
+                                        <td>@Convert.ToDecimal(Model.投停面积信息.当日实际投入面积).ToString("0.00")<small>万m<sup>2</sup></small></td>
+                                        <td>@Convert.ToDecimal(Model.投停面积信息.前日实际投入面积).ToString("0.00")<small>万m<sup>2</sup></small></td>
                                     }
                                     else
                                     {
-									    <td>实际停热面积</td><td>@Model.投停面积信息.当日实际投入面积<small>万m<sup>2</sup></small></td><td>@Model.投停面积信息.前日实际停热面积<small>万m<sup>2</sup></small></td>
+									    <td>实际停热面积</td>
+                                        <td>@Convert.ToDecimal(Model.投停面积信息.当日实际投入面积).ToString("0.00")<small>万m<sup>2</sup></small></td>
+                                        <td>@Convert.ToDecimal(Model.投停面积信息.前日实际停热面积).ToString("0.00")<small>万m<sup>2</sup></small></td>
                                     }
 								</tr>
 								<tr>
-									<td>未投入面积</td><td>@(Model.投停面积信息.当日计划投入面积 - Model.投停面积信息.当日实际投入面积)<small>万m<sup>2</sup></small></td><td>@(Model.投停面积信息.前日计划投入面积 - Model.投停面积信息.前日实际投入面积)<small>万m<sup>2</sup></small></td>
+									    <td>未投入面积</td>
+                                        <td>@Convert.ToDecimal(Model.投停面积信息.当日计划投入面积 - Model.投停面积信息.当日实际投入面积).ToString("0.00")<small>万m<sup>2</sup></small></td>
+                                        <td>@Convert.ToDecimal(Model.投停面积信息.前日计划投入面积 - Model.投停面积信息.前日实际投入面积).ToString("0.00")<small>万m<sup>2</sup></small></td>
 								</tr>
 							</tbody>
 						</table>

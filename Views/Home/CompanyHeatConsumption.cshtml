@@ -27,18 +27,18 @@
         if (company.ItemID == 0 || company.ItemID == 4 || company.ItemID == 5 || company.ItemID == 6)
         {
         <tr>
-		<td>@Html.ActionLink(company.公司, "../Companies/Index", new { companyId = company.ItemID })</td>
-		<td>@Convert.ToInt32(company.今日计划GJ).ToString()</td>
-		<td>@Convert.ToInt32(company.今日累计GJ).ToString()</td>
-        <td>@Convert.ToDecimal(company.参考热指标).ToString("0.00")</td>
-		<td>@Convert.ToDecimal(company.计划热指标).ToString("0.00")</td>
-		<td>@Convert.ToDecimal(company.实际热指标).ToString("0.00")</td>
-		<td>@Convert.ToDecimal(company.万平方米流量).ToString("0.00")</td>
-		<td>@company.热力站个数</td>
-		<td>@company.超标站个数</td>
-		<td>@Html.ActionLink(company.单耗超标站个数.ToString(), "../Stations/RealTime", new { selectedCompanyId = company.ItemID, exceedHeatFrom = ReliDemo.Infrastructure.Services.ConfigurationService.HeatExceed} ) </td>
-		<td>@Html.ActionLink(company.流量超标站个数.ToString(), "../Stations/RealTime", new { selectedCompanyId = company.ItemID, exceedWaterFrom = ReliDemo.Infrastructure.Services.ConfigurationService.WaterExceed}) </td>
-        <td>@Html.ActionLink(company.温度超标站个数.ToString(), "../Stations/RealTime", new { selectedCompanyId = company.ItemID, exceedTemperatureFrom = ReliDemo.Infrastructure.Services.ConfigurationService.TemperatureExceed }) </td>
+		<td class="textAlighRight">@Html.ActionLink(company.公司, "../Companies/Index", new { companyId = company.ItemID })</td>
+		<td class="textAlighRight">@Convert.ToInt32(company.今日计划GJ).ToString()</td>
+		<td class="textAlighRight">@Convert.ToInt32(company.今日累计GJ).ToString()</td>
+        <td class="textAlighRight">@Convert.ToDecimal(company.参考热指标).ToString("0.00")</td>
+		<td class="textAlighRight">@Convert.ToDecimal(company.计划热指标).ToString("0.00")</td>
+		<td class="textAlighRight">@Convert.ToDecimal(company.实际热指标).ToString("0.00")</td>
+		<td class="textAlighRight">@Convert.ToDecimal(company.万平方米流量).ToString("0.00")</td>
+		<td class="textAlighRight">@company.热力站个数</td>
+		<td class="textAlighRight">@company.超标站个数</td>
+		<td class="textAlighRight">@Html.ActionLink(company.单耗超标站个数.ToString(), "../Stations/RealTime", new { selectedCompanyId = company.ItemID, exceedHeatFrom = ReliDemo.Infrastructure.Services.ConfigurationService.HeatExceed} ) </td>
+		<td class="textAlighRight">@Html.ActionLink(company.流量超标站个数.ToString(), "../Stations/RealTime", new { selectedCompanyId = company.ItemID, exceedWaterFrom = ReliDemo.Infrastructure.Services.ConfigurationService.WaterExceed}) </td>
+        <td class="textAlighRight">@Html.ActionLink(company.温度超标站个数.ToString(), "../Stations/RealTime", new { selectedCompanyId = company.ItemID, exceedTemperatureFrom = ReliDemo.Infrastructure.Services.ConfigurationService.TemperatureExceed }) </td>
 		</tr>
         }
     }
