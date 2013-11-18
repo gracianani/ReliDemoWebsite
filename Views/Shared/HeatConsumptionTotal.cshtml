@@ -43,72 +43,87 @@
                         <th class="textAlighRight"><a href="#">全网</a></th>
                         </text>              
                     }
-                    else if(Model.ElementAt(0).人工抄表.HasValue){
-                        <text>
-                        <th class="textAlighRight"><a href="#">人工抄表</a></th>
-                        </text>
-                    }
-                    else
+                    else if( Model.ElementAt(0).监测站智能卡.HasValue)
                     {
                         <text>
                         <th class="textAlighRight"><a href="#">监测站</a></th>
                         <th class="textAlighRight"><a href="#">手抄站</a></th>
                         <th class="textAlighRight"><a href="#">全部站</a></th>
                         </text>  
-                    }      
+                    }
+                    else
+                    {
+                        <text>
+                        <th class="textAlighRight"><a href="#">人工抄表</a></th>
+                        </text>
+                    }
+                       
 				</tr>
 			</thead> 
             <tbody>
                 @foreach (var GJItem in Model)
                 {
                     <tr class="
-					@if ( GJItem.Title.Contains("供热量")) {
+					@if (GJItem.Title.Contains("供热量"))
+     {
 					<text>groupColorBlue</text>
-					}else if ( GJItem.Title.Contains("热指标")) {
+     }
+     else if (GJItem.Title.Contains("热指标"))
+     {
 					<text>groupColorGold</text>
-					}else if ( GJItem.Title.Contains("单耗")) {
+     }
+     else if (GJItem.Title.Contains("单耗"))
+     {
 					<text>groupColorGreen</text>
-					}
+     }
 					"
 					>
 					    <td>@GJItem.Title</td>
                         @if (GJItem.东部.HasValue)
                         {
-                            <td @if (GJItem.Title.Contains("差值") )
-                               {
+                            <td @if (GJItem.Title.Contains("差值"))
+                                {
                                 <text>class="textAlighRight differenceValue"</text>
-                               } else {
+                                }
+                                else
+                                {
 								 <text>class="textAlighRight"</text>
-								}
+                                }
 								>@GJItem.东部</td> 
                             <td @if (GJItem.Title.Contains("差值"))
-                               {
+                                {
                                 <text>class="textAlighRight differenceValue"</text>
-                               } else {
+                                }
+                                else
+                                {
 								 <text>class="textAlighRight"</text>
-								}>@GJItem.西部</td> 
+                                }>@GJItem.西部</td> 
                             <td @if (GJItem.Title.Contains("差值"))
-                               {
+                                {
                                 <text>class="textAlighRight differenceValue"</text>
-                               } else {
+                                }
+                                else
+                                {
 								 <text>class="textAlighRight"</text>
-								}>@GJItem.全网</td>
+                                }>@GJItem.全网</td>
                         }
-                        
+
                         else if (GJItem.监测站智能卡.HasValue)
                         {
                             <td
                                @if (GJItem.Title.Contains("差值"))
                                {
                                 <text>class="textAlighRight differenceValue"</text>
-                               } else {
+                               }
+                               else
+                               {
 								 <text>class="textAlighRight"</text>
-								} >
+                               } >
                             @GJItem.监测站智能卡</td>
                             <td class="textAlighRight">@GJItem.人工抄表</td>
                             <td class="textAlighRight">@GJItem.总</td>
                         }
-                        else 
+                        else
                         {
                             <td class="textAlighRight" >@GJItem.人工抄表</td> 
                         }
