@@ -148,16 +148,7 @@ line-height: 30px;'>@ViewBag.Title
             @Html.DisplayName("核算热指标")<span class="symbol">(Kcal/h*㎡)</span>
         </th>
         <th>
-            @Html.DisplayName("实际运行热指标")<span class="symbol">(Kcal/h*㎡)</span>
-        </th>
-        <th>
-            @Html.DisplayName("理论单耗")<span class="symbol">(GJ/㎡)</span>
-        </th>
-        <th>
-            @Html.DisplayName("累计单耗")<span class="symbol">(GJ/㎡)</span>
-        </th>
-        <th>
-            @Html.DisplayName("采暖季单耗")<span class="symbol">(Kcal/h)</span>
+            @Html.DisplayName("实际热指标")<span class="symbol">(Kcal/h*㎡)</span>
         </th>
         <th>
             @Html.DisplayName("多耗")<span class="symbol">(GJ)</span>
@@ -185,43 +176,43 @@ line-height: 30px;'>@ViewBag.Title
             @p.日期.ToString("yyyy-MM-dd")
         </td>
         <td>
-            @p.计划GJ
+            @Convert.ToInt32(p.计划GJ).ToString()
         </td>
         <td>
-            @p.采暖GJ
+            @Convert.ToInt32(p.采暖GJ).ToString()
         </td>
         <td>
-            @p.热水GJ
+            @Convert.ToInt32(p.热水GJ).ToString()
         </td>
         <td>
-            @p.核算GJ
+            @Convert.ToInt32(p.核算GJ).ToString()
         </td>
         <td>
-            @p.Station.参考热指标
+            @Convert.ToDecimal(p.Station.参考热指标).ToString("0.00")
         </td>
         <td>
-            @p.计划热指标
+            @Convert.ToDecimal(p.计划热指标).ToString("0.00")
         </td>
         <td>
-            @p.核算热指标
+            @Convert.ToDecimal(p.核算热指标).ToString("0.00")
         </td>
         <td>
-            @p.实际热指标
+            @Convert.ToDecimal(p.实际热指标).ToString("0.00")
         </td>
         <td>
-            @p.日单耗
+            @Convert.ToDecimal(p.多耗).ToString("0.00")
         </td>
         <td>
-            @p.多耗
+            @Convert.ToDecimal(p.多耗percent).ToString("0.00")
         </td>
         <td>
-            @p.多耗percent
+            @Convert.ToDecimal(p.日单耗).ToString("0.00")
         </td>
         <td>
-            @p.预报温度
+            @Convert.ToDecimal(p.预报温度).ToString("0.0")
         </td>  
         <td>
-            @p.实际温度
+            @Convert.ToDecimal(p.实际温度).ToString("0.0")
         </td>
         
     </tr>
