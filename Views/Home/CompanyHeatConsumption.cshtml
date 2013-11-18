@@ -28,12 +28,12 @@
         {
         <tr>
 		<td>@Html.ActionLink(company.公司, "../Companies/Index", new { companyId = company.ItemID })</td>
-		<td>@company.今日计划GJ</td>
-		<td>@company.今日累计GJ</td>
-        <td>@company.参考热指标</td>
-		<td>@company.计划热指标</td>
-		<td>@company.实际热指标</td>
-		<td>@company.万平方米流量</td>
+		<td>@Convert.ToInt32(company.今日计划GJ).ToString()</td>
+		<td>@Convert.ToInt32(company.今日累计GJ).ToString()</td>
+        <td>@Convert.ToDecimal(company.参考热指标).ToString("0.00")</td>
+		<td>@Convert.ToDecimal(company.计划热指标).ToString("0.00")</td>
+		<td>@Convert.ToDecimal(company.实际热指标).ToString("0.00")</td>
+		<td>@Convert.ToDecimal(company.万平方米流量).ToString("0.00")</td>
 		<td>@company.热力站个数</td>
 		<td>@company.超标站个数</td>
 		<td>@Html.ActionLink(company.单耗超标站个数.ToString(), "../Stations/RealTime", new { selectedCompanyId = company.ItemID, exceedHeatFrom = ReliDemo.Infrastructure.Services.ConfigurationService.HeatExceed} ) </td>

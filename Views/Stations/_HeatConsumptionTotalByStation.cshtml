@@ -20,8 +20,10 @@
             <tbody>
                 @foreach (var GJItem in Model)
                 {
+                    var toFix = 2;
                     <tr  class="
 						@if ( GJItem.Title.Contains("(GJ)")) {
+                        toFix = 0;
 						<text>groupColorBlue</text>
 						}else if ( GJItem.Title.Contains("热指标")) {
 						<text>groupColorGold</text>
@@ -33,7 +35,7 @@
                         <td class="textAlighRight"> @if (GJItem.Title.Contains("核算") ){
 							<text>--</text>
 						} else {
-							<text>@GJItem.今日</text>
+							<text>@( toFix == 0 ? Convert.ToInt32(GJItem.今日).ToString() : Convert.ToDecimal(GJItem.今日).ToString("0.00") )</text>
 						}</td> 
                         <td 
 						 @if (GJItem.Title.Contains("超计划") || GJItem.Title.Contains("超核算") )
@@ -42,7 +44,7 @@
                          } else {
 								 <text>class="textAlighRight"</text>
 						 }
-						>@GJItem.昨日</td> 
+						>@( toFix == 0 ? Convert.ToInt32(GJItem.昨日).ToString() : Convert.ToDecimal(GJItem.昨日).ToString("0.00") )</td> 
 				    </tr>
                 }
             </tbody>

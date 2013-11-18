@@ -66,18 +66,21 @@
                     var toFix = 2;
                     <tr class="
 					@if (GJItem.Title.Contains("供热量"))
-                         {
-                                toFix = 0;
-					            <text>groupColorBlue</text>
-                         }
-                         else if (GJItem.Title.Contains("热指标"))
-                         {
-					             <text>groupColorGold</text>
-                         }
-                         else if (GJItem.Title.Contains("单耗"))
-                         {
-					             <text>groupColorGreen</text>
-                         }
+                    {
+                        toFix = 0;
+					    <text>groupColorBlue</text>
+                    }
+                    else if (GJItem.Title.Contains("热指标"))
+                    {
+				        <text>groupColorGold</text>
+                    }
+                    else if (GJItem.Title.Contains("单耗"))
+                    {
+					    <text>groupColorGreen</text>
+                    }
+                    else if(GJItem.Title.Contains("热力站数量")) {
+                        toFix = 0;
+                    }
 					"
 					>
 					    <td>@GJItem.Title</td>
@@ -128,7 +131,7 @@
                         }
                         else
                         {
-                            <td class="textAlighRight" >@(toFix == 0 ? Convert.ToInt32(GJItem.人工抄表).ToString() : Convert.ToDecimal(GJItem.人工抄表).ToString("0.00")).</td> 
+                            <td class="textAlighRight" >@(toFix == 0 ? Convert.ToInt32(GJItem.人工抄表).ToString() : Convert.ToDecimal(GJItem.人工抄表).ToString("0.00"))</td> 
                         }
 				    </tr>
 					
