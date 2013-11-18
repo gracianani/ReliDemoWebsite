@@ -104,7 +104,7 @@
             lines: { show: true },
             points: { show: true, fill: true }
         });
-		var now = forecastHighest[0][0];
+		var now = new Date().getTime() + EIGHT_HOURS;
         temperatureChartData.push({
             data: [[now, 30], [now, -25]],
             lines: { show: true },
