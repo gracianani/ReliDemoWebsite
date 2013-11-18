@@ -47,6 +47,24 @@
 <div class="box-content" style="position:relative">
     <div id="stationgraph" style="width:100%;height:400px;margin-top:20px;">
     </div>
+	<div id="dashboard-heat-checkbox">
+			<table class="form-inline" style="width:100%;font-size:12px;">
+				<tr>
+					<td><input type="checkbox" name="planGJ" id="planGJ" checked="checked"><span class="label" style="background-color:#7fb30c">计划供热量</span></td>
+					<td><input type="checkbox" name="theoryGJ" id="theoryGJ" checked="checked"><span class="label" style="background-color:#339966">核算供热量</span></td>
+					<td><input type="checkbox" name="actualGJ" id="actualGJ" checked="checked"><span class="label" style="background-color:#33CCCC">实际供热量</span></td>
+				</tr>
+				<tr>
+					<td><input type="checkbox" name="planIndex" id="planIndex"><span class="label" style="background-color:#ec6313">计划热指标</span></td>
+					<td><input type="checkbox" name="theoryIndex" id="theoryIndex"><span class="label" style="background-color:#9e3f3d">核算热指标</span></td>
+					<td><input type="checkbox" name="actualIndex" id="actualIndex"><span class="label" style="background-color:#fabb3d">实际热指标</span></td>
+				</tr>
+				<tr>
+					<td><input type="checkbox" name="forecastTemperature" id="forecastTemperature"><span class="label" style="background-color:#00558e">预报平均温度</span></td>
+					<td><input type="checkbox" name="actualTemperature" id="actualTemperature"><span class="label" style="background-color:#378fc9">实际平均温度</span></td>
+				</tr>
+			</table>
+		</div>
 	<div class="axisLabel" style="position:absolute;top:5px;right:10px">(℃)</div>
 	<div class="axisLabel" style="position:absolute;top:5px;left:2px;font-size:10px;font-family:Arial">(kcal/h•㎡)</div>
 	<div class="axisLabel" style="position:absolute;top:5px;left:65px;font-size:10px;font-family:Arial">(GJ)</div>
@@ -77,7 +95,14 @@
         var today = new Date();
         var tempPlan = $.parseJSON($("input[name=temperatureForecast]").val());
         var tempActu = $.parseJSON($("input[name=temperatureActual]").val());
-
+		var heatdata=[{ "label":"实际平均温度", "data": tempActu, yaxis: 2,checkboxId:"actualTemperature" }, 
+		{ "label": "预报平均温度", "data": tempPlan, yaxis: 2,checkboxId:"forecastTemperature"}, 
+		{ "label": "实际热指标", "data": actual_index, yaxis: 1,checkboxId:"actualIndex" }, 
+		{ "label": "计划热指标", "data": plan_index, yaxis: 1,checkboxId:"planIndex" }, 
+		{ "label": "核算热指标", "data": calculated_index, yaxis: 1 ,checkboxId:"theoryIndex"}, 
+		{ "label": "实际供热量", "data": actual_gj, yaxis: 3 ,checkboxId:"actualGJ"}, 
+		{ "label": "计划供热量", "data": plan_gj, yaxis: 3 ,checkboxId:"planGJ"}, 
+		{ "label": "核算供热量", "data": calculated_gj, yaxis: 3,checkboxId:"theoryGJ"}];
         var heatoptions = {
             lines: {
                 show: true
@@ -99,7 +124,7 @@
         },{position: "right"},{
             position: "left"
         }],
-            legend: { position: "se" },
+            legend: { show:false },
             grid: {
                 tickColor: "#eee",
                 borderWidth: 0,
@@ -109,15 +134,7 @@
             }
         };
 
-        $.plot("#stationgraph", 
-		[{ "label":"实际平均温度", "data": tempActu, yaxis: 2 }, 
-		{ "label": "预报平均温度", "data": tempPlan, yaxis: 2 }, 
-		{ "label": "实际热指标", "data": actual_index, yaxis: 1 }, 
-		{ "label": "计划热指标", "data": plan_index, yaxis: 1 }, 
-		{ "label": "核算热指标", "data": calculated_index, yaxis: 1 }, 
-		{ "label": "实际供热量", "data": actual_gj, yaxis: 3 }, 
-		{ "label": "计划供热量", "data": plan_gj, yaxis: 3 }, 
-		{ "label": "核算供热量", "data": calculated_gj, yaxis: 3}], heatoptions);
+       drawSelectedData();
 
         $("#search").click(function () {
 
@@ -129,17 +146,17 @@
             var dataurl = "HistoryData?stationId=" + $("#StationId").val() + "&searchSpan=" + searchSpan + "&daterange=" + $("#daterange").val();
 
             function onDataReceived(series) {
-                console.log(series);
                 heatoptions.xaxis.min = series.fromDate;
                 heatoptions.xaxis.max = series.toDate;
-                $.plot("#stationgraph", [{ "label": "实际平均温度", "data": $.parseJSON(series.tempActual), yaxis: 2 },
-                { "label": "预报平均温度", "data": $.parseJSON(series.tempForecast), yaxis: 2 },
-                { "label": "实际运行热指标", "data": $.parseJSON(series.actual), yaxis: 1 },
-                { "label": "计划热指标", "data": $.parseJSON(series.planned), yaxis: 1 },
-                { "label": "计算热指标", "data": $.parseJSON(series.calculated), yaxis: 1 },
-                { "label": "实际GJ", "data": $.parseJSON(series.actual_gj), yaxis: 3 },
-                { "label": "计划GJ", "data": $.parseJSON(series.planned_gj), yaxis: 3 },
-                { "label": "核算GJ", "data": $.parseJSON(series.calculated_gj), yaxis: 3}], heatoptions);
+				heatdata = [{ "label": "实际平均温度", "data": $.parseJSON(series.tempActual), yaxis: 2,checkboxId:"actualTemperature" },
+                { "label": "预报平均温度", "data": $.parseJSON(series.tempForecast), yaxis: 2,checkboxId:"forecastTemperature" },
+                { "label": "实际运行热指标", "data": $.parseJSON(series.actual), yaxis: 1,checkboxId:"actualIndex"  },
+                { "label": "计划热指标", "data": $.parseJSON(series.planned), yaxis: 1 ,checkboxId:"planIndex"},
+                { "label": "计算热指标", "data": $.parseJSON(series.calculated), yaxis: 1 ,checkboxId:"theoryIndex" },
+                { "label": "实际GJ", "data": $.parseJSON(series.actual_gj), yaxis: 3 ,checkboxId:"actualGJ"},
+                { "label": "计划GJ", "data": $.parseJSON(series.planned_gj), yaxis: 3 ,checkboxId:"planGJ"},
+                { "label": "核算GJ", "data": $.parseJSON(series.calculated_gj), yaxis: 3,checkboxId:"theoryGJ"}];
+               drawSelectedData();
             }
 
             $.ajax({
@@ -175,6 +192,20 @@
                 left: x + 5
             }).appendTo("body").fadeIn(200);
         }
+		function drawSelectedData() {
+				var selectedData = [];
+				for (var i = 0; i < heatdata.length; i++) {
+					var id = heatdata[i].checkboxId;
+					if ( id ) {
+						var checkbox = $('#' + id );
+						if ( checkbox.size() > 0  && checkbox.attr('checked')) {
+							selectedData.push(heatdata[i]);
+						}
+					}
+		}
+
+        $.plot("#stationgraph",selectedData, heatoptions);
+	}
         var previousPoint = null;
         $("#stationgraph").bind("plothover", function (event, pos, item) {
             if (item) {
@@ -190,7 +221,9 @@
             }
         });
 
-
+		$('#dashboard-heat-checkbox input').change(function(){
+			drawSelectedData();
+		});
 
     });
 
