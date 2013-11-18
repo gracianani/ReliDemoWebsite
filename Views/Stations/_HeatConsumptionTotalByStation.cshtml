@@ -30,7 +30,11 @@
 						}
 					">
                         <td>@GJItem.Title</td>
-                        <td class="textAlighRight">@GJItem.今日</td> 
+                        <td class="textAlighRight"> @if (GJItem.Title.Contains("核算") ){
+							<text>--</text>
+						} else {
+							<text>@GJItem.今日</text>
+						}</td> 
                         <td 
 						 @if (GJItem.Title.Contains("超计划") || GJItem.Title.Contains("超核算") )
                                {

@@ -15,7 +15,7 @@
 <div class="row-fluid clearfix stationTitle">
     <h1 class="span6">@Model.StationName
 	@if ( string.IsNullOrEmpty( Model.数据来源 ) ) {
-		<span class="label label-info"><i class="icon-pencil"></i> 手抄表站</span> 
+		<span class="label label-info"><i class="icon-pencil"></i> 人工抄表站</span> 
 	} else {
 		<span class="label label-important"><i class="icon-eye-open"></i> @Model.数据来源</span>
 	}</h1>
@@ -112,7 +112,7 @@
         $.plot("#stationgraph", 
 		[{ "label":"实际平均温度", "data": tempActu, yaxis: 2 }, 
 		{ "label": "预报平均温度", "data": tempPlan, yaxis: 2 }, 
-		{ "label": "实际运行热指标", "data": actual_index, yaxis: 1 }, 
+		{ "label": "实际热指标", "data": actual_index, yaxis: 1 }, 
 		{ "label": "计划热指标", "data": plan_index, yaxis: 1 }, 
 		{ "label": "核算热指标", "data": calculated_index, yaxis: 1 }, 
 		{ "label": "实际供热量", "data": actual_gj, yaxis: 3 }, 
