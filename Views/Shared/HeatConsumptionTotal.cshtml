@@ -113,7 +113,7 @@
                                 }>@( GJItem.全网.HasValue ? toFix == 0 ? Convert.ToInt32(GJItem.全网).ToString() : Convert.ToDecimal(GJItem.全网).ToString("0.00") : " -- ")</td>
                         }
 
-                        else if (GJItem.监测站智能卡.HasValue)
+                        else if (GJItem.监测站智能卡.HasValue || GJItem.总.HasValue)
                         {
                             <td
                                @if (GJItem.Title.Contains("差值"))
