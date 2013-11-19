@@ -94,7 +94,7 @@
                                 {
 								 <text>class="textAlighRight"</text>
                                 }
-								>@(toFix == 0 ? Convert.ToInt32(GJItem.东部).ToString() :  Convert.ToDecimal(GJItem.东部).ToString("0.00"))</td> 
+								>@( GJItem.东部.HasValue? toFix == 0 ? Convert.ToInt32(GJItem.东部).ToString() :  Convert.ToDecimal(GJItem.东部).ToString("0.00") : " -- ")</td> 
                             <td @if (GJItem.Title.Contains("差值"))
                                 {
                                 <text>class="textAlighRight differenceValue"</text>
@@ -102,7 +102,7 @@
                                 else
                                 {
 								 <text>class="textAlighRight"</text>
-                                }>@(toFix == 0 ? Convert.ToInt32(GJItem.西部).ToString() :  Convert.ToDecimal(GJItem.西部).ToString("0.00"))</td> 
+                                }>@( GJItem.西部.HasValue ? toFix == 0 ? Convert.ToInt32(GJItem.西部).ToString() :  Convert.ToDecimal(GJItem.西部).ToString("0.00") : " -- ")</td> 
                             <td @if (GJItem.Title.Contains("差值"))
                                 {
                                 <text>class="textAlighRight differenceValue"</text>
@@ -110,7 +110,7 @@
                                 else
                                 {
 								 <text>class="textAlighRight"</text>
-                                }>@(toFix == 0 ? Convert.ToInt32(GJItem.全网).ToString() : Convert.ToDecimal(GJItem.全网).ToString("0.00"))</td>
+                                }>@( GJItem.全网.HasValue ? toFix == 0 ? Convert.ToInt32(GJItem.全网).ToString() : Convert.ToDecimal(GJItem.全网).ToString("0.00") : " -- ")</td>
                         }
 
                         else if (GJItem.监测站智能卡.HasValue)
@@ -124,14 +124,14 @@
                                {
 								 <text>class="textAlighRight"</text>
                                } >
-                               @(toFix == 0 ? Convert.ToInt32(GJItem.监测站智能卡).ToString() : Convert.ToDecimal(GJItem.监测站智能卡).ToString("0.00"))
+                               @( GJItem.监测站智能卡.HasValue ? toFix == 0 ? Convert.ToInt32(GJItem.监测站智能卡).ToString() : Convert.ToDecimal(GJItem.监测站智能卡).ToString("0.00") : " -- " )
                             </td>
-                            <td class="textAlighRight">@(toFix == 0 ? Convert.ToInt32(GJItem.人工抄表).ToString() : Convert.ToDecimal(GJItem.人工抄表).ToString("0.00"))</td>
-                            <td class="textAlighRight">@(toFix == 0 ? Convert.ToInt32(GJItem.总).ToString() : Convert.ToDecimal(GJItem.总).ToString("0.00"))</td>
+                            <td class="textAlighRight">@( GJItem.人工抄表.HasValue ? toFix == 0 ? Convert.ToInt32(GJItem.人工抄表).ToString() : Convert.ToDecimal(GJItem.人工抄表).ToString("0.00") : " -- ")</td>
+                            <td class="textAlighRight">@( GJItem.总.HasValue ? toFix == 0 ? Convert.ToInt32(GJItem.总).ToString() : Convert.ToDecimal(GJItem.总).ToString("0.00") : " -- ")</td>
                         }
                         else
                         {
-                            <td class="textAlighRight" >@(toFix == 0 ? Convert.ToInt32(GJItem.人工抄表).ToString() : Convert.ToDecimal(GJItem.人工抄表).ToString("0.00"))</td> 
+                            <td class="textAlighRight" >@( GJItem.人工抄表.HasValue ? toFix == 0 ? Convert.ToInt32(GJItem.人工抄表).ToString() : Convert.ToDecimal(GJItem.人工抄表).ToString("0.00") : " -- ")</td> 
                         }
 				    </tr>
 					
