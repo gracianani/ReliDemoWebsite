@@ -27,7 +27,7 @@
         if (company.ItemID == 0 || company.ItemID == 4 || company.ItemID == 5 || company.ItemID == 6)
         {
         <tr>
-		<td class="textAlighRight">@Html.ActionLink(company.公司, "../Companies/Index", new { companyId = company.ItemID })</td>
+		<td>@Html.ActionLink(company.公司, "../Companies/Index", new { companyId = company.ItemID })</td>
 		<td class="textAlighRight">@Convert.ToInt32(company.今日计划GJ).ToString()</td>
 		<td class="textAlighRight">@Convert.ToInt32(company.今日累计GJ).ToString()</td>
         <td class="textAlighRight">@Convert.ToDecimal(company.参考热指标).ToString("0.00")</td>

@@ -25,7 +25,7 @@
 	@foreach (var center in Model)
     {
         <tr>
-		<td class="textAlighRight">@Html.ActionLink(center.管理单位, "ManagershipInfo", new {managershipId = center.ItemID })</td>
+		<td>@Html.ActionLink(center.管理单位, "ManagershipInfo", new {managershipId = center.ItemID })</td>
 		<td class="textAlighRight">@Convert.ToInt32(center.今日计划GJ).ToString()</td>
 		<td class="textAlighRight">@Convert.ToInt32(center.今日累计GJ).ToString()</td>
 		<td class="textAlighRight">@Convert.ToDecimal(center.今日计划热指标_IC).ToString("0.00")</td>
