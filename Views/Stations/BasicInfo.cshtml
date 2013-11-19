@@ -105,10 +105,12 @@
                     <tr>
                         <td>总供热面积</td>
                         <td>@( Convert.ToDecimal(Model.面积A) + Convert.ToDecimal(Model.面积B))</td>
-                        <td>@Html.DisplayFor(model => model.面积A) </td>
+
+                        <td>@Model.面积A</td>
                         <td>@Model.Customers.Sum(i=>i.A超面积)</td>
                         <td>@Model.Customers.Sum(i=>i.A轻体)</td>
-                        <td>@Html.DisplayFor(model => model.面积B)</td>
+                        <td>@Model.面积B</td>
+
                         <td>@Model.Customers.Sum(i=>i.B超面积)</td>
                         <td>@Model.Customers.Sum(i=>i.B轻体)</td>
                     </tr>
