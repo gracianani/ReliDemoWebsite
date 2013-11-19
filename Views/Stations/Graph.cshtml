@@ -65,9 +65,8 @@
 				</tr>
 			</table>
 		</div>
-	<div class="axisLabel" style="position:absolute;top:5px;right:10px">(℃)</div>
-	<div class="axisLabel" style="position:absolute;top:5px;left:2px;font-size:10px;font-family:Arial">(kcal/h•㎡)</div>
-	<div class="axisLabel" style="position:absolute;top:5px;left:65px;font-size:10px;font-family:Arial">(GJ)</div>
+	<div id="labelTemperature" class="axisLabel" style="position:absolute;top:5px;right:10px">(℃)</div>
+	<div class="axisLabel" style="position:absolute;top:5px;left:2px;font-size:10px;font-family:Arial"><span id="labelIndex">(kcal/h•㎡)</span> <span id="labelGJ">(GJ)</span></div>
 </div>
 </div>
 @Html.HiddenFor(model=>model.StationId)
@@ -95,14 +94,14 @@
         var today = new Date();
         var tempPlan = $.parseJSON($("input[name=temperatureForecast]").val());
         var tempActu = $.parseJSON($("input[name=temperatureActual]").val());
-		var heatdata=[{ "label":"实际平均温度", "data": tempActu, yaxis: 2,checkboxId:"actualTemperature" }, 
-		{ "label": "预报平均温度", "data": tempPlan, yaxis: 2,checkboxId:"forecastTemperature"}, 
-		{ "label": "实际热指标", "data": actual_index, yaxis: 1,checkboxId:"actualIndex" }, 
-		{ "label": "计划热指标", "data": plan_index, yaxis: 1,checkboxId:"planIndex" }, 
-		{ "label": "核算热指标", "data": calculated_index, yaxis: 1 ,checkboxId:"theoryIndex"}, 
-		{ "label": "实际供热量", "data": actual_gj, yaxis: 3 ,checkboxId:"actualGJ"}, 
-		{ "label": "计划供热量", "data": plan_gj, yaxis: 3 ,checkboxId:"planGJ"}, 
-		{ "label": "核算供热量", "data": calculated_gj, yaxis: 3,checkboxId:"theoryGJ"}];
+		var heatdata=[{ "label":"实际平均温度", "data": tempActu, yaxis: 2,checkboxId:"actualTemperature"  ,color: "#378fc9",labelId:"labelTemperature"}, 
+		{ "label": "预报平均温度", "data": tempPlan, yaxis: 2,checkboxId:"forecastTemperature",color:"#00558e",labelId:"labelTemperature"}, 
+		{ "label": "实际热指标", "data": actual_index, yaxis: 1,checkboxId:"actualIndex" ,color:"#fabb3d",labelId:"labelIndex"}, 
+		{ "label": "计划热指标", "data": plan_index, yaxis: 1,checkboxId:"planIndex",color:"#ec6313" ,labelId:"labelIndex"}, 
+		{ "label": "核算热指标", "data": calculated_index, yaxis: 1 ,checkboxId:"theoryIndex",color:"#9e3f3d",labelId:"labelIndex" }, 
+		{ "label": "实际供热量", "data": actual_gj, yaxis: 3 ,checkboxId:"actualGJ",color:"#33CCCC",labelId:"labelGJ"}, 
+		{ "label": "计划供热量", "data": plan_gj, yaxis: 3 ,checkboxId:"planGJ",color:"#7fb30c",labelId:"labelGJ"}, 
+		{ "label": "核算供热量", "data": calculated_gj, yaxis: 3,checkboxId:"theoryGJ",color:"#339966",labelId:"labelGJ"}];
         var heatoptions = {
             lines: {
                 show: true
@@ -110,7 +109,6 @@
             points: {
                 show: true
             },
-			colors: ["#378fc9", "#00558e","#fabb3d", "#ec6313", "#9e3f3d","#33CCCC","#7fb30c","#339966"],
             xaxis: {
                 mode: "time",
                 minTickSize: [1, "day"],
@@ -148,14 +146,14 @@
             function onDataReceived(series) {
                 heatoptions.xaxis.min = series.fromDate;
                 heatoptions.xaxis.max = series.toDate;
-				heatdata = [{ "label": "实际平均温度", "data": $.parseJSON(series.tempActual), yaxis: 2,checkboxId:"actualTemperature" },
-                { "label": "预报平均温度", "data": $.parseJSON(series.tempForecast), yaxis: 2,checkboxId:"forecastTemperature" },
-                { "label": "实际运行热指标", "data": $.parseJSON(series.actual), yaxis: 1,checkboxId:"actualIndex"  },
-                { "label": "计划热指标", "data": $.parseJSON(series.planned), yaxis: 1 ,checkboxId:"planIndex"},
-                { "label": "计算热指标", "data": $.parseJSON(series.calculated), yaxis: 1 ,checkboxId:"theoryIndex" },
-                { "label": "实际GJ", "data": $.parseJSON(series.actual_gj), yaxis: 3 ,checkboxId:"actualGJ"},
-                { "label": "计划GJ", "data": $.parseJSON(series.planned_gj), yaxis: 3 ,checkboxId:"planGJ"},
-                { "label": "核算GJ", "data": $.parseJSON(series.calculated_gj), yaxis: 3,checkboxId:"theoryGJ"}];
+				heatdata = [{ "label": "实际平均温度", "data": $.parseJSON(series.tempActual), yaxis: 2,checkboxId:"actualTemperature" ,color: "#378fc9",labelId:"labelTemperature"},
+                { "label": "预报平均温度", "data": $.parseJSON(series.tempForecast), yaxis: 2,checkboxId:"forecastTemperature",color:"#00558e",labelId:"labelTemperature"},
+                { "label": "实际运行热指标", "data": $.parseJSON(series.actual), yaxis: 1,checkboxId:"actualIndex",color:"#fabb3d" ,labelId:"labelIndex"},
+                { "label": "计划热指标", "data": $.parseJSON(series.planned), yaxis: 1 ,checkboxId:"planIndex",color:"#ec6313",labelId:"labelIndex"},
+                { "label": "计算热指标", "data": $.parseJSON(series.calculated), yaxis: 1 ,checkboxId:"theoryIndex",color:"#9e3f3d" ,labelId:"labelIndex"},
+                { "label": "实际GJ", "data": $.parseJSON(series.actual_gj), yaxis: 3 ,checkboxId:"actualGJ",color:"#33CCCC",labelId:"labelGJ"},
+                { "label": "计划GJ", "data": $.parseJSON(series.planned_gj), yaxis: 3 ,checkboxId:"planGJ",color:"#7fb30c",labelId:"labelGJ"},
+                { "label": "核算GJ", "data": $.parseJSON(series.calculated_gj), yaxis: 3,checkboxId:"theoryGJ",color:"#339966",labelId:"labelGJ"}];
                drawSelectedData();
             }
 
@@ -194,12 +192,14 @@
         }
 		function drawSelectedData() {
 				var selectedData = [];
+				$('#labelTemperature,#labelGJ,#labelIndex').hide();
 				for (var i = 0; i < heatdata.length; i++) {
 					var id = heatdata[i].checkboxId;
 					if ( id ) {
 						var checkbox = $('#' + id );
 						if ( checkbox.size() > 0  && checkbox.attr('checked')) {
 							selectedData.push(heatdata[i]);
+							$('#'+heatdata[i].labelId).show();
 						}
 					}
 		}
