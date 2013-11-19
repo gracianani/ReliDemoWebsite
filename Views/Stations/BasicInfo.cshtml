@@ -104,11 +104,11 @@
                     </tr>
                     <tr>
                         <td>总供热面积</td>
-                        <td>@Model.Customers.Sum(i=>i.A面积 + i.B面积)</td>
-                        <td>@Model.Customers.Sum(i=>i.A面积)</td>
+                        <td>@( Convert.ToDecimal(Model.面积A) + Convert.ToDecimal(Model.面积B))</td>
+                        <td>@Html.DisplayFor(model => model.面积A) </td>
                         <td>@Model.Customers.Sum(i=>i.A超面积)</td>
                         <td>@Model.Customers.Sum(i=>i.A轻体)</td>
-                        <td>@Model.Customers.Sum(i=>i.B面积)</td>
+                        <td>@Html.DisplayFor(model => model.面积B)</td>
                         <td>@Model.Customers.Sum(i=>i.B超面积)</td>
                         <td>@Model.Customers.Sum(i=>i.B轻体)</td>
                     </tr>
@@ -154,9 +154,9 @@
         </div>
     </div>
 </div>
-@Html.Hidden("hf_square", "[{ \"label\": \"总供热面积\", \"data\": " + @Convert.ToDecimal(Model.面积A + Model.面积B) + ", \"color\": \"#48abec\" }, { \"label\" : \"实际供热面积\", \"data\" :  " + @Convert.ToDecimal(Model.投入面积A + Model.投入面积B) + " , \"color\": \"#c14620\"}]")
+@Html.Hidden("hf_square", "[{ \"label\": \"未投入面积\", \"data\": " + @Convert.ToDecimal(Model.面积A + Model.面积B-Model.投入面积A - Model.投入面积B) + ", \"color\": \"#48abec\" }, { \"label\" : \"实际供热面积\", \"data\" :  " + @Convert.ToDecimal(Model.投入面积A + Model.投入面积B) + " , \"color\": \"#c14620\"}]")
 @Html.Hidden("hf_ab_square", "[{ \"label\": \"A类面积\", \"data\": " + @Model.面积A + ", \"color\": \"#48abec\" }, { \"label\" : \"B类面积\", \"data\" :  " + @Model.面积B + " , \"color\": \"#c14620\"}]")
-@Html.Hidden("hf_ab_hl_square", "[{ \"label\": \"A超面积\", \"data\": " + @Model.Customers.Sum(i => i.A超面积) + ", \"color\": \"#ecab00\" }, { \"label\" : \"B超面积\", \"data\" :  " + @Model.Customers.Sum(i => i.B超面积) + " , \"color\": \"#649316\"} , { \"label\" : \"A轻面积\", \"data\" :  " + @Model.Customers.Sum(i => i.A轻体) + " , \"color\": \"#c14620\"} , { \"label\" : \"B轻面积\", \"data\" :  " + @Model.Customers.Sum(i => i.B轻体) + " , \"color\": \"#48abec\"} ]")
+@Html.Hidden("hf_ab_hl_square", "[{ \"label\": \"A超面积\", \"data\": " + @Model.Customers.Sum(i => i.A超面积) + ", \"color\": \"#00558e\" }, { \"label\" : \"B超面积\", \"data\" :  " + @Model.Customers.Sum(i => i.B超面积) + " , \"color\": \"#ec6313\"} , { \"label\" : \"A轻面积\", \"data\" :  " + @Model.Customers.Sum(i => i.A轻体) + " , \"color\": \"#33CCCC\"} , { \"label\" : \"B轻面积\", \"data\" :  " + @Model.Customers.Sum(i => i.B轻体) + " , \"color\": \"#ecab00\"} ]")
 
 <script type="text/javascript" src="http://api.map.baidu.com/api?v=1.5&ak=C17ce0c9f897bac7d7bb25196aca89d2"></script>
 
@@ -165,7 +165,8 @@
         var data = $.parseJSON($("input[name=hf_square]").val());
         var data2 = $.parseJSON($("input[name=hf_ab_square]").val());
         var data_ab = $.parseJSON($("input[name=hf_ab_hl_square]").val());
-
+		data_ab.push({"label":"A普面积","data":data2[0].data - data_ab[0].data - data_ab[1].data, "color":"#48abec"});
+		data_ab.push({"label":"B普面积","data":data2[1].data - data_ab[2].data - data_ab[3].data, "color":"#c14620"});
         var series = Math.floor(Math.random() * 6) + 3;
 
 

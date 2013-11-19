@@ -38,7 +38,7 @@
 							<text>@( toFix == 0 ? Convert.ToInt32(GJItem.今日).ToString() : Convert.ToDecimal(GJItem.今日).ToString("0.00") )</text>
 						}</td> 
                         <td 
-						 @if (GJItem.Title.Contains("超计划") || GJItem.Title.Contains("超核算") )
+						 @if (GJItem.Title.Contains("差值") )
                                {
                                 <text>class="textAlighRight differenceValue"</text>
                          } else {
