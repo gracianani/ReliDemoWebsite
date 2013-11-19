@@ -1,7 +1,7 @@
 ﻿@{
     var currentUserFullName = "";
     if(WebSecurity.IsAuthenticated) {
-        currentUserFullName = new ReliDemo.Infrastructure.Repositories.UserRepository().FindByUserName(WebSecurity.CurrentUserName).姓名;
+        currentUserFullName = new ReliDemo.Infrastructure.Repositories.UserRepository().FindByUserName(WebSecurity.CurrentUserName).FullName;
     }
 }
 <!DOCTYPE html>
