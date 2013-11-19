@@ -164,7 +164,12 @@ line-height: 30px;'>@ViewBag.Title <span style="font-size:14px"> 上次更新时
         <th>
             @Html.DisplayName("万平方米流量(t/h)")
         </th>
-        
+        <th>
+            @Html.DisplayName("多耗(GJ/㎡)")
+        </th>
+        <th>
+            @Html.DisplayName("多耗%")
+        </th>
     </tr>
 </thead>
 @foreach (var p in Model.StationsRealTime)
@@ -206,6 +211,10 @@ line-height: 30px;'>@ViewBag.Title <span style="font-size:14px"> 上次更新时
         <td>
             @p.万平方米流量
         </td>
+        <td>
+            @p.多耗
+        </td>
+        <td>@p.多耗percent</td>
         
     </tr>
 }
