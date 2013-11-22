@@ -1,22 +1,27 @@
 ﻿@model IEnumerable<ReliDemo.Models.HeatConsumptionTotalItem>
 
+@if (Model.Count() > 0)
+{
 <div class="box realTimeTable" >
     <div class="box-header  backgroundColorHeader 
-             @if( Model.Count() > 0 && Model.First().IsToday ) 
-             { <text>crimson today</text> } 
-			 else if (Model.Count() > 0 && Model.First().IsPeriod) {
+             @if (Model.Count() > 0 && Model.First().IsToday)
+             { <text>crimson today</text> }
+             else if (Model.Count() > 0 && Model.First().IsPeriod)
+             {
 				<text>blue</text>
-			 }
-             else 
+             }
+             else
              { <text>crimson</text> } 
              ">
 		<h2><i class="
 			@if (Model.Count() > 0 && Model.First().IsPeriod)
-			{
+   {
 				 <text>icon-pencil</text>
-			} else {
+   }
+   else
+   {
 				 <text>icon-eye-open</text>
-			}
+   }
 		"></i><span class="break"></span>
              @if (Model.Count() > 0 && Model.First().IsPeriod)
              {
@@ -30,7 +35,9 @@
 		<div class="box-icon">
 		</div>
 	</div>
-    <div class="box-content" style="@if (Model.Count() > 0 && Model.First().IsToday){<text>padding-bottom:22px;</text>}">
+    
+    <div class="box-content" style="@if (Model.Count() > 0 && Model.First().IsToday)
+                                    {<text>padding-bottom:22px;</text>}">
 		<table class="table makeTableHeaderAsBoxHeader">
 			<thead>
 				<tr>    
@@ -43,7 +50,7 @@
                         <th class="textAlighRight"><a href="#">全网</a></th>
                         </text>              
                     }
-                    else if( Model.ElementAt(0).监测站智能卡.HasValue)
+                    else if (Model.ElementAt(0).监测站智能卡.HasValue)
                     {
                         <text>
                         <th class="textAlighRight"><a href="#">监测站</a></th>
@@ -66,21 +73,22 @@
                     var toFix = 2;
                     <tr class="
 					@if (GJItem.Title.Contains("供热量"))
-                    {
-                        toFix = 0;
+     {
+         toFix = 0;
 					    <text>groupColorBlue</text>
-                    }
-                    else if (GJItem.Title.Contains("热指标"))
-                    {
+     }
+     else if (GJItem.Title.Contains("热指标"))
+     {
 				        <text>groupColorGold</text>
-                    }
-                    else if (GJItem.Title.Contains("单耗"))
-                    {
+     }
+     else if (GJItem.Title.Contains("单耗"))
+     {
 					    <text>groupColorGreen</text>
-                    }
-                    else if(GJItem.Title.Contains("热力站数量")) {
-                        toFix = 0;
-                    }
+     }
+     else if (GJItem.Title.Contains("热力站数量"))
+     {
+         toFix = 0;
+     }
 					"
 					>
 					    <td>@GJItem.Title</td>
@@ -94,7 +102,7 @@
                                 {
 								 <text>class="textAlighRight"</text>
                                 }
-								>@( GJItem.东部.HasValue? toFix == 0 ? Convert.ToInt32(GJItem.东部).ToString() :  Convert.ToDecimal(GJItem.东部).ToString("0.00") : " -- ")</td> 
+								>@( GJItem.东部.HasValue ? toFix == 0 ? Convert.ToInt32(GJItem.东部).ToString() : Convert.ToDecimal(GJItem.东部).ToString("0.00") : " -- ")</td> 
                             <td @if (GJItem.Title.Contains("差值"))
                                 {
                                 <text>class="textAlighRight differenceValue"</text>
@@ -102,7 +110,7 @@
                                 else
                                 {
 								 <text>class="textAlighRight"</text>
-                                }>@( GJItem.西部.HasValue ? toFix == 0 ? Convert.ToInt32(GJItem.西部).ToString() :  Convert.ToDecimal(GJItem.西部).ToString("0.00") : " -- ")</td> 
+                                }>@( GJItem.西部.HasValue ? toFix == 0 ? Convert.ToInt32(GJItem.西部).ToString() : Convert.ToDecimal(GJItem.西部).ToString("0.00") : " -- ")</td> 
                             <td @if (GJItem.Title.Contains("差值"))
                                 {
                                 <text>class="textAlighRight differenceValue"</text>
@@ -124,7 +132,7 @@
                                {
 								 <text>class="textAlighRight"</text>
                                } >
-                               @( GJItem.监测站智能卡.HasValue ? toFix == 0 ? Convert.ToInt32(GJItem.监测站智能卡).ToString() : Convert.ToDecimal(GJItem.监测站智能卡).ToString("0.00") : " -- " )
+                               @( GJItem.监测站智能卡.HasValue ? toFix == 0 ? Convert.ToInt32(GJItem.监测站智能卡).ToString() : Convert.ToDecimal(GJItem.监测站智能卡).ToString("0.00") : " -- ")
                             </td>
                             <td class="textAlighRight">@( GJItem.人工抄表.HasValue ? toFix == 0 ? Convert.ToInt32(GJItem.人工抄表).ToString() : Convert.ToDecimal(GJItem.人工抄表).ToString("0.00") : " -- ")</td>
                             <td class="textAlighRight">@( GJItem.总.HasValue ? toFix == 0 ? Convert.ToInt32(GJItem.总).ToString() : Convert.ToDecimal(GJItem.总).ToString("0.00") : " -- ")</td>
@@ -142,7 +150,7 @@
         </table>
     </div>
 </div>
-
+}
 
 <script>
     /* ---------- dashboard ---------- */
