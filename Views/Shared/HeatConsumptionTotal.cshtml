@@ -135,7 +135,15 @@
                                @( GJItem.监测站智能卡.HasValue ? toFix == 0 ? Convert.ToInt32(GJItem.监测站智能卡).ToString() : Convert.ToDecimal(GJItem.监测站智能卡).ToString("0.00") : " -- ")
                             </td>
                             <td class="textAlighRight">@( GJItem.人工抄表.HasValue ? toFix == 0 ? Convert.ToInt32(GJItem.人工抄表).ToString() : Convert.ToDecimal(GJItem.人工抄表).ToString("0.00") : " -- ")</td>
-                            <td class="textAlighRight">@( GJItem.总.HasValue ? toFix == 0 ? Convert.ToInt32(GJItem.总).ToString() : Convert.ToDecimal(GJItem.总).ToString("0.00") : " -- ")</td>
+                            <td 
+                               @if (GJItem.Title.Contains("差值"))
+                               {
+                                <text>class="textAlighRight differenceValue"</text>
+                               }
+                               else
+                               {
+								 <text>class="textAlighRight"</text>
+                               } >@( GJItem.总.HasValue ? toFix == 0 ? Convert.ToInt32(GJItem.总).ToString() : Convert.ToDecimal(GJItem.总).ToString("0.00") : " -- ")</td>
                         }
                         else
                         {
