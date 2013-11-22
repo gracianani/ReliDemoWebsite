@@ -20,11 +20,11 @@
 				<span class="title">监测站总数</span>
 				<span class="value">@(Model.智能卡站个数+Model.监控站个数) 个</span>
 			</div>
-			<a class="box smallstat span6" data-dialog="heatTotalDialog">
+			<div class="box smallstat span6" data-dialog="heatTotalDialog">
 				<i class="icon-pencil blue"></i>
-				<span class="title">汇总时间 : @string.Format("{0:yyyy-MM-dd}",Model.手抄表最近更新时间)</span>
-				<span class="value">@Model.手抄表站个数 <small>个人工抄表站</small></span>
-			</a>
+				<span class="title">人工抄表站</span>
+				<span class="value">@Model.手抄表站个数 <small>个</small></span>
+			</div>
 		</div>
 	</div>
 </div>
@@ -38,25 +38,8 @@
 	</div>
 </div><!--row-->
 <div class="row-fluid">
-	<div class="span6" onTablet="span12 noMarginLeft" onDesktop="span6" >
-	<div class="box blue　span12 noMarginLeft">
-	    <div class="box-header">
-		    <h2><i class="icon-bar-chart"></i>今日各公司状态统计</h2>
-	    </div>
-	    <div class="box-content" style="padding:25px 10px 30px">
-		    <div class="row-fluid">
-			    <div class="span12">
-				    @Html.Partial("CompanyHeatConsumption", Model.Companies)
-			    </div>
-		    </div>
-	    </div>
-    </div>
-		
-	</div>
-	<div onTablet="span12 noMarginLeft" onDesktop="span6" >
-		@Html.Partial("ExceedGraph", @Model.ExceedGraph)
-		 <!--box-->
-	</div>
+	@Html.Partial("ExceedGraph", @Model.ExceedGraph)
+	@Html.Partial("CompanyHeatConsumption", Model.Companies)
 </div>
 
 
