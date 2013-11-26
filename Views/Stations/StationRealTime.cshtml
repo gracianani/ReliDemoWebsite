@@ -119,7 +119,7 @@
         );
 
         $("#calculate").click(function () {
-            var dataurl = "GetUnitHeatConsumption?dateRange=" + $("#daterange").val();
+            var dataurl = "GetUnitHeatConsumption?stationId=" + $("#stationId").val() + "&dateRange=" + $("#daterange").val();
 
             function onDataReceived(series) {
                 $("#unitHeatResult").html(series.GJ);
