@@ -87,6 +87,44 @@
                 </tr>
             }
         </table>
+		<hr />
+		<div class="box">
+		<div class="box-header backgroundColorHeader grey">
+			<h2>故障站: xxx个</h2>
+			<div class="box-icon">
+				<a href="index.html#" class="btn-minimize"><i class="icon-chevron-down"></i></a>
+			</div>
+		</div>
+		<div class="box-content" style="display:none">
+		 <table class="table  table-bordered table-hover  table-condensed table-clickhighlight datatable" style="background:white">
+            @foreach( var station in Model.Managership.Stations){
+                if (Model.Managership.Stations.First() == station)
+                {
+                   <thead> <tr><th>热力站名称</th><th>热力站编号</th><th>数据来源</th><th>供热面积(㎡)</th><th>参考热指标(Kcal/h)</th><th>计划热指标(Kcal/h)</th><th>日累计单耗(GJ/㎡)</th><th>万平米循环水流量(t/h)</th><th>多耗%</th><th>一次回温</th></tr></thead>
+
+                }
+                <tr>
+                    <td>@Html.ActionLink(station.热力站名称 + " ", "StationRealTime", "Stations", new { stationId = station.ItemID }, new { })</td>
+                    <td>@station.热力站编号 </td>
+					<td>@if ( @station.数据来源==null) {
+							<span class="label label-info"><i class="icon-pencil"></i> 人工抄表</span> 
+						} else {
+							<span class="label label-important"><i class="icon-eye-open"></i> @station.数据来源</span>
+						}
+					</td>
+                    <td>@station.投入面积</td>
+                    <td>@station.参考热指标</td>
+                    <td>@station.计划热指标</td>
+                    <td>@station.今日累计单耗</td>
+                    <td>@station.万平方米流量</td>
+                    <td>@station.多耗percent</td>
+                    <td>@station.一次回温</td>
+                   
+                </tr>
+            }
+        </table>
+		</div><!--box-content-->
+		</div><!--box-->
 </div>
 
 <div class="dialog-overlay" id="heatTotalDialog">
