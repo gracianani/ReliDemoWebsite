@@ -43,8 +43,9 @@
 <div class="row-fluid">
 	@Html.Partial("ExceedGraph", @Model.ExceedGraph)
         <table class="table  table-bordered table-hover  table-condensed table-clickhighlight datatable" style="background:white">
-            @foreach( var station in Model.Managership.Stations.Where(i=>string.IsNullOrEmpty(i.报警) && i.生产热源ID.HasValue && i.HeatSource.是否并网供热.HasValue && i.HeatSource.是否并网供热.Value )){
-                if (Model.Managership.Stations.First() == station)
+            @{ var goodStations = Model.Managership.Stations.Where(i=>string.IsNullOrEmpty(i.报警) && i.生产热源ID.HasValue && i.HeatSource.是否并网供热.HasValue && i.HeatSource.是否并网供热.Value ); }
+            @foreach( var station in goodStations ){
+                if (goodStations.First() == station)
                 {
                    <thead> <tr><th>热力站名称</th><th>热力站编号</th><th>数据来源</th><th>供热面积(㎡)</th><th>参考热指标(Kcal/h)</th><th>计划热指标(Kcal/h)</th><th>日累计单耗(GJ/㎡)</th><th>万平米循环水流量(t/h)</th><th>流量超标?</th><th>多耗%</th><th>单耗超标?</th><th>一次回温</th><th>温度超标?</th></tr></thead>
 
@@ -90,18 +91,18 @@
 		<hr />
 		<div class="box">
 		<div class="box-header backgroundColorHeader grey">
-			<h2>故障站: xxx个</h2>
+            @{ var guzhangStations = Model.Managership.Stations.Where(i => !string.IsNullOrEmpty(i.报警)); }
+			<h2>故障站: @guzhangStations.Count() 个</h2>
 			<div class="box-icon">
 				<a class="btn-minimize"><i class="icon-chevron-down"></i></a>
 			</div>
 		</div>
 		<div class="box-content" style="display:none">
 		 <table class="table  table-bordered table-hover  table-condensed table-clickhighlight datatable" style="background:white">
-            @foreach( var station in Model.Managership.Stations){
-                if (Model.Managership.Stations.First() == station)
+            @foreach( var station in guzhangStations){
+                if (guzhangStations.First() == station)
                 {
                    <thead> <tr><th>热力站名称</th><th>热力站编号</th><th>数据来源</th><th>供热面积(㎡)</th><th>参考热指标(Kcal/h)</th><th>计划热指标(Kcal/h)</th><th>日累计单耗(GJ/㎡)</th><th>万平米循环水流量(t/h)</th><th>多耗%</th><th>一次回温</th></tr></thead>
-
                 }
                 <tr>
                     <td>@Html.ActionLink(station.热力站名称 + " ", "StationRealTime", "Stations", new { stationId = station.ItemID }, new { })</td>
