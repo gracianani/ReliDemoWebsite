@@ -20,12 +20,12 @@
 			<div class="box smallstat span6">
 				<i class="icon-eye-open crimson"></i>
 				<span class="title">监测站 @(Model.智能卡站个数+Model.监控站个数) 个</span>
-				<span class="value">xxx<small>个有效站</small></span>
+				<span class="value">@Model.Managership.有效监控站数 <small>个有效站</small></span>
 			</div>
 			<div class="box smallstat span6" data-dialog="heatTotalDialog">
 				<i class="icon-pencil blue"></i>
 				<span class="title">人工抄表站</span>
-				<span class="value">@Model.手抄表站个数 <small>个</small></span>
+				<span class="value">@(Model.Managership.总站数 - Model.Managership.有效监控站数) <small>个</small></span>
 			</div>
 		</div>
     </div>
@@ -43,7 +43,7 @@
 <div class="row-fluid">
 	@Html.Partial("ExceedGraph", @Model.ExceedGraph)
         <table class="table  table-bordered table-hover  table-condensed table-clickhighlight datatable" style="background:white">
-            @foreach( var station in Model.Managership.Stations){
+            @foreach( var station in Model.Managership.Stations.Where(i=>string.IsNullOrEmpty(i.报警) && i.生产热源ID.HasValue && i.HeatSource.是否并网供热.HasValue && i.HeatSource.是否并网供热.Value )){
                 if (Model.Managership.Stations.First() == station)
                 {
                    <thead> <tr><th>热力站名称</th><th>热力站编号</th><th>数据来源</th><th>供热面积(㎡)</th><th>参考热指标(Kcal/h)</th><th>计划热指标(Kcal/h)</th><th>日累计单耗(GJ/㎡)</th><th>万平米循环水流量(t/h)</th><th>流量超标?</th><th>多耗%</th><th>单耗超标?</th><th>一次回温</th><th>温度超标?</th></tr></thead>
