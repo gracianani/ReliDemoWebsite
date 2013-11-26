@@ -171,7 +171,7 @@
     });
     function getRealTime() {
         $.ajax({
-            url: "http://173.16.3.80:11223/HeatConsumptionService/GetRealTime/" + $("input[name=CompanyId]").val() + "/" + $("input[name=ManagershipId]").val(),
+            url: "http://172.16.3.80:11223/HeatConsumptionService/GetRealTime/" + $("input[name=CompanyId]").val() + "/" + $("input[name=ManagershipId]").val(),
             type: "GET",
             contentType: "application/json; charset=utf-8",
             dataType: "jsonp",

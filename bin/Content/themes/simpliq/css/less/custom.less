@@ -130,7 +130,22 @@ h1,h2,h3 {
 	&.red { background: @red; }
 	&.yellow { background: @yellow; }
 	&.white { background: white; }
-	&.grey { background: @grey; }
+	&.grey { 
+		background: @grey; 
+		@backgroundColor: @grey;
+		h2 {
+			color:darken(@backgroundColor,50%);
+		}
+		.box-icon {
+			background: darken(@backgroundColor,20%);
+			i {
+				border-left-color: darken(@backgroundColor,20%);
+			}
+		}
+		h2 i {
+			background: darken(@backgroundColor,20%);
+		}
+	}
 	&.crimson { 
 	background: @crimson; 
 	@backgroundColor:@crimson;
