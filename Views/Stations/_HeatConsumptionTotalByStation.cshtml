@@ -29,13 +29,14 @@
 						<text>groupColorGold</text>
 						}else if ( GJItem.Title.Contains("单耗")) {
 						<text>groupColorGreen</text>
-						}
+                        toFix = 4;
+                        }
 					">
                         <td>@GJItem.Title</td>
                         <td class="textAlighRight"> @if (GJItem.Title.Contains("核算") ){
 							<text>--</text>
 						} else {
-							<text>@( toFix == 0 ? Convert.ToInt32(GJItem.今日).ToString() : Convert.ToDecimal(GJItem.今日).ToString("0.00") )</text>
+							<text>@( toFix == 0 ? Convert.ToInt32(GJItem.今日).ToString() : toFix == 4 ? Convert.ToDecimal(GJItem.今日).ToString("0.0000") : Convert.ToDecimal(GJItem.今日).ToString("0.00") )</text>
 						}</td> 
                         <td 
 						 @if (GJItem.Title.Contains("差值") )
@@ -44,7 +45,7 @@
                          } else {
 								 <text>class="textAlighRight"</text>
 						 }
-						>@( toFix == 0 ? Convert.ToInt32(GJItem.昨日).ToString() : Convert.ToDecimal(GJItem.昨日).ToString("0.00") )</td> 
+						>@( toFix == 0 ? Convert.ToInt32(GJItem.昨日).ToString() : toFix ==4 ? Convert.ToDecimal(GJItem.昨日).ToString("0.0000") : Convert.ToDecimal(GJItem.昨日).ToString("0.00") )</td> 
 				    </tr>
                 }
             </tbody>

@@ -25,7 +25,7 @@
         <div class="input-prepend date" >
             <label>选择日期</label>
 			<span class="add-on"><i class="icon-calendar"></i></span>
-            <input type="text" class="form-control input-large" id="daterange" name="daterange" value="@Model.FromDate.Value.ToShortDateString() - @Model.ToDate.Value.ToShortDateString()"  >
+            <input type="text" class="form-control input-large" id="daterange" name="daterange" value="@Model.FromDate.Value.ToString("yyyy年MM月dd日") - @Model.ToDate.Value.ToString("yyyy年MM月dd日")"  >
 		</div>
         @Html.HiddenFor(i=>i.HeatSourceId)
         <button type="submit" class="btn btn-primary" ><i class="icon-search"></i> 搜索</button>
@@ -64,7 +64,7 @@
 <script>
     $(function () {
         $("#daterange").daterangepicker({
-            format: 'MM/DD/YYYY',
+            format: 'YYYY年MM月DD日',
             locale: {
                 applyLabel: '确定',
                 cancelLabel: '取消',
