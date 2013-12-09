@@ -25,7 +25,7 @@
 			<div class="box smallstat span6" data-dialog="heatTotalDialog">
 				<i class="icon-pencil blue"></i>
 				<span class="title">人工抄表站</span>
-				<span class="value">@(Model.Managership.总站数 - Model.Managership.有效监控站数) <small>个</small></span>
+				<span class="value">@(Model.Managership.Stations.Count(i => (i.生产热源ID.HasValue && (i.生产热源ID.Value == 1 || i.生产热源ID.Value == 22) ) && string.IsNullOrEmpty(i.数据来源)))<small>个</small></span>
 			</div>
 		</div>
     </div>
@@ -43,7 +43,7 @@
 <div class="row-fluid">
 	@Html.Partial("ExceedGraph", @Model.ExceedGraph)
         <table class="table  table-bordered table-hover  table-condensed table-clickhighlight datatable" style="background:white">
-            @{ var goodStations = Model.Managership.Stations.Where(i=>string.IsNullOrEmpty(i.报警) && i.生产热源ID.HasValue && i.HeatSource.是否并网供热.HasValue && i.HeatSource.是否并网供热.Value ); }
+            @{ var goodStations = Model.Managership.Stations.Where(i=>string.IsNullOrEmpty(i.报警) && (i.生产热源ID.HasValue && (i.生产热源ID.Value == 1 || i.生产热源ID == 22 ) ) ); }
             @foreach( var station in goodStations ){
                 if (goodStations.First() == station)
                 {

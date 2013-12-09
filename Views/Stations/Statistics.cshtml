@@ -82,7 +82,7 @@ line-height: 30px;'>@ViewBag.Title
 		<label class="inline">从</label>
 		<input type="text" class="input-mini inline" name="exceedFrom" value="@Model.ExceedFrom" />
 		<label class="inline">% 到</label>
-		<input type="text" class="input-mini inline" name="exceedFrom" value="@Model.ExceedTo"/>
+		<input type="text" class="input-mini inline" name="exceedTo" value="@Model.ExceedTo"/>
 		<label class="inline">%</label>
 		</div>
 	</div>
@@ -99,19 +99,29 @@ line-height: 30px;'>@ViewBag.Title
     {
     <text> class="active" </text> 
     } >
-    @Html.ActionLink("10", "Statistics", new { startIndex = Model.StationsStatistic.PageIndex, pageSize = 10, regions = Model.SelectedRegion, companies = Model.SelectedCompanyId, managerships = Model.SelectedManagershipId, heatsource = Model.SelectedHeatSourceId, searchSpan = Model.SearchSpan, date_customday = Model.FromDate, daterange = string.Format("{0} - {1}", Model.FromDate, Model.ToDate) })
+    @Html.ActionLink("10", "Statistics", new { startIndex = Model.StationsStatistic.PageIndex, pageSize = 10, regions = Model.SelectedRegion, 
+        companies = Model.SelectedCompanyId, managerships = Model.SelectedManagershipId, heatsource = Model.SelectedHeatSourceId, searchSpan = Model.SearchSpan,
+        date_customday = Model.FromDate, daterange = string.Format("{0} - {1}", Model.FromDate, Model.ToDate), exceedFrom = Model.ExceedFrom, exceedTo = Model.ExceedTo })
 </li>
 <li @if (Model.StationsStatistic.PageSize == 50)
     {
     <text> class="active" </text> 
     } >
-    @Html.ActionLink("50", "Statistics", new { startIndex = Model.StationsStatistic.PageIndex, pageSize = 50, regions = Model.SelectedRegion, companies = Model.SelectedCompanyId, managerships = Model.SelectedManagershipId, heatsource = Model.SelectedHeatSourceId, searchSpan = Model.SearchSpan, date_customday = Model.FromDate, daterange = string.Format("{0} - {1}", Model.FromDate, Model.ToDate) })
+    @Html.ActionLink("50", "Statistics", new { startIndex = Model.StationsStatistic.PageIndex, pageSize = 50, regions = Model.SelectedRegion, 
+        companies = Model.SelectedCompanyId, managerships = Model.SelectedManagershipId, heatsource = Model.SelectedHeatSourceId, searchSpan = Model.SearchSpan, 
+        date_customday = Model.FromDate, daterange = string.Format("{0} - {1}", Model.FromDate, Model.ToDate), exceedFrom = Model.ExceedFrom, exceedTo = Model.ExceedTo })
 </li>
 <li @if (Model.StationsStatistic.PageSize == 100)
     {
     <text> class="active" </text> 
     }>
-    @Html.ActionLink("100", "Statistics", new { startIndex = Model.StationsStatistic.PageIndex, pageSize = 100, regions = Model.SelectedRegion, companies = Model.SelectedCompanyId, managerships = Model.SelectedManagershipId, heatsource = Model.SelectedHeatSourceId, searchSpan = Model.SearchSpan, date_customday = Model.FromDate, daterange = string.Format("{0} - {1}", Model.FromDate, Model.ToDate) })
+    @Html.ActionLink("100", "Statistics", new { startIndex = Model.StationsStatistic.PageIndex, pageSize = 100, regions = Model.SelectedRegion, 
+    companies = Model.SelectedCompanyId, managerships = Model.SelectedManagershipId, heatsource = Model.SelectedHeatSourceId, searchSpan = Model.SearchSpan,
+                                                 date_customday = Model.FromDate,
+                                                 daterange = string.Format("{0} - {1}", Model.FromDate, Model.ToDate),
+                                                 exceedFrom = Model.ExceedFrom,
+                                                 exceedTo = Model.ExceedTo
+})
 </li>
 </ul>
 
@@ -225,21 +235,76 @@ line-height: 30px;'>@ViewBag.Title
        
         @if (Model.StationsStatistic.PageIndex >= 10)
         {
-            <li>@Html.ActionLink("« 前十页", "Statistics", new { startIndex = Model.StationsStatistic.PageIndex - 10, pageSize = 10, regions = Model.SelectedRegion, companies = Model.SelectedCompanyId, managerships = Model.SelectedManagershipId, heatsource = Model.SelectedHeatSourceId, searchSpan = Model.SearchSpan, date_customday = Model.FromDate, daterange = string.Format("{0} - {1}", Model.FromDate, Model.ToDate) })</li>
+            <li>@Html.ActionLink("« 前十页", "Statistics", new { startIndex = Model.StationsStatistic.PageIndex - 10, pageSize = 10, regions = Model.SelectedRegion, 
+               companies = Model.SelectedCompanyId, managerships = Model.SelectedManagershipId, heatsource = Model.SelectedHeatSourceId, searchSpan = Model.SearchSpan, 
+               date_customday = Model.FromDate, daterange = string.Format("{0} - {1}", Model.FromDate, Model.ToDate) , exceedFrom = Model.ExceedFrom,
+                                                 exceedTo = Model.ExceedTo})</li>
         }
-		 <li>@Html.ActionLink("« 上一页", "Statistics", new { startIndex = Model.StationsStatistic.PageIndex - 1, pageSize = Model.StationsStatistic.PageSize, regions = Model.SelectedRegion, companies = Model.SelectedCompanyId, managerships = Model.SelectedManagershipId, heatsource = Model.SelectedHeatSourceId, searchSpan = Model.SearchSpan, date_customday = Model.FromDate, daterange = string.Format("{0} - {1}", Model.FromDate, Model.ToDate) })</li>
+		 <li>@Html.ActionLink("« 上一页", "Statistics", new
+  {
+      startIndex = Model.StationsStatistic.PageIndex - 1,
+      pageSize = Model.StationsStatistic.PageSize,
+      regions = Model.SelectedRegion,
+      companies = Model.SelectedCompanyId,
+      managerships = Model.SelectedManagershipId,
+      heatsource = Model.SelectedHeatSourceId,
+      searchSpan = Model.SearchSpan,
+      date_customday = Model.FromDate,
+      daterange = string.Format("{0} - {1}", Model.FromDate, Model.ToDate),
+      exceedFrom = Model.ExceedFrom,
+      exceedTo = Model.ExceedTo
+  })</li>
         @for (int i = Model.StationsStatistic.PageIndex / 10 * 10; (i < Model.StationsStatistic.PageIndex / 10 * 10 + 10) && i < Model.StationsStatistic.TotalPages; i++)
         {
             <li @if (Model.StationsStatistic.PageIndex == i)
                 { <text>class="active"</text> } >
 
-                @Html.ActionLink((i + 1).ToString(), "Statistics", new { startIndex = i, pageSize = Model.StationsStatistic.PageSize, regions = Model.SelectedRegion, companies = Model.SelectedCompanyId, managerships = Model.SelectedManagershipId, heatsource = Model.SelectedHeatSourceId, searchSpan = Model.SearchSpan, date_customday = Model.FromDate, daterange = string.Format("{0} - {1}", Model.FromDate, Model.ToDate) })
+                @Html.ActionLink((i + 1).ToString(), "Statistics", new
+           {
+               startIndex = i,
+               pageSize = Model.StationsStatistic.PageSize,
+               regions = Model.SelectedRegion,
+               companies = Model.SelectedCompanyId,
+               managerships = Model.SelectedManagershipId,
+               heatsource = Model.SelectedHeatSourceId,
+               searchSpan = Model.SearchSpan,
+               date_customday = Model.FromDate,
+               daterange = string.Format("{0} - {1}", Model.FromDate, Model.ToDate),
+               exceedFrom = Model.ExceedFrom,
+               exceedTo = Model.ExceedTo
+           })
             </li>
         }
-		<li>@Html.ActionLink("下一页 »", "Statistics", new { startIndex = Model.StationsStatistic.PageIndex + 1, pageSize = Model.StationsStatistic.PageSize, regions = Model.SelectedRegion, companies = Model.SelectedCompanyId, managerships = Model.SelectedManagershipId, heatsource = Model.SelectedHeatSourceId, searchSpan = Model.SearchSpan, date_customday = Model.FromDate, daterange = string.Format("{0} - {1}", Model.FromDate, Model.ToDate) })</li>
+		<li>@Html.ActionLink("下一页 »", "Statistics", new
+ {
+     startIndex = Model.StationsStatistic.PageIndex + 1,
+     pageSize = Model.StationsStatistic.PageSize,
+     regions = Model.SelectedRegion,
+     companies = Model.SelectedCompanyId,
+     managerships = Model.SelectedManagershipId,
+     heatsource = Model.SelectedHeatSourceId,
+     searchSpan = Model.SearchSpan,
+     date_customday = Model.FromDate,
+     daterange = string.Format("{0} - {1}", Model.FromDate, Model.ToDate),
+     exceedFrom = Model.ExceedFrom,
+     exceedTo = Model.ExceedTo
+ })</li>
         @if (Model.StationsStatistic.PageIndex < Model.StationsStatistic.TotalPages - 10)
         {
-            <li>@Html.ActionLink("后十页 »", "Statistics", new { startIndex = (Model.StationsStatistic.PageIndex / 10 + 1) * 10, pageSize = Model.StationsStatistic.PageSize, regions = Model.SelectedRegion, companies = Model.SelectedCompanyId, managerships = Model.SelectedManagershipId, heatsource = Model.SelectedHeatSourceId, searchSpan = Model.SearchSpan, date_customday = Model.FromDate, daterange= string.Format("{0} - {1}", Model.FromDate, Model.ToDate)  })</li>
+            <li>@Html.ActionLink("后十页 »", "Statistics", new
+           {
+               startIndex = (Model.StationsStatistic.PageIndex / 10 + 1) * 10,
+               pageSize = Model.StationsStatistic.PageSize,
+               regions = Model.SelectedRegion,
+               companies = Model.SelectedCompanyId,
+               managerships = Model.SelectedManagershipId,
+               heatsource = Model.SelectedHeatSourceId,
+               searchSpan = Model.SearchSpan,
+               date_customday = Model.FromDate,
+               daterange = string.Format("{0} - {1}", Model.FromDate, Model.ToDate),
+               exceedFrom = Model.ExceedFrom,
+               exceedTo = Model.ExceedTo
+           })</li>
         }
        
     </ul>
