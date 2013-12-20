@@ -30,17 +30,21 @@
 			<h2>修改热指标</h2>
 			</div>
 			<div class="box-content">
-				<div class="form-inline">
+                @using (Html.BeginForm("ChangeCalculatedHeatIndex", "Stations"))
+                {
+                    @Html.Hidden("StationId")
+				    <div class="form-inline">
 						<div class="input-append date" >
 							<label class="radio"> 热指标  </label>
-							<input type="text" class="form-control input-small"  >
+                            @Html.TextBox("newHeatIndex", Model.当前热指标 ,new {@class="form-control input-small"})
 							<span class="add-on">Kcal/h*㎡</span>
 						</div>
 					<input type="submit" value="修改" id="calculate" class="btn btn-primary" style="vertical-align: top;"/>
-				</div>
+				    </div>
+                }
 				<br />
 				<div class="well">
-					当前热指标 <big id="unitHeatResult">0</big> Kcal/h*㎡
+					当前热指标 <big id="unitHeatResult">@Model.当前热指标 </big> Kcal/h*㎡
 				</div>
 			</div>
 		</div>

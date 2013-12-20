@@ -12,7 +12,7 @@ line-height: 30px;'>@ViewBag.Title <span style="font-size:14px"> 上次更新时
 {
 <div class="row-fluid">
     
-        @Html.DropDownListFor(i => i.SelectedHeatSourceId, new SelectList(Model.HeatSources, "ItemID", "热源名称"), "请选择热源厂", new { @class = "span2" })
+        @Html.DropDownListFor(i => i.SelectedHeatSourceId, new SelectList(ReliDemo.Infrastructure.Helpers.HeatSourceHelper.HeatSources, "生产热源ID", "生产热源"), "请选择热源厂", new { @class = "span2" })
         <text>&nbsp;</text>
         @Html.DropDownListFor(model => model.SelectedCompanyId, new SelectList(Model.Companies, "Id", "Name"), "请选择公司", new { @class = "span2" })
         <text>&nbsp;</text>

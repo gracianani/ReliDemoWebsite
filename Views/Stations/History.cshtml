@@ -63,10 +63,10 @@
     <tr>
         <th>#</th>
         <th>日期</th>
-        <th>计划 <span class="symbol">(GJ)</span></th>
-        <th>采暖 <span class="symbol">(GJ)</span></th>
+        <th>计划供热量 <span class="symbol">(GJ)</span></th>
+        <th>核算供热量 <span class="symbol">(GJ)</span></th>
+        <th>实际供热量 <span class="symbol">(GJ)</span></th>
         <th>热水 <span class="symbol">(GJ)</span></th>
-        <th>核算 <span class="symbol">(GJ)</span></th>
         <th>计算热指标 <span class="symbol">(kcal/h·㎡)</span></th>
         <th>计划热指标 <span class="symbol">(kcal/h·㎡)</span></th>
         <th>核算热指标 <span class="symbol">(kcal/h·㎡)</span></th>
@@ -84,9 +84,9 @@
             <td>@( Model.StationAccuHistories.ToList().IndexOf(history) + 1)</td>
             <td class="time">@history.Date</td>
             <td>@history.计划供热量</td>
+            <td>@history.核算供热量</td>
             <td>@history.实际采暖</td>
             <td>@history.实际热水</td>
-            <td>@history.核算供热量</td>
             <td>@history.计算热指标</td>
             <td>@history.计划热指标</td>
             <td>@history.核算热指标</td>

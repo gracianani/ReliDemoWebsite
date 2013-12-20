@@ -34,7 +34,7 @@
 		<td class="textAlighRight">@Convert.ToDecimal(company.计划热指标).ToString("0.00")</td>
 		<td class="textAlighRight">@Convert.ToDecimal(company.实际热指标).ToString("0.00")</td>
 		<td class="textAlighRight">@Convert.ToDecimal(company.万平方米流量).ToString("0.00")</td>
-		<td class="textAlighRight">@(company.有效监控站数 + company.Stations.Where(i => string.IsNullOrEmpty(i.数据来源) && i.HeatSource != null && i.HeatSource.是否并网供热.Value).Count())</td>
+		<td class="textAlighRight">@company.热力站个数</td>
 		<td class="textAlighRight">@company.超标站个数</td>
 		<td class="textAlighRight">@Html.ActionLink(company.单耗超标站个数.ToString(), "../Stations/RealTime", new { selectedCompanyId = company.ItemID, exceedHeatFrom = ReliDemo.Infrastructure.Services.ConfigurationService.HeatExceed} ) </td>
 		<td class="textAlighRight">@Html.ActionLink(company.流量超标站个数.ToString(), "../Stations/RealTime", new { selectedCompanyId = company.ItemID, exceedWaterFrom = ReliDemo.Infrastructure.Services.ConfigurationService.WaterExceed}) </td>

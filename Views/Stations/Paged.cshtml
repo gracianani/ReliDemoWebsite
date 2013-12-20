@@ -11,7 +11,7 @@ line-height: 30px;'>@ViewBag.Title</h2>
 
 <div class="row-fluid">
     @using (Html.BeginForm("Paged", "Stations", FormMethod.Get)) {
-        @Html.DropDownList("heatSources", new SelectList(Model.HeatSources, "ItemID", "热源名称"), "请选择热源厂", new { @class = "span2" })
+        @Html.DropDownList("heatSources", new SelectList(ReliDemo.Infrastructure.Helpers.HeatSourceHelper.HeatSources, "生产热源ID", "生产热源"), "请选择热源厂", new { @class = "span2" })
         <text>&nbsp;</text>
         @Html.DropDownList("companies", new SelectList(Model.Companies, "Id", "Name"), "请选择公司", new { @class = "span2" })
         <text>&nbsp;</text>
@@ -19,7 +19,9 @@ line-height: 30px;'>@ViewBag.Title</h2>
         <text>&nbsp;</text>
         @Html.DropDownList("area", new SelectList(Model.Regions, "Id", "Name"), "请选择区域", new { id = "area", @class = "span2" })
         <text>&nbsp;</text>
-        @Html.TextBox("keyword", Model.SearchKeyword , new {@placeholder = "按关键字检索"})
+        @Html.DropDownList("type", new SelectList(Model.数据来源, "Id", "Name"), "请选择数据来源", new { id = "type", @class = "span2" })
+        <text>&nbsp;</text>
+        @Html.TextBox("keyword", Model.SearchKeyword, new { @placeholder = "按关键字检索", @class="span2" })
         <text>&nbsp;</text>
         <input type="submit" value="搜索" class="btn  btn-primary" style="vertical-align: top;"/>
     }
@@ -31,7 +33,14 @@ line-height: 30px;'>@ViewBag.Title</h2>
     {
     <text> class="active" </text> 
     } >
-    @Html.ActionLink("10", "Paged", new { startIndex = Model.Stations.PageIndex, pageSize = 10, managerships = Model.SelectedManagershipId, companies = Model.SelectedCompanyId, heatSources = Model.SelectedHeatSourceId, keyword = Model.SearchKeyword
+    @Html.ActionLink("10", "Paged", new
+{
+    startIndex = Model.Stations.PageIndex,
+    pageSize = 10,
+    managerships = Model.SelectedManagershipId,
+    companies = Model.SelectedCompanyId,
+    heatSources = Model.SelectedHeatSourceId,
+    keyword = Model.SearchKeyword
 })
 </li>
 <li @if (Model.Stations.PageSize == 50)
@@ -125,11 +134,14 @@ line-height: 30px;'>@ViewBag.Title</h2>
             @p.热力站编码
         </td>
 		<td>
-		@if ( @p.数据来源==null) {
+		@if (@p.数据来源 == null)
+  {
 			<span class="label label-info"><i class="icon-pencil"></i> 人工抄表站</span> 
-		} else {
+  }
+  else
+  {
 			<span class="label label-important"><i class="icon-eye-open"></i> @p.数据来源</span>
-		}
+  }
         </td>
         <td>
             @p.用热地址
@@ -145,26 +157,26 @@ line-height: 30px;'>@ViewBag.Title</h2>
         </td>
         <td>
             @{
-                if (p.是否热水站.HasValue && p.是否热水站.Value)
-                {
+  if (p.是否热水站.HasValue && p.是否热水站.Value)
+  {
                     <text>是</text>
-                }
-                else
-                {
+  }
+  else
+  {
                     <text>否</text>
-                }
+  }
              }
         </td>
         <td>
             @{
-    if (p.是否并网供热.HasValue && p.是否并网供热.Value)
-    {
+  if (p.是否并网供热.HasValue && p.是否并网供热.Value)
+  {
                     <text>是</text>
-    }
-    else
-    {
+  }
+  else
+  {
                     <text>否</text>
-    }
+  }
              }
         </td>
         
@@ -190,7 +202,7 @@ line-height: 30px;'>@ViewBag.Title</h2>
             @p.管理类型
         </td>
         <td>
-            @(p.HeatSource != null ? p.HeatSource.东西部 : "")
+            @p.东西部 
         </td>
     </tr>
 }
@@ -200,9 +212,9 @@ line-height: 30px;'>@ViewBag.Title</h2>
 <div class="pagination pagination-centered">
     <ul>
 		@if (Model.Stations.PageIndex >= 10)
-        {
+  {
             <li>@Html.ActionLink("« 前十页", "Paged", new { startIndex = Model.Stations.PageIndex - 10, pageSize = 10, managerships = Model.SelectedManagershipId, companies = Model.SelectedCompanyId, heatSources = Model.SelectedHeatSourceId, keyword = Model.SearchKeyword })</li>
-        }
+  }
         <li>@Html.ActionLink("« 上一页", "Paged", new { startIndex = Model.Stations.PageIndex - 1, pageSize = Model.Stations.PageSize, managerships = Model.SelectedManagershipId, companies = Model.SelectedCompanyId, heatSources = Model.SelectedHeatSourceId, keyword = Model.SearchKeyword })</li>
         
         @for (int i = Model.Stations.PageIndex / 10 * 10; (i < Model.Stations.PageIndex / 10 * 10 + 10) && i < Model.Stations.TotalPages; i++)
@@ -216,7 +228,7 @@ line-height: 30px;'>@ViewBag.Title</h2>
         
         <li>@Html.ActionLink("下一页 »", "Paged", new { startIndex = Model.Stations.PageIndex + 1, pageSize = Model.Stations.PageSize, managerships = Model.SelectedManagershipId, companies = Model.SelectedCompanyId, heatSources = Model.SelectedHeatSourceId, keyword = Model.SearchKeyword })</li>
 		@if (Model.Stations.PageIndex < Model.Stations.TotalPages - 10)
-        {
+  {
             <li>@Html.ActionLink("后十页 »", "Paged", new { startIndex = (Model.Stations.PageIndex / 10 + 1) * 10, pageSize = Model.Stations.PageSize, managerships = Model.SelectedManagershipId, companies = Model.SelectedCompanyId, heatSources = Model.SelectedHeatSourceId, keyword = Model.SearchKeyword })</li>
         }
     </ul>

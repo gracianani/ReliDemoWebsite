@@ -22,7 +22,7 @@
         <div class="box smallstat span6">
 				<i class="icon-pencil blue"></i>
 				<span class="title">人工抄表站</span>
-				<span class="value">@(Model.Company.Stations.Count(i=>i.HeatSource != null && i.HeatSource.是否并网供热.Value && string.IsNullOrEmpty(i.数据来源))) <small>个</small></span>
+				<span class="value">@(Model.Company.Stations.Count(i=>(i.生产热源ID.HasValue && (i.生产热源ID.Value == 1 || i.生产热源ID.Value == 22) )&& string.IsNullOrEmpty(i.数据来源))) <small>个</small></span>
 		</div>
         </div>
 	</div>
