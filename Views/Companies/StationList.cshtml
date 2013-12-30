@@ -6,7 +6,7 @@
     @foreach( var station in Model ){
         if (!isHeaderPrinted)
         {
-            <thead> <tr><th>热力站名称</th><th>热力站编号</th><th>数据来源</th><th>供热面积(㎡)</th><th>参考热指标(Kcal/h)</th><th>计划热指标(Kcal/h)</th><th>日累计单耗(GJ/㎡)</th><th>万平米循环水流量(t/h)</th><th>流量超标?</th><th>多耗%</th><th>单耗超标?</th><th>一次回温</th><th>温度超标?</th></tr></thead>
+            <thead> <tr><th>热力站名称</th><th>热力站编号</th><th>收费性质</th><th>数据来源</th><th>供热面积(㎡)</th><th>参考热指标(Kcal/h)</th><th>计划热指标(Kcal/h)</th><th>日累计单耗(GJ/㎡)</th><th>万平米循环水流量(t/h)</th><th>流量超标?</th><th>多耗%</th><th>单耗超标?</th><th>一次回温</th><th>温度超标?</th></tr></thead>
             isHeaderPrinted = true;
         }
         <tr class="
@@ -17,6 +17,7 @@
 		}">
             <td>@Html.ActionLink(station.热力站名称 + " ", "StationRealTime", "Stations", new { stationId = station.ItemID }, new { })</td>
             <td>@station.热力站编号 </td>
+			<td>@station.收费性质</td>
 			<td>@if ( @station.数据来源==null) {
 					<span class="label label-info"><i class="icon-pencil"></i> 人工抄表</span> 
 				} else {

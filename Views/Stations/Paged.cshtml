@@ -78,7 +78,10 @@ line-height: 30px;'>@ViewBag.Title</h2>
 		<th>
             @Html.DisplayName("数据来源")
         </th>
-        <th width="200px">
+		<th>
+            @Html.DisplayName("收费性质")
+        </th>
+        <th style="width:200px">
             @Html.DisplayName("用热地址")
         </th>
         <th>
@@ -142,6 +145,9 @@ line-height: 30px;'>@ViewBag.Title</h2>
   {
 			<span class="label label-important"><i class="icon-eye-open"></i> @p.数据来源</span>
   }
+        </td>
+		<td>
+            @p.收费性质
         </td>
         <td>
             @p.用热地址
