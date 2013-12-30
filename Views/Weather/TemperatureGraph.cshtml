@@ -13,20 +13,20 @@
 <div class="actuallabel">历史</div>
 </div>
 @Html.Hidden("forecastAverage", 
-        "[" + string.Join(",", Model.Where(i=>i.ForcastAverage.HasValue).OrderBy(i=>i.日期).Select(i=> string.Format("{{\"time\": \"{0:yyyy-MM-dd HH:mm:ss}\", \"temperature\" : {1}, \"weathertype\" : {2} }}", i.日期, i.ForcastAverage,(int)i.WeatherType)).ToArray() ) + "]"
+        "[" + string.Join(",", Model.Where(i=>i.forecastAverage.HasValue).OrderBy(i=>i.日期).Select(i=> string.Format("{{\"time\": \"{0:yyyy-MM-dd HH:mm:ss}\", \"temperature\" : {1}, \"weathertype\" : {2} }}", i.日期, i.forecastAverage,(int)i.weatherType)).ToArray() ) + "]"
 )
 @Html.Hidden("forecastHighest",
-                   "[" + string.Join(",", Model.Where(i => i.ForecastHighest.HasValue).Select(i => string.Format("{{\"time\": \"{0:yyyy-MM-dd HH:mm:ss}\", \"temperature\" : {1}}}", i.日期, i.ForecastHighest)).ToArray()) + "]"
+                   "[" + string.Join(",", Model.Where(i => i.forecastHighest.HasValue).Select(i => string.Format("{{\"time\": \"{0:yyyy-MM-dd HH:mm:ss}\", \"temperature\" : {1}}}", i.日期, i.forecastHighest)).ToArray()) + "]"
 )
 @Html.Hidden("forecastLowest",
-                           "[" + string.Join(",", Model.Where(i => i.ForecastLowest.HasValue).Select(i => string.Format("{{\"time\": \"{0:yyyy-MM-dd HH:mm:ss}\", \"temperature\" : {1}}}", i.日期, i.ForecastLowest)).ToArray()) + "]"
+                           "[" + string.Join(",", Model.Where(i => i.forecastLowest.HasValue).Select(i => string.Format("{{\"time\": \"{0:yyyy-MM-dd HH:mm:ss}\", \"temperature\" : {1}}}", i.日期, i.forecastLowest)).ToArray()) + "]"
 )
 @Html.Hidden("actualAverage",
-                               "[" + string.Join(",", Model.Where(i => i.ActualAverage.HasValue).Select(i => string.Format("{{\"time\": \"{0:yyyy-MM-dd HH:mm:ss}\", \"temperature\" : {1}}}", i.日期, i.ActualAverage)).ToArray()) + "]"
+                               "[" + string.Join(",", Model.Where(i => i.actualAverage.HasValue).Select(i => string.Format("{{\"time\": \"{0:yyyy-MM-dd HH:mm:ss}\", \"temperature\" : {1}}}", i.日期, i.actualAverage)).ToArray()) + "]"
 )
 
-@Html.Hidden("maxTemp", Model.Max(i=>i.ForecastHighest))
-@Html.Hidden("minTemp", Model.Min(i=>i.ForecastLowest))
+@Html.Hidden("maxTemp", Model.Max(i=>i.forecastHighest))
+@Html.Hidden("minTemp", Model.Min(i=>i.forecastLowest))
 <script type="text/javascript">
     $(document).ready(function () {
         var forecastAverageData = $.parseJSON($("input[name=forecastAverage]").val());
