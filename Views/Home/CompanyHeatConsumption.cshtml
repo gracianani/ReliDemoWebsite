@@ -1,6 +1,12 @@
 ﻿@model IEnumerable<ReliDemo.Models.Company>
+<style>
+.scrollableTableContainer #homeTable th, .scrollableTableContainer #homeTable td {
+	min-width:80px;
+	width:80px!important;
+}
+</style>
 <div class="scrollableTableContainer backgroundColor white">
-<table class="table table-condensed table-bordered table-hover table-clickhighlight table-dblclickactive datatable">
+<table id="homeTable" class="table table-condensed table-bordered table-hover table-clickhighlight table-dblclickactive datatable">
 	<thead>
     <tr>
 		<th rowspan="2">公司</th>
@@ -48,3 +54,7 @@
     }
 </table>
 </div>
+
+<script>
+$('.scrollableTableContainer #homeTable th, .scrollableTableContainer #homeTable td').css('width','100px!important');
+</script>
