@@ -61,8 +61,8 @@
 <table class="table  table-bordered table-hover  table-condensed table-clickhighlight datatable" style="background:white">
 	<thead>
     <tr>
-        <th>#</th>
         <th>日期</th>
+        <th>投入面积 <span class="symbol">(㎡)</span></th>
         <th>计划供热量 <span class="symbol">(GJ)</span></th>
         <th>核算供热量 <span class="symbol">(GJ)</span></th>
         <th>实际供热量 <span class="symbol">(GJ)</span></th>
@@ -71,18 +71,19 @@
         <th>计划热指标 <span class="symbol">(kcal/h·㎡)</span></th>
         <th>核算热指标 <span class="symbol">(kcal/h·㎡)</span></th>
         <th>实际热指标 <span class="symbol">(kcal/h·㎡)</span></th>
+        <th>实际比计划多耗 <span class="symbol">(GJ)</span></th>
+        <th>实际比计划多耗% <span class="symbol">(GJ)</span></th>
+        <th>实际比核算多耗 <span class="symbol">(GJ)</span></th>
+        <th>实际比核算多耗% <span class="symbol">(GJ)</span></th>
         <th>预报温度 <span class="symbol">(℃)</span></th>
         <th>实际温度 <span class="symbol">(℃)</span></th>
-        <th>投入面积 <span class="symbol">(㎡)</span></th>
-        <th>多耗 <span class="symbol">(GJ)</span></th>
-        <th>多耗% <span class="symbol">(GJ)</span></th>
     </tr></thead>
 	<tbody>
     @foreach (var history in Model.StationAccuHistories)
     {
         <tr>
-            <td>@( Model.StationAccuHistories.ToList().IndexOf(history) + 1)</td>
-            <td class="time">@history.Date</td>
+            <td class="time">@history.Date.ToString("yyyy-MM-dd")</td>
+            <td>@history.投入面积</td>
             <td>@history.计划供热量</td>
             <td>@history.核算供热量</td>
             <td>@history.实际采暖</td>
@@ -91,11 +92,12 @@
             <td>@history.计划热指标</td>
             <td>@history.核算热指标</td>
             <td>@history.实际热指标</td>
+            <td>@history.实际比计划多耗</td>
+            <td>@String.Format("{0:0.00}",history.实际比计划多耗percent)</td>
+            <td>@history.实际比核算多耗</td>
+            <td>@String.Format("{0:0.00}", history.实际比核算多耗percent)</td>
             <td>@history.预报温度</td>
             <td>@history.实际温度</td>
-			<td>@history.投入面积</td>
-            <td>@history.多耗</td>
-            <td>@history.多耗percent</td>
         </tr>
     }
  </tbody>

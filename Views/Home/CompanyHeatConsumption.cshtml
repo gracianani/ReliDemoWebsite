@@ -10,11 +10,12 @@
 	<thead>
     <tr>
 		<th rowspan="2">公司</th>
+        <th rowspan="2">有效站总数(个）</th>
+        <th rowspan="2">实际供热面积(万㎡)</th>
 		<th colspan="4">供热量(GJ)</th>
 		<th colspan="3">热指标(kcal/h•㎡)</th>
 		<th rowspan="2">万平米循环水量<br/>(t/h)</th>
-		<th rowspan="2">站总数(个）</th>
-		<th colspan="4">超标站（个)</th>
+		<th rowspan="2">回温超标站（个)</th>
 	</tr>
 	<tr>
 		<th>计划</th>
@@ -24,10 +25,6 @@
 		<th>计算</th>
 		<th>计划</th>
 		<th>实际运行</th>
-		<th>超标总数</th>
-		<th>单耗超标</th>
-		<th>流量超标</th>
-		<th>回温超标</th>
 	</tr>
     </thead>
 	@foreach (var company in Model)
@@ -36,6 +33,8 @@
         {
         <tr>
 		<td>@Html.ActionLink(company.公司, "../Companies/Index", new { companyId = company.ItemID })</td>
+        <td class="textAlighRight">@company.有效监控站数</td>
+        <td class="textAlighRight">@Convert.ToInt32(company.实际供热面积/10000)</td>
 		<td class="textAlighRight">@Convert.ToInt32(company.今日计划GJ).ToString()</td>
 		<td class="textAlighRight">@Convert.ToInt32(company.今日累计GJ).ToString()</td>
 		<td class="textAlighRight">@Convert.ToInt32(company.预计全天GJ).ToString()</td>
@@ -44,11 +43,7 @@
 		<td class="textAlighRight">@Convert.ToDecimal(company.计划热指标).ToString("0.00")</td>
 		<td class="textAlighRight">@Convert.ToDecimal(company.实际热指标).ToString("0.00")</td>
 		<td class="textAlighRight">@Convert.ToDecimal(company.万平方米流量).ToString("0.00")</td>
-		<td class="textAlighRight">@company.热力站个数</td>
-		<td class="textAlighRight">@company.超标站个数</td>
-		<td class="textAlighRight">@Html.ActionLink(company.单耗超标站个数.ToString(), "../Stations/RealTime", new { selectedCompanyId = company.ItemID, exceedHeatFrom = ReliDemo.Infrastructure.Services.ConfigurationService.HeatExceed} ) </td>
-		<td class="textAlighRight">@Html.ActionLink(company.流量超标站个数.ToString(), "../Stations/RealTime", new { selectedCompanyId = company.ItemID, exceedWaterFrom = ReliDemo.Infrastructure.Services.ConfigurationService.WaterExceed}) </td>
-        <td class="textAlighRight">@Html.ActionLink(company.温度超标站个数.ToString(), "../Stations/RealTime", new { selectedCompanyId = company.ItemID, exceedTemperatureFrom = ReliDemo.Infrastructure.Services.ConfigurationService.TemperatureExceed }) </td>
+		<td class="textAlighRight">@Html.ActionLink(company.温度超标站个数.ToString(), "../Stations/RealTime", new { selectedCompanyId = company.ItemID, exceedTemperatureFrom = ReliDemo.Infrastructure.Services.ConfigurationService.Instance.TemperatureExceed }) </td>
 		</tr>
         }
     }

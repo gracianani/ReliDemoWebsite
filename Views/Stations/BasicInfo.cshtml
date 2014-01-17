@@ -43,14 +43,14 @@
         <tr>
             <th>@Html.DisplayNameFor(model => model.公司)</th>
             <td>@Html.DisplayFor(model => model.公司)</td>
-            <th>@Html.DisplayNameFor(model => model.用热地址)</th>
-            <td>@Html.DisplayFor(model => model.用热地址)</td>
-            <th>@Html.DisplayNameFor(model => model.站面积) (㎡)</th>
-            <td>@Html.DisplayFor(model => model.站面积)</td>
-        </tr>
-        <tr>
             <th>@Html.DisplayNameFor(model => model.热力站行政区)</th>
             <td>@Html.DisplayFor(model => model.热力站行政区)</td>
+            <th>@Html.DisplayNameFor(model => model.用热地址)</th>
+            <td>@Html.DisplayFor(model => model.用热地址)</td>
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.站面积) (㎡)</th>
+            <td>@Html.DisplayFor(model => model.站面积)</td>
             <th>@Html.DisplayNameFor(model => model.面积A) (㎡)</th>
             <td>@Html.DisplayFor(model => model.面积A) </td>
             <th>@Html.DisplayNameFor(model => model.面积B) (㎡)</th>
@@ -65,12 +65,20 @@
             <td>@Html.DisplayFor(model=>model.管理类型)</td>
         </tr>
         <tr>
-            <th>@Html.DisplayNameFor(model => model.东西部)</th>
-            <td>@Html.DisplayFor(model => model.东西部)</td>
+            <th>@Html.DisplayNameFor(model=>model.是否重点站)</th>
+            <td>@Html.DisplayFor(model=>model.是否重点站.Value)</td>
             <th>@Html.DisplayNameFor(model => model.是否并网供热)</th>
             <td>@Html.DisplayFor(model => model.是否并网供热.Value)</td>
             <th>@Html.DisplayNameFor(model => model.是否热水站)</th>
             <td>@Html.DisplayFor(model => model.是否热水站.Value)</td>
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.东西部)</th>
+            <td>@Html.DisplayFor(model => model.东西部)</td>
+            <th>@Html.DisplayNameFor(model=>model.生产热源)</th>
+            <td>@Html.DisplayFor(model=>model.生产热源)</td>
+            <th>@Html.DisplayNameFor(model=>model.收费性质)</th>
+            <td>@Html.DisplayFor(model=>model.收费性质)</td>
         </tr>
         <tr>
             <th>热指标(Kcal/h*㎡)</th>
