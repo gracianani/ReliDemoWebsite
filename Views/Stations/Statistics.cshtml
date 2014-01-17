@@ -79,7 +79,7 @@ line-height: 30px;'>@ViewBag.Title
         <button type="submit" id="submitFilter" class="btn btn-primary stationStatBtn" ><i class="icon-search"></i> 搜索</button>
 	</div>
     <div class="span2" onDesktop="span2" onTablet="span12 noMarginLeft heightAuto">
-        <button  id="export" class="btn btn-success stationStatBtn" ><i class="icon-download-alt"></i> 导出报表</button>
+        <button  id="export" class="btn btn-success stationStatBtn" onclick='@Url.Action("DownloadReport")' ><i class="icon-download-alt"></i> 导出报表</button>
     </div>
 </div>
 
