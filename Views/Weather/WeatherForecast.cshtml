@@ -4,13 +4,10 @@
     ViewBag.Title = "专业气象站";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
- <h2 style='font-family: "Microsoft Yahei",sans-serif;
-font-size: 24px;
-margin-bottom: 0.9em;
-line-height: 30px;'>专业气象站</h2>
-
-
-
+<div class="row-fluid">
+	<h2 class="span6" style='font-family: "Microsoft Yahei",sans-serif;font-size: 24px;margin-bottom: 0.9em;line-height: 30px;'>专业气象站</h2>
+	<div class="span6"><button class="btn btn-primary pull-right" style="vertical-align:bottom;position:relative;top:15px"><i class="icon-download-alt"></i> 导出气象历史</button></div>
+</div>
 <div class="row-fluid">
     <div class="span12">
         <div class="box span12 noMarginLeft">
@@ -30,7 +27,6 @@ line-height: 30px;'>专业气象站</h2>
 				<h2><i class="icon-list"></i>七日气象预报</h2>
 			</div>
 			<div class="box-content">
-			
                 <table class="table table-condensed table-bordered">
                     <tr>
                         <th>时间</th>
