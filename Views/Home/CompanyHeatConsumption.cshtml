@@ -5,8 +5,10 @@
 	width:80px!important;
 }
 </style>
+<h3>今日检测数据统计</h3>
 <div class="scrollableTableContainer backgroundColor white">
 <table id="homeTable" class="table table-condensed table-bordered table-hover table-clickhighlight table-dblclickactive datatable">
+
 	<thead>
     <tr>
 		<th rowspan="2">公司</th>
@@ -51,5 +53,7 @@
 </div>
 
 <script>
-$('.scrollableTableContainer #homeTable th, .scrollableTableContainer #homeTable td').css('width','100px!important');
+$(document).ready(function(){
+	$('.scrollableTableContainer #homeTable th, .scrollableTableContainer #homeTable td').css('width','100px!important');
+});
 </script>

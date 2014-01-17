@@ -3930,7 +3930,7 @@ h3 {
 /* Station
 =============================*/
 /* line 477, less\custom.less */
-#submitFilter {
+.stationStatBtn {
   height: 87px;
   line-height: 80px;
   font-weight: bold;
@@ -3939,7 +3939,7 @@ h3 {
   width: 100%;
 }
 /* line 485, less\custom.less */
-.heightAuto #submitFilter {
+.heightAuto .stationStatBtn {
   height: auto!important;
   line-height: 30px;
 }
@@ -4230,7 +4230,7 @@ legend {
 }
 /* line 729, less\custom.less */
 #sidebar-switch.close {
-  left: 0;
+  left: 0!important;
   background: #383e4b;
   opacity: 1;
   text-shadow: none!important;
