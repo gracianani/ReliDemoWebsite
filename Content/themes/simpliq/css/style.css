@@ -4240,6 +4240,13 @@ legend {
 .textAlighRight {
   text-align: right !important;
 }
+/* line 740, less\custom.less */
+.pills-label {
+  display: inline-block;
+  float: left;
+  position: relative;
+  top: 5px;
+}
 /* Page: Messages
 =================================================================== */
 /* line 3, less\page-messages.less */
