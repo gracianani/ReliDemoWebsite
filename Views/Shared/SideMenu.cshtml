@@ -48,6 +48,7 @@
                                 @if (ReliDemo.Infrastructure.Services.MembershipService.CurrentUser != null && ReliDemo.Infrastructure.Services.MembershipService.CurrentUser.是否有集团权限)
                                 {
                                 <li><a class="submenu" href="/Stations/ManualDataInput"><i class="icon-pencil"></i><span class="hidden-tablet"> 人工抄表</span></a></li>
+                                <li><a class="submenu" href="/Stations/RoomTemperature"><i class="icon-dashboard"></i><span class="hidden-tablet"> 室温导入</span></a></li>
                                 }
 							</ul>
 						</li>
@@ -68,8 +69,17 @@
 								    <li><a href="/Security/UserInfo"><i class="icon-user"></i><span class="hidden-tablet"> 用户信息</span></a></li>
 							    </ul>
 						    </li>
-                        }
-                        <li><a href="/Reports/Index"><i class="icon-tasks"></i><span class="hidden-tablet"> 常用报表 </span></a></li>
+            }
+            @if (ReliDemo.Infrastructure.Services.MembershipService.CurrentUser != null && HttpContext.Current.User.IsInRole("系统管理员"))
+            {
+            <li>
+                  <a href="/Configuration">
+                    <i class="icon-gear"></i>
+                    <span class="hidden-tablet"> 系统设置</span>
+                  </a>
+            </li>
+            }
+            <li><a href="/Reports/Index"><i class="icon-tasks"></i><span class="hidden-tablet"> 常用报表 </span></a></li>
                         <li><a class="dropmenu"><i class="icon-ellipsis-horizontal"></i> <span class="hidden-tablet">独网</span> </a> 
                             <ul>
                                 <li><a class="submenu" href="/Companies/Index?companyId=2"><i class="icon-companyname"></i><span class="hidden-tablet"> 科利源供热公司 </span></a> </li>
