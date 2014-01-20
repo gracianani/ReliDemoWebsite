@@ -97,7 +97,10 @@ line-height: 30px;'>@ViewBag.Title
                                                 实际比核算From = Model.实际比核算From,
                                                 实际比核算To = Model.实际比核算To,
                                                 实际比计划From = Model.实际比计划From,
-                                                实际比计划To = Model.实际比计划To
+                                                实际比计划To = Model.实际比计划To,
+                                                收费性质 = Model.收费性质,
+                                                是否重点站 = Model.是否重点站,
+                                                数据来源 = Model.数据来源
 })
 </li>
 <li @if (Model.PageSize == 50)
@@ -111,7 +114,10 @@ line-height: 30px;'>@ViewBag.Title
                                                 实际比核算From = Model.实际比核算From,
                                                 实际比核算To = Model.实际比核算To,
                                                 实际比计划From = Model.实际比计划From,
-                                                实际比计划To = Model.实际比计划To
+                                                实际比计划To = Model.实际比计划To,
+                                                收费性质 = Model.收费性质,
+                                                是否重点站 = Model.是否重点站,
+                                                数据来源 = Model.数据来源
 })
 </li>
 <li @if (Model.PageSize == 100)
@@ -125,7 +131,10 @@ line-height: 30px;'>@ViewBag.Title
                                                  实际比核算From = Model.实际比核算From,
                                                  实际比核算To = Model.实际比核算To,
                                                  实际比计划From = Model.实际比计划From,
-                                                 实际比计划To = Model.实际比计划To
+                                                 实际比计划To = Model.实际比计划To,
+                                                 收费性质 = Model.收费性质,
+                                                 是否重点站 = Model.是否重点站,
+                                                 数据来源 = Model.数据来源
 })
 </li>
 </ul>
@@ -178,13 +187,19 @@ line-height: 30px;'>@ViewBag.Title
             @Html.DisplayName("实际比核算多耗百分比")<span class="symbol">(%)</span>
         </th>
         <th>
-            @Html.DisplayName("一次回温平均")<span class="symbol">(℃)</span>
-        </th>
-        <th>
             @Html.DisplayName("预报温度")<span class="symbol">(℃)</span>
         </th>
         <th>
             @Html.DisplayName("实际温度")<span class="symbol">(℃)</span>
+        </th>
+        <th>
+            @Html.DisplayName("收费性质")
+        </th>
+        <th>
+            @Html.DisplayName("是否重点站")
+        </th>
+        <th>
+            @Html.DisplayName("数据来源")
         </th>
     </tr></thead>
 @foreach (var p in Model.StationsStatistic)
@@ -231,15 +246,21 @@ line-height: 30px;'>@ViewBag.Title
         </td>
         <td class="textAlighRight">
             @Convert.ToDecimal(p.实际比核算多耗percent).ToString("0.00")
-        </td>
-        <td class="textAlighRight">
-            @Convert.ToDecimal(p.回温avg).ToString("0.0")
-        </td>  
+        </td> 
         <td class="textAlighRight">
             @Convert.ToDecimal(p.预报温度).ToString("0.0")
         </td>  
         <td class="textAlighRight">
             @Convert.ToDecimal(p.实际温度).ToString("0.0")
+        </td>
+        <td class="textAlighRight">
+            @p.Station.收费性质
+        </td> 
+        <td class="textAlighRight">
+            @p.Station.是否重点站
+        </td>  
+        <td class="textAlighRight">
+            @p.Station.数据来源
         </td>
         
     </tr>
@@ -296,7 +317,10 @@ else
                实际比核算From = Model.实际比核算From,
                实际比核算To = Model.实际比核算To,
                实际比计划From = Model.实际比计划From,
-               实际比计划To = Model.实际比计划To
+               实际比计划To = Model.实际比计划To,
+               收费性质 = Model.收费性质,
+               是否重点站 = Model.是否重点站,
+               数据来源 = Model.数据来源
            })</li>
         }
 		 <li>@Html.ActionLink("« 上一页", "Statistics", new
@@ -313,7 +337,10 @@ else
       实际比核算From = Model.实际比核算From,
       实际比核算To = Model.实际比核算To,
       实际比计划From = Model.实际比计划From,
-      实际比计划To = Model.实际比计划To
+      实际比计划To = Model.实际比计划To,
+      收费性质 = Model.收费性质,
+      是否重点站 = Model.是否重点站,
+      数据来源 = Model.数据来源
   })</li>
         @for (int i = Model.PageIndex / 10 * 10; (i < Model.PageIndex / 10 * 10 + 10) && i < Model.TotalPages; i++)
         {
@@ -334,7 +361,10 @@ else
                实际比核算From = Model.实际比核算From,
                实际比核算To = Model.实际比核算To,
                实际比计划From = Model.实际比计划From,
-               实际比计划To = Model.实际比计划To
+               实际比计划To = Model.实际比计划To,
+               收费性质 = Model.收费性质,
+               是否重点站 = Model.是否重点站,
+               数据来源 = Model.数据来源
            })
             </li>
         }
@@ -352,7 +382,10 @@ else
      实际比核算From = Model.实际比核算From,
      实际比核算To = Model.实际比核算To,
      实际比计划From = Model.实际比计划From,
-     实际比计划To = Model.实际比计划To
+     实际比计划To = Model.实际比计划To,
+     收费性质 = Model.收费性质,
+     是否重点站 = Model.是否重点站,
+     数据来源 = Model.数据来源
  })</li>
         @if (Model.PageIndex < Model.TotalPages - 10)
         {
@@ -370,7 +403,10 @@ else
                实际比核算From = Model.实际比核算From,
                实际比核算To = Model.实际比核算To,
                实际比计划From = Model.实际比计划From,
-               实际比计划To = Model.实际比计划To
+               实际比计划To = Model.实际比计划To,
+               收费性质 = Model.收费性质,
+               是否重点站 = Model.是否重点站,
+               数据来源 = Model.数据来源
            })</li>
         }
        
@@ -390,6 +426,9 @@ else
                 '&实际比核算To=' + $('input[name=实际比核算To]').val() +
                 '&实际比计划From=' + $('input[name=实际比计划From]').val() +
                 '&实际比计划To=' + $('input[name=实际比计划To]').val() +
+                '&收费性质=' + $('input[name=收费性质]').val() +
+                '&是否重点站=' + $('input[name=是否重点站]').val() +
+                '&数据来源=' + $('input[name=数据来源]').val() +
                 '&date_customday=' + $('#date_customday').val() +
                 '&searchSpan=' + $("#myTabContent").find("span.checked > input").val() +
                 '&daterange=' + $('#daterange').val();

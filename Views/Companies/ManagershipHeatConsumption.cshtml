@@ -27,7 +27,7 @@
 		<td>@Html.ActionLink(center.管理单位, "ManagershipInfo", new {managershipId = center.ItemID })</td>
         <td class="textAlighRight">@center.有效监控站数</td>
         <td class="textAlighRight">@Convert.ToInt32(center.实际供热面积/10000)</td>
-		<td class="textAlighRight">@Convert.ToInt32(center.今日计划GJ).ToString()</td>
+		<td class="textAlighRight">@Convert.ToInt32(center.今日计划GJ_JK).ToString()</td>
 		<td class="textAlighRight">@Convert.ToInt32(center.今日累计GJ).ToString()</td>
 		<td class="textAlighRight">@Convert.ToInt32(center.预计全天GJ).ToString()</td>
 		<td class="textAlighRight">@Convert.ToInt32(center.供暖季累计GJ).ToString()</td>

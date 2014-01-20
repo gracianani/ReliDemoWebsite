@@ -37,7 +37,7 @@
 		<td>@Html.ActionLink(company.公司, "../Companies/Index", new { companyId = company.ItemID })</td>
         <td class="textAlighRight">@company.有效监控站数</td>
         <td class="textAlighRight">@Convert.ToInt32(company.实际供热面积/10000)</td>
-		<td class="textAlighRight">@Convert.ToInt32(company.今日计划GJ).ToString()</td>
+		<td class="textAlighRight">@Convert.ToInt32(company.今日计划GJ_JK).ToString()</td>
 		<td class="textAlighRight">@Convert.ToInt32(company.今日累计GJ).ToString()</td>
 		<td class="textAlighRight">@Convert.ToInt32(company.预计全天GJ).ToString()</td>
 		<td class="textAlighRight">@Convert.ToInt32(company.供暖季累计GJ).ToString()</td>
