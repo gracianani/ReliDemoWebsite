@@ -18,11 +18,11 @@ line-height: 30px;'>@ViewBag.Title
         <text>&nbsp;</text>
         @Html.DropDownList("heatsources", new SelectList(ReliDemo.Infrastructure.Helpers.HeatSourceHelper.HeatSources, "生产热源ID", "生产热源"), "全部热源", new { id = "heatsources", @class = "span2" })
         <text>&nbsp;</text>
-	    @Html.DropDownList("heatsources", new SelectList(ReliDemo.Infrastructure.Helpers.HeatSourceHelper.HeatSources, "生产热源ID", "生产热源"), "收费性质", new { id = "shoufeixingzhi", @class = "span2" })
+	    @Html.DropDownList("收费性质", new SelectList(ReliDemo.Infrastructure.Helpers.ChargeHelper.AllCharge), "收费性质", new { @class = "span2" })
 		<text>&nbsp;</text>
-	    @Html.DropDownList("heatsources", new SelectList(ReliDemo.Infrastructure.Helpers.HeatSourceHelper.HeatSources, "生产热源ID", "生产热源"), "是否重点站", new { id = "shifouzhongdianzhan", @class = "span2" })
+	    @Html.DropDownList("是否重点站", new SelectList(new List<bool>{true, false} ), "是否重点站", new {  @class = "span2" })
 		<text>&nbsp;</text>
-	     @Html.DropDownList("heatsources", new SelectList(ReliDemo.Infrastructure.Helpers.HeatSourceHelper.HeatSources, "生产热源ID", "生产热源"), "数据来源", new { id = "shujulaiyuan", @class = "span2" })
+	     @Html.DropDownList("数据来源", new SelectList(ReliDemo.Infrastructure.Helpers.DataFromHelper.数据来源), "数据来源", new {  @class = "span2" })
 
 </div>
 <div class="row-fluid">
