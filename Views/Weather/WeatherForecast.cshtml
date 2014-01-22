@@ -31,7 +31,7 @@
 						<span class="add-on"><i class="icon-calendar"></i></span>
 						<input type="text" class="form-control input-xlarge" id="daterange" name="daterange"    >
 					</div>
-					<button class="btn btn-primary"><i class="icon-download-alt"></i> 导出气象历史</button>
+					<a id="export" href="javascript:void(0)" class="btn btn-primary"><i class="icon-download-alt"></i> 导出气象历史</a>
 				</form>
 			</div>
 		</div>
@@ -161,8 +161,23 @@
     </div>
 </div>
 <script>
-$('document').ready(function(){
-$("#daterange").daterangepicker({
+    $('document').ready(function () {
+        $('#export').click(function () {
+            var url = 'DownloadWeatherReport?' +
+                'daterange=' + $('#daterange').val();
+            $.ajax({
+                url: url,
+                beforeSend: function () {
+                    $('#export').html("正在生成报表...");
+                },
+                success: function (i) {
+                    console.log(i.fileName);
+                    window.location = i.fileName;
+                    $('#export').html('<i class="icon-download-alt"></i> 导出气象历史');
+                }
+            });
+        });
+        $("#daterange").daterangepicker({
             format: 'YYYY年MM月DD日',
             locale: {
                 applyLabel: '确定',
@@ -175,9 +190,6 @@ $("#daterange").daterangepicker({
                 monthNames: moment()._lang._monthsShort.slice(),
                 firstDay: 0
             }
-        },
-        function (start, end) {
-            $("#customAll").attr("checked", "checked").parent().addClass("checked");
-});
-});
+        });
+    });
 </script>

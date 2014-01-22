@@ -12,11 +12,11 @@
 </div>
 <hr />
 <div class="row-fluid">
-    <a href="/Reports/DownloadReport?reportType=21" target="_blank" class="smallstat box" onDesktop="span3 noMarginLeft" onTablet="span6">
+    <a href="javascript:void(0)" data-reportType="21" target="_blank" class="smallstat box export" onDesktop="span3 noMarginLeft" onTablet="span6">
 		<i class="icon-tasks crimson"></i>
 		<span class="title">有效监测站统计</span>
 	</a>
-    <a href="/Reports/DownloadReport?reportType=23" target="_blank" class="smallstat box" onDesktop="span3 " onTablet="span6">
+    <a href="javascript:void(0)" data-reportType="23" target="_blank" class="smallstat box export" onDesktop="span3 " onTablet="span6">
 		<i class="icon-building darkGreen"></i>
 		<span class="title">非重点站、计量收费站统计</span>
 	</a>
@@ -24,20 +24,42 @@
 </div>
 <hr />
 <div class="row-fluid">
-    <a href="/Reports/DownloadReport?reportType=26" target="_blank" class="smallstat box" onDesktop="span3" onTablet="span6 noMarginLeft">
+    <a href="javascript:void(0)" data-reportType="26" target="_blank" class="smallstat box export" onDesktop="span3" onTablet="span6 noMarginLeft">
 		<i class="icon-leaf darkGreen"></i>
 		<span class="title">总明细</span>
 	</a>
-    <a href="/Reports/DownloadReport?reportType=27" target="_blank" class="smallstat box" onDesktop="span3" onTablet="span6">
+    <a href="javascript:void(0)"  data-reportType="27" target="_blank" class="smallstat box export" onDesktop="span3" onTablet="span6">
 		<i class="icon-leaf darkGreen"></i>
 		<span class="title">故障明细</span>
 	</a>
-    <a href="/Reports/DownloadReport?reportType=24" target="_blank" class="smallstat box" onDesktop="span3" onTablet="span6">
+    <a href="javascript:void(0)"  data-reportType="24" target="_blank" class="smallstat box export" onDesktop="span3" onTablet="span6">
 		<i class="icon-time blue"></i>
 		<span class="title">回温超标明细</span>
 	</a>
-    <a href="/Reports/DownloadReport?reportType=25" target="_blank" class="smallstat box" onDesktop="span3" onTablet="span6">
+    <a href="javascript:void(0)"  data-reportType="25" target="_blank" class="smallstat box export" onDesktop="span3" onTablet="span6">
 		<i class="icon-time blue"></i>
 		<span class="title">实际超核算明细</span>
 	</a>
 </div>
+<script>
+    $(function () {
+
+        $('.export').click(function () {
+            var url = 'DownloadReport?' +
+                'reportType=' + $(this).attr("data-reportType") +
+                '&date=' + $("#report-date").val();
+            var oldName = $(this).find("span").html();
+            $.ajax({
+                url: url,
+                beforeSend: function () {
+                    $(this).find("span").html("正在生成报表...");
+                },
+                success: function (i) {
+                    window.location = i.fileName;
+                    $(this).find("span").html(oldName);
+                }
+            });
+        });
+
+    });
+</script>
