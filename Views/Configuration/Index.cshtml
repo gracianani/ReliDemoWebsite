@@ -5,8 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>系统设置</h2>
-<hr />
+<h2>回温标准设置</h2>
 <form class="form-inline">
 	<div class="input-append">
 		<label class="radio" >回温标准：</label><input class="form-control input-small" type="text" value="45" />
@@ -15,3 +14,20 @@
 	<input type="submit" value="设置" class="btn btn-primary" style="vertical-align: top;">
 </form>
 <hr />
+<h3>操作记录</h3>
+<table class="table  table-bordered table-hover  table-condensed table-clickhighlight datatable" style="background:white">
+	<thead>
+		<tr>
+			<th>时间</th>
+			<th>回温标准（℃)</th>
+			<th>用户名</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>2014-03-12 14:30:34</td>
+			<td>45</td>
+			<td>liuli</td>
+		</tr>
+	</tbody>
+</table>

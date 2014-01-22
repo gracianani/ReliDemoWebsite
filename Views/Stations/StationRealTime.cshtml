@@ -28,23 +28,24 @@
 		<div class="box span6">
 			<div class="box-header">
 			<h2>修改热指标</h2>
+			<div class="box-icon">
+				<a href="HeatIndexHistory"><i class="icon-search"></i></a>
+			</div>
 			</div>
 			<div class="box-content">
-                @using (Html.BeginForm("ChangeCalculatedHeatIndex", "Stations"))
+                @using (Html.BeginForm("ChangeCalculatedHeatIndex", "Stations", FormMethod.Post, new { @class = "form-inline noBottomMargin"}))
                 {
                     @Html.Hidden("StationId")
-				    <div class="form-inline">
 						<div class="input-append date" >
 							<label class="radio"> 热指标  </label>
-                            @Html.TextBox("newHeatIndex", Model.当前热指标 ,new {@class="form-control input-small"})
+                            @Html.TextBox("newHeatIndex", Model.当前热指标 ,new {@class="form-control input-mini"})
 							<span class="add-on">Kcal/h*㎡</span>
 						</div>
 					<input type="submit" value="修改" id="calculate" class="btn btn-primary" style="vertical-align: top;"/>
-				    </div>
                 }
 				<br />
 				<div class="well">
-					当前热指标 <big id="unitHeatResult">@Model.当前热指标 </big> Kcal/h*㎡
+					当前 <big id="unitHeatResult">@Model.当前热指标 </big> Kcal/h*㎡ &nbsp;&nbsp; <small>@Html.ActionLink("(修改历史)", "HeatIndexHistory", new object { })</small>
 				</div>
 			</div>
 		</div>

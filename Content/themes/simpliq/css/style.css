@@ -4247,6 +4247,10 @@ legend {
   position: relative;
   top: 5px;
 }
+/* line 744, less\custom.less */
+.noBottomMargin {
+  margin-bottom: 0;
+}
 /* Page: Messages
 =================================================================== */
 /* line 3, less\page-messages.less */
