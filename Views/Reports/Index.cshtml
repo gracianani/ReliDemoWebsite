@@ -44,19 +44,24 @@
 <script>
     $(function () {
 
-        $('.export').click(function () {
+        $('.export').click(function (e) {
             var url = 'DownloadReport?' +
                 'reportType=' + $(this).attr("data-reportType") +
                 '&date=' + $("#report-date").val();
-            var oldName = $(this).find("span").html();
+            var oldName = $(this).find(".title").html();
+			var self = this;
+			if ( $(this).hasClass("disabled") ) {
+				return;
+			}
+
             $.ajax({
                 url: url,
                 beforeSend: function () {
-                    $(this).find("span").html("正在生成报表...");
+                    $(self).find(".title").html("正在生成报表...").addClass("disabled");
                 },
                 success: function (i) {
                     window.location = i.fileName;
-                    $(this).find("span").html(oldName);
+                    $(self).find("span").html(oldName);
                 }
             });
         });

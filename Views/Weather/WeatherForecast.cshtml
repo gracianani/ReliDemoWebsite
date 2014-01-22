@@ -162,18 +162,21 @@
 </div>
 <script>
     $('document').ready(function () {
-        $('#export').click(function () {
+        $('#export').click(function (e) {
             var url = 'DownloadWeatherReport?' +
                 'daterange=' + $('#daterange').val();
+			if ( $(this).hasClass("disabled") ) {
+				return;
+			}
             $.ajax({
                 url: url,
                 beforeSend: function () {
-                    $('#export').html("正在生成报表...");
+                    $('#export').html("正在生成报表...").addClass("disabled");
                 },
                 success: function (i) {
                     console.log(i.fileName);
                     window.location = i.fileName;
-                    $('#export').html('<i class="icon-download-alt"></i> 导出气象历史');
+                    $('#export').html('<i class="icon-download-alt"></i> 导出气象历史').removeClass("disabled");;
                 }
             });
         });
